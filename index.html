@@ -5,522 +5,91 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Muro de Avisos · CEIP Capitulaciones</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-
-<!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
-
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"><\/script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"><\/script>
 <style>
-  :root {
-    --verde: #2d6a4f;
-    --verde-claro: #40916c;
-    --verde-palido: #d8f3dc;
-    --ocre: #e9c46a;
-    --ocre-oscuro: #c9922a;
-    --crema: #fdf8f0;
-    --carbon: #1a1a2e;
-    --gris: #6b7280;
-    --blanco: #ffffff;
-    --sombra: 0 4px 24px rgba(0,0,0,0.10);
-    --sombra-hover: 0 12px 40px rgba(0,0,0,0.18);
-    --radio: 16px;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--crema);
-    color: var(--carbon);
-    min-height: 100vh;
-  }
-
-  /* ── HEADER ─────────────────────────────────── */
-  header {
-    background: var(--verde);
-    color: var(--blanco);
-    padding: 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 20px rgba(45,106,79,0.35);
-  }
-
-  .header-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 16px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-  }
-
-  .header-logo {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .logo-fox {
-    width: 48px;
-    height: 48px;
-    background: var(--ocre);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 26px;
-    flex-shrink: 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  }
-
-  .header-text h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
-    font-weight: 900;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-  }
-
-  .header-text p {
-    font-size: 0.75rem;
-    opacity: 0.75;
-    margin-top: 2px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-
-  .header-badge {
-    background: var(--ocre);
-    color: var(--carbon);
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 20px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  /* ── HERO STRIP ─────────────────────────────── */
-  .hero-strip {
-    background: linear-gradient(135deg, var(--verde-claro) 0%, var(--verde) 100%);
-    padding: 32px 24px 48px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-strip::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-
-  .hero-strip h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.6rem, 4vw, 2.4rem);
-    color: var(--blanco);
-    font-weight: 900;
-    position: relative;
-  }
-
-  .hero-strip p {
-    color: rgba(255,255,255,0.8);
-    font-size: 0.95rem;
-    margin-top: 6px;
-    position: relative;
-  }
-
-  /* ── MAIN ───────────────────────────────────── */
-  main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px 80px;
-  }
-
-  /* ── GRID / MASONRY SIMPLE ──────────────────── */
-  .muro-grid {
-    columns: 3 300px;
-    column-gap: 20px;
-  }
-
-  .card {
-    break-inside: avoid;
-    background: var(--blanco);
-    border-radius: var(--radio);
-    box-shadow: var(--sombra);
-    overflow: hidden;
-    margin-bottom: 20px;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    cursor: default;
-  }
-
-  .card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--sombra-hover);
-  }
-
-  .card img {
-    width: 100%;
-    display: block;
-    object-fit: cover;
-    background: var(--verde-palido);
-  }
-
-  .card-body {
-    padding: 14px 16px 16px;
-    border-top: 3px solid var(--ocre);
-  }
-
-  .card-body p {
-    font-size: 0.92rem;
-    color: var(--carbon);
-    line-height: 1.55;
-  }
-
-  /* ── ESTADO VACÍO ───────────────────────────── */
-  .empty-state {
-    text-align: center;
-    padding: 80px 20px;
-    color: var(--gris);
-  }
-
-  .empty-state .icon {
-    font-size: 56px;
-    margin-bottom: 16px;
-    opacity: 0.4;
-  }
-
-  .empty-state h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    color: var(--verde);
-    margin-bottom: 8px;
-  }
-
-  /* ── LOADING ────────────────────────────────── */
-  .loading-state {
-    text-align: center;
-    padding: 60px 20px;
-    color: var(--gris);
-    font-size: 0.9rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .spinner {
-    width: 36px;
-    height: 36px;
-    border: 3px solid var(--verde-palido);
-    border-top-color: var(--verde);
-    border-radius: 50%;
-    animation: spin 0.7s linear infinite;
-  }
-
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  /* ── BOTÓN ADMIN ────────────────────────────── */
-  .btn-admin-toggle {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    background: var(--verde);
-    color: var(--blanco);
-    border: none;
-    border-radius: 50px;
-    padding: 14px 22px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 4px 20px rgba(45,106,79,0.4);
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    z-index: 200;
-  }
-
-  .btn-admin-toggle:hover {
-    background: var(--verde-claro);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(45,106,79,0.45);
-  }
-
-  /* ── MODAL ──────────────────────────────────── */
-  .modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(26,26,46,0.6);
-    backdrop-filter: blur(4px);
-    z-index: 300;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-  }
-
-  .modal-overlay.open {
-    display: flex;
-    animation: fadeIn 0.2s ease;
-  }
-
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-  .modal {
-    background: var(--blanco);
-    border-radius: 20px;
-    width: 100%;
-    max-width: 460px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-    overflow: hidden;
-    animation: slideUp 0.25s ease;
-  }
-
-  @keyframes slideUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to   { transform: translateY(0);    opacity: 1; }
-  }
-
-  .modal-header {
-    background: var(--verde);
-    color: var(--blanco);
-    padding: 20px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .modal-header h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-  }
-
-  .btn-close {
-    background: rgba(255,255,255,0.15);
-    border: none;
-    color: var(--blanco);
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s;
-  }
-
-  .btn-close:hover { background: rgba(255,255,255,0.3); }
-
-  .modal-body { padding: 24px; }
-
-  /* ── FORMULARIO ─────────────────────────────── */
-  .form-group { margin-bottom: 18px; }
-
-  label {
-    display: block;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--verde);
-    margin-bottom: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  input[type="password"],
-  textarea {
-    width: 100%;
-    border: 2px solid #e5e7eb;
-    border-radius: 10px;
-    padding: 10px 14px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.95rem;
-    color: var(--carbon);
-    transition: border-color 0.2s;
-    background: #fafafa;
-  }
-
-  input[type="password"]:focus,
-  textarea:focus {
-    outline: none;
-    border-color: var(--verde-claro);
-    background: var(--blanco);
-  }
-
-  textarea { resize: vertical; min-height: 90px; }
-
-  .upload-area {
-    border: 2.5px dashed var(--verde-claro);
-    border-radius: 12px;
-    padding: 28px 20px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.2s;
-    background: var(--verde-palido);
-    position: relative;
-  }
-
-  .upload-area:hover { border-color: var(--verde); background: #c8ead1; }
-  .upload-area.has-file { border-color: var(--ocre-oscuro); background: #fef9ec; }
-
-  .upload-area input[type="file"] {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-  }
-
-  .upload-area .upload-icon { font-size: 32px; margin-bottom: 8px; }
-  .upload-area p { font-size: 0.85rem; color: var(--gris); pointer-events: none; }
-  .upload-area .file-name { font-weight: 600; color: var(--verde); font-size: 0.85rem; margin-top: 6px; }
-
-  .preview-img {
-    width: 100%;
-    max-height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-top: 12px;
-    display: none;
-  }
-
-  .btn-submit {
-    width: 100%;
-    background: var(--verde);
-    color: var(--blanco);
-    border: none;
-    border-radius: 10px;
-    padding: 13px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-  }
-
-  .btn-submit:hover:not(:disabled) {
-    background: var(--verde-claro);
-    transform: translateY(-1px);
-  }
-
-  .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
-
-  /* ── PROGRESS BAR ───────────────────────────── */
-  .progress-wrap {
-    display: none;
-    background: var(--verde-palido);
-    border-radius: 8px;
-    height: 8px;
-    margin-top: 12px;
-    overflow: hidden;
-  }
-
-  .progress-bar {
-    height: 100%;
-    background: linear-gradient(90deg, var(--verde-claro), var(--ocre));
-    border-radius: 8px;
-    transition: width 0.3s;
-    width: 0%;
-  }
-
-  /* ── TOAST ──────────────────────────────────── */
-  .toast {
-    position: fixed;
-    bottom: 90px;
-    right: 24px;
-    background: var(--carbon);
-    color: var(--blanco);
-    padding: 12px 20px;
-    border-radius: 10px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    z-index: 400;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.3s;
-    pointer-events: none;
-    max-width: 280px;
-  }
-
-  .toast.show { opacity: 1; transform: translateY(0); }
-  .toast.success { background: var(--verde); }
-  .toast.error { background: #dc2626; }
-
-  /* ── CARD DELETE (admin mode) ───────────────── */
-  .card-admin-bar {
-    display: none;
-    padding: 8px 12px;
-    background: #fff5f5;
-    border-top: 1px solid #fee2e2;
-    text-align: right;
-  }
-
-  body.admin-active .card-admin-bar { display: block; }
-
-  .btn-delete {
-    background: none;
-    border: none;
-    color: #dc2626;
-    font-size: 0.8rem;
-    font-weight: 600;
-    cursor: pointer;
-    padding: 2px 6px;
-    border-radius: 6px;
-    transition: background 0.15s;
-  }
-
-  .btn-delete:hover { background: #fee2e2; }
-
-  /* ── PANEL ADMIN ACTIVO ─────────────────────── */
-  .admin-banner {
-    display: none;
-    background: var(--ocre);
-    color: var(--carbon);
-    text-align: center;
-    padding: 8px;
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  body.admin-active .admin-banner { display: block; }
-
-  /* ── RESPONSIVE ─────────────────────────────── */
-  @media (max-width: 600px) {
-    .header-inner { padding: 12px 16px; }
-    .hero-strip { padding: 24px 16px 36px; }
-    main { padding: 24px 12px 80px; }
-    .muro-grid { columns: 1; }
-  }
-
-  @media (min-width: 601px) and (max-width: 900px) {
-    .muro-grid { columns: 2 280px; }
-  }
+:root{--verde:#2d6a4f;--verde-claro:#40916c;--verde-palido:#d8f3dc;--ocre:#e9c46a;--ocre-oscuro:#c9922a;--crema:#fdf8f0;--carbon:#1a1a2e;--gris:#6b7280;--blanco:#ffffff;--sombra:0 4px 24px rgba(0,0,0,.10);--sombra-hover:0 12px 40px rgba(0,0,0,.18);--radio:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--crema);color:var(--carbon);min-height:100vh}
+header{background:var(--verde);color:var(--blanco);position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(45,106,79,.35)}
+.header-inner{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.header-logo{display:flex;align-items:center;gap:14px}
+.logo-img{width:48px;height:48px;border-radius:50%;object-fit:cover;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.header-text h1{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:900;line-height:1.1}
+.header-text p{font-size:.75rem;opacity:.75;margin-top:2px;letter-spacing:.05em;text-transform:uppercase}
+.header-badge{background:var(--ocre);color:var(--carbon);font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:20px;letter-spacing:.08em;text-transform:uppercase}
+.hero-strip{background:linear-gradient(135deg,var(--verde-claro) 0%,var(--verde) 100%);padding:32px 24px 48px;text-align:center;position:relative;overflow:hidden}
+.hero-strip h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);color:var(--blanco);font-weight:900;position:relative}
+.hero-strip p{color:rgba(255,255,255,.8);font-size:.95rem;margin-top:6px;position:relative}
+main{max-width:1200px;margin:0 auto;padding:40px 20px 80px}
+.muro-grid{columns:3 300px;column-gap:20px}
+.card{break-inside:avoid;background:var(--blanco);border-radius:var(--radio);box-shadow:var(--sombra);overflow:hidden;margin-bottom:20px;transition:transform .25s,box-shadow .25s;cursor:pointer}
+.card:hover{transform:translateY(-4px);box-shadow:var(--sombra-hover)}
+.card img{width:100%;display:block;object-fit:cover;background:var(--verde-palido)}
+.card-body{padding:14px 16px 16px;border-top:3px solid var(--ocre)}
+.card-body p{font-size:.92rem;color:var(--carbon);line-height:1.55}
+.card-admin-bar{display:none;padding:8px 12px;background:#fff5f5;border-top:1px solid #fee2e2;text-align:right}
+body.admin-active .card-admin-bar{display:block}
+.empty-state{text-align:center;padding:80px 20px;color:var(--gris)}
+.empty-state .icon{font-size:56px;margin-bottom:16px;opacity:.4}
+.empty-state h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--verde);margin-bottom:8px}
+.loading-state{text-align:center;padding:60px 20px;color:var(--gris);font-size:.9rem;display:flex;flex-direction:column;align-items:center;gap:16px}
+.spinner{width:36px;height:36px;border:3px solid var(--verde-palido);border-top-color:var(--verde);border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:500;align-items:center;justify-content:center;padding:20px;flex-direction:column;gap:16px}
+.lightbox.open{display:flex;animation:fadeIn .2s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.lightbox img{max-width:100%;max-height:75vh;border-radius:12px;object-fit:contain;box-shadow:0 8px 40px rgba(0,0,0,.5)}
+.lightbox-desc{color:rgba(255,255,255,.9);font-size:1rem;text-align:center;max-width:600px;line-height:1.6;background:rgba(255,255,255,.08);padding:12px 20px;border-radius:10px}
+.lightbox-close{position:absolute;top:16px;right:20px;background:rgba(255,255,255,.15);border:none;color:#fff;width:40px;height:40px;border-radius:50%;font-size:1.2rem;cursor:pointer;transition:background .2s}
+.lightbox-close:hover{background:rgba(255,255,255,.3)}
+.btn-admin-toggle{position:fixed;bottom:24px;right:24px;background:var(--verde);color:var(--blanco);border:none;border-radius:50px;padding:14px 22px;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;cursor:pointer;box-shadow:0 4px 20px rgba(45,106,79,.4);transition:all .2s;display:flex;align-items:center;gap:8px;z-index:200}
+.btn-admin-toggle:hover{background:var(--verde-claro);transform:translateY(-2px)}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(26,26,46,.6);backdrop-filter:blur(4px);z-index:300;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex;animation:fadeIn .2s ease}
+.modal{background:var(--blanco);border-radius:20px;width:100%;max-width:460px;box-shadow:0 20px 60px rgba(0,0,0,.25);overflow:hidden;animation:slideUp .25s ease}
+@keyframes slideUp{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-header{background:var(--verde);color:var(--blanco);padding:20px 24px;display:flex;align-items:center;justify-content:space-between}
+.modal-header h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700}
+.btn-close{background:rgba(255,255,255,.15);border:none;color:var(--blanco);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.btn-close:hover{background:rgba(255,255,255,.3)}
+.modal-body{padding:24px}
+.form-group{margin-bottom:18px}
+label{display:block;font-size:.82rem;font-weight:600;color:var(--verde);margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+input[type=password],textarea{width:100%;border:2px solid #e5e7eb;border-radius:10px;padding:10px 14px;font-family:'DM Sans',sans-serif;font-size:.95rem;color:var(--carbon);transition:border-color .2s;background:#fafafa}
+input[type=password]:focus,textarea:focus{outline:none;border-color:var(--verde-claro);background:var(--blanco)}
+textarea{resize:vertical;min-height:90px}
+.upload-area{border:2.5px dashed var(--verde-claro);border-radius:12px;padding:28px 20px;text-align:center;cursor:pointer;transition:all .2s;background:var(--verde-palido);position:relative}
+.upload-area:hover{border-color:var(--verde);background:#c8ead1}
+.upload-area.has-file{border-color:var(--ocre-oscuro);background:#fef9ec}
+.upload-area input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.upload-area .upload-icon{font-size:32px;margin-bottom:8px}
+.upload-area p{font-size:.85rem;color:var(--gris);pointer-events:none}
+.upload-area .file-name{font-weight:600;color:var(--verde);font-size:.85rem;margin-top:6px}
+.preview-img{width:100%;max-height:200px;object-fit:cover;border-radius:10px;margin-top:12px;display:none}
+.btn-submit{width:100%;background:var(--verde);color:var(--blanco);border:none;border-radius:10px;padding:13px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-submit:hover:not(:disabled){background:var(--verde-claro);transform:translateY(-1px)}
+.btn-submit:disabled{opacity:.6;cursor:not-allowed}
+.progress-wrap{display:none;background:var(--verde-palido);border-radius:8px;height:8px;margin-top:12px;overflow:hidden}
+.progress-bar{height:100%;background:linear-gradient(90deg,var(--verde-claro),var(--ocre));border-radius:8px;transition:width .3s;width:0%}
+.toast{position:fixed;bottom:90px;right:24px;background:var(--carbon);color:var(--blanco);padding:12px 20px;border-radius:10px;font-size:.9rem;font-weight:500;z-index:400;opacity:0;transform:translateY(10px);transition:all .3s;pointer-events:none;max-width:280px}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast.success{background:var(--verde)}
+.toast.error{background:#dc2626}
+.admin-banner{display:none;background:var(--ocre);color:var(--carbon);text-align:center;padding:8px;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+body.admin-active .admin-banner{display:block}
+.btn-delete{background:none;border:none;color:#dc2626;font-size:.8rem;font-weight:600;cursor:pointer;padding:2px 6px;border-radius:6px;transition:background .15s}
+.btn-delete:hover{background:#fee2e2}
+@media(max-width:600px){.header-inner{padding:12px 16px}.hero-strip{padding:24px 16px 36px}main{padding:24px 12px 80px}.muro-grid{columns:1}}
+@media(min-width:601px) and (max-width:900px){.muro-grid{columns:2 280px}}
 </style>
 </head>
 <body>
-
-<!-- Admin active banner -->
-<div class="admin-banner">⚙️ Modo administrador activo — puedes subir y eliminar avisos</div>
-
-<!-- HEADER -->
+<div class="admin-banner">⚙️ Modo administrador activo</div>
 <header>
   <div class="header-inner">
     <div class="header-logo">
-      <img src="data:image/jpeg;base64,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" alt="CEIP Capitulaciones" style="width:48px;height:48px;border-radius:50%;object-fit:cover;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
+      <img class="logo-img" src="data:image/jpeg;base64,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" alt="CEIP Capitulaciones">
       <div class="header-text">
         <h1>CEIP Capitulaciones</h1>
         <p>Tablón de Avisos · Santa Fe, Granada</p>
@@ -529,29 +98,25 @@
     <span class="header-badge">Maestros</span>
   </div>
 </header>
-
-<!-- HERO -->
 <div class="hero-strip">
   <h2>📋 Muro de Avisos</h2>
   <p>Información y comunicaciones del centro</p>
 </div>
-
-<!-- MAIN -->
 <main>
   <div id="muroContainer">
-    <div class="loading-state">
-      <div class="spinner"></div>
-      <span>Cargando avisos...</span>
-    </div>
+    <div class="loading-state"><div class="spinner"></div><span>Cargando avisos...</span></div>
   </div>
 </main>
 
-<!-- BOTÓN ADMIN -->
-<button class="btn-admin-toggle" id="btnAdminToggle" onclick="openAdminModal()">
-  <span>⚙️</span> Admin
-</button>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightboxImg" src="" alt="Aviso">
+  <div class="lightbox-desc" id="lightboxDesc"></div>
+</div>
 
-<!-- MODAL ADMIN -->
+<button class="btn-admin-toggle" onclick="openAdminModal()">⚙️ Admin</button>
+
 <div class="modal-overlay" id="modalAdmin">
   <div class="modal">
     <div class="modal-header">
@@ -559,17 +124,13 @@
       <button class="btn-close" onclick="closeModal()">✕</button>
     </div>
     <div class="modal-body">
-
-      <!-- PANTALLA 1: contraseña -->
       <div id="screenPassword">
         <div class="form-group">
           <label>Contraseña</label>
-          <input type="password" id="inputPassword" placeholder="Introduce la contraseña" onkeydown="if(event.key==='Enter') checkPassword()">
+          <input type="password" id="inputPassword" placeholder="Introduce la contraseña" onkeydown="if(event.key==='Enter')checkPassword()">
         </div>
         <button class="btn-submit" onclick="checkPassword()">🔓 Entrar</button>
       </div>
-
-      <!-- PANTALLA 2: subir aviso -->
       <div id="screenUpload" style="display:none">
         <div class="form-group">
           <label>📷 Imagen del aviso</label>
@@ -585,270 +146,147 @@
           <label>📝 Descripción</label>
           <textarea id="inputDescripcion" placeholder="Añade una descripción del aviso..." rows="3"></textarea>
         </div>
-        <button class="btn-submit" id="btnSubir" onclick="subirAviso()">
-          ⬆️ Publicar aviso
-        </button>
-        <div class="progress-wrap" id="progressWrap">
-          <div class="progress-bar" id="progressBar"></div>
-        </div>
-        <div style="margin-top:16px; text-align:center;">
-          <button onclick="cerrarSesionAdmin()" style="background:none;border:none;color:var(--gris);font-size:0.82rem;cursor:pointer;text-decoration:underline;">Cerrar sesión admin</button>
+        <button class="btn-submit" id="btnSubir" onclick="subirAviso()">⬆️ Publicar aviso</button>
+        <div class="progress-wrap" id="progressWrap"><div class="progress-bar" id="progressBar"></div></div>
+        <div style="margin-top:16px;text-align:center">
+          <button onclick="cerrarSesionAdmin()" style="background:none;border:none;color:var(--gris);font-size:.82rem;cursor:pointer;text-decoration:underline">Cerrar sesión admin</button>
         </div>
       </div>
-
     </div>
   </div>
 </div>
-
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <script>
-  // ══════════════════════════════════════════════════
-  //  🔧 CONFIGURACIÓN — rellena con tus datos Firebase
-  // ══════════════════════════════════════════════════
-  const FIREBASE_CONFIG = {
-    apiKey:            "AIzaSyAyxeVnd6mTBzK-J2cI_7LuygIiInXZ660",
-    authDomain:        "gestoreva-7315a.firebaseapp.com",
-    databaseURL:       "https://gestoreva-7315a-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId:         "gestoreva-7315a",
-    storageBucket:     "gestoreva-7315a.firebasestorage.app",
-    messagingSenderId: "525319727429",
-    appId:             "1:525319727429:web:af07b57b8efa11c2fdf62c"
-  };
+const FIREBASE_CONFIG={apiKey:"AIzaSyAyxeVnd6mTBzK-J2cI_7LuygIiInXZ660",authDomain:"gestoreva-7315a.firebaseapp.com",databaseURL:"https://gestoreva-7315a-default-rtdb.europe-west1.firebasedatabase.app",projectId:"gestoreva-7315a",storageBucket:"gestoreva-7315a.firebasestorage.app",messagingSenderId:"525319727429",appId:"1:525319727429:web:af07b57b8efa11c2fdf62c"};
+const ADMIN_PASSWORD="capitulaciones2025";
+const MAX_W=1200,QUALITY=0.82;
+firebase.initializeApp(FIREBASE_CONFIG);
+const db=firebase.database();
+const avisosRef=db.ref("avisos_tablon");
+let adminActivo=false,selectedFile=null,avisosData={};
 
-  // Contraseña admin (cámbiala)
-  const ADMIN_PASSWORD = "capitulaciones2025";
-
-  // ══════════════════════════════════════════════════
-  //  FIREBASE INIT
-  // ══════════════════════════════════════════════════
-  firebase.initializeApp(FIREBASE_CONFIG);
-  const db      = firebase.database();
-  const storage = firebase.storage();
-  const avisosRef = db.ref('avisos');
-
-  // ══════════════════════════════════════════════════
-  //  ESTADO
-  // ══════════════════════════════════════════════════
-  let adminActivo = false;
-  let selectedFile = null;
-
-  // ══════════════════════════════════════════════════
-  //  CARGAR AVISOS
-  // ══════════════════════════════════════════════════
-  avisosRef.orderByChild('timestamp').on('value', snapshot => {
-    const container = document.getElementById('muroContainer');
-    const data = snapshot.val();
-
-    if (!data) {
-      container.innerHTML = `
-        <div class="empty-state">
-          <div class="icon">📭</div>
-          <h3>Sin avisos por ahora</h3>
-          <p>Cuando se publiquen avisos aparecerán aquí.</p>
-        </div>`;
-      return;
-    }
-
-    // Ordenar newest first
-    const items = Object.entries(data).sort((a, b) => b[1].timestamp - a[1].timestamp);
-
-    container.innerHTML = `<div class="muro-grid" id="muroGrid"></div>`;
-    const grid = document.getElementById('muroGrid');
-
-    items.forEach(([key, aviso]) => {
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.dataset.key = key;
-      card.innerHTML = `
-        <img src="${aviso.imageUrl}" alt="Aviso" loading="lazy">
-        <div class="card-body">
-          <p>${escapeHtml(aviso.descripcion)}</p>
-        </div>
-        <div class="card-admin-bar">
-          <button class="btn-delete" onclick="eliminarAviso('${key}', '${aviso.storagePath}')">🗑 Eliminar</button>
-        </div>`;
-      grid.appendChild(card);
-    });
+avisosRef.on("value",snap=>{
+  avisosData=snap.val()||{};
+  const container=document.getElementById("muroContainer");
+  if(!avisosData||Object.keys(avisosData).length===0){
+    container.innerHTML='<div class="empty-state"><div class="icon">📭</div><h3>Sin avisos por ahora</h3><p>Cuando se publiquen avisos aparecerán aquí.</p></div>';
+    return;
+  }
+  const items=Object.entries(avisosData).sort((a,b)=>b[1].timestamp-a[1].timestamp);
+  container.innerHTML='<div class="muro-grid" id="muroGrid"></div>';
+  const grid=document.getElementById("muroGrid");
+  items.forEach(([key,aviso])=>{
+    const card=document.createElement("div");
+    card.className="card";
+    card.innerHTML=`<img src="${aviso.imageB64}" alt="Aviso" loading="lazy"><div class="card-body"><p>${escHtml(aviso.descripcion)}</p></div><div class="card-admin-bar"><button class="btn-delete" onclick="eliminarAviso('${key}')">🗑 Eliminar</button></div>`;
+    card.querySelector("img").onclick=()=>openLightbox(key);
+    card.querySelector(".card-body").onclick=()=>openLightbox(key);
+    grid.appendChild(card);
   });
+});
 
-  // ══════════════════════════════════════════════════
-  //  MODAL ADMIN
-  // ══════════════════════════════════════════════════
-  function openAdminModal() {
-    if (adminActivo) {
-      // Ya autenticado → abrir directamente en pantalla upload
-      showScreen('screenUpload');
-      document.getElementById('modalTitle').textContent = '⬆️ Publicar Aviso';
-    } else {
-      showScreen('screenPassword');
-      document.getElementById('modalTitle').textContent = '🔒 Acceso Admin';
-    }
-    document.getElementById('modalAdmin').classList.add('open');
-    setTimeout(() => document.getElementById('inputPassword')?.focus(), 100);
-  }
+function openLightbox(key){
+  const a=avisosData[key];if(!a)return;
+  document.getElementById("lightboxImg").src=a.imageB64;
+  document.getElementById("lightboxDesc").textContent=a.descripcion;
+  document.getElementById("lightbox").classList.add("open");
+  document.body.style.overflow="hidden";
+}
+function closeLightbox(){
+  document.getElementById("lightbox").classList.remove("open");
+  document.body.style.overflow="";
+}
+document.getElementById("lightbox").addEventListener("click",e=>{if(e.target===document.getElementById("lightbox"))closeLightbox();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeLightbox();});
 
-  function closeModal() {
-    document.getElementById('modalAdmin').classList.remove('open');
-    resetForm();
-  }
+function openAdminModal(){
+  if(adminActivo){showScreen("screenUpload");document.getElementById("modalTitle").textContent="⬆️ Publicar Aviso";}
+  else{showScreen("screenPassword");document.getElementById("modalTitle").textContent="🔒 Acceso Admin";}
+  document.getElementById("modalAdmin").classList.add("open");
+  setTimeout(()=>document.getElementById("inputPassword")?.focus(),100);
+}
+function closeModal(){document.getElementById("modalAdmin").classList.remove("open");resetForm();}
+document.getElementById("modalAdmin").addEventListener("click",e=>{if(e.target===document.getElementById("modalAdmin"))closeModal();});
+function checkPassword(){
+  if(document.getElementById("inputPassword").value===ADMIN_PASSWORD){
+    adminActivo=true;document.body.classList.add("admin-active");
+    showScreen("screenUpload");document.getElementById("modalTitle").textContent="⬆️ Publicar Aviso";
+    document.getElementById("inputPassword").value="";
+  }else{showToast("Contraseña incorrecta","error");document.getElementById("inputPassword").value="";}
+}
+function cerrarSesionAdmin(){adminActivo=false;document.body.classList.remove("admin-active");closeModal();showToast("Sesión admin cerrada");}
 
-  document.getElementById('modalAdmin').addEventListener('click', e => {
-    if (e.target === document.getElementById('modalAdmin')) closeModal();
-  });
+function onFileChange(e){
+  const file=e.target.files[0];if(!file)return;
+  selectedFile=file;
+  document.getElementById("fileName").textContent=file.name;
+  document.getElementById("uploadArea").classList.add("has-file");
+  const reader=new FileReader();
+  reader.onload=ev=>{const img=document.getElementById("previewImg");img.src=ev.target.result;img.style.display="block";};
+  reader.readAsDataURL(file);
+}
 
-  // ══════════════════════════════════════════════════
-  //  AUTENTICACIÓN
-  // ══════════════════════════════════════════════════
-  function checkPassword() {
-    const val = document.getElementById('inputPassword').value;
-    if (val === ADMIN_PASSWORD) {
-      adminActivo = true;
-      document.body.classList.add('admin-active');
-      showScreen('screenUpload');
-      document.getElementById('modalTitle').textContent = '⬆️ Publicar Aviso';
-      document.getElementById('inputPassword').value = '';
-    } else {
-      showToast('Contraseña incorrecta', 'error');
-      document.getElementById('inputPassword').value = '';
-      document.getElementById('inputPassword').focus();
-    }
-  }
-
-  function cerrarSesionAdmin() {
-    adminActivo = false;
-    document.body.classList.remove('admin-active');
-    closeModal();
-    showToast('Sesión admin cerrada');
-  }
-
-  // ══════════════════════════════════════════════════
-  //  SELECCIÓN DE ARCHIVO
-  // ══════════════════════════════════════════════════
-  function onFileChange(e) {
-    const file = e.target.files[0];
-    if (!file) return;
-    selectedFile = file;
-
-    document.getElementById('fileName').textContent = file.name;
-    document.getElementById('uploadArea').classList.add('has-file');
-
-    const reader = new FileReader();
-    reader.onload = ev => {
-      const img = document.getElementById('previewImg');
-      img.src = ev.target.result;
-      img.style.display = 'block';
+function comprimirImagen(file){
+  return new Promise((resolve,reject)=>{
+    const reader=new FileReader();
+    reader.onload=ev=>{
+      const img=new Image();
+      img.onload=()=>{
+        let w=img.width,h=img.height;
+        if(w>MAX_W){h=Math.round(h*MAX_W/w);w=MAX_W;}
+        const canvas=document.createElement("canvas");
+        canvas.width=w;canvas.height=h;
+        canvas.getContext("2d").drawImage(img,0,0,w,h);
+        resolve(canvas.toDataURL("image/jpeg",QUALITY));
+      };
+      img.onerror=reject;img.src=ev.target.result;
     };
-    reader.readAsDataURL(file);
-  }
+    reader.onerror=reject;reader.readAsDataURL(file);
+  });
+}
 
-  // ══════════════════════════════════════════════════
-  //  SUBIR AVISO
-  // ══════════════════════════════════════════════════
-  async function subirAviso() {
-    const descripcion = document.getElementById('inputDescripcion').value.trim();
-    if (!selectedFile) { showToast('Selecciona una imagen', 'error'); return; }
-    if (!descripcion)  { showToast('Añade una descripción', 'error'); return; }
+async function subirAviso(){
+  const descripcion=document.getElementById("inputDescripcion").value.trim();
+  if(!selectedFile){showToast("Selecciona una imagen","error");return;}
+  if(!descripcion){showToast("Añade una descripción","error");return;}
+  const btn=document.getElementById("btnSubir");
+  btn.disabled=true;btn.innerHTML="⏳ Comprimiendo...";
+  const pw=document.getElementById("progressWrap"),pb=document.getElementById("progressBar");
+  pw.style.display="block";pb.style.width="30%";
+  try{
+    const imageB64=await comprimirImagen(selectedFile);
+    pb.style.width="70%";btn.innerHTML="⏳ Publicando...";
+    await avisosRef.push({imageB64,descripcion,timestamp:Date.now()});
+    pb.style.width="100%";
+    showToast("¡Aviso publicado!","success");
+    setTimeout(()=>{pw.style.display="none";pb.style.width="0%";},600);
+    closeModal();
+  }catch(err){showToast("Error: "+err.message,"error");pw.style.display="none";}
+  btn.disabled=false;btn.innerHTML="⬆️ Publicar aviso";
+}
 
-    const btn = document.getElementById('btnSubir');
-    btn.disabled = true;
-    btn.innerHTML = '⏳ Subiendo...';
+async function eliminarAviso(key){
+  if(!confirm("¿Eliminar este aviso?"))return;
+  try{await avisosRef.child(key).remove();showToast("Aviso eliminado","success");}
+  catch(err){showToast("Error: "+err.message,"error");}
+}
 
-    const progressWrap = document.getElementById('progressWrap');
-    const progressBar  = document.getElementById('progressBar');
-    progressWrap.style.display = 'block';
-
-    try {
-      const ext = selectedFile.name.split('.').pop();
-      const storagePath = `avisos/${Date.now()}.${ext}`;
-      const storageRef  = storage.ref(storagePath);
-      const uploadTask  = storageRef.put(selectedFile);
-
-      uploadTask.on('state_changed',
-        snap => {
-          const pct = (snap.bytesTransferred / snap.totalBytes * 100).toFixed(0);
-          progressBar.style.width = pct + '%';
-        },
-        err => {
-          showToast('Error al subir la imagen: ' + err.message, 'error');
-          btn.disabled = false;
-          btn.innerHTML = '⬆️ Publicar aviso';
-          progressWrap.style.display = 'none';
-        },
-        async () => {
-          const imageUrl = await uploadTask.snapshot.ref.getDownloadURL();
-          await avisosRef.push({
-            imageUrl,
-            storagePath,
-            descripcion,
-            timestamp: Date.now()
-          });
-          showToast('¡Aviso publicado!', 'success');
-          closeModal();
-          btn.disabled = false;
-          btn.innerHTML = '⬆️ Publicar aviso';
-          progressWrap.style.display = 'none';
-          progressBar.style.width = '0%';
-        }
-      );
-    } catch (err) {
-      showToast('Error: ' + err.message, 'error');
-      btn.disabled = false;
-      btn.innerHTML = '⬆️ Publicar aviso';
-      progressWrap.style.display = 'none';
-    }
-  }
-
-  // ══════════════════════════════════════════════════
-  //  ELIMINAR AVISO
-  // ══════════════════════════════════════════════════
-  async function eliminarAviso(key, storagePath) {
-    if (!confirm('¿Eliminar este aviso?')) return;
-    try {
-      await avisosRef.child(key).remove();
-      if (storagePath) {
-        await storage.ref(storagePath).delete().catch(() => {});
-      }
-      showToast('Aviso eliminado', 'success');
-    } catch (err) {
-      showToast('Error al eliminar: ' + err.message, 'error');
-    }
-  }
-
-  // ══════════════════════════════════════════════════
-  //  HELPERS
-  // ══════════════════════════════════════════════════
-  function showScreen(id) {
-    ['screenPassword', 'screenUpload'].forEach(s => {
-      document.getElementById(s).style.display = s === id ? 'block' : 'none';
-    });
-  }
-
-  function resetForm() {
-    selectedFile = null;
-    const fi = document.getElementById('inputFile');
-    if (fi) fi.value = '';
-    const fn = document.getElementById('fileName');
-    if (fn) fn.textContent = '';
-    const ua = document.getElementById('uploadArea');
-    if (ua) ua.classList.remove('has-file');
-    const pi = document.getElementById('previewImg');
-    if (pi) { pi.style.display = 'none'; pi.src = ''; }
-    const td = document.getElementById('inputDescripcion');
-    if (td) td.value = '';
-  }
-
-  function showToast(msg, type = '') {
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.className = 'toast show' + (type ? ' ' + type : '');
-    setTimeout(() => t.className = 'toast', 3000);
-  }
-
-  function escapeHtml(str) {
-    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');
-  }
-</script>
+function showScreen(id){["screenPassword","screenUpload"].forEach(s=>document.getElementById(s).style.display=s===id?"block":"none");}
+function resetForm(){
+  selectedFile=null;
+  const fi=document.getElementById("inputFile");if(fi)fi.value="";
+  const fn=document.getElementById("fileName");if(fn)fn.textContent="";
+  const ua=document.getElementById("uploadArea");if(ua)ua.classList.remove("has-file");
+  const pi=document.getElementById("previewImg");if(pi){pi.style.display="none";pi.src="";}
+  const td=document.getElementById("inputDescripcion");if(td)td.value="";
+}
+function showToast(msg,type=""){
+  const t=document.getElementById("toast");
+  t.textContent=msg;t.className="toast show"+(type?" "+type:"");
+  setTimeout(()=>t.className="toast",3000);
+}
+function escHtml(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;");}
+<\/script>
 </body>
 </html>
