@@ -7,6 +7,7 @@
 <!-- PWA -->
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#2d6a4f">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="CEIP Avisos">
@@ -424,13 +425,7 @@ document.getElementById("shareWhatsapp").addEventListener("click", function(){
 document.getElementById("shareGmail").addEventListener("click", function(){
   var desc = document.getElementById("lightboxDesc").textContent;
   var subject = "Aviso CEIP Capitulaciones";
-  var body = "Hola,
-
-Te comparto este aviso del CEIP Capitulaciones:
-
-" + desc + "
-
-Puedes ver todos los avisos en: " + window.location.href;
+  var body = "Hola,\n\nTe comparto este aviso del CEIP Capitulaciones:\n\n" + desc + "\n\nPuedes ver todos los avisos en: " + window.location.href;
   window.open("https://mail.google.com/mail/?view=cm&fs=1&su=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body), "_blank");
 });
 // Web Share API si disponible
