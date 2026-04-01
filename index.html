@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Muro de Avisos · CEIP Capitulaciones</title>
-<!-- PWA -->
+<title>Tablón de Avisos · CEIP Capitulaciones</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#2d6a4f">
-<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="CEIP Avisos">
@@ -17,20 +15,64 @@
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 <style>
-:root{--verde:#2d6a4f;--verde-claro:#40916c;--verde-palido:#d8f3dc;--ocre:#e9c46a;--crema:#fdf8f0;--carbon:#1a1a2e;--gris:#6b7280;--blanco:#fff}
+:root{
+  --verde:#2d6a4f;--verde-claro:#40916c;--verde-palido:#d8f3dc;
+  --ocre:#e9c46a;--ocre-dark:#c9922a;
+  --crema:#fdf8f0;--carbon:#1a1a2e;--gris:#6b7280;--blanco:#fff;
+  --rojo:#dc2626;
+  --familias:#2d6a4f;--familias-claro:#40916c;--familias-palido:#d8f3dc;
+  --maestros:#1e4d8c;--maestros-claro:#2563eb;--maestros-palido:#dbeafe;
+  --directivo:#7c3aed;--directivo-claro:#8b5cf6;--directivo-palido:#ede9fe;
+}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'DM Sans',sans-serif;background:var(--crema);color:var(--carbon);min-height:100vh}
+
+/* ── HEADER ── */
 header{background:var(--verde);color:var(--blanco);position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(45,106,79,.35)}
-.header-inner{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.header-logo{display:flex;align-items:center;gap:14px}
-.logo-img{width:48px;height:48px;border-radius:50%;object-fit:cover;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.2)}
-.header-text h1{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:900;line-height:1.1}
-.header-text p{font-size:.75rem;opacity:.75;margin-top:2px;letter-spacing:.05em;text-transform:uppercase}
-.header-badge{background:var(--ocre);color:var(--carbon);font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:20px;letter-spacing:.08em;text-transform:uppercase}
-.hero-strip{background:linear-gradient(135deg,var(--verde-claro),var(--verde));padding:32px 24px 48px;text-align:center}
-.hero-strip h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);color:var(--blanco);font-weight:900}
-.hero-strip p{color:rgba(255,255,255,.8);font-size:.95rem;margin-top:6px}
-main{max-width:1200px;margin:0 auto;padding:40px 20px 80px}
+.header-inner{max-width:1200px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.header-logo{display:flex;align-items:center;gap:12px}
+.logo-img{width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.header-text h1{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:900;line-height:1.1}
+.header-text p{font-size:.72rem;opacity:.75;margin-top:2px;letter-spacing:.05em;text-transform:uppercase}
+.header-section-badge{font-size:.7rem;font-weight:700;padding:5px 12px;border-radius:20px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:none;color:var(--blanco);transition:opacity .2s}
+.header-section-badge:hover{opacity:.8}
+.badge-familias{background:rgba(255,255,255,.2)}
+.badge-maestros{background:rgba(255,255,255,.2)}
+.badge-directivo{background:rgba(255,255,255,.2)}
+#btnVolver{display:none;background:rgba(255,255,255,.15);border:none;color:var(--blanco);font-size:.82rem;font-weight:600;padding:6px 12px;border-radius:8px;cursor:pointer;letter-spacing:.04em}
+#btnVolver:hover{background:rgba(255,255,255,.25)}
+
+/* ── PANTALLA DE INICIO ── */
+#pantallaInicio{display:block}
+.inicio-hero{background:linear-gradient(135deg,var(--verde-claro),var(--verde));padding:36px 24px 52px;text-align:center}
+.inicio-hero h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);color:var(--blanco);font-weight:900}
+.inicio-hero p{color:rgba(255,255,255,.8);font-size:.95rem;margin-top:8px}
+.secciones-grid{max-width:800px;margin:-28px auto 0;padding:0 20px 60px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.seccion-card{background:var(--blanco);border-radius:20px;box-shadow:0 8px 32px rgba(0,0,0,.12);overflow:hidden;cursor:pointer;transition:transform .25s,box-shadow .25s;border:2px solid transparent}
+.seccion-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.18)}
+.seccion-card-top{padding:28px 24px 20px;text-align:center}
+.seccion-icon{font-size:2.8rem;margin-bottom:12px;display:block}
+.seccion-card h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;margin-bottom:6px}
+.seccion-card p{font-size:.83rem;color:var(--gris);line-height:1.4}
+.seccion-card-footer{padding:12px 20px;font-size:.78rem;font-weight:700;text-align:center;letter-spacing:.06em;text-transform:uppercase}
+.card-familias .seccion-card-top{border-top:5px solid var(--familias)}
+.card-familias .seccion-card-footer{background:var(--familias-palido);color:var(--familias)}
+.card-maestros .seccion-card-top{border-top:5px solid var(--maestros)}
+.card-maestros .seccion-card-footer{background:var(--maestros-palido);color:var(--maestros)}
+.card-directivo .seccion-card-top{border-top:5px solid var(--directivo)}
+.card-directivo .seccion-card-footer{background:var(--directivo-palido);color:var(--directivo)}
+
+/* ── PANTALLA DE SECCIÓN ── */
+#pantallaSeccion{display:none}
+.seccion-hero{padding:28px 24px 44px;text-align:center}
+.seccion-hero.hero-familias{background:linear-gradient(135deg,var(--familias-claro),var(--familias))}
+.seccion-hero.hero-maestros{background:linear-gradient(135deg,var(--maestros-claro),var(--maestros))}
+.seccion-hero.hero-directivo{background:linear-gradient(135deg,var(--directivo-claro),var(--directivo))}
+.seccion-hero h2{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3.5vw,2rem);color:var(--blanco);font-weight:900}
+.seccion-hero p{color:rgba(255,255,255,.8);font-size:.9rem;margin-top:6px}
+
+/* ── TABLÓN ── */
+main{max-width:1200px;margin:0 auto;padding:32px 20px 80px}
 .muro-grid{columns:3 300px;column-gap:20px}
 .card{break-inside:avoid;background:var(--blanco);border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,.10);overflow:hidden;margin-bottom:20px;transition:transform .25s,box-shadow .25s;cursor:pointer}
 .card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.18)}
@@ -45,26 +87,44 @@ body.admin-active .card-admin-bar{display:block}
 .loading-state{text-align:center;padding:60px 20px;color:var(--gris);display:flex;flex-direction:column;align-items:center;gap:16px}
 .spinner{width:36px;height:36px;border:3px solid var(--verde-palido);border-top-color:var(--verde);border-radius:50%;animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── LIGHTBOX ── */
 .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:500;padding:20px;flex-direction:column;align-items:center;justify-content:center;gap:16px}
 .lightbox.open{display:flex}
 .lightbox img{max-width:100%;max-height:75vh;border-radius:12px;object-fit:contain;box-shadow:0 8px 40px rgba(0,0,0,.5)}
 .lightbox-desc{color:rgba(255,255,255,.9);font-size:1rem;text-align:center;max-width:600px;line-height:1.6;background:rgba(255,255,255,.08);padding:12px 20px;border-radius:10px}
 .lightbox-close{position:absolute;top:16px;right:20px;background:rgba(255,255,255,.15);border:none;color:#fff;width:40px;height:40px;border-radius:50%;font-size:1.2rem;cursor:pointer}
+.lightbox-actions{display:flex;flex-direction:column;align-items:center;gap:12px;width:100%;max-width:360px}
+.btn-share{background:var(--ocre);color:var(--carbon);border:none;border-radius:50px;padding:11px 28px;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:0 4px 16px rgba(0,0,0,.25);transition:transform .15s}
+.btn-share:hover{transform:translateY(-2px)}
+.share-panel{display:none;background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:16px 20px;width:100%;text-align:center}
+.share-panel.open{display:block}
+.share-panel p{color:rgba(255,255,255,.7);font-size:.78rem;margin-bottom:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+.share-options{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn-share-opt{display:flex;flex-direction:column;align-items:center;gap:6px;background:rgba(255,255,255,.15);border:none;border-radius:14px;padding:12px 16px;cursor:pointer;color:#fff;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;min-width:72px;transition:background .2s}
+.btn-share-opt:hover{background:rgba(255,255,255,.28)}
+.btn-share-opt .share-icon{font-size:1.6rem;line-height:1}
+
+/* ── BOTONES FLOTANTES ── */
 .btn-admin-toggle{position:fixed;bottom:24px;right:24px;background:var(--verde);color:var(--blanco);border:none;border-radius:50px;padding:14px 22px;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;cursor:pointer;box-shadow:0 4px 20px rgba(45,106,79,.4);display:flex;align-items:center;gap:8px;z-index:200}
+
+/* ── MODALS ── */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(26,26,46,.6);backdrop-filter:blur(4px);z-index:300;align-items:center;justify-content:center;padding:20px}
 .modal-overlay.open{display:flex}
-.modal{background:var(--blanco);border-radius:20px;width:100%;max-width:460px;box-shadow:0 20px 60px rgba(0,0,0,.25);overflow:hidden}
-.modal-header{background:var(--verde);color:var(--blanco);padding:20px 24px;display:flex;align-items:center;justify-content:space-between}
+.modal{background:var(--blanco);border-radius:20px;width:100%;max-width:480px;box-shadow:0 20px 60px rgba(0,0,0,.25);overflow:hidden;max-height:90vh;overflow-y:auto}
+.modal-header{background:var(--verde);color:var(--blanco);padding:20px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:1}
+.modal-header.color-maestros{background:var(--maestros)}
+.modal-header.color-directivo{background:var(--directivo)}
 .modal-header h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700}
 .btn-close{background:rgba(255,255,255,.15);border:none;color:var(--blanco);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem}
 .modal-body{padding:24px}
 .form-group{margin-bottom:18px}
 label{display:block;font-size:.82rem;font-weight:600;color:var(--verde);margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
-input[type=password],textarea{width:100%;border:2px solid #e5e7eb;border-radius:10px;padding:10px 14px;font-family:'DM Sans',sans-serif;font-size:.95rem;color:var(--carbon);background:#fafafa}
-input[type=password]:focus,textarea:focus{outline:none;border-color:var(--verde-claro);background:var(--blanco)}
+input[type=password],textarea,input[type=text]{width:100%;border:2px solid #e5e7eb;border-radius:10px;padding:10px 14px;font-family:'DM Sans',sans-serif;font-size:.95rem;color:var(--carbon);background:#fafafa}
+input[type=password]:focus,textarea:focus,input[type=text]:focus{outline:none;border-color:var(--verde-claro);background:var(--blanco)}
 textarea{resize:vertical;min-height:90px}
 .upload-area{border:2.5px dashed var(--verde-claro);border-radius:12px;padding:28px 20px;text-align:center;cursor:pointer;background:var(--verde-palido);position:relative}
-.upload-area.has-file{border-color:#c9922a;background:#fef9ec}
+.upload-area.has-file{border-color:var(--ocre-dark);background:#fef9ec}
 .upload-area input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
 .upload-area .upload-icon{font-size:32px;margin-bottom:8px}
 .upload-area p{font-size:.85rem;color:var(--gris);pointer-events:none}
@@ -74,137 +134,240 @@ textarea{resize:vertical;min-height:90px}
 .btn-submit:disabled{opacity:.6;cursor:not-allowed}
 .progress-wrap{display:none;background:var(--verde-palido);border-radius:8px;height:8px;margin-top:12px;overflow:hidden}
 .progress-bar{height:100%;background:linear-gradient(90deg,var(--verde-claro),var(--ocre));border-radius:8px;transition:width .3s;width:0%}
-.toast{position:fixed;bottom:90px;right:24px;background:var(--carbon);color:var(--blanco);padding:12px 20px;border-radius:10px;font-size:.9rem;font-weight:500;z-index:400;opacity:0;transform:translateY(10px);transition:all .3s;pointer-events:none;max-width:280px}
-.toast.show{opacity:1;transform:translateY(0)}
-.toast.success{background:var(--verde)}
-.toast.error{background:#dc2626}
+
+/* Secciones destino checkboxes */
+.destinos-label{font-size:.82rem;font-weight:600;color:var(--verde);margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em;display:block}
+.destinos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.destino-check{position:relative}
+.destino-check input[type=checkbox]{position:absolute;opacity:0;width:0;height:0}
+.destino-check label{display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 6px;border:2px solid #e5e7eb;border-radius:12px;cursor:pointer;text-align:center;font-size:.78rem;font-weight:600;color:var(--gris);transition:all .2s;text-transform:none;letter-spacing:0}
+.destino-check input:checked + label.lbl-familias{border-color:var(--familias);background:var(--familias-palido);color:var(--familias)}
+.destino-check input:checked + label.lbl-maestros{border-color:var(--maestros);background:var(--maestros-palido);color:var(--maestros)}
+.destino-check input:checked + label.lbl-directivo{border-color:var(--directivo);background:var(--directivo-palido);color:var(--directivo)}
+.destino-check label .dest-icon{font-size:1.4rem}
+
+/* ── BANNERS ── */
 .admin-banner{display:none;background:var(--ocre);color:var(--carbon);text-align:center;padding:8px;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 body.admin-active .admin-banner{display:block}
-.btn-delete{background:none;border:none;color:#dc2626;font-size:.8rem;font-weight:600;cursor:pointer;padding:2px 6px;border-radius:6px}
-/* Share button & panel */
-.lightbox-actions{display:flex;flex-direction:column;align-items:center;gap:12px;width:100%;max-width:360px}
-.btn-share{background:var(--ocre);color:var(--carbon);border:none;border-radius:50px;padding:11px 28px;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:0 4px 16px rgba(0,0,0,.25);transition:transform .15s,box-shadow .15s}
-.btn-share:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3)}
-.share-panel{display:none;background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:16px 20px;width:100%;text-align:center}
-.share-panel.open{display:block}
-.share-panel p{color:rgba(255,255,255,.7);font-size:.78rem;margin-bottom:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:600}
-.share-options{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.btn-share-opt{display:flex;flex-direction:column;align-items:center;gap:6px;background:rgba(255,255,255,.15);border:none;border-radius:14px;padding:12px 16px;cursor:pointer;color:#fff;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;min-width:72px;transition:background .2s,transform .15s}
-.btn-share-opt:hover{background:rgba(255,255,255,.28);transform:translateY(-2px)}
-.btn-share-opt .share-icon{font-size:1.6rem;line-height:1}
-.btn-share-opt.whatsapp .share-icon{color:#25D366}
-.btn-share-opt.gmail .share-icon{color:#EA4335}
-.btn-share-opt.native .share-icon{color:#60a5fa}
-/* PWA install banner */
+.btn-delete{background:none;border:none;color:var(--rojo);font-size:.8rem;font-weight:600;cursor:pointer;padding:2px 6px;border-radius:6px}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:90px;right:24px;background:var(--carbon);color:var(--blanco);padding:12px 20px;border-radius:10px;font-size:.9rem;font-weight:500;z-index:600;opacity:0;transform:translateY(10px);transition:all .3s;pointer-events:none;max-width:280px}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast.success{background:var(--verde)}
+.toast.error{background:var(--rojo)}
+
+/* ── PWA INSTALL ── */
 #installBanner{display:none;position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--verde);color:#fff;padding:12px 20px;border-radius:14px;font-size:.85rem;font-weight:600;box-shadow:0 4px 20px rgba(45,106,79,.45);z-index:300;align-items:center;gap:12px;max-width:320px;width:90%}
 #installBanner.show{display:flex}
 #installBanner img{width:32px;height:32px;border-radius:8px;flex-shrink:0}
 #installBanner .install-text{flex:1;font-size:.8rem;line-height:1.3}
 #btnInstall{background:var(--ocre);color:var(--carbon);border:none;border-radius:8px;padding:7px 14px;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:700;cursor:pointer;white-space:nowrap}
 #btnInstallClose{background:none;border:none;color:rgba(255,255,255,.7);font-size:1.1rem;cursor:pointer;padding:0 2px;flex-shrink:0}
-@media(max-width:600px){.header-inner{padding:12px 16px}main{padding:24px 12px 80px}.muro-grid{columns:1}}
+
+/* ── ACCESO CLAVE (pantalla modal sección protegida) ── */
+.acceso-icon{font-size:3rem;text-align:center;margin-bottom:12px}
+.acceso-subtitulo{font-size:.88rem;color:var(--gris);text-align:center;margin-bottom:20px;line-height:1.5}
+
+@media(max-width:600px){
+  .header-inner{padding:10px 14px}
+  main{padding:20px 12px 80px}
+  .muro-grid{columns:1}
+  .secciones-grid{grid-template-columns:1fr;padding:0 16px 40px}
+}
 @media(min-width:601px) and (max-width:900px){.muro-grid{columns:2 280px}}
 </style>
 </head>
 <body>
-<div class="admin-banner">&#9881;&#65039; Modo administrador activo</div>
+
+<div class="admin-banner">⚙️ Modo administrador activo</div>
+
 <header>
   <div class="header-inner">
     <div class="header-logo">
-      <img class="logo-img" src="data:image/jpeg;base64,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" alt="Logo">
+      <img class="logo-img" src="icono.png" alt="Logo CEIP">
       <div class="header-text">
         <h1>CEIP Capitulaciones</h1>
         <p>Tablón de Avisos · Santa Fe, Granada</p>
       </div>
     </div>
-    <span class="header-badge">Maestros</span>
+    <div id="headerRight">
+      <span id="sectionBadge" class="header-section-badge" style="display:none"></span>
+      <button id="btnVolver">← Volver</button>
+    </div>
   </div>
 </header>
-<div class="hero-strip">
-  <h2>&#128203; Muro de Avisos</h2>
-  <p>Información y comunicaciones del centro</p>
-</div>
-<main>
-  <div id="muroContainer">
-    <div class="loading-state"><div class="spinner"></div><span>Cargando avisos...</span></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PANTALLA DE INICIO
+══════════════════════════════════════════════════════════ -->
+<div id="pantallaInicio">
+  <div class="inicio-hero">
+    <h2>📋 Tablón de Avisos</h2>
+    <p>Selecciona tu sección para ver los avisos</p>
   </div>
-</main>
+  <div class="secciones-grid">
+    <div class="seccion-card card-familias" onclick="entrarSeccion('familias')">
+      <div class="seccion-card-top">
+        <span class="seccion-icon">👨‍👩‍👧‍👦</span>
+        <h3>Familias</h3>
+        <p>Comunicaciones generales para las familias del centro</p>
+      </div>
+      <div class="seccion-card-footer">Acceso libre</div>
+    </div>
+    <div class="seccion-card card-maestros" onclick="pedirAccesoSeccion('maestros')">
+      <div class="seccion-card-top">
+        <span class="seccion-icon">📚</span>
+        <h3>Profesorado</h3>
+        <p>Avisos e información interna para el claustro de maestros</p>
+      </div>
+      <div class="seccion-card-footer">🔒 Acceso con clave</div>
+    </div>
+    <div class="seccion-card card-directivo" onclick="pedirAccesoSeccion('directivo')">
+      <div class="seccion-card-top">
+        <span class="seccion-icon">🏫</span>
+        <h3>Eq. Directivo</h3>
+        <p>Documentos y avisos exclusivos del equipo directivo</p>
+      </div>
+      <div class="seccion-card-footer">🔒 Acceso con clave</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PANTALLA DE SECCIÓN
+══════════════════════════════════════════════════════════ -->
+<div id="pantallaSeccion">
+  <div id="seccionHero" class="seccion-hero">
+    <h2 id="seccionTitle"></h2>
+    <p id="seccionSubtitle"></p>
+  </div>
+  <main>
+    <div id="muroContainer">
+      <div class="loading-state"><div class="spinner"></div><span>Cargando avisos...</span></div>
+    </div>
+  </main>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     LIGHTBOX
+══════════════════════════════════════════════════════════ -->
 <div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lightboxClose">&#10005;</button>
+  <button class="lightbox-close" id="lightboxClose">✕</button>
   <img id="lightboxImg" src="" alt="Aviso">
   <div class="lightbox-desc" id="lightboxDesc"></div>
   <div class="lightbox-actions">
-    <button class="btn-share" id="btnShare">&#128257; Compartir aviso</button>
+    <button class="btn-share" id="btnShare">🔁 Compartir aviso</button>
     <div class="share-panel" id="sharePanel">
-      <p>Compartir a traves de</p>
+      <p>Compartir a través de</p>
       <div class="share-options">
-        <button class="btn-share-opt whatsapp" id="shareWhatsapp">
-          <span class="share-icon">&#128242;</span>WhatsApp
-        </button>
-        <button class="btn-share-opt gmail" id="shareGmail">
-          <span class="share-icon">&#128140;</span>Gmail
-        </button>
-        <button class="btn-share-opt native" id="shareNative" style="display:none">
-          <span class="share-icon">&#128257;</span>Mas opciones
-        </button>
+        <button class="btn-share-opt" id="shareWhatsapp"><span class="share-icon">📱</span>WhatsApp</button>
+        <button class="btn-share-opt" id="shareGmail"><span class="share-icon">📧</span>Gmail</button>
+        <button class="btn-share-opt" id="shareNative" style="display:none"><span class="share-icon">🔁</span>Más</button>
       </div>
     </div>
   </div>
 </div>
-<!-- PWA Install Banner -->
-<div id="installBanner">
-  <img src="icono.png" alt="CEIP">
-  <div class="install-text">Instala la app del tablon en tu dispositivo</div>
-  <button id="btnInstall">Instalar</button>
-  <button id="btnInstallClose">&#10005;</button>
-</div>
-<button class="btn-admin-toggle" id="btnAdmin">&#9881;&#65039; Admin</button>
-<div class="modal-overlay" id="modalAdmin">
+
+<!-- ══════════════════════════════════════════════════════════
+     MODAL: ACCESO SECCIÓN PROTEGIDA
+══════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modalAcceso">
   <div class="modal">
-    <div class="modal-header">
-      <h3 id="modalTitle">Acceso Admin</h3>
-      <button class="btn-close" id="btnClose">&#10005;</button>
+    <div class="modal-header" id="modalAccesoHeader">
+      <h3 id="modalAccesoTitle">Acceso restringido</h3>
+      <button class="btn-close" onclick="cerrarModalAcceso()">✕</button>
     </div>
     <div class="modal-body">
-      <div id="screenPassword">
-        <div class="form-group">
-          <label>Contrasena</label>
-          <input type="password" id="inputPassword" placeholder="Introduce la contrasena">
-        </div>
-        <button class="btn-submit" id="btnCheckPass">&#128275; Entrar</button>
+      <div class="acceso-icon" id="accesoIcon"></div>
+      <p class="acceso-subtitulo" id="accesoSubtitulo"></p>
+      <div class="form-group">
+        <label>Contraseña</label>
+        <input type="password" id="inputAccesoClave" placeholder="Introduce la contraseña">
       </div>
+      <button class="btn-submit" id="btnComprobarClave">🔓 Entrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     MODAL: ADMIN (publicar aviso)
+══════════════════════════════════════════════════════════ -->
+<button class="btn-admin-toggle" id="btnAdmin">⚙️ Admin</button>
+<div class="modal-overlay" id="modalAdmin">
+  <div class="modal">
+    <div class="modal-header" id="modalAdminHeader">
+      <h3 id="modalAdminTitle">Acceso Admin</h3>
+      <button class="btn-close" id="btnCloseAdmin">✕</button>
+    </div>
+    <div class="modal-body">
+      <!-- Pantalla contraseña admin -->
+      <div id="screenAdminPassword">
+        <div class="form-group">
+          <label>Contraseña admin</label>
+          <input type="password" id="inputAdminPassword" placeholder="Introduce la contraseña">
+        </div>
+        <button class="btn-submit" id="btnCheckAdminPass">🔑 Entrar</button>
+      </div>
+      <!-- Pantalla subir aviso -->
       <div id="screenUpload" style="display:none">
         <div class="form-group">
           <label>Imagen del aviso</label>
           <div class="upload-area" id="uploadArea">
             <input type="file" id="inputFile" accept="image/*">
-            <div class="upload-icon">&#128444;&#65039;</div>
+            <div class="upload-icon">🖼️</div>
             <p>Pulsa para seleccionar imagen</p>
             <div class="file-name" id="fileName"></div>
           </div>
           <img id="previewImg" class="preview-img" alt="Preview">
         </div>
         <div class="form-group">
-          <label>Descripcion</label>
-          <textarea id="inputDescripcion" placeholder="Añade una descripcion del aviso..." rows="3"></textarea>
+          <label>Descripción</label>
+          <textarea id="inputDescripcion" placeholder="Añade una descripción del aviso..." rows="3"></textarea>
         </div>
-        <button class="btn-submit" id="btnSubir">&#11014;&#65039; Publicar aviso</button>
+        <div class="form-group">
+          <span class="destinos-label">Publicar en</span>
+          <div class="destinos-grid">
+            <div class="destino-check">
+              <input type="checkbox" id="destFamilias" value="familias" checked>
+              <label for="destFamilias" class="lbl-familias"><span class="dest-icon">👨‍👩‍👧‍👦</span>Familias</label>
+            </div>
+            <div class="destino-check">
+              <input type="checkbox" id="destMaestros" value="maestros">
+              <label for="destMaestros" class="lbl-maestros"><span class="dest-icon">📚</span>Profesorado</label>
+            </div>
+            <div class="destino-check">
+              <input type="checkbox" id="destDirectivo" value="directivo">
+              <label for="destDirectivo" class="lbl-directivo"><span class="dest-icon">🏫</span>Eq. Directivo</label>
+            </div>
+          </div>
+        </div>
+        <button class="btn-submit" id="btnSubir">⬆️ Publicar aviso</button>
         <div class="progress-wrap" id="progressWrap"><div class="progress-bar" id="progressBar"></div></div>
         <div style="margin-top:16px;text-align:center">
-          <button id="btnCerrarSesion" style="background:none;border:none;color:var(--gris);font-size:.82rem;cursor:pointer;text-decoration:underline">Cerrar sesion admin</button>
+          <button id="btnCerrarSesion" style="background:none;border:none;color:var(--gris);font-size:.82rem;cursor:pointer;text-decoration:underline">Cerrar sesión admin</button>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- PWA Install Banner -->
+<div id="installBanner">
+  <img src="icono.png" alt="CEIP">
+  <div class="install-text">Instala la app del tablón en tu dispositivo</div>
+  <button id="btnInstall">Instalar</button>
+  <button id="btnInstallClose">✕</button>
+</div>
 <div class="toast" id="toast"></div>
+
 <script>
-var ADMIN_PASSWORD = "capitulaciones2025";
+// ════════════════════════════════════════════════════════════════
+// CONFIGURACIÓN
+// ════════════════════════════════════════════════════════════════
+var ADMIN_PASSWORD = "capitulaciones2025"; // ← contraseña admin sin tocar
 var MAX_W = 1200;
 var QUALITY = 0.82;
-var adminActivo = false;
-var selectedFile = null;
-var avisosData = {};
 
 var firebaseConfig = {
   apiKey: "AIzaSyAyxeVnd6mTBzK-J2cI_7LuygIiInXZ660",
@@ -215,16 +378,168 @@ var firebaseConfig = {
   messagingSenderId: "525319727429",
   appId: "1:525319727429:web:af07b57b8efa11c2fdf62c"
 };
+
 firebase.initializeApp(firebaseConfig);
 var db = firebase.database();
-var avisosRef = db.ref("avisos_tablon");
 
-avisosRef.on("value", function(snap) {
-  avisosData = snap.val() || {};
+// Refs de los tres tablones
+var refs = {
+  familias:  db.ref("avisos_familias"),
+  maestros:  db.ref("avisos_maestros"),
+  directivo: db.ref("avisos_directivo")
+};
+
+// Ref de contraseñas en Firebase
+// Estructura esperada en DB:
+//   config/claves/maestros   → "la_clave"
+//   config/claves/directivo  → "la_clave"
+var clavesRef = db.ref("config/claves");
+
+// ════════════════════════════════════════════════════════════════
+// ESTADO
+// ════════════════════════════════════════════════════════════════
+var adminActivo = false;
+var selectedFile = null;
+var avisosData = {};
+var currentListener = null;
+var currentSeccion = null; // 'familias' | 'maestros' | 'directivo'
+var seccionPendiente = null;
+var claves = {}; // se cargan de Firebase al inicio
+
+// Sesiones desbloqueadas (en memoria, se pierden al recargar)
+var sesionesDesbloqueadas = { maestros: false, directivo: false };
+
+// ════════════════════════════════════════════════════════════════
+// CARGAR CLAVES DESDE FIREBASE
+// ════════════════════════════════════════════════════════════════
+clavesRef.once("value", function(snap) {
+  var val = snap.val();
+  if (val) {
+    claves = val;
+  } else {
+    // Si no existen, las creamos con valores por defecto
+    clavesRef.set({
+      maestros:  "maestros2025",
+      directivo: "directivo2025"
+    });
+    claves = { maestros: "maestros2025", directivo: "directivo2025" };
+  }
+});
+
+// ════════════════════════════════════════════════════════════════
+// NAVEGACIÓN: INICIO / SECCIÓN
+// ════════════════════════════════════════════════════════════════
+var seccInfo = {
+  familias:  { titulo:"👨‍👩‍👧‍👦 Familias",    subtitulo:"Avisos para las familias del centro", clase:"hero-familias", badge:"Familias" },
+  maestros:  { titulo:"📚 Profesorado",  subtitulo:"Avisos internos del claustro",        clase:"hero-maestros", badge:"Profesorado" },
+  directivo: { titulo:"🏫 Eq. Directivo",subtitulo:"Avisos del equipo directivo",          clase:"hero-directivo", badge:"Eq. Directivo" }
+};
+
+function mostrarInicio() {
+  if (currentListener) {
+    refs[currentSeccion] && refs[currentSeccion].off("value", currentListener);
+    currentListener = null;
+  }
+  currentSeccion = null;
+  document.getElementById("pantallaInicio").style.display = "block";
+  document.getElementById("pantallaSeccion").style.display = "none";
+  document.getElementById("btnVolver").style.display = "none";
+  document.getElementById("sectionBadge").style.display = "none";
+}
+
+function entrarSeccion(sec) {
+  currentSeccion = sec;
+  var info = seccInfo[sec];
+
+  document.getElementById("pantallaInicio").style.display = "none";
+  document.getElementById("pantallaSeccion").style.display = "block";
+  document.getElementById("btnVolver").style.display = "inline-block";
+
+  var badge = document.getElementById("sectionBadge");
+  badge.textContent = info.badge;
+  badge.style.display = "inline-block";
+
+  var hero = document.getElementById("seccionHero");
+  hero.className = "seccion-hero " + info.clase;
+  document.getElementById("seccionTitle").textContent = info.titulo;
+  document.getElementById("seccionSubtitle").textContent = info.subtitulo;
+
+  cargarAvisos(sec);
+}
+
+function pedirAccesoSeccion(sec) {
+  if (sesionesDesbloqueadas[sec]) {
+    entrarSeccion(sec);
+    return;
+  }
+  seccionPendiente = sec;
+  var info = seccInfo[sec];
+  var header = document.getElementById("modalAccesoHeader");
+  header.className = "modal-header color-" + sec;
+  document.getElementById("modalAccesoTitle").textContent = info.badge + " · Acceso restringido";
+  document.getElementById("accesoIcon").textContent = sec === "maestros" ? "📚" : "🏫";
+  document.getElementById("accesoSubtitulo").textContent = "Esta sección está protegida. Introduce la contraseña para acceder.";
+  document.getElementById("inputAccesoClave").value = "";
+  document.getElementById("modalAcceso").classList.add("open");
+  setTimeout(function(){ document.getElementById("inputAccesoClave").focus(); }, 100);
+}
+
+function cerrarModalAcceso() {
+  document.getElementById("modalAcceso").classList.remove("open");
+  seccionPendiente = null;
+}
+
+document.getElementById("btnComprobarClave").addEventListener("click", comprobarClaveSeccion);
+document.getElementById("inputAccesoClave").addEventListener("keydown", function(e){
+  if (e.key === "Enter") comprobarClaveSeccion();
+});
+document.getElementById("modalAcceso").addEventListener("click", function(e){
+  if (e.target === this) cerrarModalAcceso();
+});
+
+function comprobarClaveSeccion() {
+  var val = document.getElementById("inputAccesoClave").value.trim();
+  var sec = seccionPendiente;
+  if (!sec) return;
+  var claveCorrecta = claves[sec];
+  if (!claveCorrecta) {
+    showToast("No se pudo verificar la clave. Inténtalo de nuevo.", "error");
+    return;
+  }
+  if (val === claveCorrecta) {
+    sesionesDesbloqueadas[sec] = true;
+    document.getElementById("modalAcceso").classList.remove("open");
+    entrarSeccion(sec);
+    seccionPendiente = null;
+  } else {
+    showToast("Contraseña incorrecta", "error");
+    document.getElementById("inputAccesoClave").value = "";
+  }
+}
+
+document.getElementById("btnVolver").addEventListener("click", mostrarInicio);
+
+// ════════════════════════════════════════════════════════════════
+// CARGAR AVISOS
+// ════════════════════════════════════════════════════════════════
+function cargarAvisos(sec) {
+  if (currentListener) {
+    refs[currentSeccion] && refs[sec].off("value", currentListener);
+  }
+  document.getElementById("muroContainer").innerHTML =
+    '<div class="loading-state"><div class="spinner"></div><span>Cargando avisos...</span></div>';
+
+  currentListener = refs[sec].on("value", function(snap) {
+    avisosData = snap.val() || {};
+    renderAvisos();
+  });
+}
+
+function renderAvisos() {
   var container = document.getElementById("muroContainer");
   var keys = Object.keys(avisosData);
   if (keys.length === 0) {
-    container.innerHTML = '<div class="empty-state"><div class="icon">&#128237;</div><h3>Sin avisos por ahora</h3><p>Cuando se publiquen avisos aparecerán aquí.</p></div>';
+    container.innerHTML = '<div class="empty-state"><div class="icon">📭</div><h3>Sin avisos por ahora</h3><p>Cuando se publiquen avisos aparecerán aquí.</p></div>';
     return;
   }
   var items = keys.map(function(k){ return [k, avisosData[k]]; });
@@ -232,8 +547,7 @@ avisosRef.on("value", function(snap) {
   container.innerHTML = '<div class="muro-grid" id="muroGrid"></div>';
   var grid = document.getElementById("muroGrid");
   items.forEach(function(item) {
-    var key = item[0];
-    var aviso = item[1];
+    var key = item[0], aviso = item[1];
     var card = document.createElement("div");
     card.className = "card";
     var img = document.createElement("img");
@@ -259,8 +573,11 @@ avisosRef.on("value", function(snap) {
     card.appendChild(adminBar);
     grid.appendChild(card);
   });
-});
+}
 
+// ════════════════════════════════════════════════════════════════
+// LIGHTBOX
+// ════════════════════════════════════════════════════════════════
 function openLightbox(key) {
   var a = avisosData[key];
   if (!a) return;
@@ -270,62 +587,74 @@ function openLightbox(key) {
   document.body.style.overflow = "hidden";
 }
 function closeLightbox() {
+  document.getElementById("sharePanel").classList.remove("open");
   document.getElementById("lightbox").classList.remove("open");
   document.body.style.overflow = "";
 }
 document.getElementById("lightbox").addEventListener("click", function(e){
-  if (e.target === document.getElementById("lightbox")) closeLightbox();
+  if (e.target === this) closeLightbox();
 });
 document.getElementById("lightboxClose").addEventListener("click", closeLightbox);
 document.addEventListener("keydown", function(e){ if(e.key==="Escape") closeLightbox(); });
 
+// ════════════════════════════════════════════════════════════════
+// ADMIN
+// ════════════════════════════════════════════════════════════════
 document.getElementById("btnAdmin").addEventListener("click", openAdminModal);
-document.getElementById("btnClose").addEventListener("click", closeModal);
-document.getElementById("btnCheckPass").addEventListener("click", checkPassword);
+document.getElementById("btnCloseAdmin").addEventListener("click", closeAdminModal);
+document.getElementById("btnCheckAdminPass").addEventListener("click", checkAdminPassword);
 document.getElementById("btnSubir").addEventListener("click", subirAviso);
 document.getElementById("btnCerrarSesion").addEventListener("click", cerrarSesionAdmin);
 document.getElementById("inputFile").addEventListener("change", onFileChange);
-document.getElementById("inputPassword").addEventListener("keydown", function(e){
-  if (e.key === "Enter") checkPassword();
+document.getElementById("inputAdminPassword").addEventListener("keydown", function(e){
+  if (e.key === "Enter") checkAdminPassword();
 });
 document.getElementById("modalAdmin").addEventListener("click", function(e){
-  if (e.target === document.getElementById("modalAdmin")) closeModal();
+  if (e.target === this) closeAdminModal();
 });
 
 function openAdminModal() {
   if (adminActivo) {
-    showScreen("screenUpload");
-    document.getElementById("modalTitle").textContent = "Publicar Aviso";
+    showAdminScreen("screenUpload");
+    document.getElementById("modalAdminTitle").textContent = "Publicar Aviso";
   } else {
-    showScreen("screenPassword");
-    document.getElementById("modalTitle").textContent = "Acceso Admin";
+    showAdminScreen("screenAdminPassword");
+    document.getElementById("modalAdminTitle").textContent = "Acceso Admin";
   }
   document.getElementById("modalAdmin").classList.add("open");
-  if (!adminActivo) setTimeout(function(){ document.getElementById("inputPassword").focus(); }, 100);
+  if (!adminActivo) setTimeout(function(){ document.getElementById("inputAdminPassword").focus(); }, 100);
 }
-function closeModal() {
+function closeAdminModal() {
   document.getElementById("modalAdmin").classList.remove("open");
   resetForm();
 }
-function checkPassword() {
-  var val = document.getElementById("inputPassword").value;
+function showAdminScreen(id) {
+  document.getElementById("screenAdminPassword").style.display = id === "screenAdminPassword" ? "block" : "none";
+  document.getElementById("screenUpload").style.display = id === "screenUpload" ? "block" : "none";
+}
+function checkAdminPassword() {
+  var val = document.getElementById("inputAdminPassword").value;
   if (val === ADMIN_PASSWORD) {
     adminActivo = true;
     document.body.classList.add("admin-active");
-    showScreen("screenUpload");
-    document.getElementById("modalTitle").textContent = "Publicar Aviso";
-    document.getElementById("inputPassword").value = "";
+    showAdminScreen("screenUpload");
+    document.getElementById("modalAdminTitle").textContent = "Publicar Aviso";
+    document.getElementById("inputAdminPassword").value = "";
   } else {
-    showToast("Contrasena incorrecta", "error");
-    document.getElementById("inputPassword").value = "";
+    showToast("Contraseña incorrecta", "error");
+    document.getElementById("inputAdminPassword").value = "";
   }
 }
 function cerrarSesionAdmin() {
   adminActivo = false;
   document.body.classList.remove("admin-active");
-  closeModal();
-  showToast("Sesion admin cerrada");
+  closeAdminModal();
+  showToast("Sesión admin cerrada");
 }
+
+// ════════════════════════════════════════════════════════════════
+// SUBIR AVISO
+// ════════════════════════════════════════════════════════════════
 function onFileChange(e) {
   var file = e.target.files[0];
   if (!file) return;
@@ -340,6 +669,7 @@ function onFileChange(e) {
   };
   reader.readAsDataURL(file);
 }
+
 function comprimirImagen(file) {
   return new Promise(function(resolve, reject) {
     var reader = new FileReader();
@@ -360,43 +690,54 @@ function comprimirImagen(file) {
     reader.readAsDataURL(file);
   });
 }
+
 function subirAviso() {
   var descripcion = document.getElementById("inputDescripcion").value.trim();
   if (!selectedFile) { showToast("Selecciona una imagen", "error"); return; }
-  if (!descripcion) { showToast("Añade una descripcion", "error"); return; }
+  if (!descripcion) { showToast("Añade una descripción", "error"); return; }
+
+  var destinos = [];
+  if (document.getElementById("destFamilias").checked) destinos.push("familias");
+  if (document.getElementById("destMaestros").checked) destinos.push("maestros");
+  if (document.getElementById("destDirectivo").checked) destinos.push("directivo");
+  if (destinos.length === 0) { showToast("Elige al menos una sección destino", "error"); return; }
+
   var btn = document.getElementById("btnSubir");
   btn.disabled = true; btn.textContent = "Comprimiendo...";
   var pw = document.getElementById("progressWrap");
   var pb = document.getElementById("progressBar");
-  pw.style.display = "block"; pb.style.width = "30%";
+  pw.style.display = "block"; pb.style.width = "20%";
+
   comprimirImagen(selectedFile).then(function(imageB64) {
-    pb.style.width = "70%";
+    pb.style.width = "50%";
     btn.textContent = "Publicando...";
-    return avisosRef.push({ imageB64: imageB64, descripcion: descripcion, timestamp: Date.now() });
+    var aviso = { imageB64: imageB64, descripcion: descripcion, timestamp: Date.now() };
+    var promesas = destinos.map(function(d) {
+      return refs[d].push(aviso);
+    });
+    return Promise.all(promesas);
   }).then(function() {
     pb.style.width = "100%";
-    showToast("Aviso publicado!", "success");
+    showToast("Aviso publicado en: " + destinos.join(", "), "success");
     setTimeout(function(){ pw.style.display="none"; pb.style.width="0%"; }, 600);
-    closeModal();
-    btn.disabled = false; btn.textContent = "Publicar aviso";
+    closeAdminModal();
+    btn.disabled = false; btn.textContent = "⬆️ Publicar aviso";
   }).catch(function(err) {
     showToast("Error: " + err.message, "error");
     pw.style.display = "none";
-    btn.disabled = false; btn.textContent = "Publicar aviso";
+    btn.disabled = false; btn.textContent = "⬆️ Publicar aviso";
   });
 }
+
 function eliminarAviso(key) {
-  if (!confirm("Eliminar este aviso?")) return;
-  avisosRef.child(key).remove().then(function(){
+  if (!confirm("¿Eliminar este aviso?")) return;
+  refs[currentSeccion].child(key).remove().then(function(){
     showToast("Aviso eliminado", "success");
   }).catch(function(err){
     showToast("Error: " + err.message, "error");
   });
 }
-function showScreen(id) {
-  document.getElementById("screenPassword").style.display = id === "screenPassword" ? "block" : "none";
-  document.getElementById("screenUpload").style.display = id === "screenUpload" ? "block" : "none";
-}
+
 function resetForm() {
   selectedFile = null;
   var fi = document.getElementById("inputFile"); if(fi) fi.value = "";
@@ -405,65 +746,55 @@ function resetForm() {
   var pi = document.getElementById("previewImg"); if(pi){ pi.style.display="none"; pi.src=""; }
   var td = document.getElementById("inputDescripcion"); if(td) td.value = "";
 }
-function showToast(msg, type) {
-  var t = document.getElementById("toast");
-  t.textContent = msg;
-  t.className = "toast show" + (type ? " " + type : "");
-  setTimeout(function(){ t.className = "toast"; }, 3000);
-}
 
-// ── COMPARTIR ──────────────────────────────────────────────────────────
-var currentShareKey = null;
+// ════════════════════════════════════════════════════════════════
+// COMPARTIR
+// ════════════════════════════════════════════════════════════════
 document.getElementById("btnShare").addEventListener("click", function(){
   document.getElementById("sharePanel").classList.toggle("open");
 });
 document.getElementById("shareWhatsapp").addEventListener("click", function(){
   var desc = document.getElementById("lightboxDesc").textContent;
-  var text = "Aviso CEIP Capitulaciones: " + desc + " - Consulta el tablon en: " + window.location.href;
+  var text = "Aviso CEIP Capitulaciones: " + desc + " - " + window.location.href;
   window.open("https://wa.me/?text=" + encodeURIComponent(text), "_blank");
 });
 document.getElementById("shareGmail").addEventListener("click", function(){
   var desc = document.getElementById("lightboxDesc").textContent;
   var subject = "Aviso CEIP Capitulaciones";
-  var body = "Hola,\n\nTe comparto este aviso del CEIP Capitulaciones:\n\n" + desc + "\n\nPuedes ver todos los avisos en: " + window.location.href;
+  var body = "Hola,\n\nTe comparto este aviso del CEIP Capitulaciones:\n\n" + desc + "\n\n" + window.location.href;
   window.open("https://mail.google.com/mail/?view=cm&fs=1&su=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body), "_blank");
 });
-// Web Share API si disponible
 if (navigator.share) {
   document.getElementById("shareNative").style.display = "flex";
   document.getElementById("shareNative").addEventListener("click", function(){
     var desc = document.getElementById("lightboxDesc").textContent;
-    navigator.share({
-      title: "Aviso CEIP Capitulaciones",
-      text: desc,
-      url: window.location.href
-    }).catch(function(){});
+    navigator.share({ title:"Aviso CEIP Capitulaciones", text:desc, url:window.location.href }).catch(function(){});
   });
 }
-// Cerrar panel al cerrar lightbox
-var origClose = closeLightbox;
-closeLightbox = function(){
-  document.getElementById("sharePanel").classList.remove("open");
-  origClose();
-};
 
-// ── PWA SERVICE WORKER ──────────────────────────────────────────────────
+// ════════════════════════════════════════════════════════════════
+// UTILS
+// ════════════════════════════════════════════════════════════════
+function showToast(msg, type) {
+  var t = document.getElementById("toast");
+  t.textContent = msg;
+  t.className = "toast show" + (type ? " " + type : "");
+  setTimeout(function(){ t.className = "toast"; }, 3500);
+}
+
+// ════════════════════════════════════════════════════════════════
+// PWA
+// ════════════════════════════════════════════════════════════════
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function(){
-    navigator.serviceWorker.register("./sw.js").then(function(reg){
-      console.log("SW registrado:", reg.scope);
-    }).catch(function(err){
-      console.log("SW error:", err);
-    });
+    navigator.serviceWorker.register("./sw.js").catch(function(){});
   });
 }
-// ── PWA INSTALL BANNER ──────────────────────────────────────────────────
 var deferredPrompt = null;
 window.addEventListener("beforeinstallprompt", function(e){
   e.preventDefault();
   deferredPrompt = e;
-  var banner = document.getElementById("installBanner");
-  banner.classList.add("show");
+  document.getElementById("installBanner").classList.add("show");
 });
 document.getElementById("btnInstall").addEventListener("click", function(){
   if (!deferredPrompt) return;
@@ -478,7 +809,7 @@ document.getElementById("btnInstallClose").addEventListener("click", function(){
 });
 window.addEventListener("appinstalled", function(){
   document.getElementById("installBanner").classList.remove("show");
-  showToast("App instalada correctamente!", "success");
+  showToast("¡App instalada correctamente!", "success");
 });
 </script>
 </body>
