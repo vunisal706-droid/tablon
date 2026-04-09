@@ -391,8 +391,9 @@ var refs = {
 
 // Ref de contraseñas en Firebase
 // Estructura esperada en DB:
-//   config/claves/maestros   → "la_clave"
-//   config/claves/directivo  → "la_clave"
+//   config/claves/maestros      → "la_clave"
+//   config/claves/directivo     → "la_clave"
+//   config/claves/superusuario  → "tigre"  (abre el panel admin)
 var clavesRef = db.ref("config/claves");
 
 // ════════════════════════════════════════════════════════════════
@@ -416,13 +417,19 @@ clavesRef.once("value", function(snap) {
   var val = snap.val();
   if (val) {
     claves = val;
+    // Si no existe la clave superusuario aún en Firebase, la creamos
+    if (!claves.superusuario) {
+      clavesRef.child("superusuario").set("tigre");
+      claves.superusuario = "tigre";
+    }
   } else {
     // Si no existen, las creamos con valores por defecto
     clavesRef.set({
-      maestros:  "maestros2025",
-      directivo: "directivo2025"
+      maestros:     "maestros2025",
+      directivo:    "directivo2025",
+      superusuario: "tigre"
     });
-    claves = { maestros: "maestros2025", directivo: "directivo2025" };
+    claves = { maestros: "maestros2025", directivo: "directivo2025", superusuario: "tigre" };
   }
 });
 
@@ -634,7 +641,9 @@ function showAdminScreen(id) {
 }
 function checkAdminPassword() {
   var val = document.getElementById("inputAdminPassword").value;
-  if (val === ADMIN_PASSWORD) {
+  var claveAdmin = ADMIN_PASSWORD;
+  var claveSuperusuario = claves.superusuario || "";
+  if (val === claveAdmin || (claveSuperusuario && val === claveSuperusuario)) {
     adminActivo = true;
     document.body.classList.add("admin-active");
     showAdminScreen("screenUpload");
