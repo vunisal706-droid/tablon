@@ -14,6 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
 <style>
 :root{
   --verde:#2d6a4f;--verde-claro:#40916c;--verde-palido:#d8f3dc;
@@ -304,8 +305,8 @@ body.admin-active .admin-banner{display:block}
       <!-- Pantalla contraseña admin -->
       <div id="screenAdminPassword">
         <div class="form-group">
-          <label>Contraseña admin</label>
-          <input type="password" id="inputAdminPassword" placeholder="Introduce la contraseña">
+          <label for="inputAdminPassword">Usuario IdEA</label>
+          <input type="password" id="inputAdminPassword" placeholder="Tu usuario IdEA de Séneca" autocomplete="off" autocapitalize="off" spellcheck="false">
         </div>
         <button class="btn-submit" id="btnCheckAdminPass">🔑 Entrar</button>
       </div>
@@ -365,7 +366,9 @@ body.admin-active .admin-banner{display:block}
 // ════════════════════════════════════════════════════════════════
 // CONFIGURACIÓN
 // ════════════════════════════════════════════════════════════════
-var ADMIN_PASSWORD = "capitulaciones2025"; // ← contraseña admin sin tocar
+// Publicar requiere Firebase Authentication.
+// Ya no hay ninguna contraseña escrita en este fichero.
+var ADMIN_DOMINIO = "@capitulaciones.local";
 var MAX_W = 1200;
 var QUALITY = 0.82;
 
@@ -381,6 +384,8 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 var db = firebase.database();
+var auth = firebase.auth();
+auth.setPersistence(firebase.auth.Auth.Persistence.SESSION).catch(function () {});
 
 // Refs de los tres tablones
 var refs = {
@@ -389,12 +394,6 @@ var refs = {
   directivo: db.ref("avisos_directivo")
 };
 
-// Ref de contraseñas en Firebase
-// Estructura esperada en DB:
-//   config/claves/maestros      → "la_clave"
-//   config/claves/directivo     → "la_clave"
-//   config/claves/superusuario  → "tigre"  (abre el panel admin)
-var clavesRef = db.ref("config/claves");
 
 // ════════════════════════════════════════════════════════════════
 // ESTADO
@@ -405,33 +404,9 @@ var avisosData = {};
 var currentListener = null;
 var currentSeccion = null; // 'familias' | 'maestros' | 'directivo'
 var seccionPendiente = null;
-var claves = {}; // se cargan de Firebase al inicio
 
 // Sesiones desbloqueadas (en memoria, se pierden al recargar)
-var sesionesDesbloqueadas = { maestros: false, directivo: false };
-
-// ════════════════════════════════════════════════════════════════
-// CARGAR CLAVES DESDE FIREBASE
-// ════════════════════════════════════════════════════════════════
-clavesRef.once("value", function(snap) {
-  var val = snap.val();
-  if (val) {
-    claves = val;
-    // Si no existe la clave superusuario aún en Firebase, la creamos
-    if (!claves.superusuario) {
-      clavesRef.child("superusuario").set("tigre");
-      claves.superusuario = "tigre";
-    }
-  } else {
-    // Si no existen, las creamos con valores por defecto
-    clavesRef.set({
-      maestros:     "maestros2025",
-      directivo:    "directivo2025",
-      superusuario: "tigre"
-    });
-    claves = { maestros: "maestros2025", directivo: "directivo2025", superusuario: "tigre" };
-  }
-});
+var sesionesDesbloqueadas = { maestros: true, directivo: true };
 
 // ════════════════════════════════════════════════════════════════
 // NAVEGACIÓN: INICIO / SECCIÓN
@@ -475,53 +450,14 @@ function entrarSeccion(sec) {
 }
 
 function pedirAccesoSeccion(sec) {
-  if (sesionesDesbloqueadas[sec]) {
-    entrarSeccion(sec);
-    return;
-  }
-  seccionPendiente = sec;
-  var info = seccInfo[sec];
-  var header = document.getElementById("modalAccesoHeader");
-  header.className = "modal-header color-" + sec;
-  document.getElementById("modalAccesoTitle").textContent = info.badge + " · Acceso restringido";
-  document.getElementById("accesoIcon").textContent = sec === "maestros" ? "📚" : "🏫";
-  document.getElementById("accesoSubtitulo").textContent = "Esta sección está protegida. Introduce la contraseña para acceder.";
-  document.getElementById("inputAccesoClave").value = "";
-  document.getElementById("modalAcceso").classList.add("open");
-  setTimeout(function(){ document.getElementById("inputAccesoClave").focus(); }, 100);
+  // Los tablones son de consulta abierta: no hay contraseña de lectura.
+  entrarSeccion(sec);
 }
 
 function cerrarModalAcceso() {
-  document.getElementById("modalAcceso").classList.remove("open");
+  var m = document.getElementById("modalAcceso");
+  if (m) m.classList.remove("open");
   seccionPendiente = null;
-}
-
-document.getElementById("btnComprobarClave").addEventListener("click", comprobarClaveSeccion);
-document.getElementById("inputAccesoClave").addEventListener("keydown", function(e){
-  if (e.key === "Enter") comprobarClaveSeccion();
-});
-document.getElementById("modalAcceso").addEventListener("click", function(e){
-  if (e.target === this) cerrarModalAcceso();
-});
-
-function comprobarClaveSeccion() {
-  var val = document.getElementById("inputAccesoClave").value.trim();
-  var sec = seccionPendiente;
-  if (!sec) return;
-  var claveCorrecta = claves[sec];
-  if (!claveCorrecta) {
-    showToast("No se pudo verificar la clave. Inténtalo de nuevo.", "error");
-    return;
-  }
-  if (val === claveCorrecta) {
-    sesionesDesbloqueadas[sec] = true;
-    document.getElementById("modalAcceso").classList.remove("open");
-    entrarSeccion(sec);
-    seccionPendiente = null;
-  } else {
-    showToast("Contraseña incorrecta", "error");
-    document.getElementById("inputAccesoClave").value = "";
-  }
 }
 
 document.getElementById("btnVolver").addEventListener("click", mostrarInicio);
@@ -640,21 +576,35 @@ function showAdminScreen(id) {
   document.getElementById("screenUpload").style.display = id === "screenUpload" ? "block" : "none";
 }
 function checkAdminPassword() {
-  var val = document.getElementById("inputAdminPassword").value;
-  var claveAdmin = ADMIN_PASSWORD;
-  var claveSuperusuario = claves.superusuario || "";
-  if (val === claveAdmin || (claveSuperusuario && val === claveSuperusuario)) {
-    adminActivo = true;
-    document.body.classList.add("admin-active");
-    showAdminScreen("screenUpload");
-    document.getElementById("modalAdminTitle").textContent = "Publicar Aviso";
-    document.getElementById("inputAdminPassword").value = "";
-  } else {
-    showToast("Contraseña incorrecta", "error");
-    document.getElementById("inputAdminPassword").value = "";
-  }
+  var val = document.getElementById("inputAdminPassword").value.trim();
+  var btn = document.getElementById("btnCheckAdminPass");
+  if (!val) { showToast("Escribe tu usuario IdEA", "error"); return; }
+
+  btn.disabled = true;
+  btn.textContent = "Comprobando…";
+  auth.signInWithEmailAndPassword(val.toLowerCase() + ADMIN_DOMINIO, val)
+    .then(function () {
+      adminActivo = true;
+      document.body.classList.add("admin-active");
+      showAdminScreen("screenUpload");
+      document.getElementById("modalAdminTitle").textContent = "Publicar Aviso";
+      document.getElementById("inputAdminPassword").value = "";
+      showToast("Sesión iniciada");
+    })
+    .catch(function (e) {
+      if (e.code === "auth/network-request-failed") showToast("Sin conexión", "error");
+      else if (e.code === "auth/too-many-requests") showToast("Demasiados intentos. Espera unos minutos.", "error");
+      else showToast("Usuario IdEA incorrecto", "error");
+      document.getElementById("inputAdminPassword").value = "";
+    })
+    .then(function () {
+      btn.disabled = false;
+      btn.textContent = "Entrar";
+    });
 }
+
 function cerrarSesionAdmin() {
+  auth.signOut().catch(function () {});
   adminActivo = false;
   document.body.classList.remove("admin-active");
   closeAdminModal();
