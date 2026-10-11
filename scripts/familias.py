@@ -4,7 +4,9 @@
 - Trámites con plazo abierto (tramites.json) y novedades del BOJA que afectan a las familias.
 - Días señalados de la semana.
 Se ejecuta con GitHub Actions por la mañana y por la tarde."""
-import json, re, datetime, urllib.request, unicodedata
+import json, re, datetime, urllib.request, unicodedata, os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from i18n_familias import LANGS, tx, fen, cuando as cuando_l, fecha as fecha_l, SENALADOS as SEN_L
 from zoneinfo import ZoneInfo
 
 TZ = ZoneInfo('Europe/Madrid')
@@ -64,8 +66,9 @@ def cuando(d):
     return 'hoy' if k == 0 else 'mañana' if k == 1 else f'el {bonito(d)}'
 
 avisos = []
-def aviso(orden, emoji, titulo, texto, nivel='info', grupo='hoy'):
-    avisos.append({'orden': orden, 'emoji': emoji, 'titulo': titulo, 'texto': texto, 'nivel': nivel, 'grupo': grupo})
+def aviso(orden, emoji, render, nivel='info'):
+    """render(l) -> (título, texto) en el idioma l"""
+    avisos.append({'orden': orden, 'emoji': emoji, 'render': render, 'nivel': nivel})
 
 # ---------- Tiempo del próximo día de cole ----------
 dia = proximo_dia_cole()
@@ -82,24 +85,19 @@ if dia and (dia - HOY).days <= 3:
         pe, me = lluvia([8, 9]); ps, ms = lluvia([13, 14])
         ent, sal = pe >= 40 or me >= 0.2, ps >= 40 or ms >= 0.2
         if ent or sal:
-            momento = 'a la entrada y a la salida' if ent and sal else 'a la entrada (9:00)' if ent else 'a la salida (13:50)'
-            texto = []
-            if ent:
-                texto.append('Si llueve a la entrada, el alumnado de Infantil y del aula TEA entra por el patio de Infantil directamente a sus clases, '
-                             'y el alumnado de Primaria sube directamente a clase sin hacer la fila.')
-            if sal:
-                texto.append('Si llueve a la salida, la recogida del alumnado de Infantil y del aula TEA se hace también por el patio de Infantil.')
-            aviso(1, '🌧️', f'Previsión de lluvia {cuando(dia)} {momento}',
-                  f'Probabilidad de lluvia: {max(pe if ent else 0, ps if sal else 0)} %. ' + ' '.join(texto), 'aviso')
+            mk = 'm_ambos' if ent and sal else 'm_ent' if ent else 'm_sal'
+            p = max(pe if ent else 0, ps if sal else 0)
+            aviso(1, '🌧️', lambda l, d=dia: (tx('lluvia_t', l, cuando=cuando_l(d, HOY, l), momento=tx(mk, l)),
+                  ' '.join([tx('prob', l, p=p)] + ([tx('p_ent', l)] if ent else []) + ([tx('p_sal', l)] if sal else []))), 'aviso')
         feel = [H['apparent_temperature'][i] for i, t in enumerate(H['time']) if 9 <= int(t[11:13]) <= 14]
         uv = [H['uv_index'][i] or 0 for i, t in enumerate(H['time']) if 9 <= int(t[11:13]) <= 14]
         if feel and max(feel) >= 32:
-            aviso(2, '🥵', f'Calor {cuando(dia)}: hasta {round(max(feel))}°',
-                  'Que traigan botella de agua, gorra y ropa fresca. Si es posible, crema solar puesta desde casa.', 'aviso')
+            g = round(max(feel))
+            aviso(2, '🥵', lambda l, d=dia: (tx('calor_t', l, cuando=cuando_l(d, HOY, l), g=g), tx('calor_x', l)), 'aviso')
         elif feel and max(feel) <= 3:
-            aviso(2, '🥶', f'Mucho frío {cuando(dia)} a primera hora', 'Abrigo, gorro y guantes para la entrada y el recreo.', 'info')
+            aviso(2, '🥶', lambda l, d=dia: (tx('frio_t', l, cuando=cuando_l(d, HOY, l)), tx('frio_x', l)), 'info')
         elif uv and max(uv) >= 8:
-            aviso(3, '🧢', f'Sol muy fuerte {cuando(dia)}', 'Gorra y crema solar para el recreo.', 'info')
+            aviso(3, '🧢', lambda l, d=dia: (tx('sol_t', l, cuando=cuando_l(d, HOY, l)), tx('sol_x', l)), 'info')
     except Exception as ex:
         print('Tiempo: no disponible', ex)
 
@@ -115,9 +113,8 @@ def dentro(lat, lon, poly):
 try:
     for a in get_json(f'{BASE}/mitiempo/avisos.json').get('avisos', []):
         if a.get('nivel', 0) >= 2 and any(dentro(SF[0], SF[1], pg) for pg in a.get('poligonos', [])):
-            nv = {2: 'naranja', 3: 'rojo'}[a['nivel']]
-            aviso(0, '⚠️', f'Aviso {nv} de AEMET por {a.get("fenomeno", "").lower()}',
-                  (a.get('titulo') or a.get('zona') or '') + '. Sigue las indicaciones de Protección Civil y del centro.', 'importante')
+            nv = {2: 'naranja', 3: 'rojo'}[a['nivel']]; fe = a.get('fenomeno', '')
+            aviso(0, '⚠️', lambda l: (tx('aemet_t', l, nivel=tx(nv, l), fen=fen(fe, l)), tx('aemet_x', l)), 'importante')
             break
 except Exception as ex:
     print('AEMET: no disponible', ex)
@@ -132,14 +129,13 @@ try:
     mx = lambda k: max([(QH.get(k) or [0])[i] or 0 for i in idx] or [0])
     oli, gra, aqi, pol = mx('olive_pollen'), mx('grass_pollen'), mx('european_aqi'), mx('dust')
     partes = []
-    if oli >= 100: partes.append(f'olivo {"muy alto" if oli >= 300 else "alto"}')
-    if gra >= 50: partes.append(f'gramíneas {"muy alto" if gra >= 150 else "alto"}')
+    if oli >= 100: partes.append(('olivo', 'malto' if oli >= 300 else 'alto'))
+    if gra >= 50: partes.append(('gram', 'malto' if gra >= 150 else 'alto'))
     if partes:
-        aviso(4, '🌿', f'Polen alto {"hoy" if dq == HOY else "mañana"}: {", ".join(partes)}',
-              'Si tu hijo o hija tiene alergia, que lleve su medicación pautada y avisa a su tutor o tutora.', 'info')
+        aviso(4, '🌿', lambda l: (tx('polen_t', l, cuando=cuando_l(dq, HOY, l), partes=', '.join(f'{tx(a, l)} {tx(b, l)}' for a, b in partes)),
+                                  tx('polen_x', l)), 'info')
     if aqi >= 80 or pol >= 150:
-        aviso(4, '😷', f'Mala calidad del aire {"hoy" if dq == HOY else "mañana"}' + (' por polvo en suspensión (calima)' if pol >= 150 else ''),
-              'Se recomienda evitar el ejercicio intenso al aire libre, sobre todo con asma o problemas respiratorios.', 'info')
+        aviso(4, '😷', lambda l: (tx('aire_t', l, cuando=cuando_l(dq, HOY, l)) + (tx('calima', l) if pol >= 150 else ''), tx('aire_x', l)), 'info')
 except Exception as ex:
     print('Calidad del aire: no disponible', ex)
 
@@ -157,13 +153,10 @@ try:
     for d0, d1, t in items:
         if d0 <= HOY <= d1:
             k = (d1 - HOY).days
-            estado = 'Último día' if k == 0 else 'Queda 1 día' if k == 1 else f'Quedan {k} días'
-            if d0 == d1: estado = 'Hoy'
-            tramites.append({'emoji': t['emoji'], 'nombre': t['nombre'], 'detalle': t.get('detalle', ''), 'estado': estado,
-                             'hasta': d1.isoformat(), 'abierto': True})
+            est = ('hoy', {}) if d0 == d1 else ('ultimo', {}) if k == 0 else ('queda1', {}) if k == 1 else ('quedan', {'n': k})
+            tramites.append({'t': t, 'est': est, 'hasta': d1.isoformat(), 'abierto': True})
         elif 0 < (d0 - HOY).days <= 10:
-            tramites.append({'emoji': t['emoji'], 'nombre': t['nombre'], 'detalle': t.get('detalle', ''),
-                             'estado': f'Empieza el {bonito(d0)}', 'hasta': d1.isoformat(), 'abierto': False})
+            tramites.append({'t': t, 'est': ('empieza', {'d0': d0}), 'hasta': d1.isoformat(), 'abierto': False})
     tramites.sort(key=lambda x: (not x['abierto'], x['hasta']))
 except Exception as ex:
     print('Trámites: error', ex)
@@ -193,12 +186,26 @@ if HOY.weekday() >= 5:      # en fin de semana se mira la semana que viene
 semana = []
 for k in range(7):
     d = lunes + datetime.timedelta(days=k)
-    if d.strftime('%m-%d') in SENALADOS:
-        semana.append({'fecha': d.isoformat(), 'texto': SENALADOS[d.strftime('%m-%d')],
-                       'cuando': bonito(d) if d.weekday() < 5 else 'este fin de semana (se trabaja en clase durante la semana)'})
+    if d.strftime('%m-%d') in SEN_L:
+        semana.append(d)
 
 avisos.sort(key=lambda a: a['orden'])
-for a in avisos: a.pop('orden')
-json.dump({'actualizado': AHORA.isoformat(timespec='minutes'), 'avisos': avisos, 'tramites': tramites, 'boja': boja, 'semana': semana},
-          open('familias.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
-print(f'familias.json: {len(avisos)} avisos, {len(tramites)} trámites, {len(boja)} BOJA, {len(semana)} días señalados')
+def en_idioma(l):
+    av = []
+    for a in avisos:
+        ti, te = a['render'](l)
+        av.append({'emoji': a['emoji'], 'titulo': ti, 'texto': te, 'nivel': a['nivel']})
+    tr = []
+    for x in tramites:
+        t = x['t']; loc = (t.get('i18n') or {}).get(l, {}) if l != 'es' else {}
+        k, kw = x['est']
+        est = tx(k, l, f=fecha_l(kw['d0'], l)) if k == 'empieza' else tx(k, l, **kw)
+        tr.append({'emoji': t['emoji'], 'nombre': loc.get('nombre', t['nombre']), 'detalle': loc.get('detalle', t.get('detalle', '')),
+                   'estado': est, 'hasta': x['hasta'], 'abierto': x['abierto']})
+    se = [{'fecha': d.isoformat(), 'texto': SEN_L[d.strftime('%m-%d')][l],
+           'cuando': fecha_l(d, l) if d.weekday() < 5 else tx('finde', l)} for d in semana]
+    return {'avisos': av, 'tramites': tr, 'semana': se}
+salida = {'actualizado': AHORA.isoformat(timespec='minutes'), **en_idioma('es'), 'boja': boja,
+          'idiomas': {l: en_idioma(l) for l in LANGS if l != 'es'}}
+json.dump(salida, open('familias.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+print(f'familias.json: {len(avisos)} avisos, {len(tramites)} trámites, {len(boja)} BOJA, {len(semana)} días señalados, {len(LANGS)} idiomas')

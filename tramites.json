@@ -1,16 +1,232 @@
 {
  "nota": "Trámites para familias. Los que tienen 'desde'/'hasta' (MM-DD) se repiten cada curso; los que tienen 'fecha'/'fechaFin' (AAAA-MM-DD) son de un solo año. Revisa las fechas cuando salga la convocatoria de cada año.",
  "anuales": [
-  {"emoji": "🏫", "nombre": "Solicitudes de admisión (nuevo alumnado de 3 años y cambios de centro)", "desde": "03-01", "hasta": "03-31", "detalle": "Se entregan en el colegio que se pide en primer lugar o por la Secretaría Virtual."},
-  {"emoji": "📋", "nombre": "Listas baremadas de admisión y plazo para alegar", "desde": "04-22", "hasta": "05-05", "detalle": "Consulta la puntuación en el tablón o en la Secretaría Virtual."},
-  {"emoji": "✅", "nombre": "Resolución de admisión", "desde": "05-15", "hasta": "05-20", "detalle": "Ya se puede consultar en qué colegio ha obtenido plaza el alumnado nuevo."},
-  {"emoji": "🖊️", "nombre": "Matrícula de Infantil y Primaria", "desde": "06-01", "hasta": "06-08", "detalle": "Obligatoria para el alumnado que continúa en el centro y para el nuevo admitido."},
-  {"emoji": "🍽️", "nombre": "Solicitud de aula matinal, comedor y actividades extraescolares", "desde": "06-01", "hasta": "06-10", "detalle": "Para el curso que viene. Se pide en el colegio o por la Secretaría Virtual."},
-  {"emoji": "📣", "nombre": "Alegaciones a la lista provisional de comedor, aula matinal y extraescolares", "desde": "06-13", "hasta": "06-26", "detalle": "Revisa si tu hijo o hija aparece como admitido o suplente."},
-  {"emoji": "💶", "nombre": "Solicitud de bonificaciones de comedor, aula matinal y extraescolares", "desde": "09-01", "hasta": "09-07", "detalle": "Descuentos según la renta familiar. Se pide en el colegio."},
-  {"emoji": "📚", "nombre": "Cheque-libro de 1.º y 2.º de Primaria", "desde": "09-01", "hasta": "09-20", "detalle": "Se descarga en iPasen y se canjea en la librería."}
+  {
+   "emoji": "🏫",
+   "nombre": "Solicitudes de admisión (nuevo alumnado de 3 años y cambios de centro)",
+   "desde": "03-01",
+   "hasta": "03-31",
+   "detalle": "Se entregan en el colegio que se pide en primer lugar o por la Secretaría Virtual.",
+   "i18n": {
+    "ar": {
+     "nombre": "طلبات القبول (تلاميذ جدد في سن 3 سنوات وتغيير المدرسة)",
+     "detalle": "تُقدَّم في المدرسة المطلوبة في المقام الأول أو عبر السكرتارية الافتراضية (Secretaría Virtual)."
+    },
+    "ro": {
+     "nombre": "Cereri de admitere (copii noi de 3 ani și schimbări de școală)",
+     "detalle": "Se depun la școala aleasă pe primul loc sau prin Secretaría Virtual."
+    },
+    "en": {
+     "nombre": "School admission applications (new 3-year-olds and school changes)",
+     "detalle": "Hand them in at your first-choice school or through the Secretaría Virtual website."
+    },
+    "fr": {
+     "nombre": "Demandes d'admission (nouveaux élèves de 3 ans et changements d'école)",
+     "detalle": "À déposer à l'école demandée en premier choix ou sur la Secretaría Virtual."
+    }
+   }
+  },
+  {
+   "emoji": "📋",
+   "nombre": "Listas baremadas de admisión y plazo para alegar",
+   "desde": "04-22",
+   "hasta": "05-05",
+   "detalle": "Consulta la puntuación en el tablón o en la Secretaría Virtual.",
+   "i18n": {
+    "ar": {
+     "nombre": "قوائم النقاط للقبول وأجل تقديم الاعتراضات",
+     "detalle": "راجعوا النقاط في لوحة الإعلانات أو في السكرتارية الافتراضية."
+    },
+    "ro": {
+     "nombre": "Listele cu punctaj pentru admitere și termen de contestații",
+     "detalle": "Verificați punctajul la avizier sau în Secretaría Virtual."
+    },
+    "en": {
+     "nombre": "Admission points lists and deadline for appeals",
+     "detalle": "Check the points on the notice board or on the Secretaría Virtual."
+    },
+    "fr": {
+     "nombre": "Listes de points d'admission et délai de réclamation",
+     "detalle": "Consultez les points au tableau d'affichage ou sur la Secretaría Virtual."
+    }
+   }
+  },
+  {
+   "emoji": "✅",
+   "nombre": "Resolución de admisión",
+   "desde": "05-15",
+   "hasta": "05-20",
+   "detalle": "Ya se puede consultar en qué colegio ha obtenido plaza el alumnado nuevo.",
+   "i18n": {
+    "ar": {
+     "nombre": "نتيجة القبول",
+     "detalle": "يمكن الآن معرفة المدرسة التي حصل فيها التلاميذ الجدد على مقعد."
+    },
+    "ro": {
+     "nombre": "Rezultatul admiterii",
+     "detalle": "Se poate vedea deja la ce școală au obținut loc elevii noi."
+    },
+    "en": {
+     "nombre": "Admission results",
+     "detalle": "You can now check which school the new pupils have been given a place in."
+    },
+    "fr": {
+     "nombre": "Résultat de l'admission",
+     "detalle": "Vous pouvez consulter dans quelle école les nouveaux élèves ont obtenu une place."
+    }
+   }
+  },
+  {
+   "emoji": "🖊️",
+   "nombre": "Matrícula de Infantil y Primaria",
+   "desde": "06-01",
+   "hasta": "06-08",
+   "detalle": "Obligatoria para el alumnado que continúa en el centro y para el nuevo admitido.",
+   "i18n": {
+    "ar": {
+     "nombre": "تسجيل تلاميذ الروضة والابتدائي",
+     "detalle": "إلزامي للتلاميذ الذين يواصلون في المدرسة وللتلاميذ الجدد المقبولين."
+    },
+    "ro": {
+     "nombre": "Înscrierea la Infantil și Primaria",
+     "detalle": "Obligatorie pentru elevii care continuă la școală și pentru cei noi admiși."
+    },
+    "en": {
+     "nombre": "Enrolment for Infant and Primary",
+     "detalle": "Compulsory for pupils staying at the school and for newly admitted pupils."
+    },
+    "fr": {
+     "nombre": "Inscription en Infantil et Primaire",
+     "detalle": "Obligatoire pour les élèves qui continuent dans l'école et pour les nouveaux admis."
+    }
+   }
+  },
+  {
+   "emoji": "🍽️",
+   "nombre": "Solicitud de aula matinal, comedor y actividades extraescolares",
+   "desde": "06-01",
+   "hasta": "06-10",
+   "detalle": "Para el curso que viene. Se pide en el colegio o por la Secretaría Virtual.",
+   "i18n": {
+    "ar": {
+     "nombre": "طلب القسم الصباحي والمطعم المدرسي والأنشطة اللاصفية",
+     "detalle": "للسنة الدراسية القادمة. يُطلب في المدرسة أو عبر السكرتارية الافتراضية."
+    },
+    "ro": {
+     "nombre": "Cerere pentru aula matinal, cantină și activități extrașcolare",
+     "detalle": "Pentru anul școlar următor. Se cere la școală sau prin Secretaría Virtual."
+    },
+    "en": {
+     "nombre": "Applications for breakfast club, school lunch and after-school activities",
+     "detalle": "For next school year. Apply at the school or through the Secretaría Virtual."
+    },
+    "fr": {
+     "nombre": "Demande de garderie du matin, cantine et activités périscolaires",
+     "detalle": "Pour l'année prochaine. À demander à l'école ou sur la Secretaría Virtual."
+    }
+   }
+  },
+  {
+   "emoji": "📣",
+   "nombre": "Alegaciones a la lista provisional de comedor, aula matinal y extraescolares",
+   "desde": "06-13",
+   "hasta": "06-26",
+   "detalle": "Revisa si tu hijo o hija aparece como admitido o suplente.",
+   "i18n": {
+    "ar": {
+     "nombre": "الاعتراض على القائمة المؤقتة للمطعم والقسم الصباحي والأنشطة",
+     "detalle": "تأكّدوا إن كان طفلكم مقبولاً أو في قائمة الانتظار."
+    },
+    "ro": {
+     "nombre": "Contestații la lista provizorie pentru cantină, aula matinal și extrașcolare",
+     "detalle": "Verificați dacă copilul apare ca admis sau în așteptare."
+    },
+    "en": {
+     "nombre": "Appeals on the provisional list for lunch, breakfast club and activities",
+     "detalle": "Check whether your child is listed as admitted or on the waiting list."
+    },
+    "fr": {
+     "nombre": "Réclamations sur la liste provisoire de cantine, garderie et activités",
+     "detalle": "Vérifiez si votre enfant est admis ou sur liste d'attente."
+    }
+   }
+  },
+  {
+   "emoji": "💶",
+   "nombre": "Solicitud de bonificaciones de comedor, aula matinal y extraescolares",
+   "desde": "09-01",
+   "hasta": "09-07",
+   "detalle": "Descuentos según la renta familiar. Se pide en el colegio.",
+   "i18n": {
+    "ar": {
+     "nombre": "طلب التخفيضات في المطعم والقسم الصباحي والأنشطة",
+     "detalle": "تخفيضات حسب دخل الأسرة. تُطلب في المدرسة."
+    },
+    "ro": {
+     "nombre": "Cerere de reduceri la cantină, aula matinal și extrașcolare",
+     "detalle": "Reduceri în funcție de venitul familiei. Se cer la școală."
+    },
+    "en": {
+     "nombre": "Applications for discounts on lunch, breakfast club and activities",
+     "detalle": "Discounts depending on family income. Apply at the school."
+    },
+    "fr": {
+     "nombre": "Demande de réductions pour cantine, garderie et activités",
+     "detalle": "Réductions selon les revenus de la famille. À demander à l'école."
+    }
+   }
+  },
+  {
+   "emoji": "📚",
+   "nombre": "Cheque-libro de 1.º y 2.º de Primaria",
+   "desde": "09-01",
+   "hasta": "09-20",
+   "detalle": "Se descarga en iPasen y se canjea en la librería.",
+   "i18n": {
+    "ar": {
+     "nombre": "قسيمة الكتب للسنتين الأولى والثانية ابتدائي",
+     "detalle": "تُحمَّل من تطبيق iPasen وتُستعمل في المكتبة."
+    },
+    "ro": {
+     "nombre": "Voucherul pentru cărți la clasele 1 și 2",
+     "detalle": "Se descarcă din iPasen și se folosește la librărie."
+    },
+    "en": {
+     "nombre": "Book voucher for Years 1 and 2 of Primary",
+     "detalle": "Download it from iPasen and use it at the bookshop."
+    },
+    "fr": {
+     "nombre": "Chèque-livre pour 1re et 2e année de Primaire",
+     "detalle": "À télécharger sur iPasen et à utiliser en librairie."
+    }
+   }
+  }
  ],
  "puntuales": [
-  {"emoji": "🗳️", "nombre": "Elecciones al Consejo Escolar: votan las familias", "fecha": "2026-11-17", "fechaFin": "2026-11-17", "detalle": "Votación presencial en el colegio (también hay voto electrónico). Consulta los horarios en el tablón."}
+  {
+   "emoji": "🗳️",
+   "nombre": "Elecciones al Consejo Escolar: votan las familias",
+   "fecha": "2026-11-17",
+   "fechaFin": "2026-11-17",
+   "detalle": "Votación presencial en el colegio (también hay voto electrónico). Consulta los horarios en el tablón.",
+   "i18n": {
+    "ar": {
+     "nombre": "انتخابات المجلس المدرسي: تصويت الأسر",
+     "detalle": "التصويت حضورياً في المدرسة (يوجد أيضاً تصويت إلكتروني). راجعوا المواعيد في لوحة الإعلانات."
+    },
+    "ro": {
+     "nombre": "Alegeri pentru Consiliul Școlar: votează familiile",
+     "detalle": "Vot cu prezență la școală (există și vot electronic). Vedeți orarul la avizier."
+    },
+    "en": {
+     "nombre": "School Council elections: families vote",
+     "detalle": "In-person voting at the school (online voting is also available). See the times on the notice board."
+    },
+    "fr": {
+     "nombre": "Élections au Conseil d'école : les familles votent",
+     "detalle": "Vote sur place à l'école (vote électronique aussi possible). Consultez les horaires au tableau d'affichage."
+    }
+   }
+  }
  ]
 }

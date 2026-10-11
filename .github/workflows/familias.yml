@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'scripts/familias.py'
+      - 'scripts/**'
       - 'tramites.json'
       - '.github/workflows/familias.yml'
 
