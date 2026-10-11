@@ -1,0 +1,16 @@
+{
+ "nota": "Trámites para familias. Los que tienen 'desde'/'hasta' (MM-DD) se repiten cada curso; los que tienen 'fecha'/'fechaFin' (AAAA-MM-DD) son de un solo año. Revisa las fechas cuando salga la convocatoria de cada año.",
+ "anuales": [
+  {"emoji": "🏫", "nombre": "Solicitudes de admisión (nuevo alumnado de 3 años y cambios de centro)", "desde": "03-01", "hasta": "03-31", "detalle": "Se entregan en el colegio que se pide en primer lugar o por la Secretaría Virtual."},
+  {"emoji": "📋", "nombre": "Listas baremadas de admisión y plazo para alegar", "desde": "04-22", "hasta": "05-05", "detalle": "Consulta la puntuación en el tablón o en la Secretaría Virtual."},
+  {"emoji": "✅", "nombre": "Resolución de admisión", "desde": "05-15", "hasta": "05-20", "detalle": "Ya se puede consultar en qué colegio ha obtenido plaza el alumnado nuevo."},
+  {"emoji": "🖊️", "nombre": "Matrícula de Infantil y Primaria", "desde": "06-01", "hasta": "06-08", "detalle": "Obligatoria para el alumnado que continúa en el centro y para el nuevo admitido."},
+  {"emoji": "🍽️", "nombre": "Solicitud de aula matinal, comedor y actividades extraescolares", "desde": "06-01", "hasta": "06-10", "detalle": "Para el curso que viene. Se pide en el colegio o por la Secretaría Virtual."},
+  {"emoji": "📣", "nombre": "Alegaciones a la lista provisional de comedor, aula matinal y extraescolares", "desde": "06-13", "hasta": "06-26", "detalle": "Revisa si tu hijo o hija aparece como admitido o suplente."},
+  {"emoji": "💶", "nombre": "Solicitud de bonificaciones de comedor, aula matinal y extraescolares", "desde": "09-01", "hasta": "09-07", "detalle": "Descuentos según la renta familiar. Se pide en el colegio."},
+  {"emoji": "📚", "nombre": "Cheque-libro de 1.º y 2.º de Primaria", "desde": "09-01", "hasta": "09-20", "detalle": "Se descarga en iPasen y se canjea en la librería."}
+ ],
+ "puntuales": [
+  {"emoji": "🗳️", "nombre": "Elecciones al Consejo Escolar: votan las familias", "fecha": "2026-11-17", "fechaFin": "2026-11-17", "detalle": "Votación presencial en el colegio (también hay voto electrónico). Consulta los horarios en el tablón."}
+ ]
+}

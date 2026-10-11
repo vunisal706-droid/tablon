@@ -1,0 +1,36 @@
+name: Avisos para familias
+
+on:
+  schedule:
+    - cron: '0 5 * * *'     # por la mañana (7:00 en verano, 6:00 en invierno)
+    - cron: '0 16 * * *'    # por la tarde, para avisar del día siguiente
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/familias.py'
+      - 'tramites.json'
+      - '.github/workflows/familias.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: familias
+  cancel-in-progress: false
+
+jobs:
+  familias:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Preparar avisos
+        run: python scripts/familias.py
+      - name: Guardar cambios
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add familias.json
+          git diff --cached --quiet || (git commit -m "Avisos para familias" && git pull --rebase && git push)
