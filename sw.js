@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ceip-avisos-v1-b2610110754';
+const CACHE_NAME = 'ceip-avisos-v1-b2610110804';
 const STATIC_ASSETS = [
   './index.html',
   './icono.png',
