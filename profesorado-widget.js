@@ -1,0 +1,74 @@
+/* Tablón · Profesorado: qué equipos se reúnen el próximo lunes lectivo (cuadrante del centro)
+   y los puntos del orden del día previstos ese mes (app Teletrabajo).
+   El 1.º, 2.º, 3.º y 4.º lunes cuentan solo los lunes con clase (calendario común). */
+(function(){
+  const esc = t => String(t||'').replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const DIA = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+  const MES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  const ORD = ['', '1.er', '2.º', '3.er', '4.º', '5.º'];
+  const pad = n => String(n).padStart(2,'0');
+  const iso = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+  const sinCole = ds => window.CalendarioCole ? CalendarioCole.sinCole(ds) : null;
+  const NOMBRE_ORG = {'CLAUSTRO':'Claustro','EQUIPO DE ORIENTACIÓN':'Equipo de Orientación','EQUIPOS DE CICLO':'Equipos de ciclo','ETCP':'ETCP','EQUIPOS DOCENTES':'Equipos docentes'};
+  let datos = null;
+
+  function lunesLectivos(desde, cuantos){
+    const out = []; const d = new Date(desde); d.setHours(12,0,0,0);
+    while (d.getDay() !== 1) d.setDate(d.getDate()+1);
+    for (let k=0; k<60 && out.length<cuantos; k++, d.setDate(d.getDate()+7)){
+      const ds = iso(d); if (sinCole(ds)) continue;
+      // posición entre los lunes lectivos de su mes
+      let n = 0; const x = new Date(d.getFullYear(), d.getMonth(), 1, 12);
+      while (x <= d){ if (x.getDay()===1 && !sinCole(iso(x))) n++; x.setDate(x.getDate()+1); }
+      out.push({fecha:new Date(d), ds, n});
+    }
+    return out;
+  }
+  function cuando(f){
+    const h = new Date(); h.setHours(12,0,0,0);
+    const k = Math.round((f - h)/864e5);
+    return k===0 ? 'hoy' : k===1 ? 'mañana' : `el ${DIA[f.getDay()]} ${f.getDate()} de ${MES[f.getMonth()]}`;
+  }
+  function html(){
+    const R = datos.reuniones, O = (datos.ordenes||{}).organos || {};
+    const ahora = new Date(); const desde = new Date(ahora);
+    if (ahora.getDay()===1 && ahora.getHours()>=19) desde.setDate(desde.getDate()+1);
+    const [L, sig] = lunesLectivos(desde, 2);
+    if (!L) return '';
+    const lista = (R.cuadrante||{})[String(L.n)] || [];
+    const mes = pad(L.fecha.getMonth()+1);
+    let h = `<div style="font-weight:800;font-size:1.05rem">📅 Reuniones ${cuando(L.fecha)} · ${ORD[L.n]||L.n+'.º'} lunes lectivo</div>
+      <div style="color:#475569;font-size:.9rem;margin-top:2px">Tutorías con familias: ${esc(R.tutorias||'16:00 - 17:00')}</div>`;
+    if (!lista.length){
+      h += `<div style="margin-top:8px">Este lunes no tiene reuniones en el cuadrante.</div>`;
+    } else {
+      h += `<div style="margin-top:8px;display:grid;gap:6px">` + lista.map(r=>`
+        <div style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:8px 12px">
+          <b>${esc(r.nombre)}</b>${r.hora?` <span style="color:#0f766e;font-weight:700">· ${esc(r.hora)}</span>`:''}${r.nota?` <span style="color:#64748b">(${esc(r.nota)})</span>`:''}
+          ${r.turnos?`<div style="display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:4px;font-size:.88rem;color:#334155">${r.turnos.map(t=>`<span><b>${esc(t[0])}</b> ${esc(t[1])}</span>`).join('')}</div>`:''}
+        </div>`).join('') + `</div>`;
+      // Orden del día previsto por órgano (una vez por órgano)
+      const orgs = [...new Set(lista.map(r=>r.organo).filter(Boolean))];
+      const bloques = orgs.map(o=>{ const pts = (O[o]||{})[mes] || [];
+        return pts.length ? `<details style="margin-top:6px"><summary style="cursor:pointer;font-weight:700;color:#283593">📋 Orden del día previsto · ${esc(NOMBRE_ORG[o]||o)} (${MES[+mes-1]})</summary>
+          <ol style="margin:6px 0 0 20px;padding:0;line-height:1.45">${pts.map(p=>`<li>${esc(p)}</li>`).join('')}</ol></details>` : ''; }).join('');
+      if (bloques) h += `<div style="margin-top:8px">${bloques}</div><div style="color:#64748b;font-size:.8rem;margin-top:6px">Puntos previstos en la app Teletrabajo; quien convoca puede ajustarlos.</div>`;
+    }
+    if (sig) h += `<div style="margin-top:10px;color:#475569;font-size:.88rem">Siguiente: ${DIA[sig.fecha.getDay()]} ${sig.fecha.getDate()} de ${MES[sig.fecha.getMonth()]} · ${ORD[sig.n]||sig.n+'.º'} lunes lectivo${((R.cuadrante||{})[String(sig.n)]||[]).length?' — '+esc(R.cuadrante[String(sig.n)].map(r=>r.nombre).join(', ')):' — sin reuniones de cuadrante'}</div>`;
+    return `<div style="background:#f8fafc;border:1.5px solid #c7d2fe;border-left:6px solid #283593;border-radius:14px;padding:12px 14px;margin:0 0 16px;color:#1f2a37;text-align:left;font-size:.95rem">${h}</div>`;
+  }
+  window.pintarReuniones = async function(sec){
+    const box = document.getElementById('reunionesBox'); if (!box) return;
+    if (sec !== 'maestros' && sec !== 'directivo'){ box.innerHTML = ''; return; }
+    try{
+      if (!datos){
+        const get = u => fetch(u+'?_='+Date.now(), {cache:'no-store'}).then(r=>r.ok?r.json():null).catch(()=>null);
+        const [reuniones, ordenes] = await Promise.all([get('/agenda/reuniones.json'), get('/teletrabajo/ordenes-del-dia.json'),
+          window.CalendarioCole ? CalendarioCole.listo : null]);
+        if (!reuniones) return;
+        datos = {reuniones, ordenes};
+      }
+      box.innerHTML = html();
+    }catch(e){ box.innerHTML = ''; }
+  };
+})();

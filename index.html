@@ -248,6 +248,7 @@ body.admin-active .admin-banner{display:block}
     <p id="seccionSubtitle"></p>
   </div>
   <main>
+    <div id="reunionesBox"></div>
     <div id="muroContainer">
       <div class="loading-state"><div class="spinner"></div><span>Cargando avisos...</span></div>
     </div>
@@ -368,6 +369,7 @@ body.admin-active .admin-banner{display:block}
 
 <script src="/agenda/calendario.js" defer></script>
 <script src="familias-widget.js" defer></script>
+<script src="profesorado-widget.js" defer></script>
 <script>
 // ════════════════════════════════════════════════════════════════
 // CONFIGURACIÓN
@@ -452,6 +454,7 @@ function entrarSeccion(sec) {
   document.getElementById("seccionTitle").textContent = info.titulo;
   document.getElementById("seccionSubtitle").textContent = info.subtitulo;
 
+  if (window.pintarReuniones) window.pintarReuniones(sec);
   cargarAvisos(sec);
 }
 
