@@ -97,6 +97,17 @@
       };
     });
   }
+  // Para el correo semanal: reuniones de un lunes concreto (null si ese lunes no hay cole)
+  window.reunionesDeLunes = function(lunes){
+    if (!datos) return undefined;
+    const d = new Date(lunes); d.setHours(12,0,0,0);
+    if (sinCole(iso(d))) return null;
+    const L = lunesLectivos(d, 1)[0]; if (!L || L.ds !== iso(d)) return null;
+    const lista = (datos.reuniones.cuadrante||{})[String(L.n)] || [];
+    const O = (datos.ordenes||{}).organos || {}, mes = pad(L.fecha.getMonth()+1);
+    const ordenes = [...new Set(lista.map(r=>r.organo).filter(Boolean))].map(o=>({organo:NOMBRE_ORG[o]||o, puntos:(O[o]||{})[mes]||[]})).filter(x=>x.puntos.length);
+    return {fecha:L.fecha, ds:L.ds, n:L.n, lista, ordenes, tutorias:datos.reuniones.tutorias||'16:00 - 17:00'};
+  };
   window.pintarReuniones = async function(sec){
     const box = document.getElementById('reunionesBox'); if (!box) return;
     if (sec !== 'maestros' && sec !== 'directivo'){ box.innerHTML = ''; return; }

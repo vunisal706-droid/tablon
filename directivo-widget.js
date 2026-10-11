@@ -11,24 +11,31 @@
     vunisal706: {nombre:'Víctor Manuel Única Salas', cargo:'Director'},
     mrodrod323: {nombre:'María Rodríguez Rodríguez', cargo:'Jefa de Estudios'},
     emunrom369: {nombre:'Encarnación Muñoz Romero', cargo:'Secretaria'}};
-  let actividades = {}, escucha = null, seccion = null;
+  let actividades = {}, escucha = null, seccion = null, lunesSel = null;
   const ref = () => firebase.database().ref('actividades_profesorado');
   const usuario = () => { const u = firebase.auth().currentUser; return u && u.email ? u.email.split('@')[0].toLowerCase() : ''; };
 
+  // Semana del correo: por defecto, de viernes a domingo se prepara la semana siguiente; de lunes a jueves, la actual
+  function lunesPorDefecto(){
+    const d = new Date(); d.setHours(12,0,0,0); const w = d.getDay();
+    if (w === 0) d.setDate(d.getDate()+1); else if (w >= 5) d.setDate(d.getDate()+(8-w)); else d.setDate(d.getDate()-(w-1));
+    return d;
+  }
   function semana(){
-    const R = window.reunionesLunes; let lunes;
-    if (R) lunes = new Date(R.fecha); else { lunes = new Date(); lunes.setHours(12,0,0,0); while (lunes.getDay()!==1) lunes.setDate(lunes.getDate()+1); }
+    const lunes = new Date(lunesSel || lunesPorDefecto());
     const viernes = new Date(lunes); viernes.setDate(viernes.getDate()+4);
     return {lunes, viernes, desde: iso(lunes), hasta: iso(viernes)};
   }
   const fechaLarga = ds => { const d = new Date(ds+'T12:00'); return `${DIA[d.getDay()]} ${d.getDate()} de ${MES[d.getMonth()]}`; };
 
   function correo(){
-    const R = window.reunionesLunes, S = semana(), yo = FIRMAS[document.getElementById('dirFirma').value] || {};
+    const S = semana(), R = window.reunionesDeLunes ? window.reunionesDeLunes(S.lunes) : null, yo = FIRMAS[document.getElementById('dirFirma').value] || {};
     const acts = Object.values(actividades).filter(a=>a.fecha>=S.desde && a.fecha<=S.hasta).sort((a,b)=>(a.fecha+(a.hora||'')).localeCompare(b.fecha+(b.hora||'')));
     const asunto = `Reuniones y actividades de la semana del ${S.lunes.getDate()} al ${S.viernes.getDate()} de ${MES[S.viernes.getMonth()]}`;
     let t = `Buenos días, compañeros y compañeras:\n\n`;
-    if (R && R.ds >= S.desde && R.ds <= S.hasta){
+    const sc = window.CalendarioCole ? CalendarioCole.sinCole(S.desde) : null;
+    if (!R && sc && sc.tipo !== 'finde') t += `El ${fechaLarga(S.desde)} no hay clase (${sc.nombre}), así que esta semana no hay reuniones de los lunes.\n`;
+    if (R){
       t += `Os recuerdo las reuniones del ${fechaLarga(R.ds)} (${R.n}.º lunes lectivo del mes):\n`;
       t += `• ${R.tutorias}: Tutorías con familias\n`;
       R.lista.forEach(r=>{
@@ -52,7 +59,12 @@
     const btn = 'font:inherit;font-weight:700;border:0;border-radius:8px;height:36px;padding:0 14px;cursor:pointer';
     return `<div style="background:#fffbeb;border:1.5px solid #fcd34d;border-left:6px solid #d97706;border-radius:14px;padding:12px 14px;margin:0 0 16px;color:#1f2a37;text-align:left;font-size:.95rem">
       <div style="font-weight:800;font-size:1.05rem">✉️ Correo semanal al profesorado</div>
-      <div style="color:#78350f;font-size:.88rem;margin-top:2px">Semana del ${fechaLarga(S.desde)} al ${fechaLarga(S.hasta)}. Cambia de semana con las flechas de las reuniones, aquí debajo.</div>
+      <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:6px">
+        <button type="button" data-sem="-1" style="${btn};height:30px;padding:0 10px;background:#fff;color:#92400e;border:1px solid #fcd34d" aria-label="Semana anterior">‹</button>
+        <span style="font-weight:700;color:#78350f">Semana del ${fechaLarga(S.desde)} al ${fechaLarga(S.hasta)}</span>
+        <button type="button" data-sem="1" style="${btn};height:30px;padding:0 10px;background:#fff;color:#92400e;border:1px solid #fcd34d" aria-label="Semana siguiente">›</button>
+        ${lunesSel ? `<button type="button" data-sem="0" style="${btn};height:30px;padding:0 10px;background:#fff;color:#92400e;border:1px solid #fcd34d">Volver</button>` : ''}
+      </div>
       <div style="margin-top:10px;font-weight:700">Otras actividades de la semana</div>
       <div style="display:grid;gap:4px;margin-top:4px">${acts.length ? acts.map(([k,a])=>`<div style="background:#fff;border:1px solid #fde68a;border-radius:8px;padding:6px 10px;display:flex;gap:8px;align-items:center">
         <span style="flex:1"><b>${esc(fechaLarga(a.fecha))}${a.hora?`, ${esc(a.hora)}`:''}</b> · ${esc(a.texto)} <span style="color:#94a3b8;font-size:.8rem">(${esc((FIRMAS[a.autor]||{}).nombre?.split(' ')[0]||a.autor||'')})</span></span>
@@ -86,6 +98,11 @@
       if (!f || !t){ err('Pon la fecha y la actividad.'); return; }
       ref().push({fecha:f, hora:h||'', texto:t, autor:usuario(), creado:Date.now()}).catch(fallo);
     };
+    box.querySelectorAll('[data-sem]').forEach(b=>b.onclick=()=>{
+      const k = +b.dataset.sem;
+      if (!k) lunesSel = null; else { const d = new Date(semana().lunes); d.setDate(d.getDate()+7*k); lunesSel = d; }
+      pintar();
+    });
     box.querySelectorAll('[data-borrar]').forEach(b=>b.onclick=()=>{ if (confirm('¿Quitar esta actividad?')) ref().child(b.dataset.borrar).remove().catch(fallo); });
     document.getElementById('dirGen').onclick = ()=>{
       const c = correo(), sal = document.getElementById('dirSalida');
@@ -108,5 +125,6 @@
     }
     pintar();
   };
-  document.addEventListener('reuniones-lunes', ()=>{ if (seccion === 'directivo') pintar(); });
+  // cuando llegan los datos de reuniones, se repinta (por si ya estaba abierto)
+  document.addEventListener('reuniones-lunes', ()=>{ if (seccion === 'directivo' && !document.getElementById('dirTxt')) pintar(); });
 })();
