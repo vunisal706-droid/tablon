@@ -70,6 +70,8 @@
       if (bloques) h += `<div style="margin-top:8px">${bloques}</div><div style="color:#64748b;font-size:.8rem;margin-top:6px">Puntos previstos en la app Teletrabajo; quien convoca puede ajustarlos.</div>`;
     }
     if (sig) h += `<div style="margin-top:10px;color:#475569;font-size:.88rem">Siguiente: ${DIA[sig.fecha.getDay()]} ${sig.fecha.getDate()} de ${MES[sig.fecha.getMonth()]} · ${ORD[sig.n]||sig.n+'.º'} lunes lectivo${((R.cuadrante||{})[String(sig.n)]||[]).length?' — '+esc(R.cuadrante[String(sig.n)].map(r=>r.nombre).join(', ')):' — sin reuniones de cuadrante'}</div>`;
+    const ics = 'webcal://vunisal706-droid.github.io/agenda/calendario-profesorado.ics';
+    h += `<div style="margin-top:10px;font-size:.85rem"><a href="https://calendar.google.com/calendar/r?cid=${encodeURIComponent(ics)}" target="_blank" rel="noopener" style="color:#283593;font-weight:700">📲 Añadir todas las reuniones a mi Google Calendar</a> · <a href="${ics}" style="color:#283593">otro calendario</a></div>`;
     return `<div style="background:#f8fafc;border:1.5px solid #c7d2fe;border-left:6px solid #283593;border-radius:14px;padding:12px 14px;margin:0 0 16px;color:#1f2a37;text-align:left;font-size:.95rem">${h}</div>`;
   }
   function pintarCaja(box){

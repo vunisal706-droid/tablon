@@ -85,6 +85,7 @@
     h += `<details id="famInfo" style="background:rgba(255,255,255,.95);border:1.5px solid #e2e8f0;border-radius:14px;padding:10px 14px;margin:14px 0 4px;color:#1f2a37;font-size:.95rem;line-height:1.55">
       <summary style="cursor:pointer;font-weight:800;min-height:32px;color:#1f2a37">${u.info}</summary>
       ${INFO[lang].map(([t,x])=>`<p style="color:#1f2a37;margin:10px 0 0"><b>${esc(t)}</b> ${esc(x)}</p>`).join('')}
+      <p style="color:#1f2a37;margin:12px 0 0"><a href="https://calendar.google.com/calendar/r?cid=${encodeURIComponent('webcal://vunisal706-droid.github.io/agenda/calendario-familias.ics')}" target="_blank" rel="noopener" style="color:#0f766e;font-weight:800">📲 Google Calendar</a> · <a href="webcal://vunisal706-droid.github.io/agenda/calendario-familias.ics" style="color:#0f766e;font-weight:800">📅 iPhone / Outlook</a></p>
     </details></div>`;
     return h;
   }
