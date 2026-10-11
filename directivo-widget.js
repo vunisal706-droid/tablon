@@ -31,7 +31,7 @@
   function correo(){
     const S = semana(), R = window.reunionesDeLunes ? window.reunionesDeLunes(S.lunes) : null, yo = FIRMAS[document.getElementById('dirFirma').value] || {};
     const acts = Object.values(actividades).filter(a=>a.fecha>=S.desde && a.fecha<=S.hasta).sort((a,b)=>(a.fecha+(a.hora||'')).localeCompare(b.fecha+(b.hora||'')));
-    const asunto = `Reuniones y actividades de la semana del ${S.lunes.getDate()} al ${S.viernes.getDate()} de ${MES[S.viernes.getMonth()]}`;
+    const asunto = `Reuniones y actividades de la semana del ${S.lunes.getDate()}${S.lunes.getMonth()!==S.viernes.getMonth()?' de '+MES[S.lunes.getMonth()]:''} al ${S.viernes.getDate()} de ${MES[S.viernes.getMonth()]}`;
     let t = `Buenos días, compañeros y compañeras:\n\n`;
     const sc = window.CalendarioCole ? CalendarioCole.sinCole(S.desde) : null;
     if (!R && sc && sc.tipo !== 'finde') t += `El ${fechaLarga(S.desde)} no hay clase (${sc.nombre}), así que esta semana no hay reuniones de los lunes.\n`;
@@ -45,6 +45,14 @@
       if (!R.lista.length) t += `• Ese lunes no hay reuniones del cuadrante.\n`;
       R.ordenes.forEach(o=>{ t += `\nOrden del día previsto · ${o.organo}:\n` + o.puntos.map((p,i)=>`${i+1}. ${p}`).join('\n') + '\n'; });
     }
+    // Días sin clase de esa semana (festivos, vacaciones…), salvo el lunes que ya se ha explicado arriba
+    const sinClase = [];
+    if (window.CalendarioCole) for (let k=0; k<5; k++){
+      const d = new Date(S.lunes); d.setDate(d.getDate()+k); const ds = iso(d), x = CalendarioCole.sinCole(ds);
+      if (x && x.tipo !== 'finde' && !(k===0 && !R)) sinClase.push(`• ${fechaLarga(ds).replace(/^./,c=>c.toUpperCase())}: no hay clase (${x.nombre})`);
+    }
+    if (sinClase.length === 5) t = `Buenos días, compañeros y compañeras:\n\nEsta semana no hay clase (${CalendarioCole.sinCole(S.desde).nombre}).\n`;
+    else if (sinClase.length) t += `\nDías sin clase esta semana:\n` + sinClase.join('\n') + '\n';
     if (acts.length){
       t += `\nOtras actividades de la semana:\n` + acts.map(a=>`• ${fechaLarga(a.fecha).replace(/^./,c=>c.toUpperCase())}${a.hora?`, ${a.hora}`:''}: ${a.texto}`).join('\n') + '\n';
     }
