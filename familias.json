@@ -1,13 +1,59 @@
 {
- "actualizado": "2026-10-11T09:49+02:00",
+ "actualizado": "2026-10-11T10:04+02:00",
  "avisos": [],
  "tramites": [],
- "boja": [],
  "semana": [
   {
    "fecha": "2026-10-16",
    "texto": "🍎 Día Mundial de la Alimentación",
    "cuando": "viernes 16 de octubre"
   }
- ]
+ ],
+ "boja": [],
+ "idiomas": {
+  "ar": {
+   "avisos": [],
+   "tramites": [],
+   "semana": [
+    {
+     "fecha": "2026-10-16",
+     "texto": "🍎 اليوم العالمي للأغذية",
+     "cuando": "الجمعة 16 أكتوبر"
+    }
+   ]
+  },
+  "ro": {
+   "avisos": [],
+   "tramites": [],
+   "semana": [
+    {
+     "fecha": "2026-10-16",
+     "texto": "🍎 Ziua Mondială a Alimentației",
+     "cuando": "vineri, 16 octombrie"
+    }
+   ]
+  },
+  "en": {
+   "avisos": [],
+   "tramites": [],
+   "semana": [
+    {
+     "fecha": "2026-10-16",
+     "texto": "🍎 World Food Day",
+     "cuando": "Friday 16 October"
+    }
+   ]
+  },
+  "fr": {
+   "avisos": [],
+   "tramites": [],
+   "semana": [
+    {
+     "fecha": "2026-10-16",
+     "texto": "🍎 Journée mondiale de l'alimentation",
+     "cuando": "vendredi 16 octobre"
+    }
+   ]
+  }
+ }
 }
