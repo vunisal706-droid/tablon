@@ -4,11 +4,11 @@
   const el = document.getElementById('familiasBox'); if (!el) return;
   const esc = t => String(t||'').replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const LANGS = [
-    {id:'es', flag:'🇪🇸', name:'Español', voz:'es-ES'},
-    {id:'ar', flag:'🇲🇦', name:'العربية', voz:'ar', rtl:true},
-    {id:'ro', flag:'🇷🇴', name:'Română', voz:'ro-RO'},
-    {id:'en', flag:'🇬🇧', name:'English', voz:'en-GB'},
-    {id:'fr', flag:'🇫🇷', name:'Français', voz:'fr-FR'}];
+    {id:'es', name:'Español', corto:'ES', voz:'es-ES'},
+    {id:'ar', name:'العربية', corto:'ع', voz:'ar', rtl:true},
+    {id:'ro', name:'Română', corto:'RO', voz:'ro-RO'},
+    {id:'en', name:'English', corto:'EN', voz:'en-GB'},
+    {id:'fr', name:'Français', corto:'FR', voz:'fr-FR'}];
   const UI = {
     es:{tram:'📌 Trámites con plazo', sem:'📅 Esta semana en el cole', boja:'📢 Novedades de la Junta para familias', escuchar:'🔊 Escuchar', parar:'⏹️ Parar', info:'📖 Información para familias', novoz:'Este móvil no tiene voz instalada para este idioma.', bojaNota:''},
     ar:{tram:'📌 إجراءات لها آجال', sem:'📅 هذا الأسبوع في المدرسة', boja:'📢 مستجدات حكومة الأندلس للأسر', escuchar:'🔊 استمع', parar:'⏹️ إيقاف', info:'📖 معلومات للأسر', novoz:'لا يوجد صوت مثبّت لهذه اللغة في هذا الهاتف.', bojaNota:'(باللغة الإسبانية)'},
@@ -63,9 +63,7 @@
   function contenido(){
     const L = LANGS.find(l=>l.id===lang), u = UI[lang];
     const d = !datos ? null : lang==='es' ? datos : ((datos.idiomas||{})[lang] || datos);
-    let h = `<div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:center;margin:10px 0 4px" role="group" aria-label="Idioma / Language / اللغة">` +
-      LANGS.map(l=>`<button type="button" data-lang="${l.id}" aria-pressed="${l.id===lang}" style="font:inherit;font-weight:800;border:2px solid ${l.id===lang?'#0f766e':'rgba(255,255,255,.7)'};background:${l.id===lang?'#fff':'rgba(255,255,255,.85)'};color:#1f2a37;border-radius:999px;padding:6px 12px;min-height:40px;cursor:pointer">${l.flag} ${l.name}</button>`).join('') +
-      `<button type="button" id="famVoz" style="font:inherit;font-weight:800;border:0;background:#0f766e;color:#fff;border-radius:999px;padding:8px 16px;min-height:40px;cursor:pointer">${u.escuchar}</button></div>`;
+    let h = '';
     h += `<div dir="${L.rtl?'rtl':'ltr'}" style="text-align:${L.rtl?'right':'left'}">`;
     if (d){
       (d.avisos||[]).forEach(a=>{ const [b,f]=COL[a.nivel]||COL.info;
@@ -98,9 +96,9 @@
     return vs.find(v=>v.lang.toLowerCase()===code.toLowerCase()) || vs.find(v=>v.lang.toLowerCase().startsWith(code.slice(0,2).toLowerCase()));
   }
   function leer(){
-    const b = document.getElementById('famVoz'), u = UI[lang], L = LANGS.find(l=>l.id===lang);
+    const u = UI[lang], L = LANGS.find(l=>l.id===lang);
     if (!synth) { alert(u.novoz); return; }
-    if (synth.speaking) { synth.cancel(); b.textContent = u.escuchar; return; }
+    if (synth.speaking) { synth.cancel(); setTimeout(controles, 50); return; }
     const voz = vozPara(L.voz);
     if (!voz && synth.getVoices().length) { alert(u.novoz); return; }
     // Se lee lo que está a la vista: avisos, trámites y semana (y la información fija si está abierta)
@@ -111,16 +109,50 @@
     const texto = partes.join('. ').replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{200D}]/gu,'');
     const frases = texto.match(/[^.!?؟]+[.!?؟]?/g) || [texto];
     frases.forEach((f,i)=>{ const ut = new SpeechSynthesisUtterance(f.trim()); ut.lang = L.voz; if (voz) ut.voice = voz; ut.rate = .95;
-      if (i===frases.length-1) ut.onend = ()=>{ b.textContent = u.escuchar; };
+      if (i===frases.length-1) ut.onend = ()=>controles();
       synth.speak(ut); });
-    b.textContent = u.parar;
+    setTimeout(controles, 100);
   }
 
+  // ----- Controles discretos en la cabecera (arriba a la derecha) -----
+  function controles(){
+    const hr = document.getElementById('headerRight'); if (!hr) return;
+    let c = document.getElementById('famCtl');
+    if (!c){
+      const st = document.createElement('style');
+      st.textContent = `#headerRight{display:flex;align-items:center;gap:8px}
+        #famCtl{position:relative;display:flex;gap:6px;align-items:center}
+        #famCtl .fc-b{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;font:inherit;font-size:.8rem;font-weight:600;
+          height:32px;padding:0 10px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:5px;line-height:1}
+        #famCtl .fc-b:hover,#famCtl .fc-b[aria-expanded=true]{background:rgba(255,255,255,.28)}
+        #famCtl .fc-v{width:32px;padding:0;justify-content:center}
+        #famCtl .fc-m{position:absolute;top:38px;right:0;background:#fff;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.18);padding:6px;min-width:150px;z-index:200;display:none}
+        #famCtl .fc-m.on{display:block}
+        #famCtl .fc-m button{display:block;width:100%;text-align:start;background:none;border:0;font:inherit;font-size:.9rem;color:#1f2a37;padding:9px 12px;border-radius:8px;cursor:pointer}
+        #famCtl .fc-m button:hover{background:#f1f5f9}
+        #famCtl .fc-m button[aria-current=true]{font-weight:800;color:#0f766e}
+        #famCtl svg{width:15px;height:15px}`;
+      document.head.appendChild(st);
+      c = document.createElement('div'); c.id = 'famCtl';
+      hr.insertBefore(c, hr.firstChild);
+      document.addEventListener('click', e=>{ if (!c.contains(e.target)) { const m=c.querySelector('.fc-m'); if(m){m.classList.remove('on'); c.querySelector('.fc-l').setAttribute('aria-expanded','false');} } });
+    }
+    const L = LANGS.find(l=>l.id===lang), u = UI[lang], hablando = synth && synth.speaking;
+    const globo = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>';
+    const alt = hablando ? '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>'
+      : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
+    c.innerHTML = `<button type="button" class="fc-b fc-v" id="famVoz" title="${hablando?u.parar:u.escuchar}" aria-label="${hablando?u.parar:u.escuchar}">${alt}</button>
+      <button type="button" class="fc-b fc-l" aria-haspopup="true" aria-expanded="false" title="Idioma · Language · اللغة">${globo}<span>${L.corto}</span></button>
+      <div class="fc-m" role="menu">${LANGS.map(l=>`<button type="button" role="menuitem" data-lang="${l.id}" aria-current="${l.id===lang}" dir="${l.rtl?'rtl':'ltr'}">${l.name}</button>`).join('')}</div>`;
+    const m = c.querySelector('.fc-m'), lb = c.querySelector('.fc-l');
+    lb.onclick = e=>{ e.stopPropagation(); m.classList.toggle('on'); lb.setAttribute('aria-expanded', m.classList.contains('on')); };
+    c.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>{ lang=b.dataset.lang; try{localStorage.setItem('tablon-idioma',lang)}catch(e){} pintar(); });
+    c.querySelector('#famVoz').onclick = leer;
+  }
   function pintar(){
     if (synth && synth.speaking) synth.cancel();
     el.innerHTML = contenido();
-    el.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>{ lang=b.dataset.lang; try{localStorage.setItem('tablon-idioma',lang)}catch(e){} pintar(); });
-    document.getElementById('famVoz').onclick = leer;
+    controles();
   }
   if (synth && synth.onvoiceschanged !== undefined) synth.onvoiceschanged = ()=>{};
   pintar();
