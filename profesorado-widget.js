@@ -10,7 +10,7 @@
   const iso = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
   const sinCole = ds => window.CalendarioCole ? CalendarioCole.sinCole(ds) : null;
   const NOMBRE_ORG = {'CLAUSTRO':'Claustro','EQUIPO DE ORIENTACIÓN':'Equipo de Orientación','EQUIPOS DE CICLO':'Equipos de ciclo','ETCP':'ETCP','EQUIPOS DOCENTES':'Equipos docentes'};
-  let datos = null;
+  let datos = null, cursor = null;   // cursor = lunes que se está viendo (null = el próximo)
 
   function lunesLectivos(desde, cuantos){
     const out = []; const d = new Date(desde); d.setHours(12,0,0,0);
@@ -24,6 +24,12 @@
     }
     return out;
   }
+  function lunesAnterior(d){
+    const x = new Date(d); x.setHours(12,0,0,0); x.setDate(x.getDate()-1);
+    while (x.getDay() !== 1) x.setDate(x.getDate()-1);
+    for (let k=0; k<60; k++, x.setDate(x.getDate()-7)) if (!sinCole(iso(x))) return lunesLectivos(x,1)[0];
+    return null;
+  }
   function cuando(f){
     const h = new Date(); h.setHours(12,0,0,0);
     const k = Math.round((f - h)/864e5);
@@ -31,13 +37,22 @@
   }
   function html(){
     const R = datos.reuniones, O = (datos.ordenes||{}).organos || {};
-    const ahora = new Date(); const desde = new Date(ahora);
+    const ahora = new Date(); let desde = new Date(ahora);
     if (ahora.getDay()===1 && ahora.getHours()>=19) desde.setDate(desde.getDate()+1);
+    if (cursor) desde = new Date(cursor);
     const [L, sig] = lunesLectivos(desde, 2);
     if (!L) return '';
+    cursor = L.fecha;
+    const btn = 'font:inherit;font-weight:700;border:1px solid #c7d2fe;background:#fff;color:#283593;border-radius:8px;height:32px;min-width:32px;padding:0 8px;cursor:pointer';
+    const nav = `<div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:8px">
+      <button type="button" data-reu="prev" style="${btn}" aria-label="Lunes anterior">‹</button>
+      <button type="button" data-reu="hoy" style="${btn}">Próximo</button>
+      <button type="button" data-reu="next" style="${btn}" aria-label="Lunes siguiente">›</button>
+      <input type="date" data-reu="fecha" value="${L.ds}" aria-label="Elegir fecha" style="font:inherit;border:1px solid #c7d2fe;border-radius:8px;height:32px;padding:0 6px;color:#1f2a37;background:#fff">
+    </div>`;
     const lista = (R.cuadrante||{})[String(L.n)] || [];
     const mes = pad(L.fecha.getMonth()+1);
-    let h = `<div style="font-weight:800;font-size:1.05rem">📅 Reuniones ${cuando(L.fecha)} · ${ORD[L.n]||L.n+'.º'} lunes lectivo</div>
+    let h = nav + `<div style="font-weight:800;font-size:1.05rem">📅 Reuniones ${cuando(L.fecha)} · ${ORD[L.n]||L.n+'.º'} lunes lectivo</div>
       <div style="color:#475569;font-size:.9rem;margin-top:2px">Tutorías con familias: ${esc(R.tutorias||'16:00 - 17:00')}</div>`;
     if (!lista.length){
       h += `<div style="margin-top:8px">Este lunes no tiene reuniones en el cuadrante.</div>`;
@@ -57,6 +72,19 @@
     if (sig) h += `<div style="margin-top:10px;color:#475569;font-size:.88rem">Siguiente: ${DIA[sig.fecha.getDay()]} ${sig.fecha.getDate()} de ${MES[sig.fecha.getMonth()]} · ${ORD[sig.n]||sig.n+'.º'} lunes lectivo${((R.cuadrante||{})[String(sig.n)]||[]).length?' — '+esc(R.cuadrante[String(sig.n)].map(r=>r.nombre).join(', ')):' — sin reuniones de cuadrante'}</div>`;
     return `<div style="background:#f8fafc;border:1.5px solid #c7d2fe;border-left:6px solid #283593;border-radius:14px;padding:12px 14px;margin:0 0 16px;color:#1f2a37;text-align:left;font-size:.95rem">${h}</div>`;
   }
+  function pintarCaja(box){
+    box.innerHTML = html();
+    box.querySelectorAll('[data-reu]').forEach(b=>{
+      const a = b.dataset.reu;
+      if (a==='fecha') b.onchange = ()=>{ if (b.value){ cursor = new Date(b.value+'T12:00'); pintarCaja(box); } };
+      else b.onclick = ()=>{
+        if (a==='hoy') cursor = null;
+        else if (a==='next'){ const x=new Date(cursor); x.setDate(x.getDate()+1); cursor = x; }
+        else { const p = lunesAnterior(cursor); if (p) cursor = p.fecha; }
+        pintarCaja(box);
+      };
+    });
+  }
   window.pintarReuniones = async function(sec){
     const box = document.getElementById('reunionesBox'); if (!box) return;
     if (sec !== 'maestros' && sec !== 'directivo'){ box.innerHTML = ''; return; }
@@ -68,7 +96,7 @@
         if (!reuniones) return;
         datos = {reuniones, ordenes};
       }
-      box.innerHTML = html();
+      pintarCaja(box);
     }catch(e){ box.innerHTML = ''; }
   };
 })();
