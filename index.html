@@ -248,6 +248,7 @@ body.admin-active .admin-banner{display:block}
     <p id="seccionSubtitle"></p>
   </div>
   <main>
+    <div id="correoBox"></div>
     <div id="reunionesBox"></div>
     <div id="muroContainer">
       <div class="loading-state"><div class="spinner"></div><span>Cargando avisos...</span></div>
@@ -370,6 +371,7 @@ body.admin-active .admin-banner{display:block}
 <script src="/agenda/calendario.js" defer></script>
 <script src="familias-widget.js" defer></script>
 <script src="profesorado-widget.js" defer></script>
+<script src="directivo-widget.js" defer></script>
 <script>
 // ════════════════════════════════════════════════════════════════
 // CONFIGURACIÓN
@@ -455,6 +457,7 @@ function entrarSeccion(sec) {
   document.getElementById("seccionSubtitle").textContent = info.subtitulo;
 
   if (window.pintarReuniones) window.pintarReuniones(sec);
+  if (window.pintarCorreo) window.pintarCorreo(sec);
   cargarAvisos(sec);
 }
 
@@ -599,6 +602,7 @@ function checkAdminPassword() {
       document.getElementById("modalAdminTitle").textContent = "Publicar Aviso";
       document.getElementById("inputAdminPassword").value = "";
       showToast("Sesión iniciada");
+      if (window.pintarCorreo) window.pintarCorreo(currentSeccion);
     })
     .catch(function (e) {
       if (e.code === "auth/network-request-failed") showToast("Sin conexión", "error");
@@ -616,6 +620,7 @@ function cerrarSesionAdmin() {
   auth.signOut().catch(function () {});
   adminActivo = false;
   document.body.classList.remove("admin-active");
+  if (window.pintarCorreo) window.pintarCorreo(currentSeccion);
   closeAdminModal();
   showToast("Sesión admin cerrada");
 }

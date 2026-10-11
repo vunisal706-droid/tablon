@@ -76,6 +76,16 @@
   }
   function pintarCaja(box){
     box.innerHTML = html();
+    // Avisa a otros paneles (correo semanal del Equipo Directivo) del lunes que se está viendo
+    try{
+      const L = lunesLectivos(cursor, 1)[0];
+      if (L){ const lista = (datos.reuniones.cuadrante||{})[String(L.n)] || [];
+        const O = (datos.ordenes||{}).organos || {}, mes = pad(L.fecha.getMonth()+1);
+        const ordenes = [...new Set(lista.map(r=>r.organo).filter(Boolean))].map(o=>({organo:NOMBRE_ORG[o]||o, puntos:(O[o]||{})[mes]||[]})).filter(x=>x.puntos.length);
+        window.reunionesLunes = {fecha:L.fecha, ds:L.ds, n:L.n, lista, ordenes, tutorias:datos.reuniones.tutorias||'16:00 - 17:00'};
+        document.dispatchEvent(new CustomEvent('reuniones-lunes'));
+      }
+    }catch(e){}
     box.querySelectorAll('[data-reu]').forEach(b=>{
       const a = b.dataset.reu;
       if (a==='fecha') b.onchange = ()=>{ if (b.value){ cursor = new Date(b.value+'T12:00'); pintarCaja(box); } };
