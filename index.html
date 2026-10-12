@@ -437,6 +437,7 @@ function mostrarInicio() {
     currentListener = null;
   }
   currentSeccion = null;
+  if (window.MODO_ORDEN){ window.MODO_ORDEN = null; history.replaceState(null, "", location.pathname); document.getElementById("muroContainer").style.display = ""; }
   document.getElementById("pantallaInicio").style.display = "block";
   document.getElementById("pantallaSeccion").style.display = "none";
   document.getElementById("btnVolver").style.display = "none";
@@ -460,6 +461,7 @@ function entrarSeccion(sec) {
   document.getElementById("seccionTitle").textContent = info.titulo;
   document.getElementById("seccionSubtitle").textContent = info.subtitulo;
 
+  document.getElementById("muroContainer").style.display = "";
   if (window.pintarReuniones) window.pintarReuniones(sec);
   if (window.pintarCorreo) window.pintarCorreo(sec);
   cargarAvisos(sec);
@@ -787,6 +789,24 @@ document.getElementById("btnInstallClose").addEventListener("click", function(){
 window.addEventListener("appinstalled", function(){
   document.getElementById("installBanner").classList.remove("show");
   showToast("¡App instalada correctamente!", "success");
+});
+</script>
+<script>
+/* Enlace del correo semanal: ?orden=AAAA-MM-DD abre el orden del día de ese lunes con ayudas, propuestas y enlaces */
+document.addEventListener("DOMContentLoaded", function(){
+  var o = new URLSearchParams(location.search).get("orden");
+  if (!o || !/^\d{4}-\d{2}-\d{2}$/.test(o)) return;
+  window.MODO_ORDEN = o; currentSeccion = "orden";
+  document.getElementById("pantallaInicio").style.display = "none";
+  document.getElementById("pantallaSeccion").style.display = "block";
+  document.getElementById("btnVolver").style.display = "inline-block";
+  var hero = document.getElementById("seccionHero");
+  hero.className = "seccion-hero hero-maestros";
+  document.getElementById("seccionTitle").textContent = "📋 Orden del día y ayudas";
+  document.getElementById("seccionSubtitle").textContent = "Puntos de cada reunión con ayudas, propuestas y enlaces para prepararlos";
+  document.getElementById("muroContainer").style.display = "none";
+  document.getElementById("correoBox").innerHTML = "";
+  if (window.pintarReuniones) window.pintarReuniones("orden");
 });
 </script>
 </body>
