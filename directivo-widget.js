@@ -152,7 +152,23 @@
       const copiar = (txt, b, ok) => (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject())
         .catch(()=>{ const ta=document.getElementById('dirTxt'); ta.select(); document.execCommand('copy'); })
         .then(()=>{ const o=b.textContent; b.textContent=ok; setTimeout(()=>b.textContent=o,1800); });
-      document.getElementById('dirCopiar').onclick = e => copiar(document.getElementById('dirTxt').value, e.target, '✅ Copiado');
+      // Copia con formato: los enlaces quedan en azul y se pueden pinchar al pegar en el correo
+      const aHtml = txt => esc(txt).split('\n').map(l=>{
+        l = l.replace(/^(\s*)(📁|📱) ([^:]+): (https?:\/\/\S+)$/u, (m,sp,ic,ti,u)=>`${sp}${ic} <a href="${u}">${ti}</a>`);
+        if (!/<a /.test(l)) l = l.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1">$1</a>');
+        return l.replace(/^ +/, m=>'&nbsp;'.repeat(m.length));
+      }).join('<br>');
+      const copiarRico = (txt, b) => {
+        const html = `<div style="font-family:Arial,sans-serif;font-size:14px">${aHtml(txt)}</div>`;
+        const hecho = ()=>{ const o=b.textContent; b.textContent='✅ Copiado con enlaces'; setTimeout(()=>b.textContent=o,2000); };
+        if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write)
+          return navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob([txt],{type:'text/plain'})})]).then(hecho).catch(()=>viejo());
+        viejo();
+        function viejo(){ const d=document.createElement('div'); d.contentEditable='true'; d.style.cssText='position:fixed;left:-9999px;top:0'; d.innerHTML=html; document.body.appendChild(d);
+          const r=document.createRange(); r.selectNodeContents(d); const sel=getSelection(); sel.removeAllRanges(); sel.addRange(r);
+          try{ document.execCommand('copy'); hecho(); }catch(_){ copiar(txt, b, '✅ Copiado'); } sel.removeAllRanges(); d.remove(); }
+      };
+      document.getElementById('dirCopiar').onclick = e => copiarRico(document.getElementById('dirTxt').value, e.target);
       document.getElementById('dirCopAs').onclick = e => copiar(c.asunto, e.target, '✅');
     };
   }
