@@ -35,11 +35,10 @@
     const k = Math.round((f - h)/864e5);
     return k===0 ? 'hoy' : k===1 ? 'mañana' : `el ${DIA[f.getDay()]} ${f.getDate()} de ${MES[f.getMonth()]}`;
   }
+  let secActual = null;
   function chips(p){
-    const E=(datos.enlaces&&datos.enlaces.enlaces)||[], out=[];
-    for (const e of E){ try{ if (new RegExp(e.patron,'i').test(p) && !out.some(x=>x.url===e.url)) out.push(e); }catch(_){}
-      if (out.length>=2) break; }
-    return out.map(e=>` <a href="${esc(e.url)}" target="_blank" rel="noopener" style="display:inline-block;font-size:.78em;font-weight:700;color:#1565c0;background:#e3f2fd;border-radius:10px;padding:1px 8px;margin:2px 0 0 4px;text-decoration:none;white-space:nowrap">📁 ${esc(e.titulo)}</a>`).join('');
+    if (secActual !== 'directivo' || !window.enlacesDrive) return '';
+    return window.enlacesDrive(p).map(e=>` <a href="${esc(e.url)}" target="_blank" rel="noopener" style="display:inline-block;font-size:.78em;font-weight:700;color:#1565c0;background:#e3f2fd;border-radius:10px;padding:1px 8px;margin:2px 0 0 4px;text-decoration:none;white-space:nowrap">📁 ${esc(e.titulo)}</a>`).join('');
   }
   function html(){
     const R = datos.reuniones, O = (datos.ordenes||{}).organos || {};
@@ -116,14 +115,15 @@
   };
   window.pintarReuniones = async function(sec){
     const box = document.getElementById('reunionesBox'); if (!box) return;
+    secActual = sec;
     if (sec !== 'maestros' && sec !== 'directivo'){ box.innerHTML = ''; return; }
     try{
       if (!datos){
         const get = u => fetch(u+'?_='+Date.now(), {cache:'no-store'}).then(r=>r.ok?r.json():null).catch(()=>null);
-        const [reuniones, ordenes, enlaces] = await Promise.all([get('/agenda/reuniones.json'), get('/teletrabajo/ordenes-del-dia.json'), get('/tablon/enlaces.json'),
+        const [reuniones, ordenes] = await Promise.all([get('/agenda/reuniones.json'), get('/teletrabajo/ordenes-del-dia.json'),
           window.CalendarioCole ? CalendarioCole.listo : null]);
         if (!reuniones) return;
-        datos = {reuniones, ordenes, enlaces};
+        datos = {reuniones, ordenes};
       }
       pintarCaja(box);
     }catch(e){ box.innerHTML = ''; }
