@@ -1,1040 +1,1052 @@
 {
- "nota": "Ayuda por punto del orden del día. c: resumen breve (correo); q: qué tratar; p: propuesta con ejemplo de acuerdo. Se muestra en el Tablón (Profesorado y Equipo Directivo).",
+ "nota": "Ayuda por punto del orden del día. c: resumen breve; q: qué tratar; p: propuesta sencilla; po: propuesta según el órgano (si el punto se repite en varios).",
  "ayudas": {
   "Acta competencial de la evaluación inicial: grado de desarrollo por competencia específica": {
    "c": "Completar el acta con el nivel (1-4) de cada competencia específica por alumno, a partir de la rúbrica, no de una nota global.",
    "q": "El acta de la evaluación inicial ya no recoge notas, sino el grado de desarrollo de cada competencia específica en una escala de 1 a 4 (no conseguido, en proceso, conseguido, con destreza). Hay que llegar a la reunión con el acta rellenada a partir de las pruebas comunes y de la observación de septiembre, y usar el tiempo para hablar del alumnado que preocupa, no para rellenar casillas.",
-   "p": "Cada tutor/a trae el acta en borrador y se revisan solo los casos con nivel 1 en alguna competencia de Lengua o Matemáticas. Para cada uno se decide una medida (refuerzo en el aula, programa de refuerzo, seguimiento). Ejemplo de acuerdo: «Se aprueba el acta competencial de la evaluación inicial. El alumnado con nivel 1 en CE de Lengua o Matemáticas pasa a la relación de refuerzo, que se cerrará antes del 15 de octubre»."
+   "p": "En 15 minutos no da tiempo a rellenar nada: el tutor o la tutora trae el acta ya hecha y el resto del equipo solo comenta los alumnos con nivel 1 en Lengua o Matemáticas (en un grupo de nuestro tamaño suelen ser 3 o 4). De cada uno se dice una frase: qué medida se le pone. Ejemplo de acuerdo: «Se aprueba el acta competencial; … y … pasan a la relación de refuerzo»."
   },
   "Actividades de concienciación y sensibilización – Proyectos inclusivos para fomentar la convivencia": {
    "c": "Qué actuaciones de sensibilización se hacen este trimestre y cómo participa el alumnado del aula TEA.",
    "q": "Qué actividades de sensibilización se van a hacer en el trimestre para mejorar la convivencia y la inclusión, y cómo se garantiza que participa todo el alumnado, también el del aula TEA. Conviene que estén ligadas a Escuela: Espacio de Paz o al Plan de Igualdad y no sean actividades sueltas.",
-   "p": "Elegir una actividad por ciclo con responsable y fecha: por ejemplo, «patios de todos» con juegos cooperativos dirigidos dos días a la semana, o un proyecto de «compañero de juego» en el que el alumnado de 5.º y 6.º acompaña a los pequeños. Ejemplo de acuerdo: «Cada ciclo organizará una actuación de sensibilización en el trimestre, coordinada con Escuela: Espacio de Paz, que se valorará en la siguiente reunión»."
+   "p": "Proponer una sola actividad sencilla para todo el centro: que el alumnado del aula TEA participe en los juegos dirigidos del recreo con un grupo de compañeros que se ofrezcan voluntarios. Ejemplo de acuerdo: «Se propone el proyecto de compañeros de juego en el recreo con el alumnado del aula TEA»."
   },
   "Actividades del Día de la Mujer Trabajadora": {
    "c": "Actividad del 8 de marzo coordinada con el Plan de Igualdad, con referentes femeninos científicos y del entorno.",
    "q": "Preparar la actividad del 8 de marzo coordinada con el Plan de Igualdad. Lo ideal es que no se quede en un mural: que el alumnado conozca referentes femeninos cercanos (de Santa Fe, de su familia) y de la ciencia, lo que además ayuda al objetivo de Matemáticas del centro.",
-   "p": "Cada clase elige una mujer (científica, deportista, vecina de Santa Fe, una abuela con un oficio…) e investiga sobre ella; los trabajos se exponen en el pasillo con un código QR o una grabación del alumnado explicándolo. Ejemplo de acuerdo: «Para el 8M cada grupo presentará una mujer referente; la coordinación de Igualdad recoge los trabajos antes del 5 de marzo»."
+   "p": "Algo sencillo y que no dé trabajo extra: cada clase elige a una mujer (de la ciencia, del deporte o de su propia familia, por ejemplo una abuela con un oficio) y hace una ficha con su foto. Se cuelgan todas en el pasillo. Ejemplo de acuerdo: «Cada grupo del ciclo hará una ficha de una mujer referente para el 8 de marzo»."
   },
   "Actividades inclusivas de Navidad: organización de eventos en los que todo el alumnado pueda participar": {
    "c": "Adaptar el festival o la actividad de Navidad para que el alumnado TEA y NEAE participe sin barreras.",
    "q": "Revisar el festival o las actividades de Navidad para que el alumnado TEA y NEAE pueda participar sin pasarlo mal: ruido, cambios de rutina, esperas largas y mucha gente son las barreras más habituales.",
-   "p": "Para cada alumno con necesidades: ensayar antes en el espacio real, darle un papel concreto y acotado (sostener un cartel, tocar un instrumento), anticipar con apoyo visual cómo será el día y tener una zona tranquila con un adulto de referencia. Ejemplo de acuerdo: «El equipo de orientación preparará con cada tutoría la anticipación visual del festival y se reservará un espacio de calma durante el acto»."
+   "p": "Para cada alumno que lo necesite: un papel corto en la actuación, una visita previa al sitio donde se hará y un adulto de referencia durante el acto. Nada más. Ejemplo de acuerdo: «Para el festival de Navidad, … tendrá el papel de … y estará con … »."
   },
   "Acuerdo sobre la estructura común de comprensión lectora y de resolución de problemas": {
    "c": "Fijar por escrito los pasos y el vocabulario común de lectura y problemas para todo el ciclo (prioridades 2 y 3 del centro).",
    "q": "Es uno de los acuerdos más importantes del curso: todo el centro debe trabajar la comprensión lectora y la resolución de problemas con los mismos pasos y el mismo vocabulario, de Infantil a 6.º (prioridades 2 y 3 del Proyecto Educativo). El ciclo tiene que dejarlo por escrito en septiembre.",
-   "p": "Adoptar la estructura que propone el Ágora (antes, durante y después de la lectura; y los pasos fijos para los problemas: leo, entiendo, pienso, resuelvo, compruebo) y comprometerse con los tiempos: 30 minutos diarios de lectura y 3 sesiones semanales de 30 minutos de problemas, que deben aparecer en el horario de cada grupo. Ejemplo de acuerdo: «El ciclo adopta la estructura común de lectura y de resolución de problemas del centro; los tiempos quedan reflejados en el horario de cada grupo»."
+   "p": "No inventar nada: adoptar tal cual la estructura del Ágora (la app del plan de lectura y problemas) y comprometerse a hacerla en los tiempos fijados (30 minutos de lectura al día y 3 sesiones de problemas). Cada tutoría comprueba que esos tiempos están en su horario. Ejemplo de acuerdo: «El ciclo adopta la estructura común del Ágora para lectura y problemas»."
   },
   "Ajustes metodológicos": {
    "c": "Qué cambios de metodología se acuerdan tras los resultados de la evaluación.",
    "q": "Después de ver los resultados de la evaluación, decidir qué se cambia en la forma de dar clase. El riesgo de este punto es quedarse en generalidades («trabajar más la comprensión»): conviene salir con uno o dos cambios concretos y comprobables.",
-   "p": "Que cada ciclo proponga un único ajuste común y medible para el trimestre: por ejemplo, que el alumnado verbalice en voz alta cómo ha resuelto un problema al menos dos veces por semana, o introducir la tutoría entre iguales en la lectura. En la siguiente evaluación se revisa si se ha hecho y qué efecto ha tenido. Ejemplo de acuerdo: «El Claustro acuerda como ajuste metodológico común … que se valorará en la próxima sesión de evaluación»."
+   "p": "Proponer al Claustro un único ajuste común para todo el centro hasta la siguiente evaluación, sencillo y que ya se haga en algunas clases: por ejemplo, que en los problemas el alumnado diga en voz alta los pasos. Ejemplo de acuerdo: «El Claustro acuerda como ajuste común … »."
   },
   "Ajustes que cada docente introduce en su programación tras la evaluación inicial": {
    "c": "Qué saberes se refuerzan, qué criterios se retoman y qué cambia en metodología y agrupamientos en cada grupo.",
    "q": "Tras la evaluación inicial, cada docente debe concretar qué cambia en su programación: qué saberes va a reforzar, qué criterios retoma del curso anterior, qué cambia en la metodología y en los agrupamientos. Estos ajustes forman el anexo de revisión que se incorpora antes del 15 de octubre.",
-   "p": "Cada docente aporta 2 o 3 ajustes concretos por área instrumental, por ejemplo: «retomar el cálculo con llevadas antes de empezar la multiplicación», «agrupar por parejas lector fuerte-lector débil en la lectura diaria». Se recogen en una tabla común que pasa directamente al anexo. Ejemplo de acuerdo: «Se recogen los ajustes de cada docente, que se incorporan al anexo de revisión de la programación»."
+   "p": "Cada docente dice en voz alta un solo ajuste, el más importante, en una frase (p. ej., «en Matemáticas retomo las restas con llevadas dos semanas»). La tutoría lo anota y lo pega en el anexo de revisión. Con 4 o 5 docentes por grupo, son 5 minutos. Ejemplo de acuerdo: «Cada docente incorpora a su programación el ajuste indicado, que pasa al anexo de revisión»."
   },
   "Anexo de revisión de las programaciones derivado de la evaluación inicial": {
    "c": "Redactar el anexo que se incorpora a la programación antes del 15 de octubre con los ajustes de la evaluación inicial.",
    "q": "Redactar el anexo que se añade a la programación antes del 15 de octubre con lo que ha salido de la evaluación inicial. No es reescribir la programación, sino dejar constancia de los ajustes: saberes que se refuerzan, criterios que se retoman y cambios en metodología y agrupamientos.",
-   "p": "Usar una plantilla de una página por nivel con cuatro apartados (saberes a reforzar, criterios retomados, cambios metodológicos, cambios de agrupamiento) y rellenarla en la propia reunión con lo que aporta cada tutoría. Ejemplo de acuerdo: «El ciclo aprueba el anexo de revisión de las programaciones, que se entrega a jefatura de estudios antes del 15 de octubre»."
+   "p": "En un ciclo de dos niveles es rápido: una tabla de una página por nivel con cuatro filas (qué se refuerza, qué se retoma del curso pasado, qué cambia en la forma de trabajar y en los agrupamientos). Cada tutoría la rellena en 10 minutos con lo que salió en su equipo docente. Ejemplo de acuerdo: «Se aprueba el anexo de revisión de … y …, que se entrega a jefatura antes del 15 de octubre»."
   },
   "Análisis de adecuación curricular": {
    "c": "Valorar si se ha impartido lo programado y qué saberes han quedado sin trabajar.",
    "q": "Al final del curso, comprobar qué parte de la programación se ha impartido realmente y qué saberes han quedado sin trabajar o se han trabajado de forma superficial, para que el curso siguiente los tenga en cuenta.",
-   "p": "Cada nivel señala en la programación los saberes no trabajados o poco consolidados y los traslada al informe de ciclo como prioridad para septiembre. Ejemplo de acuerdo: «Se recogen los saberes no impartidos en cada nivel, que se trasladan al informe final y a la revisión de la programación del próximo curso»."
+   "p": "Cada docente dice qué parte de su programación no le ha dado tiempo a dar (una frase). La tutoría lo apunta en el informe final para que el docente del curso que viene empiece por ahí. Ejemplo de acuerdo: «Quedan pendientes … en Matemáticas y … en Lengua; se recoge en el informe final»."
   },
   "Análisis de la evaluación final": {
    "c": "Resultados finales por área y nivel, comparados con la evaluación inicial y con el curso anterior.",
    "q": "Análisis de los resultados finales por áreas y niveles, comparándolos con la evaluación inicial y con el curso anterior, como parte de la autoevaluación del centro. Lo importante es fijarse en la evolución del alumnado respecto a sí mismo, que es el principio del Proyecto Educativo.",
-   "p": "Sacar los datos de Gestión de Evaluaciones y quedarse con tres conclusiones (lo que ha mejorado, lo que sigue igual, lo que ha empeorado) y tres propuestas concretas que vayan a la Memoria de Autoevaluación. Ejemplo de acuerdo: «El ETCP aprueba el análisis de la evaluación final y eleva las propuestas de mejora a la Memoria de Autoevaluación»."
+   "p": "Cada coordinación trae de Gestión de Evaluaciones tres datos de su ciclo: qué ha mejorado, qué sigue igual y qué ha empeorado. Con eso se redactan las conclusiones para la memoria. Ejemplo de acuerdo: «El ETCP aprueba el análisis de la evaluación final y lo traslada a la Memoria»."
   },
   "Análisis de la segunda evaluación y protocolo de repetidores": {
    "c": "Resultados de la 2.ª evaluación y alumnado en riesgo de no promocionar según la regla de los tres pasos.",
    "q": "Resultados de la segunda evaluación y relación provisional del alumnado que podría no promocionar. Hay que aplicar la regla de los tres pasos del Proyecto Educativo y asegurarse de que las familias lo saben con tiempo, no en junio.",
-   "p": "Cada ciclo trae la relación provisional con las medidas aplicadas a cada alumno. Recordar: 1) promociona si alcanza nivel 2; 2) si no, promociona con refuerzo si hay evolución positiva e implicación; 3) solo si no, permanencia (una vez en la etapa). Ejemplo de acuerdo: «Se aprueba la relación provisional de alumnado en riesgo de no promocionar; las tutorías informarán a las familias antes de mayo»."
+   "p": "Cada coordinación trae el número de alumnos en riesgo de no promocionar de su ciclo y confirma que las familias están avisadas. No se discuten casos uno a uno: eso es del equipo docente. Ejemplo de acuerdo: «Hay X alumnos en riesgo en el centro; las tutorías avisarán a las familias antes de mayo»."
   },
   "Análisis de los resultados del primer trimestre": {
    "c": "Resultados del 1.er trimestre por área y nivel, con especial atención a Lengua y Matemáticas.",
    "q": "Presentación al Claustro de los resultados del primer trimestre por ciclos y áreas, prestando especial atención a Lengua y Matemáticas, que son los objetivos del centro.",
-   "p": "Una diapositiva por ciclo con datos de Gestión de Evaluaciones: porcentaje de aprobados por área, comparación con la evaluación inicial y una medida de mejora para el segundo trimestre. Ejemplo de acuerdo: «El Claustro queda informado de los resultados del primer trimestre y asume las medidas propuestas por cada ciclo»."
+   "p": "Una diapositiva por ciclo con dos datos de Gestión de Evaluaciones (aprobados en Lengua y en Matemáticas) y la medida que propone cada ciclo. Diez minutos en total. Ejemplo de acuerdo: «El Claustro queda informado de los resultados del primer trimestre»."
   },
   "Análisis de resultados de la primera evaluación": {
    "c": "Resultados de la 1.ª evaluación por ciclos y su relación con los cuatro objetivos del centro.",
    "q": "El ETCP analiza los resultados de la primera evaluación de todos los ciclos y los relaciona con los cuatro objetivos del centro (absentismo, lectura, problemas y convivencia).",
-   "p": "Identificar en cada ciclo el área o el aspecto con peores resultados y acordar una medida común para el segundo trimestre, con responsable. Ejemplo de acuerdo: «El ETCP acuerda como prioridad del segundo trimestre … en cada ciclo, que se revisará en la siguiente sesión»."
+   "p": "Cada coordinación trae un dato: el área con peores resultados de su ciclo. El ETCP elige una sola medida común para el segundo trimestre (p. ej., lectura en parejas o problemas con los pasos comunes). Ejemplo de acuerdo: «El ETCP acuerda como medida común del segundo trimestre … »."
   },
   "Análisis de resultados de la segunda evaluación": {
    "c": "Resultados de la 2.ª evaluación del ciclo y evolución respecto a la 1.ª.",
    "q": "Resultados de la segunda evaluación en el ciclo y comparación con la primera. Es el momento de revisar cada programa de refuerzo: se mantiene, se cambia o se retira.",
-   "p": "Comparar con la primera evaluación en Gestión de Evaluaciones y repasar la lista de refuerzo alumno por alumno. Ejemplo de acuerdo: «El ciclo analiza los resultados de la segunda evaluación; se mantienen X programas de refuerzo, se modifican Y y se retiran Z, que se comunicarán a las familias»."
+   "p": "Cada tutoría trae de Gestión de Evaluaciones el dato de su grupo en Lengua y Matemáticas comparado con la primera evaluación. Se comenta solo lo que ha bajado. Ejemplo de acuerdo: «Los resultados se mantienen; en … baja … y se reforzará en el tercer trimestre»."
   },
   "Análisis del clima inicial de convivencia": {
    "c": "Cómo ha empezado el grupo: normas de aula, conflictos, alumnado aislado o con conductas disruptivas.",
    "q": "Cómo ha empezado el grupo en convivencia: si funcionan las normas de aula hechas con el alumnado en septiembre, si hay conflictos repetidos, alumnado aislado o con conductas disruptivas. Sirve de base para el sociograma de noviembre.",
-   "p": "Repasar las normas de aula y anotar los alumnos que preocupan (por aislamiento o conducta) para observarlos especialmente y tenerlos en cuenta en el sociograma. Si ya hay un caso que se repite, citar a la familia. Ejemplo de acuerdo: «El clima inicial del grupo es …; se hará seguimiento especial de … y se aplicará el sociograma en noviembre»."
+   "p": "La tutoría cuenta en dos minutos cómo ha empezado el grupo y nombra a los alumnos que preocupan (por aislamiento o por conducta). El resto del equipo dice si en sus clases ve lo mismo. Se acuerda una sola cosa común, por ejemplo, que todos sienten a ese alumno cerca del docente. Ejemplo de acuerdo: «El clima es bueno en general; se hará seguimiento de … y se tendrá en cuenta en el sociograma de noviembre»."
   },
   "Análisis del grado de adecuación curricular": {
    "c": "Si el ritmo de la programación se ajusta a lo previsto en el trimestre.",
    "q": "Comprobar si el ritmo de la programación del trimestre se corresponde con lo previsto y, si no, por qué (más repaso del necesario, interrupciones, nivel del grupo).",
-   "p": "Cada docente indica qué situaciones de aprendizaje le quedan pendientes y se reajusta la temporalización del trimestre siguiente, priorizando los criterios imprescindibles. Ejemplo de acuerdo: «Se constata un desfase de … en …; se reajusta la temporalización del segundo trimestre»."
+   "p": "Cada docente dice si va al día o va retrasado. Si alguien va retrasado, que priorice los criterios imprescindibles y deje lo accesorio. Ejemplo de acuerdo: «Las programaciones van según lo previsto salvo …, que priorizará los criterios imprescindibles»."
   },
   "Análisis del primer trimestre: revisión de logros y dificultades detectadas en las evaluaciones": {
    "c": "Logros y dificultades del alumnado NEAE y con medidas tras la 1.ª evaluación.",
    "q": "El equipo de orientación revisa cómo le ha ido al alumnado NEAE y con medidas en la primera evaluación: qué ha funcionado y qué no.",
-   "p": "Repasar caso por caso: medida aplicada, efecto observado y decisión (mantener, ajustar o retirar). Ejemplo de acuerdo: «Se revisa la evolución del alumnado NEAE tras la primera evaluación y se ajustan las medidas de los casos …»."
+   "p": "Un minuto por alumno NEAE: ¿ha avanzado o no? Si no, se cambia una sola cosa de su atención. Ejemplo de acuerdo: «Avanzan …; se ajusta la atención de … »."
   },
   "Análisis del sociograma y medidas de agrupamiento y acompañamiento": {
    "c": "Resultados del sociograma de noviembre: alumnado rechazado, aislado o líder, y medidas.",
    "q": "Analizar los resultados del sociograma de noviembre del grupo: quién está rechazado, quién está aislado, quién lidera, y decidir medidas. El Proyecto Educativo pide que tras el sociograma se revisen la distribución del aula, los equipos cooperativos, los grupos de salidas y los recreos.",
-   "p": "Recolocar el aula y los equipos para que nadie quede solo, asignar un compañero acompañante a los aislados, reforzar el juego dirigido en el recreo y, si hay rechazo fuerte, hablar con las familias. Ejemplo de acuerdo: «Tras el sociograma se acuerda: nueva distribución del aula, compañero acompañante para … y seguimiento en la próxima reunión»."
+   "p": "La tutoría trae los resultados del sociograma y propone dos cambios fáciles: dónde se sienta el alumno aislado (al lado de alguien que lo eligió) y un compañero que lo acompañe en el recreo. El equipo solo tiene que aplicarlo en sus clases. Ejemplo de acuerdo: «Tras el sociograma, … se sentará con … y tendrá compañero de recreo; se revisará en enero»."
   },
   "Análisis medidas atención diversidad": {
    "c": "Medidas de atención a la diversidad en marcha y su encaje en el horario.",
    "q": "Presentar al Claustro las medidas de atención a la diversidad del curso y su encaje en el horario. Recordar que la prioridad es el apoyo dentro del aula y que sacar al alumno del grupo es la última opción.",
-   "p": "Mostrar el mapa de apoyos (PT, refuerzo, desdobles de Lengua y Matemáticas en 2.º y 3.º, agrupamientos flexibles) y comprobar que cada grupo sabe qué apoyos tiene y cuándo. Ejemplo de acuerdo: «El Claustro queda informado de las medidas de atención a la diversidad del curso»."
+   "p": "Enseñar en una tabla qué apoyos tiene cada grupo (PT, refuerzo, desdobles de 2.º y 3.º) y en qué horas. Así cada docente sabe qué tiene en su clase. Ejemplo de acuerdo: «El Claustro queda informado de las medidas de atención a la diversidad»."
   },
   "Análisis progreso alumnado": {
    "c": "Evolución general del alumnado en el 2.º trimestre.",
    "q": "Visión general de cómo progresa el alumnado en el segundo trimestre, para detectar a tiempo a quien no avanza.",
-   "p": "Destacar avances y señalar el alumnado estancado, que se deriva a su equipo docente para revisar el programa de refuerzo. Ejemplo de acuerdo: «El Claustro analiza el progreso del alumnado; los equipos docentes revisarán los casos estancados»."
+   "p": "Dato general de Gestión de Evaluaciones comparado con la primera evaluación y recordatorio de que los equipos docentes revisen al alumnado que no avanza. Ejemplo de acuerdo: «El Claustro queda informado del progreso del alumnado»."
   },
   "Apoyo emocional y conducta – Intervención en casos de ansiedad, dificultades sociales o problemas de conducta": {
    "c": "Casos con dificultades emocionales o de conducta y respuesta coordinada.",
    "q": "Casos de alumnado con ansiedad, dificultades para relacionarse o problemas de conducta, y cómo dar una respuesta común. Si aparece cualquier indicio de riesgo o de violencia, se comunica a dirección y a la coordinación de bienestar el mismo día.",
-   "p": "Para cada caso: un adulto de referencia, tres pautas que aplica todo el profesorado (anticipar cambios, un lugar de calma, refuerzo positivo de conductas concretas) y contacto con la familia. Coordinarlo con el programa de Bienestar Emocional. Ejemplo de acuerdo: «Se acuerda un plan de actuación para …, con … como adulto de referencia, que se revisará en un mes»."
+   "p": "Para cada caso, tres cosas fáciles: un adulto de referencia, un sitio donde calmarse y una pauta igual para todo el profesorado (p. ej., avisarle antes de los cambios). Se avisa a la familia y a la coordinación de Bienestar Emocional. Ejemplo de acuerdo: «Para … se acuerda … ; adulto de referencia: … »."
   },
   "Aprobación PGA y presupuesto": {
    "c": "Aprobación del presupuesto anual (lo elabora la secretaría, se aprueba en octubre-noviembre) y de la programación general.",
    "q": "El Consejo Escolar aprueba el presupuesto anual, que elabora la secretaría, y la programación general del curso. El reparto entre ciclos depende del número de alumnado y se reserva un 10% para material inventariable.",
-   "p": "Enviar la documentación con antelación y explicar en la sesión las partidas principales y el reparto por ciclos, dejando tiempo para preguntas. Ejemplo de acuerdo: «El Consejo Escolar aprueba por … el presupuesto del ejercicio y la programación general del curso»."
+   "p": "Enviar el presupuesto con una semana de antelación y explicarlo en un cuadro sencillo (de dónde viene el dinero y en qué se gasta). Ejemplo de acuerdo: «El Consejo Escolar aprueba el presupuesto y la programación general del curso»."
   },
   "Aprobación Plan Convivencia": {
    "c": "Aprobación del Plan de Convivencia actualizado (protocolos, LOPIVI, recreos inclusivos).",
    "q": "Aprobación del Plan de Convivencia actualizado: protocolos (acoso, maltrato, riesgo de autolesión), papel de la coordinación de bienestar y protección (LOPIVI), recreos inclusivos y registro en Séneca.",
-   "p": "Explicar solo los cambios del curso y recordar las tres ideas clave: lo que no se registra no existe; la familia se entera por el centro antes que por su hijo; ante sospecha de acoso o maltrato, se comunica y no se investiga. Ejemplo de acuerdo: «El Consejo Escolar aprueba la actualización del Plan de Convivencia»."
+   "p": "Explicar solo lo que cambia este curso y quién es la persona coordinadora de bienestar. Ejemplo de acuerdo: «El Consejo Escolar aprueba el Plan de Convivencia»."
   },
   "Aprobación Plan de Centro": {
    "c": "Aprobación de los aspectos educativos del Plan de Centro por el Claustro.",
    "q": "El Claustro aprueba los aspectos educativos del Plan de Centro (Proyecto Educativo) tras su revisión.",
-   "p": "Presentar el resumen breve del Plan de Centro y señalar solo los apartados que cambian este curso; el texto completo se deja a disposición con antelación. Ejemplo de acuerdo: «El Claustro aprueba los aspectos educativos del Plan de Centro»."
+   "p": "Mandar con antelación el resumen breve del Plan de Centro y en el Claustro explicar solo lo que cambia. Ejemplo de acuerdo: «El Claustro aprueba los aspectos educativos del Plan de Centro»."
   },
   "Aprobación calendario escolar": {
    "c": "Calendario del curso: inicio, festivos, vacaciones y días de libre disposición de Santa Fe.",
    "q": "Calendario del curso con inicio, fin, festivos, vacaciones y días no lectivos, incluidos los dos días de libre disposición que fija el municipio.",
-   "p": "Presentar el calendario con todos los días sin clase ya marcados (en 2026/27: 12 de octubre, 2 de noviembre, 7 y 8 de diciembre, Navidad, 26 de febrero, 1 de marzo, Semana Santa, 19 de abril, 3 de mayo y 28 de mayo). Ejemplo de acuerdo: «El Consejo Escolar queda informado del calendario escolar del curso»."
+   "p": "Dar a cada miembro el calendario en una hoja con los días sin clase marcados en color, para que las familias lo difundan. Ejemplo de acuerdo: «El Consejo Escolar queda informado del calendario escolar»."
   },
   "Aprobación criterios programaciones": {
    "c": "Criterios comunes que deben cumplir todas las programaciones del centro.",
    "q": "Aprobar los criterios comunes que tienen que cumplir todas las programaciones del centro, recogidos en el apartado I.2 del Proyecto Educativo.",
-   "p": "Aprobar la lista: cada saber vinculado a un criterio, criterios imprescindibles identificados, rúbrica de 4 niveles por criterio, dos instrumentos y dos momentos, estructura común de lectura y problemas, trabajo cooperativo, DUA y aspectos transversales expresos. Ejemplo de acuerdo: «El Claustro aprueba los criterios comunes para la elaboración de las programaciones»."
+   "p": "Aprobar como criterios los que ya recoge el Plan de Centro (apartado I.2), sin añadir más trabajo. Ejemplo de acuerdo: «El Claustro aprueba los criterios comunes de las programaciones»."
   },
   "Aprobación de la propuesta del plan de formación del profesorado": {
    "c": "Plan de formación del curso siguiente, con al menos la mitad dedicado a los 4 objetivos.",
    "q": "Plan de formación para el curso siguiente. Según el Proyecto Educativo, al menos la mitad de la formación debe ir a los cuatro objetivos del centro y toda actividad tiene que terminar en un producto útil en el aula.",
-   "p": "Priorizar formación en centro (como la de OAOA en Matemáticas) sobre cursos individuales y asociar cada actividad a un objetivo y a un producto (una secuencia, una rúbrica, un material). Ejemplo de acuerdo: «El Claustro aprueba la propuesta de plan de formación para el próximo curso, que se trasladará al CEP»."
+   "p": "Proponer una sola formación en centro para el curso que viene, sobre lo que más necesita el claustro (como este año OAOA en Matemáticas). Ejemplo de acuerdo: «El Claustro aprueba solicitar al CEP formación en centro sobre … »."
   },
   "Aprobación de las programaciones didácticas y de la propuesta pedagógica de Infantil": {
    "c": "Aprobación de las programaciones (antes de finalizar octubre) tras el informe del ETCP.",
    "q": "El Claustro aprueba las programaciones de todas las áreas y la propuesta pedagógica de Infantil, después del informe del ETCP, antes de que termine octubre.",
-   "p": "Aprobar las que cumplen los criterios del I.2 y dar un plazo corto (15 días) para corregir las que tienen observaciones del ETCP. Ejemplo de acuerdo: «El Claustro aprueba las programaciones didácticas del curso y la propuesta pedagógica de Educación Infantil»."
+   "p": "Aprobar en bloque las que el ETCP ha informado favorablemente. Las que tengan alguna observación, se aprueban con el compromiso de corregirlas en una semana. Ejemplo de acuerdo: «El Claustro aprueba las programaciones didácticas y la propuesta pedagógica de Infantil»."
   },
   "Aprobación de los indicadores de calidad del centro para el curso": {
    "c": "Indicadores con los que se medirá el curso, ligados a los 4 objetivos (absentismo, lectura, problemas, convivencia).",
    "q": "El ETCP fija los indicadores con los que se medirá el curso en la autoevaluación. Deben estar relacionados con los cuatro objetivos del centro y ser fáciles de recoger por todos de la misma manera.",
-   "p": "Pocos y medibles: porcentaje de absentismo frente al curso anterior, alumnado que mejora en la prueba de lectura entre octubre y junio, evolución en resolución de problemas e incidencias de convivencia registradas en Séneca. Ejemplo de acuerdo: «El ETCP aprueba los indicadores de calidad del curso, que se trasladan a los ciclos»."
+   "p": "Pocos y fáciles de medir con lo que ya tenemos: absentismo (Séneca), mejora en la prueba de lectura (app de Registro), resultados de Matemáticas (Gestión de Evaluaciones) e incidencias de convivencia (Séneca). No añadir más. Ejemplo de acuerdo: «Se aprueban los cuatro indicadores del curso»."
   },
   "Aprobación memoria final": {
    "c": "Aprobación de la Memoria de Autoevaluación con las aportaciones del Claustro.",
    "q": "Aprobación de la Memoria de Autoevaluación del curso, con las aportaciones del Claustro. Sus propuestas de mejora serán los objetivos del curso siguiente.",
-   "p": "Presentar la memoria con 3 a 5 propuestas de mejora concretas y medibles, evitando incluir cosas que ya son obligatorias por ley (como los 30 minutos de lectura diaria). Ejemplo de acuerdo: «Se aprueba la Memoria de Autoevaluación del curso con las aportaciones recogidas»."
+   "p": "Enviar la memoria una semana antes y en el Claustro solo recoger aportaciones a las propuestas de mejora. Ejemplo de acuerdo: «El Claustro realiza sus aportaciones a la Memoria de Autoevaluación».",
+   "po": {
+    "CLAUSTRO": "Enviar la memoria una semana antes y en el Claustro solo recoger aportaciones a las propuestas de mejora. Ejemplo de acuerdo: «El Claustro realiza sus aportaciones a la Memoria de Autoevaluación».",
+    "CONSEJO ESCOLAR": "Presentar solo el resumen (datos y propuestas de mejora) y aprobarla. Ejemplo de acuerdo: «El Consejo Escolar aprueba la Memoria de Autoevaluación del curso»."
+   }
   },
   "Atención a la diversidad en el aula: estrategias para potenciar la autonomía y el aprendizaje significativo": {
    "c": "Estrategias para que el alumnado NEAE trabaje con autonomía dentro del aula.",
    "q": "Estrategias para que el alumnado NEAE pueda trabajar con más autonomía dentro del aula ordinaria y aprenda de forma significativa, sin depender siempre de un adulto.",
-   "p": "Elegir una estrategia y probarla en todos los grupos hasta la siguiente reunión: agendas visuales, tareas divididas en pasos con lista de comprobación, o tutoría entre iguales. Ejemplo de acuerdo: «Se acuerda aplicar … en los grupos con alumnado NEAE y valorar su efecto en la próxima reunión»."
+   "p": "Proponer a las tutorías una sola herramienta fácil: una agenda visual en la mesa del alumno con los pasos de la tarea. PT la prepara y la tutoría la usa. Ejemplo de acuerdo: «PT preparará agendas visuales para … »."
   },
   "Balance del curso y propuestas de mejora – Reflexión sobre los puntos fuertes y débiles del trabajo del equipo": {
    "c": "Qué ha funcionado y qué no en el equipo de orientación durante el curso.",
    "q": "Reflexión del equipo de orientación sobre cómo ha funcionado durante el curso: coordinación, tiempos, eficacia de las intervenciones.",
-   "p": "Recoger dos puntos fuertes, dos débiles y una propuesta concreta para septiembre, que pasa a la Memoria de Autoevaluación. Ejemplo de acuerdo: «El equipo de orientación valora el curso y propone para el próximo …»."
+   "p": "Cada miembro dice una cosa que ha ido bien y una que cambiaría. Se elige una mejora para septiembre. Ejemplo de acuerdo: «Para el próximo curso el equipo de orientación … »."
   },
   "Balance del trimestre y ajustes en la intervención: reflexión sobre las medidas aplicadas y propuestas de mejora": {
    "c": "Valoración de las intervenciones con alumnado NEAE en el 1.er trimestre.",
    "q": "Valoración de las intervenciones con el alumnado NEAE durante el primer trimestre y ajustes para el siguiente.",
-   "p": "Revisar caso por caso si la medida se mantiene, se ajusta o se retira, y dejarlo registrado para comunicarlo a las tutorías. Ejemplo de acuerdo: «Se revisan las intervenciones del trimestre y se ajustan las de …»."
+   "p": "Repasar la lista de alumnos atendidos y marcar «sigue igual», «cambia» o «alta». Ejemplo de acuerdo: «Se mantienen las intervenciones salvo … »."
   },
   "Colaborar con el equipo directivo en la actualización del Proyecto Educativo": {
    "c": "Aportaciones del ciclo a la revisión del Proyecto Educativo.",
    "q": "El ciclo aporta propuestas para mejorar el Proyecto Educativo a partir de lo que funciona y no funciona en la práctica.",
-   "p": "Repartir entre los ciclos un apartado cada uno para revisar (por ejemplo, C.5 Refuerzo, C.3 Agrupamientos, E Convivencia) y enviar las propuestas por escrito al equipo directivo. Ejemplo de acuerdo: «El ciclo revisará el apartado … del Proyecto Educativo y enviará sus propuestas antes de …»."
+   "p": "Que el ciclo diga una sola cosa del Proyecto Educativo que no funciona en la práctica y cómo la cambiaría. La coordinación la envía por correo al equipo directivo. Ejemplo de acuerdo: «El ciclo propone modificar … del Proyecto Educativo»."
   },
   "Comparativa de la prueba de comprensión lectora de octubre y de junio": {
    "c": "Evolución individual en comprensión lectora entre la prueba de octubre y la de junio (objetivo 2).",
    "q": "Comparar alumno por alumno la prueba común de comprensión lectora de octubre con la de junio. Es la principal evidencia del objetivo 2 del centro (Lengua) y va a la Memoria de Autoevaluación.",
-   "p": "Volcar ambas pruebas en la app de Registro de lectura y sacar, por grupo, el porcentaje de alumnado que mejora de nivel, el que se mantiene y el que baja. Los casos que bajan se anotan en el informe final para el curso siguiente. Ejemplo de acuerdo: «El X% del alumnado del ciclo mejora en comprensión lectora entre octubre y junio; se traslada a la Memoria»."
+   "p": "La app de Registro hace la comparación sola si las dos pruebas están metidas. Cada tutoría trae el dato de su grupo: cuántos alumnos han mejorado. Ejemplo de acuerdo: «En el ciclo mejora la comprensión lectora el X% del alumnado; se traslada a la memoria»."
   },
   "Constitución Consejo Escolar": {
    "c": "Constitución del Consejo Escolar y bienvenida a los nuevos miembros.",
    "q": "Sesión de constitución del Consejo Escolar tras la renovación: toma de posesión de los nuevos miembros y organización del curso.",
-   "p": "Dar la bienvenida, repartir un resumen breve de las funciones del Consejo y el calendario previsto de sesiones. Ejemplo de acuerdo: «Queda constituido el Consejo Escolar del centro con los siguientes miembros …»."
+   "p": "Bienvenida y una hoja de una cara con qué hace el Consejo y cuándo se reúne. Ejemplo de acuerdo: «Queda constituido el Consejo Escolar»."
   },
   "Constitución comisiones": {
    "c": "Constitución de la comisión permanente y la de convivencia.",
    "q": "Constitución de las comisiones del Consejo Escolar: permanente y de convivencia.",
-   "p": "Elegir a sus miembros y fijar que la comisión de convivencia se reúna al menos en enero y en marzo, como recoge el Proyecto Educativo. Ejemplo de acuerdo: «Se constituyen la comisión permanente y la comisión de convivencia con los siguientes miembros …»."
+   "p": "Elegir a los miembros en la misma sesión, a ser posible con al menos una familia en cada comisión. Ejemplo de acuerdo: «Se constituyen la comisión permanente y la de convivencia con … »."
   },
   "Constitución del equipo de orientación": {
    "c": "Composición del equipo de orientación, horario y reparto de casos.",
    "q": "Composición del equipo de orientación (orientación del EOE, PT, AL, tutorías implicadas), horario y reparto de casos.",
-   "p": "Fijar una persona responsable de cada alumno NEAE y el calendario de reuniones del curso (1.er lunes lectivo, de 18:00 a 18:30). Ejemplo de acuerdo: «Queda constituido el equipo de orientación; el reparto de casos queda como sigue …»."
+   "p": "Repartir quién lleva a cada alumno NEAE y compartir un listado sencillo (nombre, curso, quién lo atiende y cuándo) que se actualiza cada trimestre. Ejemplo de acuerdo: «Queda constituido el equipo de orientación con el reparto de casos adjunto»."
   },
   "Constitución del equipo docente": {
    "c": "Quién compone el equipo docente del grupo y cómo se coordina.",
    "q": "Primera reunión del equipo docente del grupo: quién da clase al grupo, cómo se coordinan y qué alumnado necesita atención especial desde el principio.",
-   "p": "Repasar los informes del curso anterior, el alumnado con medidas y los acuerdos de funcionamiento (comunicación, registro en Séneca, normas comunes). Ejemplo de acuerdo: «Queda constituido el equipo docente de …; se acuerda …»."
+   "p": "Presentarse, repasar en 5 minutos qué alumnos necesitan atención especial (según los informes del curso pasado) y acordar que la comunicación del equipo será por el grupo de correo del centro. Ejemplo de acuerdo: «Queda constituido el equipo docente de … »."
   },
   "Constitución equipos de ciclo": {
    "c": "Composición de los cuatro equipos de ciclo y sus coordinaciones.",
    "q": "Composición de los cuatro equipos de ciclo y sus coordinaciones. Los especialistas y PT se adscriben al ciclo en el que más horas imparten.",
-   "p": "Presentar las coordinaciones del curso y recordar el funcionamiento: una reunión al mes del ciclo y otra como equipo docente con especialistas, con orden del día cerrado y acuerdos escritos. Ejemplo de acuerdo: «Quedan constituidos los equipos de ciclo con las coordinaciones siguientes …»."
+   "p": "Presentar en una diapositiva la composición de cada ciclo, su coordinación y el cuadrante de reuniones. Ejemplo de acuerdo: «Quedan constituidos los equipos de ciclo»."
   },
   "Coordinación con el EOE para la evaluación del programa de tránsito": {
    "c": "Valorar cómo ha ido el tránsito de Infantil a Primaria y de 6.º a la ESO.",
    "q": "Valorar con el EOE cómo ha funcionado el tránsito del curso: de Infantil a Primaria y de 6.º a la ESO.",
-   "p": "Comprobar qué información llegó al instituto y si viajaron con el alumnado NEAE las medidas que le funcionaban. Proponer una mejora para el curso siguiente. Ejemplo de acuerdo: «Se valora el programa de tránsito y se propone para el próximo curso …»."
+   "p": "Preguntar al EOE una sola cosa: ¿llegó al instituto la información del alumnado con dificultades? Si algo falló, anotar qué cambiar el año que viene. Ejemplo de acuerdo: «Se valora el tránsito; para el próximo curso se … »."
   },
   "Coordinación con el EOE: revisión del programa de tránsito y reparto de responsabilidades": {
    "c": "Calendario y responsables del programa de tránsito del curso.",
    "q": "Calendario del programa de tránsito del curso y quién se encarga de cada actuación.",
-   "p": "Repartir por escrito: preparación de informes, reunión con el IES, visita del alumnado de 6.º y actuaciones con 5 años. Ejemplo de acuerdo: «Se aprueba el calendario del programa de tránsito con los responsables …»."
+   "p": "Una tabla con las tres actuaciones del tránsito (informes, reunión con el IES y visita de 6.º) y quién se encarga de cada una. Ejemplo de acuerdo: «Se aprueba el reparto del programa de tránsito»."
   },
   "Coordinación con el Plan de Formación en Centros": {
    "c": "Encaje de la formación en centro (OAOA) con el trabajo de los ciclos.",
    "q": "Cómo se aplica en los ciclos lo que se trabaja en la formación en centro (OAOA en Matemáticas).",
-   "p": "Que cada ciclo concrete qué producto de la formación va a aplicar en el aula este trimestre y cómo lo va a evaluar. Ejemplo de acuerdo: «Cada ciclo aplicará … de la formación OAOA en el segundo trimestre»."
+   "p": "La coordinación de la formación OAOA cuenta en 5 minutos qué se está trabajando y cada ciclo dice qué va a probar en clase este trimestre. Ejemplo de acuerdo: «Cada ciclo aplicará en el aula … de la formación OAOA»."
   },
   "Coordinación con familias: preparación de las reuniones para informar sobre los avances y necesidades": {
    "c": "Cómo informar a las familias del alumnado NEAE sobre su evolución.",
    "q": "Preparar las entrevistas con las familias del alumnado NEAE para explicarles su evolución y acordar compromisos.",
-   "p": "Usar el guion de entrevista del POAT: empezar por lo positivo, describir con ejemplos sin diagnosticar, escuchar qué ve la familia en casa, acordar dos compromisos (uno del centro y otro de la familia) y fijar fecha de revisión. Ejemplo de acuerdo: «Se preparan las entrevistas con las familias de … con el guion común»."
+   "p": "Usar el guion del POAT, que es muy sencillo: empezar por algo positivo, contar lo que se ve con ejemplos, acordar un compromiso del colegio y otro de la familia, y poner fecha para volver a verse. Con familias que no dominan el español, buscar quien traduzca. Ejemplo de acuerdo: «Se citará a las familias de … con el guion común»."
   },
   "Coordinación con los tutores y especialistas: trabajo conjunto para garantizar coherencia en la intervención educativa": {
    "c": "Coordinación entre PT, AL, tutorías y especialistas para que todos trabajen igual con cada alumno.",
    "q": "Que todo el profesorado que entra en un grupo actúe igual con el alumnado NEAE: mismas pautas, mismos apoyos, mismo lenguaje.",
-   "p": "Elaborar una ficha de una página por alumno NEAE con tres pautas comunes (por ejemplo: anticipar cambios, dar instrucciones de una en una, reforzar lo positivo) que se entrega a todo el equipo docente. Ejemplo de acuerdo: «Se elaboran las fichas de pautas comunes del alumnado NEAE y se entregan a los equipos docentes»."
+   "p": "Una ficha de media página por alumno NEAE con tres pautas que tiene que seguir todo el que entre en su clase. PT la hace y la tutoría la reparte. Ejemplo de acuerdo: «Se elaboran las fichas de pautas de … y se entregan a sus equipos docentes»."
   },
   "Coordinación de actividades del Día de Andalucía": {
    "c": "Organización del Día de Andalucía (1 de marzo no lectivo; se celebra antes).",
    "q": "Organizar el Día de Andalucía. En 2026/27 el 1 de marzo no es lectivo y el 26 de febrero tampoco (Día de la Comunidad Educativa), así que la celebración debe hacerse antes.",
-   "p": "Una actividad por ciclo sobre cultura andaluza y modalidad lingüística andaluza, y un acto común breve (himno, desayuno andaluz). Ejemplo de acuerdo: «El Día de Andalucía se celebrará el … con las actividades …»."
+   "p": "Un solo acto común, corto (himno y desayuno andaluz en el patio) y el resto en cada clase. Este curso tiene que ser antes del 26 de febrero. Ejemplo de acuerdo: «El Día de Andalucía se celebrará el … con desayuno andaluz»."
   },
   "Coordinación de actividades del Día del Libro": {
    "c": "Actividades del 23 de abril ligadas al Plan de Lectura y la biblioteca.",
    "q": "Actividades del 23 de abril ligadas al Plan de Lectura y la biblioteca escolar.",
-   "p": "Mercadillo o intercambio de libros, lectura compartida entre cursos (mayores leen a pequeños) y alguna visita de autor/a o cuentacuentos. Ejemplo de acuerdo: «El Día del Libro se organiza con las actividades … coordinadas por la biblioteca escolar»."
+   "p": "Proponer a todos los ciclos la misma actividad sencilla: lectura de mayores a pequeños y un intercambio de libros usados. La biblioteca se encarga de organizar las parejas. Ejemplo de acuerdo: «El Día del Libro se hará … »."
   },
   "Coordinación vertical con miembros de otros equipos docentes si fuera necesario": {
    "c": "Coordinación con el nivel anterior o siguiente para casos concretos.",
    "q": "Traspaso de información con el nivel anterior o siguiente cuando hay casos que lo requieren.",
-   "p": "Invitar al tutor o tutora del curso anterior durante 15 minutos para traspasar información del alumnado con medidas. Ejemplo de acuerdo: «Se mantiene coordinación con … sobre el alumnado …»."
+   "p": "Solo si hay un caso que lo pide: invitar 5 minutos al tutor o tutora del curso anterior. Si no hay casos, se omite el punto. Ejemplo de acuerdo: «No es necesaria coordinación vertical este mes»."
   },
   "Coordinación vertical con otros equipos docentes": {
    "c": "Traspaso de información y continuidad entre niveles.",
    "q": "Traspaso de información y continuidad entre niveles al final del curso.",
-   "p": "Reunión breve entre niveles consecutivos para pasar informes y acordar la secuencia de saberes en Lengua y Matemáticas. Ejemplo de acuerdo: «Se realiza el traspaso de información con …»."
+   "p": "Invitar al tutor o tutora del curso siguiente los últimos 5 minutos para contarle solo los casos importantes. Ejemplo de acuerdo: «Se traspasa la información de … al tutor/a de … »."
   },
   "Criterios promoción LOMLOE": {
    "c": "Recordar los criterios de promoción del Proyecto Educativo.",
    "q": "Recordar al Claustro los criterios de promoción del Proyecto Educativo antes del final de curso.",
-   "p": "Explicar la regla de los tres pasos, que solo se hace un programa de refuerzo por alumno con todas las áreas no superadas, que la permanencia es una sola vez en la etapa y que, si no hay consenso, se decide por mayoría simple. Ejemplo de acuerdo: «El Claustro queda informado de los criterios de promoción»."
+   "p": "Explicar en 5 minutos la regla de los tres pasos con un ejemplo de alumno. Ejemplo de acuerdo: «El Claustro queda informado de los criterios de promoción»."
   },
   "Cuestionarios de detección de altas capacidades del alumnado de segundo curso": {
    "c": "Aplicación de los cuestionarios de altas capacidades (protocolo de la Junta).",
    "q": "Aplicación del protocolo de detección de altas capacidades: cuestionarios a tutorías y familias.",
-   "p": "Fijar fechas para que tutorías y familias rellenen los cuestionarios y el plazo de entrega a orientación. Ejemplo de acuerdo: «Los cuestionarios se cumplimentarán antes del … y se entregarán al EOE»."
+   "p": "Fijar una fecha límite y que la tutoría recoja los cuestionarios de las familias en la reunión de octubre, que así llegan casi todos. Ejemplo de acuerdo: «Los cuestionarios se entregarán al EOE antes del … »."
   },
   "Decisión de promoción motivada según la regla de los tres pasos": {
    "c": "Decidir la promoción de cada alumno aplicando los tres pasos del Proyecto Educativo.",
    "q": "Decidir la promoción de cada alumno aplicando la regla del Proyecto Educativo y dejando la decisión motivada en el acta. Antes se ha oído a la familia por escrito.",
-   "p": "Paso 1: promociona si alcanza nivel 2 o más en los descriptores del ciclo. Paso 2: si no, promociona con programa de refuerzo si hay evolución positiva e implicación. Paso 3: solo si no se cumple, permanencia, una vez en la etapa y con refuerzo. Ejemplo de acuerdo: «… promociona con programa de refuerzo en … por evolución positiva e implicación»."
+   "p": "Para cada caso dudoso, recorrer los tres pasos en voz alta y dejarlo escrito en una frase: ¿alcanza nivel 2? Si no, ¿ha evolucionado y se ha implicado? Si no, permanencia (una vez en la etapa). Ejemplo de acuerdo: «… promociona con programa de refuerzo en Lengua por evolución positiva e implicación»."
   },
   "Designación del ciclo responsable de cada efeméride asignada y del proyecto interdisciplinar": {
    "c": "Qué ciclo organiza cada efeméride del curso.",
    "q": "Qué ciclo se encarga de organizar cada efeméride del curso y el proyecto interdisciplinar.",
-   "p": "Repartir en una tabla (efeméride, fecha, ciclo responsable) para equilibrar la carga y evitar que un ciclo organice dos seguidas. Ejemplo de acuerdo: «Se aprueba el reparto de efemérides por ciclos …»."
+   "p": "Repartir las efemérides que le tocan al ciclo entre sus tutorías, una por persona, y que el resto colabore. Ejemplo de acuerdo: «… se encarga de … y … de … »."
   },
   "Detección de dificultades de aprendizaje": {
    "c": "Alumnado con indicios de dificultad tras la evaluación inicial.",
    "q": "Alumnado con indicios de dificultades tras la evaluación inicial. El Proyecto Educativo marca un protocolo: primero medidas generales, y solo después, si no bastan, la evaluación psicopedagógica.",
-   "p": "Para cada caso: acta del equipo docente en menos de un mes, medidas generales durante al menos tres meses registrando su efecto, y solo entonces solicitud en Séneca con visto bueno de jefatura e información a la familia. Ejemplo de acuerdo: «Se detectan indicios en …; se aplicarán las medidas … durante tres meses»."
+   "p": "La tutoría nombra a los alumnos con dificultades claras tras la evaluación inicial y el equipo confirma si en sus áreas pasa lo mismo. No hace falta más: el acta de esta reunión ya sirve como primer paso del protocolo NEAE. A partir de aquí se aplican medidas sencillas en el aula durante tres meses. Ejemplo de acuerdo: «Se detectan indicios en …; se aplicarán medidas generales en el aula y se revisará en enero»."
   },
   "Detección de necesidades formativas para el plan de formación del curso siguiente": {
    "c": "Necesidades formativas a partir de la Memoria de Autoevaluación.",
    "q": "Qué formación necesita el claustro el curso que viene, a partir de la Memoria de Autoevaluación.",
-   "p": "Partir de las necesidades del Proyecto Educativo (comprensión lectora, resolución de problemas, gestión del aula, mediación, AICLE, competencia digital, DUA) y elegir dos, priorizando formación en centro. Ejemplo de acuerdo: «El ETCP propone como necesidades formativas …»."
+   "p": "Elegir una sola necesidad, la que más se repita en los ciclos, y pedirla como formación en centro al CEP (como la de OAOA). Ejemplo de acuerdo: «El ETCP propone como formación para el próximo curso … »."
   },
   "Elaboración de informes finales – Registro de orientaciones para el próximo curso y recomendaciones a tutores y familias": {
    "c": "Informes finales del alumnado NEAE con lo que ha funcionado.",
    "q": "Informes finales del alumnado NEAE con lo que ha funcionado durante el curso, para que no se pierda en el cambio de curso o de tutor.",
-   "p": "Que cada informe incluya las tres medidas que mejor han funcionado y una recomendación para la familia en verano. Ejemplo de acuerdo: «Se elaboran los informes finales del alumnado NEAE con las orientaciones para el próximo curso»."
+   "p": "Tres líneas por alumno: qué le funciona, qué no y qué hacer en septiembre. Y una recomendación sencilla para la familia en verano. Ejemplo de acuerdo: «Se completan los informes finales del alumnado NEAE»."
   },
   "Elaboración de la información para familias (normas del centro, objetivos, criterios de evaluación)": {
    "c": "Qué se cuenta a las familias en la reunión grupal de inicio de curso.",
    "q": "Qué se cuenta a las familias en la reunión de principio de curso. Conviene que todos los grupos del ciclo den el mismo mensaje.",
-   "p": "Un documento común por ciclo: horario (la puerta se cierra a las 9:10), normas, objetivos del curso, cómo se evalúa, canal oficial (iPasen) y elección de delegado/a de familias. Ejemplo de acuerdo: «Se aprueba el guion común de información a familias del ciclo»."
+   "p": "No hace falta crear nada nuevo: usar el mismo guion para todos los grupos del ciclo (horario y puerta a las 9:10, faltas y retrasos, iPasen como canal, cómo se evalúa y elegir delegado/a de familias). Dado el alumnado del centro, conviene llevarlo también en una hoja muy sencilla y, si hace falta, con traductor. Ejemplo de acuerdo: «Se usará el guion común del ciclo en la reunión con familias del … »."
   },
   "Elaboración de la memoria final": {
    "c": "Redacción de la Memoria de Autoevaluación con los datos del curso.",
    "q": "Redacción de la Memoria de Autoevaluación con los datos del curso: resultados, indicadores, convivencia, planes y propuestas.",
-   "p": "Repartir la memoria por apartados entre responsables con fecha de entrega y que el ETCP revise los indicadores antes del 25 de junio. Ejemplo de acuerdo: «Se reparte la elaboración de la memoria final con fecha de entrega …»."
+   "p": "Repartir la memoria por apartados entre las coordinaciones con una fecha de entrega y usar los datos que ya dan las apps (Gestión de Evaluaciones y Registro de lectura). Ejemplo de acuerdo: «Se reparte la memoria: … ; fecha de entrega … »."
   },
   "Elaboración del Plan de Mejora": {
    "c": "Propuestas de mejora del curso a partir de la Memoria de Autoevaluación.",
    "q": "Concretar las propuestas de mejora del curso a partir de la Memoria de Autoevaluación del año anterior.",
-   "p": "Pocas y concretas (3 o 4), cada una con indicador, responsable y fecha, y sin incluir lo que ya es obligatorio. Ejemplo de propuesta: «Aumentar en un 10% el alumnado que mejora en la prueba de comprensión lectora entre octubre y junio»."
+   "p": "Tres propuestas como mucho, una de lectura, una de matemáticas y una de convivencia o absentismo, cada una con un dato para medirla. Que sean cosas que se puedan hacer sin más recursos. Ejemplo de acuerdo: «Se aprueban las propuestas del Plan de Mejora … »."
   },
   "Elaboración del calendario de sesiones de evaluación": {
    "c": "Fechas de las sesiones de evaluación del trimestre (última semana lectiva).",
    "q": "Fechas de las sesiones de evaluación del trimestre, que deben ser en la última semana lectiva.",
-   "p": "Cuadrante por grupos (15-20 minutos cada uno) evitando los lunes de reuniones, con fecha límite para tener las notas en Séneca dos días antes. Ejemplo de acuerdo: «Se aprueba el calendario de sesiones de evaluación …»."
+   "p": "Usar el mismo cuadrante de otros trimestres: sesiones en la última semana lectiva, por grupos, sin tocar el lunes. Notas en Séneca dos días antes. Ejemplo de acuerdo: «Las sesiones de evaluación serán del … al … »."
   },
   "Elaborar calendario de sesiones de evaluación": {
    "c": "Fechas de las sesiones de evaluación (última semana lectiva del trimestre).",
    "q": "Fechas de las sesiones de evaluación del trimestre, en la última semana lectiva.",
-   "p": "Cuadrante por grupos con fecha límite para tener las calificaciones en Séneca dos días antes de la sesión. Ejemplo de acuerdo: «Se aprueba el calendario de sesiones de evaluación del segundo trimestre»."
+   "p": "Copiar el cuadrante del trimestre anterior y cambiar solo las fechas. Notas en Séneca dos días antes de cada sesión. Ejemplo de acuerdo: «Se aprueba el calendario de sesiones de evaluación»."
   },
   "Elaborar programaciones didácticas o propuestas pedagógicas": {
    "c": "Revisión y actualización de la programación del ciclo con las mejoras de la Memoria.",
    "q": "Revisar y actualizar la programación del ciclo con las propuestas de mejora de la Memoria de Autoevaluación, en la primera quincena de septiembre.",
-   "p": "Partir de la programación del curso pasado y completar solo lo que exige el I.2 del Proyecto Educativo: criterios imprescindibles, rúbricas de 4 niveles, dos instrumentos por criterio y estructuras comunes de lectura y problemas. Ejemplo de acuerdo: «El ciclo actualiza su programación con las mejoras …»."
+   "p": "No empezar de cero: partir de la programación del curso pasado (está en la carpeta de Programaciones del Drive y en la app del Plan de Centro) y cambiar solo lo que pide la Memoria de Autoevaluación. Repartir el trabajo por áreas entre los miembros del ciclo. Ejemplo de acuerdo: «Se actualiza la programación del ciclo; … revisa Lengua, … Matemáticas … »."
   },
   "Elección de los representantes del equipo de evaluación": {
    "c": "El Consejo Escolar elige a los representantes de cada sector en el equipo de evaluación.",
    "q": "El Consejo Escolar elige a los representantes de profesorado, familias y personal no docente en el equipo de evaluación, que impulsa la autoevaluación del centro.",
-   "p": "Proponer a una persona por sector con disponibilidad para unas tres reuniones al año. Ejemplo de acuerdo: «Se eligen como miembros del equipo de evaluación a …»."
+   "p": "Proponer a quien ya esté en la comisión permanente para no multiplicar reuniones. Ejemplo de acuerdo: «Se elige como miembros del equipo de evaluación a … »."
   },
   "Encaje en el calendario de las actuaciones de los planes y programas": {
    "c": "Calendario de actuaciones de cada plan sin solapamientos (máx. 3 actuaciones por plan).",
    "q": "Poner en un mismo calendario las actuaciones de todos los planes y programas para evitar solapamientos. El Proyecto Educativo limita cada plan a tres actuaciones al año.",
-   "p": "Hacer una tabla única por meses con cada actuación, el plan al que pertenece y el objetivo del centro al que sirve. Ejemplo de acuerdo: «Se aprueba el calendario de actuaciones de los planes y programas»."
+   "p": "Cada coordinación de plan escribe sus tres actuaciones del curso en una tabla compartida por meses. Si dos coinciden, se mueve una. Ejemplo de acuerdo: «Se aprueba el calendario de actuaciones de los planes»."
   },
   "Establecer criterios para revisión de programaciones y propuestas pedagógicas": {
    "c": "Qué va a revisar el ETCP en las programaciones.",
    "q": "Qué va a revisar el ETCP en las programaciones antes de informarlas al Claustro.",
-   "p": "Una lista de comprobación con los requisitos del I.2 que cada ciclo aplica a su programación antes de entregarla. Ejemplo de acuerdo: «El ETCP aprueba la lista de comprobación para la revisión de programaciones»."
+   "p": "Usar como lista de comprobación lo que ya dice el Plan de Centro (apartado I.2) y no añadir nada. Cada ciclo la pasa a su programación antes de entregarla. Ejemplo de acuerdo: «Se usará la lista del apartado I.2 para revisar las programaciones»."
   },
   "Estrategias de apoyo emocional y convivencia: actuaciones para prevenir conflictos y promover el bienestar del alumnado": {
    "c": "Actuaciones preventivas de convivencia y bienestar emocional.",
    "q": "Actuaciones preventivas para cuidar el bienestar emocional y evitar conflictos, en lugar de actuar solo cuando ya han ocurrido.",
-   "p": "Rincón de la calma en las aulas, una sesión de educación emocional al mes en tutoría y juego dirigido en el recreo, coordinado con el programa de Bienestar Emocional. Ejemplo de acuerdo: «Se ponen en marcha en el ciclo las siguientes actuaciones preventivas …»."
+   "p": "Proponer un rincón de la calma en las aulas donde haya más conflictos (una alfombra, un reloj de arena y tarjetas de emociones) y explicar a las tutorías cómo usarlo. Ejemplo de acuerdo: «Se pondrá un rincón de la calma en … »."
   },
   "Estrategias para fomentar la inclusión: metodología y recursos para mejorar la participación del alumnado NEAE en el aula": {
    "c": "Cómo aumentar la participación del alumnado NEAE en el aula ordinaria.",
    "q": "Cómo conseguir que el alumnado NEAE participe más en la actividad del aula ordinaria.",
-   "p": "Priorizar el apoyo dentro del aula, el Diseño Universal para el Aprendizaje (varias formas de presentar y de responder) y el trabajo cooperativo con roles adaptados. Ejemplo de acuerdo: «Se acuerda aplicar en las aulas con alumnado NEAE …»."
+   "p": "Que PT entre en el aula en lugar de sacar al alumno al menos una sesión por semana, y que ese día trabaje con un grupo pequeño en el que esté el alumno. Ejemplo de acuerdo: «PT dará apoyo dentro del aula en … los … »."
   },
   "Estrategias para la inclusión en actividades escolares – Adaptación de proyectos, salidas y celebraciones": {
    "c": "Adaptar salidas y celebraciones del trimestre para el alumnado NEAE y TEA.",
    "q": "Adaptar las salidas y celebraciones del trimestre para que el alumnado NEAE y TEA pueda participar.",
-   "p": "Anticipación visual de cada salida, un acompañante asignado, un plan B si hay sobrecarga y revisar los espacios antes. Ejemplo de acuerdo: «Para la salida a … se acuerdan las adaptaciones …»."
+   "p": "Para cada salida del trimestre: enseñar antes fotos del sitio al alumno y que vaya siempre con el mismo adulto. Ejemplo de acuerdo: «Para la salida a … , … irá con … »."
   },
   "Evaluación convivencia": {
    "c": "Informe de convivencia del trimestre para el Consejo Escolar.",
    "q": "Informe al Consejo Escolar sobre cómo está la convivencia en el centro este trimestre.",
-   "p": "Presentar los datos de Séneca (incidencias, correcciones, compromisos de convivencia) comparados con el trimestre anterior y las medidas que se han tomado. Ejemplo de acuerdo: «El Consejo Escolar queda informado del estado de la convivencia del trimestre»."
+   "p": "Tres datos de Séneca (incidencias, correcciones y compromisos firmados) comparados con el trimestre anterior. Ejemplo de acuerdo: «El Consejo Escolar queda informado de la convivencia del trimestre»."
   },
   "Evaluación de alumnado en todas las áreas": {
    "c": "Evaluación del 2.º trimestre por áreas en el equipo docente.",
    "q": "Sesión de evaluación del segundo trimestre del grupo con todas las áreas.",
-   "p": "Llevar las notas ya puestas en Séneca y dedicar la reunión solo al alumnado con áreas no superadas: qué medida se toma con cada uno. Ejemplo de acuerdo: «Se evalúa al alumnado del grupo; se acuerdan medidas para …»."
+   "p": "Notas en Séneca dos días antes. En la sesión solo se habla del alumnado con áreas suspensas y de quién puede estar en riesgo de no promocionar, para avisar ya a la familia. Ejemplo de acuerdo: «Se evalúa al grupo; se informará a la familia de … »."
   },
   "Evaluación de la práctica docente y ajuste metodológico": {
    "c": "Reflexión del equipo sobre su propia práctica en el trimestre.",
    "q": "El equipo reflexiona sobre su propia práctica en el trimestre: qué ha funcionado en clase y qué cambiaría.",
-   "p": "Un cuestionario breve de autoevaluación docente (5 preguntas) y elegir un ajuste metodológico común para el trimestre siguiente. Ejemplo de acuerdo: «Tras la reflexión, el ciclo introduce en el segundo trimestre …»."
+   "p": "Cada docente responde a una pregunta: ¿qué ha funcionado este trimestre en mi clase? De lo que se diga, el ciclo elige una cosa para que la prueben todos el trimestre siguiente. Ejemplo de acuerdo: «El ciclo extenderá a todos los grupos … »."
   },
   "Evaluación de la respuesta del alumnado a las medidas implantadas – Valoración del impacto de las estrategias aplicadas": {
    "c": "Si las medidas con alumnado NEAE están dando resultado.",
    "q": "Comprobar si las medidas aplicadas al alumnado NEAE están dando resultado.",
-   "p": "Para cada alumno: medida, evidencia de avance (trabajos, registros, observación) y decisión de mantener, ajustar o retirar. Ejemplo de acuerdo: «Se valora el impacto de las medidas y se ajustan las de …»."
+   "p": "Un minuto por alumno: ¿la medida funciona? Sí: se mantiene. No: se cambia por otra. Ejemplo de acuerdo: «Se mantienen las medidas de …; se cambia la de … »."
   },
   "Evaluación de las medidas de atención a la diversidad": {
    "c": "Valoración trimestral de las medidas de atención a la diversidad del ciclo.",
    "q": "Valoración trimestral de todas las medidas de atención a la diversidad del ciclo.",
-   "p": "Comprobar que cada medida tiene una evidencia de efecto; las que no la tienen se cambian. Ejemplo de acuerdo: «Se mantienen las medidas … y se modifican …»."
+   "p": "Repasar la lista de medidas del ciclo y marcar al lado de cada una «funciona» o «no funciona». Las que no funcionan se cambian por otra más sencilla (p. ej., apoyo dentro del aula en lugar de sacar al alumno). Ejemplo de acuerdo: «Se mantienen las medidas …; se cambia … »."
   },
   "Evaluación de programas de refuerzo aplicados": {
    "c": "Revisión trimestral de cada programa de refuerzo: criterio superado, se mantiene o se sustituye.",
    "q": "Revisión trimestral de cada programa de refuerzo: el criterio se ha superado, se mantiene o se sustituye por otro.",
-   "p": "Repasar la lista del Plan de refuerzo alumno por alumno, decidir y comunicar a cada familia el resultado por escrito. Ejemplo de acuerdo: «Se revisan los programas de refuerzo; … superan los criterios reforzados y …»."
+   "p": "Para cada alumno con refuerzo, el docente que lo da dice: superado, sigue o cambia. La tutoría lo comunica a la familia por iPasen con una frase. Ejemplo de acuerdo: «… supera el refuerzo en …; … continúa»."
   },
   "Evaluación de programas de refuerzo y medidas pertinentes": {
    "c": "Revisión de los programas de refuerzo en la 2.ª evaluación.",
    "q": "Revisión de los programas de refuerzo en la segunda evaluación.",
-   "p": "Decidir para cada programa si se mantiene, cambia o retira, e informar a la familia por escrito. Ejemplo de acuerdo: «Se revisan los programas de refuerzo del grupo con el resultado …»."
+   "p": "Para cada programa: se mantiene, se cambia o se retira. La tutoría lo comunica a la familia en una frase por iPasen. Ejemplo de acuerdo: «Se mantienen los refuerzos de …; se retira el de … »."
   },
   "Evaluación del alumnado en todas las áreas": {
    "c": "Sesión de evaluación del 1.er trimestre por áreas.",
    "q": "Sesión de evaluación del primer trimestre del grupo.",
-   "p": "Notas en Séneca antes de la sesión. En la reunión solo se tratan los casos con dificultades y los acuerdos del grupo (refuerzos, medidas, comunicación a familias). Ejemplo de acuerdo: «Se evalúa al alumnado; se acuerda …»."
+   "p": "Que todas las notas estén en Séneca dos días antes. En la reunión no se leen notas: la tutoría nombra solo a los alumnos con áreas suspensas y se decide en una frase qué se hace con cada uno. Ejemplo de acuerdo: «Se evalúa al grupo; … y … reciben refuerzo en …»."
   },
   "Evaluación del clima de convivencia": {
    "c": "Cómo está la convivencia en el grupo este trimestre.",
    "q": "Cómo está la convivencia en el grupo este trimestre.",
-   "p": "Revisar las incidencias registradas y lo que salió en el sociograma. Si hay casos, valorar un compromiso de convivencia con la familia. Ejemplo de acuerdo: «El clima del grupo es …; se acuerda …»."
+   "p": "La tutoría resume en una frase cómo está el grupo y si hay algún caso que se repite. Si lo hay, se propone citar a la familia y, si hace falta, firmar un compromiso de convivencia sencillo. Ejemplo de acuerdo: «Buen clima en general; se citará a la familia de … »."
   },
   "Evaluación del funcionamiento del equipo docente": {
    "c": "Si el equipo docente se coordina bien y cumple acuerdos.",
    "q": "Si el equipo docente se coordina bien y cumple sus acuerdos.",
-   "p": "Repasar los acuerdos de las actas del trimestre y comprobar cuáles se han cumplido y cuáles no, y por qué. Ejemplo de acuerdo: «El equipo valora su funcionamiento y propone …»."
+   "p": "Releer los acuerdos de las actas del trimestre (suelen ser 3 o 4) y marcar cuáles se han cumplido. Del que no, decidir si se sigue o se quita. Ejemplo de acuerdo: «Se han cumplido los acuerdos …; se mantiene …»."
   },
   "Evaluación del grupo aula": {
    "c": "Valoración global del grupo en el 2.º trimestre.",
    "q": "Valoración global del grupo en el segundo trimestre: rendimiento, clima, hábitos.",
-   "p": "Recoger puntos fuertes, dificultades y una medida de aula para el tercer trimestre. Ejemplo de acuerdo: «Para el tercer trimestre el grupo trabajará …»."
+   "p": "La tutoría dice un punto fuerte y una dificultad del grupo, y se acuerda una medida para el tercer trimestre. Ejemplo de acuerdo: «Para el tercer trimestre el equipo docente trabajará … »."
   },
   "Evaluación del rendimiento del alumnado": {
    "c": "Rendimiento del grupo en el 1.er trimestre.",
    "q": "Rendimiento del grupo en el primer trimestre comparado con la evaluación inicial.",
-   "p": "Usar Gestión de Evaluaciones para ver la evolución y señalar al alumnado que no avanza, para revisar sus medidas. Ejemplo de acuerdo: «Se detecta falta de avance en …; se revisarán sus medidas»."
+   "p": "Mirar en Gestión de Evaluaciones la comparación con la evaluación inicial antes de la reunión. En la reunión, solo se nombra a quien no ha avanzado y se decide si se le pone o ajusta el refuerzo. Ejemplo de acuerdo: «El grupo avanza en general; se revisará el refuerzo de …»."
   },
   "Evaluación del rendimiento en el segundo trimestre": {
    "c": "Rendimiento del ciclo en el 2.º trimestre.",
    "q": "Rendimiento del ciclo en el segundo trimestre, sobre todo en Lengua y Matemáticas.",
-   "p": "Datos por nivel y una medida común del ciclo para el tercer trimestre. Ejemplo de acuerdo: «El ciclo acuerda para el tercer trimestre …»."
+   "p": "Comparar en Gestión de Evaluaciones la primera y la segunda evaluación y fijarse solo en quien baja. Ejemplo de acuerdo: «El grupo mantiene resultados; se reforzará a … »."
   },
   "Evaluación del trimestre": {
    "c": "Balance del trimestre en el ETCP con los datos de los ciclos.",
    "q": "Balance del trimestre en el ETCP con lo que aportan los ciclos.",
-   "p": "Cada coordinación trae un logro, una dificultad y una propuesta; se elevan al Claustro. Ejemplo de acuerdo: «El ETCP recoge las valoraciones de los ciclos y propone …»."
+   "p": "Cada coordinación trae una cosa buena, una mala y una propuesta de su ciclo. Se juntan y se llevan al Claustro. Ejemplo de acuerdo: «El ETCP recoge las valoraciones de los ciclos y propone … »."
   },
   "Evaluación final del Plan de Mejora": {
    "c": "Grado de cumplimiento de cada propuesta del Plan de Mejora.",
    "q": "Grado de cumplimiento de cada propuesta del Plan de Mejora del curso.",
-   "p": "Semáforo por propuesta (conseguida, en proceso, no iniciada) con su evidencia; lo no conseguido se valora si sigue el curso siguiente. Ejemplo de acuerdo: «Se valora el Plan de Mejora: conseguidas …, en proceso …»."
+   "p": "Para cada propuesta del Plan de Mejora, poner un color (verde, amarillo, rojo) y el dato que lo demuestra. Ejemplo de acuerdo: «Se valora el Plan de Mejora: … conseguida, … en proceso»."
   },
   "Evaluación final del alumnado y competencias clave": {
    "c": "Evaluación final del alumnado y nivel de las competencias clave.",
    "q": "Sesión de evaluación final: calificaciones, grado de las competencias y decisiones de promoción.",
-   "p": "Calificaciones en Séneca antes; en la sesión, solo casos dudosos de promoción (regla de los tres pasos) y menciones honoríficas en 6.º. Ejemplo de acuerdo: «Se realiza la evaluación final del grupo con las decisiones …»."
+   "p": "Notas en Séneca antes de la sesión. Solo se debaten los casos dudosos de promoción con la regla de los tres pasos y, en 6.º, las menciones honoríficas. Ejemplo de acuerdo: «Promociona todo el grupo salvo … , que promociona con refuerzo en … »."
   },
   "Evaluación final del curso": {
    "c": "Balance final del curso en el Claustro.",
    "q": "Balance final del curso en el Claustro.",
-   "p": "Presentar resultados, indicadores de autoevaluación y propuestas de mejora que irán a la Memoria. Ejemplo de acuerdo: «El Claustro realiza la valoración final del curso y aporta …»."
+   "p": "Tres datos (lectura, matemáticas y absentismo) y tres propuestas para el curso que viene. No más. Ejemplo de acuerdo: «El Claustro valora el curso y aporta las propuestas de mejora»."
   },
   "Evaluación final y propuestas de mejora para el siguiente curso": {
    "c": "Balance del ciclo y propuestas para el curso siguiente.",
    "q": "Balance del ciclo y propuestas para el curso que viene.",
-   "p": "Tres propuestas concretas y medibles que se trasladan al ETCP para la Memoria. Ejemplo: «Sistematizar la tutoría entre iguales en la lectura diaria en todo el ciclo»."
+   "p": "Salir de la reunión con una o dos propuestas fáciles de cumplir el curso que viene, por ejemplo: «empezar la lectura diaria desde la primera semana de septiembre». Ejemplo de acuerdo: «El ciclo propone para el próximo curso … »."
   },
   "Evaluación global del proceso de enseñanza-aprendizaje": {
    "c": "Cómo están funcionando la enseñanza y el aprendizaje en el ciclo.",
    "q": "Cómo está funcionando la enseñanza en el ciclo, más allá de las notas.",
-   "p": "Revisar si en todos los grupos se cumplen los 30 minutos de lectura diaria y las 3 sesiones de problemas, y si se usa la estructura común. Ejemplo de acuerdo: «Se constata que … ; se acuerda …»."
+   "p": "Una sola pregunta para el equipo: ¿se están haciendo en este grupo los 30 minutos diarios de lectura y las 3 sesiones de problemas? Si no, buscar juntos en qué hueco del horario caben. Ejemplo de acuerdo: «Se cumplen los tiempos de lectura y problemas; se ajusta … »."
   },
   "Evaluación inicial": {
    "c": "Organización de la evaluación inicial (antes del 15 de octubre).",
    "q": "Organizar la evaluación inicial, que debe terminar con la sesión antes del 15 de octubre.",
-   "p": "Pruebas comunes por nivel (en la carpeta de evaluación inicial del Drive), observación durante dos semanas y sesión con acta competencial. Ejemplo de acuerdo: «Las pruebas iniciales se aplicarán del … al … y la sesión será el …»."
+   "p": "La tutoría trae las pruebas comunes ya pasadas (están en la carpeta de evaluación inicial del Drive) y cada especialista dice en una frase cómo ve al grupo. Con eso basta para hacer el acta competencial. Ejemplo de acuerdo: «Se realiza la evaluación inicial del grupo; el acta competencial se completará antes del 15 de octubre»."
   },
   "Evaluación inicial: conclusiones": {
    "c": "Conclusiones de la evaluación inicial para el Claustro.",
    "q": "Conclusiones de la evaluación inicial para el Claustro.",
-   "p": "Resumen por ciclo del nivel de partida en lectura y problemas y del alumnado propuesto para refuerzo. Ejemplo de acuerdo: «El Claustro queda informado de las conclusiones de la evaluación inicial»."
+   "p": "Un resumen por ciclo: cómo ha llegado el alumnado en lectura y en problemas y cuántos alumnos van a refuerzo. Ejemplo de acuerdo: «El Claustro queda informado de las conclusiones de la evaluación inicial»."
   },
   "Evaluación intermedia PGA": {
    "c": "Seguimiento de la programación general a mitad de curso.",
    "q": "Seguimiento de la programación general del curso a mitad de año.",
-   "p": "Repasar objetivos e indicadores y ajustar lo que no se está cumpliendo. Ejemplo de acuerdo: «Se revisa la programación general y se ajusta …»."
+   "p": "Repasar los objetivos del curso con un color cada uno (va bien, regular, mal) y explicar qué se hará con los que van mal. Ejemplo de acuerdo: «El Claustro queda informado del seguimiento de la programación general»."
   },
   "Formación profesorado": {
    "c": "Plan de formación del curso y formación en centro (OAOA).",
    "q": "Plan de formación del curso y formación en centro.",
-   "p": "Informar de la formación en centro «OAOA en Capitulaciones» y recordar que toda formación debe terminar en un producto de aula. Ejemplo de acuerdo: «El Claustro queda informado del plan de formación del curso»."
+   "p": "Informar de la formación en centro OAOA (calendario de sesiones) y de la oferta del CEP que pueda interesar. Ejemplo de acuerdo: «El Claustro queda informado del plan de formación»."
   },
   "Gestión del proceso de libros de texto": {
    "c": "Recogida y revisión de lotes de libros en junio (gratuidad).",
    "q": "Recogida y revisión de los libros de texto en junio (programa de gratuidad).",
-   "p": "Calendario de recogida por grupos y registro del estado de cada libro (bueno, aceptable, inservible). Si uno vuelve destrozado, se comunica a secretaría; no se reclama a la familia. Ejemplo de acuerdo: «La recogida de libros se hará del … al …»."
+   "p": "Fijar una semana de junio para que cada tutoría recoja los libros y anote su estado en la hoja de secretaría. Ejemplo de acuerdo: «La recogida de libros será del … al … »."
   },
   "Horario de participación del alumnado del aula específica en su grupo de referencia": {
    "c": "En qué sesiones se integra cada alumno del aula TEA en su grupo ordinario.",
    "q": "En qué sesiones se integra cada alumno del aula TEA en su grupo ordinario.",
-   "p": "Empezar por sesiones de rutina y más previsibles (asamblea, Educación Física, Música, Plástica) y ampliar según cómo responda. Ejemplo de acuerdo: «… asistirá a su grupo de referencia en …»."
+   "p": "Empezar por las sesiones más tranquilas y previsibles (Música, Plástica, Educación Física o la asamblea) y ampliar si va bien. Siempre con el mismo adulto acompañando al principio. Ejemplo de acuerdo: «… asistirá a su grupo en … los … »."
   },
   "Inclusión en actividades de fin de curso – Adaptación de celebraciones para garantizar la participación de todos": {
    "c": "Adaptar la fiesta de fin de curso y graduaciones para todo el alumnado.",
    "q": "Adaptar la fiesta de fin de curso y las graduaciones para que participe todo el alumnado.",
-   "p": "Ensayos con anticipación visual, papel adaptado y un espacio de retirada para el alumnado TEA. Ejemplo de acuerdo: «Se acuerdan las adaptaciones para la fiesta de fin de curso …»."
+   "p": "Un papel corto en la fiesta, ensayado en el sitio real, y un adulto de referencia. Si se agobia, que pueda salir. Ejemplo de acuerdo: «Para la fiesta de fin de curso, … participará en … »."
   },
   "Indicadores de impacto del Plan de Lectura": {
    "c": "Cómo se mide si el Plan de Lectura funciona.",
    "q": "Cómo se mide si el Plan de Lectura está funcionando.",
-   "p": "Dos indicadores sencillos: porcentaje de alumnado que sube de nivel en la prueba común y préstamos de la biblioteca por grupo. Ejemplo de acuerdo: «Se aprueban los indicadores del Plan de Lectura …»."
+   "p": "Dos datos que ya salen solos: cuántos alumnos mejoran en la prueba común (app de Registro) y cuántos préstamos hace la biblioteca por grupo. Ejemplo de acuerdo: «Se usarán como indicadores del Plan de Lectura … »."
   },
   "Información desarrollo inicial": {
    "c": "Cómo ha empezado el curso: matrícula, plantilla y funcionamiento.",
    "q": "Cómo ha empezado el curso: matrícula, plantilla y funcionamiento.",
-   "p": "Resumen breve de matrícula, grupos y novedades. Ejemplo de acuerdo: «El Consejo Escolar queda informado del inicio de curso»."
+   "p": "Resumen de una página: matrícula, grupos, plantilla y novedades. Ejemplo de acuerdo: «El Consejo Escolar queda informado»."
   },
   "Información económica del segundo trimestre": {
    "c": "Estado de cuentas del trimestre.",
    "q": "Estado de las cuentas del trimestre.",
-   "p": "Ingresos y gastos por partida frente al presupuesto aprobado, explicando las desviaciones. Ejemplo de acuerdo: «El Consejo Escolar queda informado del estado de cuentas»."
+   "p": "Un cuadro de ingresos y gastos frente a lo presupuestado, explicando solo lo que se ha desviado. Ejemplo de acuerdo: «El Consejo Escolar queda informado del estado de cuentas»."
   },
   "Información económica trimestre": {
    "c": "Estado de cuentas del trimestre.",
    "q": "Estado de las cuentas del trimestre.",
-   "p": "Ingresos y gastos por partida frente al presupuesto aprobado, explicando las desviaciones. Ejemplo de acuerdo: «El Consejo Escolar queda informado del estado de cuentas»."
+   "p": "Un cuadro de ingresos y gastos frente a lo presupuestado, explicando solo lo que se ha desviado. Ejemplo de acuerdo: «El Consejo Escolar queda informado del estado de cuentas»."
   },
   "Información escolarización": {
    "c": "Proceso de escolarización del curso siguiente.",
    "q": "Proceso de escolarización para el curso siguiente.",
-   "p": "Datos de solicitudes y plazas por nivel y calendario del proceso. Ejemplo de acuerdo: «El Consejo Escolar queda informado del proceso de escolarización»."
+   "p": "Plazos del proceso y plazas por nivel. Pedir a las familias del Consejo que ayuden a difundirlo en el barrio. Ejemplo de acuerdo: «El Consejo Escolar queda informado del proceso de escolarización»."
   },
   "Información general inicio curso": {
    "c": "Información de inicio de curso para el Claustro.",
    "q": "Información de comienzo de curso para todo el Claustro.",
-   "p": "Calendario, horarios, coordinaciones, cuadrante de reuniones de los lunes y las cuatro prioridades del Plan de Centro. Ejemplo de acuerdo: «El Claustro queda informado»."
+   "p": "Lo imprescindible en una presentación corta: calendario con los días sin clase, horarios, coordinaciones, cuadrante de reuniones de los lunes y las cuatro prioridades del centro (absentismo, lectura, problemas y convivencia). Ejemplo de acuerdo: «El Claustro queda informado del inicio de curso»."
   },
   "Información inicio curso": {
    "c": "Información de inicio de curso para el Consejo Escolar.",
    "q": "Información de comienzo de curso para el Consejo Escolar.",
-   "p": "Matrícula, plantilla, calendario y principales novedades. Ejemplo de acuerdo: «El Consejo Escolar queda informado del inicio de curso»."
+   "p": "Resumen de una página: matrícula, plantilla, calendario y novedades. Ejemplo de acuerdo: «El Consejo Escolar queda informado del inicio de curso»."
   },
   "Información sobre calendario de reuniones": {
    "c": "Calendario de reuniones de los lunes del curso.",
    "q": "Calendario de reuniones del curso.",
-   "p": "Presentar el cuadrante (1.º a 4.º lunes lectivo de cada mes) y recordar que se puede añadir al Google Calendar desde el Tablón. Ejemplo de acuerdo: «El ETCP queda informado del calendario de reuniones»."
+   "p": "Recordar el cuadrante de lunes (1.º a 4.º lunes lectivo) y que en el Tablón está el botón para añadir todas las reuniones al Google Calendar. Que cada coordinación lo pase a su ciclo. Ejemplo de acuerdo: «Las coordinaciones trasladarán el calendario de reuniones»."
   },
   "Información tutorías y convivencia": {
    "c": "Cómo están las tutorías y la convivencia en el centro.",
    "q": "Cómo van las tutorías y la convivencia en el centro.",
-   "p": "Datos de incidencias, compromisos firmados y resultados generales del sociograma de noviembre. Ejemplo de acuerdo: «El Claustro queda informado»."
+   "p": "Datos generales de convivencia del trimestre y recordatorio del protocolo: lo que pasa, se registra en Séneca y se avisa a la familia el mismo día. Ejemplo de acuerdo: «El Claustro queda informado»."
   },
   "Informar sobre criterios de evaluación y promoción": {
    "c": "Trasladar a los ciclos los criterios de evaluación y promoción del Proyecto Educativo.",
    "q": "Trasladar a los ciclos los criterios de evaluación y promoción del Proyecto Educativo.",
-   "p": "Repasar la rúbrica de 4 niveles, los dos instrumentos por criterio, la nota como media de competencias específicas sin porcentajes por instrumento y la regla de los tres pasos. Ejemplo de acuerdo: «Las coordinaciones trasladarán a los ciclos los criterios …»."
+   "p": "Las coordinaciones se llevan un resumen de una página (rúbrica de 4 niveles, dos instrumentos por criterio y la regla de los tres pasos) para leerlo en su próximo ciclo. Ejemplo de acuerdo: «Las coordinaciones trasladarán a los ciclos los criterios de evaluación y promoción»."
   },
   "Informar sobre medidas y programas de atención a la diversidad (Protocolo NEAE)": {
    "c": "Protocolo NEAE y medidas de atención a la diversidad del centro.",
    "q": "Protocolo de detección del alumnado NEAE y medidas de atención a la diversidad.",
-   "p": "Recordar los cuatro pasos: detectar indicios, acta del equipo docente en un mes, medidas generales al menos tres meses, y solicitud en Séneca con visto bueno de jefatura. Ejemplo de acuerdo: «Las coordinaciones trasladarán el protocolo a los ciclos»."
+   "p": "Recordar el protocolo en cuatro pasos y que lo lleven a su ciclo: detectar, acta del equipo docente, tres meses de medidas en el aula y, si no basta, solicitud en Séneca. Ejemplo de acuerdo: «Las coordinaciones trasladarán el protocolo NEAE a los ciclos»."
   },
   "Informe actividad lectiva": {
    "c": "Informe del funcionamiento del trimestre al Consejo Escolar.",
    "q": "Informe del funcionamiento del trimestre para el Consejo Escolar.",
-   "p": "Actividades realizadas, resultados generales y convivencia, en una página. Ejemplo de acuerdo: «El Consejo Escolar queda informado»."
+   "p": "Una página con lo más destacado del trimestre (actividades, resultados generales y convivencia). Ejemplo de acuerdo: «El Consejo Escolar queda informado»."
   },
   "Informe comisiones": {
    "c": "Informe de las comisiones del Consejo Escolar.",
    "q": "Informe de lo tratado en las comisiones del Consejo Escolar.",
-   "p": "Resumen de acuerdos de la comisión permanente y de la de convivencia. Ejemplo de acuerdo: «El Consejo Escolar queda informado»."
+   "p": "Leer los acuerdos de cada comisión en dos minutos. Ejemplo de acuerdo: «El Consejo Escolar queda informado»."
   },
   "Informe de las programaciones didácticas para su elevación al Claustro": {
    "c": "El ETCP informa las programaciones antes de su aprobación por el Claustro.",
    "q": "El ETCP informa las programaciones antes de que las apruebe el Claustro.",
-   "p": "Revisarlas con la lista de comprobación del I.2 y anotar las observaciones por ciclo. Ejemplo de acuerdo: «El ETCP informa favorablemente las programaciones de … con las observaciones …»."
+   "p": "Cada coordinación confirma que su ciclo ha pasado la lista de comprobación. Si falta algo, se da una semana para completarlo. Ejemplo de acuerdo: «El ETCP informa favorablemente las programaciones; … completará … »."
   },
   "Informe organización docente": {
    "c": "Organización docente del curso al Consejo Escolar.",
    "q": "Organización docente del curso para el Consejo Escolar.",
-   "p": "Grupos, tutorías, especialistas y medidas de apoyo (PT, refuerzo, desdobles). Ejemplo de acuerdo: «El Consejo Escolar queda informado»."
+   "p": "Cuadro con grupos, tutorías y apoyos del curso. Ejemplo de acuerdo: «El Consejo Escolar queda informado»."
   },
   "Informes finales de ciclo y traspaso al siguiente tutor o tutora": {
    "c": "Informes finales y traspaso de información al tutor/a siguiente.",
    "q": "Informes finales y traspaso de información al tutor o tutora del curso siguiente.",
-   "p": "Informe por alumno con las medidas que funcionaron y carpeta de tutoría completa. Ejemplo de acuerdo: «Se elaboran los informes finales y se traspasa la carpeta de tutoría»."
+   "p": "Que cada informe tenga tres líneas útiles por alumno con dificultades: qué le cuesta, qué le funciona y qué hay que hacer en septiembre. Lo demás, en la carpeta de tutoría. Ejemplo de acuerdo: «Se completan los informes finales y se entrega la carpeta de tutoría»."
   },
   "Memoria de los planes y programas: una página por plan": {
    "c": "Memoria anual de cada plan (máximo una página).",
    "q": "Memoria anual de cada plan y programa, que según el Proyecto Educativo no debe pasar de una página.",
-   "p": "Plantilla común: actuaciones realizadas, evidencia de cada una y una propuesta de mejora. Ejemplo de acuerdo: «Las coordinaciones entregarán la memoria de su plan antes del …»."
+   "p": "Dar a todos los coordinadores de planes la misma plantilla de una página (qué se hizo, una foto o evidencia y una mejora) con una fecha de entrega. Ejemplo de acuerdo: «Las memorias de los planes se entregarán antes del … »."
   },
   "Modificaciones presupuestarias": {
    "c": "Cambios en el presupuesto por ingresos o gastos no previstos.",
    "q": "Cambios en el presupuesto por ingresos o gastos que no estaban previstos.",
-   "p": "Explicar cada modificación y su motivo. Ejemplo de acuerdo: «El Consejo Escolar aprueba las modificaciones presupuestarias …»."
+   "p": "Explicar cada cambio en una línea (de dónde viene y en qué se gasta). Ejemplo de acuerdo: «El Consejo Escolar aprueba las modificaciones presupuestarias»."
   },
   "Organización curso siguiente": {
    "c": "Primeras previsiones del próximo curso.",
    "q": "Primeras previsiones del próximo curso.",
-   "p": "Previsión de grupos, tutorías y necesidades de plantilla. Ejemplo de acuerdo: «El Claustro queda informado de las previsiones»."
+   "p": "Adelantar lo que ya se sabe (grupos previstos y posibles cambios de plantilla) y abrir un plazo para que cada docente diga sus preferencias de tutoría. Ejemplo de acuerdo: «El Claustro queda informado de las previsiones del próximo curso»."
   },
   "Organización de actividades complementarias con criterios pedagógicos": {
    "c": "Propuesta de actividades complementarias del curso, cada una con finalidad curricular.",
    "q": "Propuesta de actividades complementarias del curso. Según el Proyecto Educativo, cada una debe tener una finalidad curricular explícita y ninguna puede excluir a nadie por motivos económicos.",
-   "p": "Una salida por trimestre y grupo como máximo, ligada a una situación de aprendizaje. Si alguna familia no puede pagar, la dirección lo resuelve con discreción. Ejemplo de acuerdo: «El ciclo propone las actividades …, que se elevarán al Consejo Escolar»."
+   "p": "Pocas y cercanas: una salida por trimestre, a ser posible por Santa Fe o Granada (andando o en autobús barato) y ligada a lo que se está dando. Si alguna familia no puede pagar, se lo comunica a dirección con discreción. Ejemplo de acuerdo: «El ciclo propone … en el primer trimestre, … en el segundo y … en el tercero»."
   },
   "Organizar actividades complementarias y extraescolares": {
    "c": "Actividades del ciclo para el curso, que aprueba el Consejo Escolar.",
    "q": "Actividades del ciclo para el curso, que aprueba después el Consejo Escolar.",
-   "p": "Tabla por trimestre con actividad, finalidad curricular, coste y responsable. Ejemplo de acuerdo: «Se aprueba la propuesta de actividades del ciclo para el curso»."
+   "p": "Una tabla sencilla con tres filas (una por trimestre): actividad, para qué sirve y precio aproximado. Mejor salidas cercanas y baratas. Ejemplo de acuerdo: «Se aprueba la propuesta de actividades del ciclo para el curso»."
   },
   "Organizar el Plan de Formación en Centros (CEP)": {
    "c": "Organización de la formación en centro con el CEP.",
    "q": "Organización de la formación en centro con el CEP.",
-   "p": "Calendario de sesiones de la formación OAOA y producto que se elaborará. Ejemplo de acuerdo: «Se aprueba el calendario de la formación en centro»."
+   "p": "La coordinación de la formación OAOA presenta el calendario de sesiones y se comprueba que no coincide con los lunes de reuniones. Ejemplo de acuerdo: «Se aprueba el calendario de la formación en centro»."
   },
   "Plan de acogida y adaptación: estrategias para facilitar la integración del alumnado, especialmente el de TEA": {
    "c": "Plan de acogida del alumnado nuevo y del aula TEA.",
    "q": "Plan de acogida del alumnado nuevo y del aula TEA a principio de curso.",
-   "p": "Anticipación visual de rutinas, un adulto de referencia y entrada progresiva en los primeros días. Ejemplo de acuerdo: «Se aprueba el plan de acogida …»."
+   "p": "Los primeros días, horario reducido si hace falta, un panel con fotos de las rutinas y siempre el mismo adulto. Para el alumnado que llega a mitad de curso (pasa mucho en nuestro centro), un compañero guía la primera semana. Ejemplo de acuerdo: «Se aplica el plan de acogida a … »."
   },
   "Planificación de actividades de febrero (Carnaval, Día de Andalucía)": {
    "c": "Actividades de Carnaval y Día de Andalucía.",
    "q": "Actividades de Carnaval y del Día de Andalucía. En 2026/27 no hay clase el 26 de febrero ni el 1 de marzo.",
-   "p": "Repartir responsables y fechas antes del 26 de febrero. Ejemplo de acuerdo: «El Carnaval se celebrará el … y el Día de Andalucía el …»."
+   "p": "Fijar las dos fechas antes del 26 de febrero (ese día y el 1 de marzo no hay clase) y que cada ciclo organice lo suyo. Ejemplo de acuerdo: «Carnaval el … y Día de Andalucía el … »."
   },
   "Planificación de actividades de fin de curso": {
    "c": "Actividades de final de curso del ciclo.",
    "q": "Actividades de final de curso del ciclo.",
-   "p": "Calendario de junio con fiesta, graduaciones y despedidas, evitando la semana de evaluación. Ejemplo de acuerdo: «Se aprueban las actividades de fin de curso …»."
+   "p": "Repetir lo que funcionó el año pasado y repartir quién se encarga de cada cosa. Evitar la última semana, que es de evaluación e informes. Ejemplo de acuerdo: «La fiesta del ciclo será el …; se encargan … »."
   },
   "Planificación de actividades del Día de Andalucía y Carnaval": {
    "c": "Actividades del ciclo para Carnaval y Día de Andalucía.",
    "q": "Actividades del ciclo para Carnaval y Día de Andalucía.",
-   "p": "Una actividad por nivel sobre cultura andaluza y un acto común breve. Ejemplo de acuerdo: «El ciclo organiza …»."
+   "p": "Este curso no hay clase ni el 26 de febrero ni el 1 de marzo, así que todo antes. Lo más sencillo: desfile de Carnaval por el patio y desayuno andaluz con una actividad corta en clase. Ejemplo de acuerdo: «El Carnaval será el … y el desayuno andaluz el … »."
   },
   "Planificación de actividades del Día de la Constitución": {
    "c": "Actividades del Día de la Constitución.",
    "q": "Actividades del Día de la Constitución (el 7 y el 8 de diciembre no hay clase).",
-   "p": "Asamblea en cada clase sobre derechos y deberes, conectada con las normas de aula. Ejemplo de acuerdo: «Se celebrará el …»."
+   "p": "Proponer a todos los ciclos una asamblea de clase el viernes 4 de diciembre (el 7 y el 8 no hay clase). Sin acto conjunto. Ejemplo de acuerdo: «El Día de la Constitución se trabajará en asamblea el 4 de diciembre»."
   },
   "Planificación de actividades del Día de los Derechos de la Infancia y Día contra la Violencia Machista": {
    "c": "Actividades del 20 y 25 de noviembre.",
    "q": "Actividades del 20 y del 25 de noviembre.",
-   "p": "Una actividad por ciclo coordinada con el Plan de Igualdad y el programa de Bienestar Emocional. Ejemplo de acuerdo: «Se aprueban las actividades …»."
+   "p": "Una actividad corta en tutoría para cada día, con material que ya existe (la coordinación de Igualdad suele tenerlo). No hace falta acto conjunto. Ejemplo de acuerdo: «Cada grupo trabajará en tutoría el 20 y el 25 de noviembre con el material de Igualdad»."
   },
   "Planificación de calendario final de curso": {
    "c": "Calendario de junio: evaluaciones, informes, libros y fin de curso.",
    "q": "Calendario de junio: evaluaciones, informes, libros y fin de curso.",
-   "p": "Un cronograma único de junio con fecha límite para cada tarea. Ejemplo de acuerdo: «Se aprueba el calendario de final de curso»."
+   "p": "Una hoja con todo junio: evaluaciones, informes, libros, fiesta y claustro final, con fecha límite para cada cosa. Ejemplo de acuerdo: «Se aprueba el calendario de final de curso»."
   },
   "Planificación de medidas para la recta final del curso – Ajuste de apoyos y preparación para la transición de etapa": {
    "c": "Ajuste de apoyos en el 3.er trimestre y preparación del tránsito.",
    "q": "Ajuste de apoyos en el tercer trimestre y preparación del tránsito.",
-   "p": "Reforzar al alumnado NEAE de 5 años y de 6.º y preparar sus informes de tránsito. Ejemplo de acuerdo: «Se ajustan los apoyos del tercer trimestre …»."
+   "p": "Dar prioridad en los apoyos del tercer trimestre a los alumnos de 5 años y de 6.º que cambian de etapa. Ejemplo de acuerdo: «En el tercer trimestre se priorizará el apoyo a … »."
   },
   "Planificación de reuniones con familias": {
    "c": "Reunión grupal de inicio de curso con las familias.",
    "q": "Reunión grupal con las familias al principio del trimestre.",
-   "p": "En la primera quincena, con guion común por ciclo y elección de delegado/a de familias. Ejemplo de acuerdo: «Las reuniones con familias serán del … al …»."
+   "p": "Fijar la fecha de la reunión de cada grupo en la primera quincena del trimestre y usar el mismo guion en todo el ciclo. Convocar por iPasen y, para las familias que no lo usan, con nota en la agenda. Ejemplo de acuerdo: «Las reuniones con familias del ciclo serán el … »."
   },
   "Planificación del Día de la Constitución y Navidad": {
    "c": "Actividades de diciembre (Constitución y Navidad).",
    "q": "Actividades de diciembre: Constitución y Navidad.",
-   "p": "Repartir fechas teniendo en cuenta que el 7 y el 8 de diciembre no hay clase. Ejemplo de acuerdo: «Se aprueban las actividades de diciembre …»."
+   "p": "El 7 y el 8 de diciembre no hay clase. Para la Constitución, basta una asamblea en clase el viernes 4. Para Navidad, repetir lo del año pasado y repartir encargados. Ejemplo de acuerdo: «La Constitución se trabajará en asamblea el 4 de diciembre; la actividad de Navidad será el … »."
   },
   "Planificación del Día de la Mujer Trabajadora": {
    "c": "Actividad del 8 de marzo para todo el centro.",
    "q": "Actividad del 8 de marzo para todo el centro.",
-   "p": "Coordinar con el Plan de Igualdad una actividad común con referentes femeninos. Ejemplo de acuerdo: «Se aprueba la actividad del 8M …»."
+   "p": "Proponer una actividad común y sencilla: cada clase presenta a una mujer referente y se cuelgan en el pasillo. La coordinación de Igualdad recoge los trabajos. Ejemplo de acuerdo: «Para el 8 de marzo cada grupo presentará una mujer referente»."
   },
   "Planificación del Día de la Paz y la No Violencia": {
    "c": "Actividades del 30 de enero (Escuela: Espacio de Paz).",
    "q": "Actividades del 30 de enero (Escuela: Espacio de Paz).",
-   "p": "Un acto común breve y una actividad de aula ligada a las normas de convivencia. Ejemplo de acuerdo: «Se aprueban las actividades del Día de la Paz …»."
+   "p": "Proponer a todos los ciclos una sola actividad común el viernes 29 de enero (el 30 es sábado; cada clase hace un compromiso de convivencia y se cuelgan juntos). Ejemplo de acuerdo: «El Día de la Paz se celebrará el 29 de enero con … ».",
+   "po": {
+    "ETCP": "Proponer a todos los ciclos una sola actividad común el viernes 29 de enero (el 30 es sábado; cada clase hace un compromiso de convivencia y se cuelgan juntos). Ejemplo de acuerdo: «El Día de la Paz se celebrará el 29 de enero con … ».",
+    "EQUIPOS DE CICLO": "Aplicar la actividad común que propone el ETCP sin añadir más: cada clase hace sus compromisos de convivencia y los cuelga. Ejemplo de acuerdo: «El ciclo hará … para el Día de la Paz»."
+   }
   },
   "Planificación del Día del Libro": {
    "c": "Actividades del 23 de abril en el ciclo.",
    "q": "Actividades del 23 de abril en el ciclo.",
-   "p": "Lectura compartida entre niveles y una actividad de biblioteca. Ejemplo de acuerdo: «El ciclo organiza para el Día del Libro …»."
+   "p": "Lo más fácil y que funciona: los mayores del ciclo leen un cuento a los pequeños durante media hora. Ejemplo de acuerdo: «El 23 de abril … leerá a … »."
   },
   "Planificación del Día del Libro con la biblioteca": {
    "c": "Coordinación del Día del Libro con la biblioteca escolar.",
    "q": "Coordinación del Día del Libro con la biblioteca escolar.",
-   "p": "Programa común (mercadillo, cuentacuentos, lecturas) alineado con el Plan de Lectura. Ejemplo de acuerdo: «Se aprueba el programa del Día del Libro»."
+   "p": "La coordinación de la biblioteca propone una actividad común (lectura de mayores a pequeños o intercambio de libros) y los ciclos solo la aplican. Ejemplo de acuerdo: «El Día del Libro se organiza con la biblioteca: … »."
   },
   "Planificación del inicio del próximo curso – Estrategias para la acogida de nuevo alumnado y puesta en marcha de protocolos": {
    "c": "Acogida del alumnado NEAE nuevo el próximo curso.",
    "q": "Acogida del alumnado NEAE que llega el curso que viene.",
-   "p": "Lista del alumnado que llega, reunión con las familias en septiembre y adaptación de los primeros días. Ejemplo de acuerdo: «Se planifica la acogida de …»."
+   "p": "Hacer ya la lista del alumnado NEAE que llega en septiembre y fijar la primera semana de curso para reunirse con sus familias. Ejemplo de acuerdo: «Se reunirá a las familias de … la primera semana de septiembre»."
   },
   "Planificación fin curso": {
    "c": "Final de curso en el Consejo Escolar.",
    "q": "Final de curso en el Consejo Escolar.",
-   "p": "Calendario de junio y actividades de fin de curso. Ejemplo de acuerdo: «El Consejo Escolar queda informado»."
+   "p": "Calendario de junio con la fiesta de fin de curso y la última semana. Ejemplo de acuerdo: «El Consejo Escolar queda informado»."
   },
   "Preparación de las evaluaciones adaptadas: revisión de medidas para garantizar la accesibilidad en la primera evaluación": {
    "c": "Adaptaciones de las pruebas para alumnado NEAE en la 1.ª evaluación.",
    "q": "Adaptaciones de las pruebas del alumnado NEAE en la primera evaluación.",
-   "p": "Más tiempo, lectura en voz alta de enunciados, formato accesible y, siempre, dos instrumentos, no solo el examen. Ejemplo de acuerdo: «Se acuerdan las adaptaciones de evaluación para …»."
+   "p": "Tres adaptaciones fáciles que puede aplicar cualquier docente: leerle las preguntas, darle más tiempo y poner menos preguntas por hoja. PT lo comunica a cada equipo docente. Ejemplo de acuerdo: «… tendrá en las pruebas las adaptaciones: … »."
   },
   "Preparación del cierre de curso – Revisión de informes y orientaciones para el próximo año": {
    "c": "Revisión de informes del alumnado NEAE antes de junio.",
    "q": "Revisión de los informes del alumnado NEAE antes de junio.",
-   "p": "Comprobar que cada informe recoge las medidas que funcionaron. Ejemplo de acuerdo: «Se revisan los informes de …»."
+   "p": "Comprobar que cada alumno NEAE tiene su informe con las medidas que le funcionan. Ejemplo de acuerdo: «Los informes del alumnado NEAE están completos»."
   },
   "Preparación evaluación final": {
    "c": "Organización de la evaluación final de junio.",
    "q": "Organización de la evaluación final de junio.",
-   "p": "Calendario de sesiones, plazo para las notas en Séneca y audiencia previa a las familias sobre la promoción. Ejemplo de acuerdo: «El Claustro queda informado del calendario de evaluación final»."
+   "p": "Calendario de sesiones de junio, fecha límite de notas en Séneca y recordatorio de que hay que oír a las familias antes de decidir una permanencia. Ejemplo de acuerdo: «El Claustro queda informado del calendario de evaluación final»."
   },
   "Presentación borrador PGA": {
    "c": "Presentación del borrador de la programación general.",
    "q": "Presentación del borrador de la programación general del curso.",
-   "p": "Resumen de objetivos, calendario y planes. Ejemplo de acuerdo: «El Consejo Escolar queda informado del borrador»."
+   "p": "Resumen de objetivos y calendario del curso en una página. Ejemplo de acuerdo: «El Consejo Escolar queda informado del borrador»."
   },
   "Presentación planes y programas educativos": {
    "c": "Planes y programas del centro este curso.",
    "q": "Planes y programas del centro este curso.",
-   "p": "Cada coordinación presenta en dos minutos sus tres actuaciones y el objetivo del centro al que sirve cada una. Ejemplo de acuerdo: «El Claustro queda informado de los planes y programas»."
+   "p": "Cada coordinación de plan presenta en un minuto sus tres actuaciones del curso. Ejemplo de acuerdo: «El Claustro queda informado de los planes y programas del curso»."
   },
   "Previsión de repetidores para comunicar a familias": {
    "c": "Alumnado en riesgo de no promocionar para informar a las familias.",
    "q": "Alumnado en riesgo de no promocionar, para informar a las familias con tiempo.",
-   "p": "Aplicar la regla de los tres pasos y citar a las familias antes de mayo. Ejemplo de acuerdo: «Se informará a las familias de …»."
+   "p": "Nombrar a los alumnos que podrían no promocionar y comprobar que ya se ha hablado con la familia. Si no, la tutoría la cita antes de Semana Santa. Ejemplo de acuerdo: «Se informará a la familia de … sobre la posibilidad de no promoción»."
   },
   "Previsión plantilla": {
    "c": "Previsión de plantilla del próximo curso.",
    "q": "Previsión de plantilla del próximo curso.",
-   "p": "Necesidades de profesorado según grupos y medidas de apoyo. Ejemplo de acuerdo: «El Consejo Escolar queda informado»."
+   "p": "Explicar qué cambios de plantilla se esperan y cómo afectan a los grupos. Ejemplo de acuerdo: «El Consejo Escolar queda informado»."
   },
   "Proceso evaluación inicial": {
    "c": "Cómo se hace la evaluación inicial este curso.",
    "q": "Cómo se va a hacer la evaluación inicial este curso.",
-   "p": "Pruebas comunes, observación, sesión antes del 15 de octubre y acta competencial. Ejemplo de acuerdo: «El Claustro queda informado del proceso»."
+   "p": "Explicar en 5 minutos el calendario: pruebas comunes (en la carpeta del Drive), sesión antes del 15 de octubre y acta competencial. Ejemplo de acuerdo: «El Claustro queda informado del proceso de evaluación inicial»."
   },
   "Propuesta Bienestar Emocional": {
    "c": "Propuesta de actuaciones del programa de Bienestar Emocional.",
    "q": "Propuesta de actuaciones del programa de Bienestar Emocional para el curso.",
-   "p": "Tres actuaciones: rincón de la calma en las aulas, una sesión mensual de educación emocional y un protocolo sencillo de detección de malestar. Ejemplo de acuerdo: «El Claustro aprueba las actuaciones de Bienestar Emocional»."
+   "p": "Tres actuaciones fáciles para todo el curso: un rincón de la calma en cada aula, una sesión de emociones al mes en tutoría y que cualquier docente que vea a un alumno mal lo comunique a la coordinación de Bienestar Emocional. Ejemplo de acuerdo: «El Claustro aprueba las actuaciones de Bienestar Emocional»."
   },
   "Propuesta actividades complementarias": {
    "c": "Actividades complementarias del curso para aprobar.",
    "q": "Actividades complementarias del curso para aprobar.",
-   "p": "Tabla por ciclos con finalidad curricular y coste; ninguna excluye a nadie por motivos económicos. Ejemplo de acuerdo: «Se aprueba la propuesta de actividades complementarias»."
+   "p": "Presentar la tabla de salidas que han propuesto los ciclos para su aprobación. Recordar que ninguna puede dejar fuera a un alumno por no poder pagar. Ejemplo de acuerdo: «El Claustro informa favorablemente las actividades complementarias»."
   },
   "Propuesta de actividades para Halloween y Día contra la Violencia Machista": {
    "c": "Actividades de finales de octubre y del 25 de noviembre.",
    "q": "Actividades de finales de octubre y del 25 de noviembre.",
-   "p": "Halloween desde inglés (programa bilingüe) y el 25N coordinado con el Plan de Igualdad. Ejemplo de acuerdo: «Se aprueban las actividades …»."
+   "p": "Halloween lo lleva inglés dentro del bilingüe (una actividad en clase). El 25N, una actividad en tutoría con material de la coordinación de Igualdad. Ejemplo de acuerdo: «Halloween se trabajará en inglés y el 25N en tutoría»."
   },
   "Propuesta de alumnado para refuerzo educativo": {
    "c": "Alumnado que necesita programa de refuerzo tras la evaluación inicial.",
    "q": "Alumnado que necesita programa de refuerzo tras la evaluación inicial. Recordar: un solo programa por alumno, que cabe en una página y va sobre criterios concretos, no sobre el área entera.",
-   "p": "Para cada alumno: área y criterio concreto que se refuerza, punto de partida y modalidad (preferentemente dentro del aula). El programa se redacta, se registra en Séneca y se comunica a la familia en la segunda quincena de octubre. Ejemplo de acuerdo: «Se propone para refuerzo a … en los criterios …»."
+   "p": "La tutoría trae la lista y, para cada alumno, se dice en qué área y en qué cosa concreta (p. ej., «Lengua: comprensión de textos sencillos»). El programa de refuerzo lo redacta después la tutoría en una página y lo comunica a la familia por iPasen. Ejemplo de acuerdo: «Se propone para programa de refuerzo a … en … y a … en …»."
   },
   "Propuesta de alumnado que no promociona": {
    "c": "Propuesta de no promoción en el ETCP.",
    "q": "Propuesta de no promoción en el ETCP.",
-   "p": "Comprobar que en cada caso se han agotado los pasos 1 y 2 de la regla y que hay programa de refuerzo previsto para el curso siguiente. Ejemplo de acuerdo: «Se recoge la propuesta de no promoción de …»."
+   "p": "Cada coordinación confirma que en sus casos se han aplicado los tres pasos y que la familia ha sido oída. No se discuten casos. Ejemplo de acuerdo: «El ETCP recoge las propuestas de no promoción de los ciclos»."
   },
   "Propuesta de alumnado que no promociona al finalizar ciclo": {
    "c": "Alumnado de final de ciclo que podría no promocionar.",
    "q": "Alumnado de final de ciclo que podría no promocionar.",
-   "p": "Regla de los tres pasos y audiencia a la familia antes de decidir. Ejemplo de acuerdo: «Se propone la permanencia de … tras agotar las medidas …»."
+   "p": "Antes de proponer una permanencia, comprobar en voz alta los tres pasos y que la familia ya lo sabe. Si falta algo, la propuesta no está madura. Ejemplo de acuerdo: «Se propone la permanencia de … tras aplicar … ; la familia ha sido oída el … »."
   },
   "Propuestas de Mención Honorífica en sexto curso": {
    "c": "Menciones honoríficas del alumnado de 6.º.",
    "q": "Menciones honoríficas del alumnado de 6.º.",
-   "p": "Aplicar los criterios oficiales y dejarlo motivado en el acta. Ejemplo de acuerdo: «Se propone Mención Honorífica en … para …»."
+   "p": "La tutoría propone los nombres según las notas y el equipo da el visto bueno. Se deja motivado en una frase en el acta. Ejemplo de acuerdo: «Se propone Mención Honorífica en … para … »."
   },
   "Propuestas de mejora": {
    "c": "Propuestas de mejora tras la evaluación inicial.",
    "q": "Propuestas de mejora tras la evaluación inicial.",
-   "p": "Una propuesta por ciclo, concreta y medible. Ejemplo: «Aplicar la tutoría entre iguales en la lectura diaria en 2.º y 3.º»."
+   "p": "Una sola mejora para el equipo de orientación, la más fácil de cumplir. Ejemplo: «Revisar el listado de alumnado atendido el primer lunes de cada trimestre». Ejemplo de acuerdo: «El equipo de orientación propone … »."
   },
   "Propuestas de mejora de los distintos aspectos evaluados": {
    "c": "Propuestas de mejora del equipo docente para la Memoria.",
    "q": "Propuestas de mejora del equipo docente para la Memoria.",
-   "p": "Pocas y concretas, cada una con su indicador. Ejemplo de acuerdo: «El equipo propone …»."
+   "p": "Cada docente propone una sola mejora en una frase y el equipo se queda con una o dos. Ejemplo: «Empezar el curso con las normas del aula hechas con el alumnado en la primera semana». Ejemplo de acuerdo: «El equipo docente propone … »."
   },
   "Propuestas de mejora del rendimiento académico": {
    "c": "Medidas para mejorar resultados en el 3.er trimestre.",
    "q": "Medidas para mejorar los resultados en el tercer trimestre.",
-   "p": "Una medida común del ciclo en lectura o problemas y cómo se va a comprobar. Ejemplo de acuerdo: «El ciclo aplicará … en el tercer trimestre»."
+   "p": "Una sola medida para el tercer trimestre y que no suponga más trabajo: por ejemplo, que en la lectura diaria se lea en parejas un lector bueno con uno que le cuesta. Ejemplo de acuerdo: «En el tercer trimestre el ciclo aplicará la lectura en parejas»."
   },
   "Propuestas mejora próximo curso": {
    "c": "Propuestas de mejora para el próximo curso.",
    "q": "Propuestas de mejora para el próximo curso.",
-   "p": "Las que salen de la Memoria: entre 3 y 4, medibles y sin repetir obligaciones legales. Ejemplo de acuerdo: «Se aprueban como propuestas de mejora …»."
+   "p": "Llevar ya redactadas tres propuestas sacadas de los ciclos y votar si se aprueban. Ejemplo de acuerdo: «El Claustro aprueba como propuestas de mejora … ».",
+   "po": {
+    "CLAUSTRO": "Llevar ya redactadas tres propuestas sacadas de los ciclos y votar si se aprueban. Ejemplo de acuerdo: «El Claustro aprueba como propuestas de mejora … ».",
+    "CONSEJO ESCOLAR": "Presentar las propuestas que ha aprobado el Claustro y pedir a las familias una propuesta suya. Ejemplo de acuerdo: «El Consejo Escolar aprueba las propuestas de mejora»."
+   }
   },
   "Prueba común de comprensión lectora: aplicación y corrección con rúbrica de ciclo": {
    "c": "Aplicar la prueba común de lectura en octubre y corregirla con la misma rúbrica en todo el ciclo.",
    "q": "Aplicar en octubre la prueba común de comprensión lectora en todos los grupos del ciclo y corregirla con la misma rúbrica, para que los resultados sean comparables. Es el punto de partida del objetivo 2 del centro y se repite en junio para ver la evolución de cada alumno.",
-   "p": "Usar las pruebas de la app de Registro (pestaña Pruebas), fijar una semana común para aplicarlas y, antes de corregir, puntuar entre dos docentes un par de pruebas para unificar criterio. Después se vuelcan los resultados en la app. Ejemplo de acuerdo: «La prueba común se aplicará del … al … y se corregirá con la rúbrica de ciclo; resultados volcados antes del …»."
+   "p": "Usar las pruebas de la app de Registro (pestaña Pruebas), pasarlas todos la misma semana y corregir con la rúbrica. Para corregir igual, las dos tutorías del ciclo corrigen juntas dos pruebas al principio (5 minutos). Ejemplo de acuerdo: «La prueba común se pasará la semana del … y los resultados estarán en el Registro antes del … »."
   },
   "Pruebas de diagnóstico (alumnado con NEE)": {
    "c": "Adaptaciones del alumnado NEE en las pruebas de diagnóstico.",
    "q": "Qué adaptaciones necesita el alumnado con NEE en las pruebas de diagnóstico.",
-   "p": "Decidir caso por caso las adaptaciones permitidas (tiempo, lectura de enunciados, espacio) y quién acompaña. Ejemplo de acuerdo: «Se acuerdan las adaptaciones para …»."
+   "p": "Para cada alumno con NEE, decidir en un minuto si hace la prueba, con qué ayuda (tiempo extra, lectura de enunciados) y quién le acompaña. Ejemplo de acuerdo: «… hará la prueba con … »."
   },
   "Refuerzo educativo y adaptación de estrategias: planificación de nuevas medidas de apoyo en el aula TEA y alumnado NEAE": {
    "c": "Nuevas medidas para el aula TEA y alumnado NEAE en el 2.º trimestre.",
    "q": "Nuevas medidas para el aula TEA y el alumnado NEAE en el segundo trimestre.",
-   "p": "Revisar los horarios de apoyo y ampliar la inclusión en el grupo de referencia donde haya funcionado. Ejemplo de acuerdo: «Se amplía la participación de … en su grupo en …»."
+   "p": "Si un alumno del aula TEA está yendo bien a su grupo, sumarle una sesión más a la semana. Es el cambio más fácil y el que más ayuda. Ejemplo de acuerdo: «… amplía su asistencia a su grupo con … »."
   },
   "Remisión de nuevas propuestas al equipo de orientación": {
    "c": "Alumnado nuevo que se deriva a orientación.",
    "q": "Alumnado nuevo que se deriva al equipo de orientación.",
-   "p": "Solo después de tres meses de medidas generales registradas y con acta del equipo docente, como marca el protocolo. Ejemplo de acuerdo: «Se remite a orientación el caso de … tras aplicar …»."
+   "p": "Solo se derivan alumnos con los que ya se han probado medidas en el aula durante al menos tres meses y hay acta. La tutoría rellena la solicitud en Séneca con el visto bueno de jefatura. Ejemplo de acuerdo: «Se propone remitir a … al equipo de orientación tras aplicar … »."
   },
   "Reparto por ciclos de las efemérides del curso": {
    "c": "Qué ciclo organiza cada efeméride.",
    "q": "Qué ciclo organiza cada efeméride del curso.",
-   "p": "Una tabla de efemérides con ciclo responsable y fecha, aprobada en el ETCP. Ejemplo de acuerdo: «Se aprueba el reparto de efemérides»."
+   "p": "Tabla con las efemérides del curso y un ciclo responsable para cada una, procurando que cada ciclo tenga dos o tres repartidas por el año. Ejemplo de acuerdo: «Se aprueba el reparto de efemérides»."
   },
   "Repercusión de la evaluación inicial en las programaciones didácticas": {
    "c": "Cómo cambian las programaciones tras la evaluación inicial.",
    "q": "Cómo cambian las programaciones después de la evaluación inicial.",
-   "p": "Comprobar que cada ciclo ha hecho su anexo de revisión antes del 15 de octubre y que recoge saberes a reforzar, criterios retomados y cambios metodológicos. Ejemplo de acuerdo: «Todos los ciclos han incorporado su anexo de revisión»."
+   "p": "Cada coordinación confirma que su ciclo tiene hecho el anexo de revisión. Si falta alguno, se fija el día. Ejemplo de acuerdo: «Todos los ciclos han incorporado su anexo de revisión»."
   },
   "Resultados del cribado de fluidez y comprensión lectora": {
    "c": "Resultados de la prueba común de lectura de octubre.",
    "q": "Resultados de la prueba común de lectura de octubre en todos los ciclos.",
-   "p": "Datos por nivel sacados de la app de Registro y alumnado con desfase que pasa a refuerzo en lectura. Ejemplo de acuerdo: «El ETCP analiza los resultados; el X% del alumnado presenta desfase lector y se incluye en refuerzo»."
+   "p": "Cada coordinación trae de la app de Registro cuántos alumnos de su ciclo tienen desfase lector. Esos alumnos tienen que estar en la lista de refuerzo. Ejemplo de acuerdo: «El X% del alumnado presenta desfase lector y se incluye en refuerzo»."
   },
   "Resultados del sociograma de abril y comparación con el de noviembre": {
    "c": "Evolución de las relaciones del alumnado entre noviembre y abril.",
    "q": "Cómo han evolucionado las relaciones del alumnado entre noviembre y abril.",
-   "p": "Comparar casos de rechazo y aislamiento. El sociograma de abril se usa para formar los grupos del curso siguiente: no juntar a alumnado rechazado con quien lo rechaza y que cada alumno conserve al menos una relación positiva. Ejemplo de acuerdo: «Se analizan los resultados del sociograma de abril y se trasladan a la comisión de grupos»."
+   "p": "Cada coordinación dice si los casos de aislamiento de su ciclo han mejorado. La información se guarda para hacer los grupos del curso que viene. Ejemplo de acuerdo: «Se recogen los resultados del sociograma para la formación de grupos»."
   },
   "Resultados del sociograma de noviembre y medidas adoptadas": {
    "c": "Resultados del sociograma por ciclos y medidas tomadas.",
    "q": "Resultados del sociograma en todos los ciclos y medidas que se han tomado.",
-   "p": "Resumen por grupo, sin nombres, y medidas de aula y de recreo adoptadas. Ejemplo de acuerdo: «El ETCP recoge los resultados del sociograma y las medidas de cada ciclo»."
+   "p": "Cada coordinación dice cuántos casos de aislamiento o rechazo hay en su ciclo (sin nombres) y qué se ha hecho. Ejemplo de acuerdo: «El ETCP recoge los resultados del sociograma y las medidas de cada ciclo»."
   },
   "Revisión de actividades complementarias del segundo trimestre": {
    "c": "Actividades complementarias previstas para el 2.º trimestre.",
    "q": "Actividades complementarias previstas para el segundo trimestre.",
-   "p": "Confirmar fechas, autorizaciones de las familias y coste de cada salida. Ejemplo de acuerdo: «Se confirman las actividades …»."
+   "p": "Repasar la tabla de salidas del trimestre y confirmar fecha y autorizaciones. Si alguna se complica, se cambia por una más cercana. Ejemplo de acuerdo: «Se confirman las salidas …»."
   },
   "Revisión de alumnado en refuerzo": {
    "c": "Cómo va el alumnado con programa de refuerzo.",
    "q": "Cómo va el alumnado con programa de refuerzo.",
-   "p": "Revisar cada programa con su criterio y decidir si sigue igual o se ajusta. Ejemplo de acuerdo: «Se revisan los programas de refuerzo de …»."
+   "p": "Un minuto por alumno: ¿avanza o no? Si no, cambiar una sola cosa del refuerzo (más tiempo, otro material o hacerlo dentro del aula). Ejemplo de acuerdo: «Se revisa el refuerzo; para … se cambia … »."
   },
   "Revisión de la evolución del alumnado – Análisis de avances antes de la segunda evaluación": {
    "c": "Avances del alumnado NEAE antes de la 2.ª evaluación.",
    "q": "Avances del alumnado NEAE antes de la segunda evaluación.",
-   "p": "Revisar los objetivos de cada alumno y preparar la información para las familias. Ejemplo de acuerdo: «Se revisa la evolución de …»."
+   "p": "Un minuto por alumno: avanza, igual o retrocede. Lo que se diga sirve para la información a la familia en la evaluación. Ejemplo de acuerdo: «Se revisa la evolución de … »."
   },
   "Revisión de la evolución del alumnado: análisis de avances y detección de posibles ajustes en la intervención": {
    "c": "Evolución del alumnado NEAE en el 1.er trimestre.",
    "q": "Evolución del alumnado NEAE en el primer trimestre.",
-   "p": "Por alumno: avances, dificultades y ajuste de la intervención. Ejemplo de acuerdo: «Se ajusta la intervención con …»."
+   "p": "Un minuto por alumno y, si no avanza, cambiar una sola cosa (horario, material o hacerlo dentro del aula). Ejemplo de acuerdo: «Se ajusta la intervención de … »."
   },
   "Revisión de las rúbricas de la producción escrita del trimestre": {
    "c": "Revisión de la producción escrita trimestral con la rúbrica común.",
    "q": "Revisar la producción escrita trimestral, que se corrige con la rúbrica común del centro.",
-   "p": "Cada nivel trae tres muestras corregidas para comprobar que todos aplican la rúbrica igual y acordar qué aspecto de la escritura se trabaja más el próximo trimestre. Ejemplo de acuerdo: «Se revisan las producciones escritas; se trabajará especialmente …»."
+   "p": "Cada tutoría trae dos redacciones corregidas con la rúbrica común y se comparan para ver si se corrige igual. Si hay diferencias, se acuerda cómo puntuar ese aspecto. Ejemplo de acuerdo: «Se unifica el criterio de … en la rúbrica de escritura»."
   },
   "Revisión de medidas de atención a la diversidad": {
    "c": "Revisión de las medidas de atención a la diversidad del ciclo.",
    "q": "Revisión de las medidas de atención a la diversidad del ciclo.",
-   "p": "Mantener, cambiar o retirar cada medida según su efecto. Ejemplo de acuerdo: «Se revisan las medidas …»."
+   "p": "Repasar los alumnos con medidas del ciclo: para cada uno, «sigue igual», «cambia» o «se retira». Ejemplo de acuerdo: «Se revisan las medidas del ciclo; cambia la de … »."
   },
   "Revisión de medidas de atención a la diversidad y refuerzo educativo": {
    "c": "Revisión trimestral de medidas y programas de refuerzo en el ETCP.",
    "q": "Revisión trimestral de medidas y programas de refuerzo en el ETCP.",
-   "p": "Comprobar que todos los programas están registrados en Séneca (jefatura lo revisa en octubre, enero y abril). Ejemplo de acuerdo: «Se comprueba el registro de los programas de refuerzo»."
+   "p": "Una comprobación rápida: ¿todos los programas de refuerzo están en Séneca? La jefatura de estudios trae el listado. Ejemplo de acuerdo: «Están registrados todos los programas salvo …, que se completarán esta semana»."
   },
   "Revisión de propuestas de alumnado con refuerzo según 1ª evaluación": {
    "c": "Ajustar la lista de alumnado con refuerzo tras la 1.ª evaluación.",
    "q": "Ajustar la lista de alumnado con refuerzo tras la primera evaluación.",
-   "p": "Altas y bajas de refuerzo y comunicación a las familias. Ejemplo de acuerdo: «Se incorporan al refuerzo … y salen …»."
+   "p": "Con las notas de la primera evaluación, decidir quién entra y quién sale del refuerzo. Solo cambios: el resto sigue igual. Ejemplo de acuerdo: «Entra en refuerzo …; sale … por haber superado los criterios»."
   },
   "Revisión del Plan de Convivencia y propuestas de mejora": {
    "c": "Revisión del Plan de Convivencia a mitad de curso.",
    "q": "Revisión del Plan de Convivencia a mitad de curso.",
-   "p": "Datos de incidencias, funcionamiento de los recreos con juego dirigido y propuestas de mejora. Ejemplo de acuerdo: «Se proponen como mejoras del Plan de Convivencia …»."
+   "p": "Mirar dos datos (incidencias en Séneca y si se hace el juego dirigido en el recreo) y proponer un solo cambio. Ejemplo de acuerdo: «Se propone como mejora del Plan de Convivencia … »."
   },
   "Revisión del clima de convivencia": {
    "c": "Cómo está la convivencia del grupo.",
    "q": "Cómo está la convivencia en el grupo.",
-   "p": "Revisar incidencias y relaciones y acordar medidas concretas si hay casos. Ejemplo de acuerdo: «Se acuerda …»."
+   "p": "La tutoría dice si el grupo está igual, mejor o peor que en el trimestre anterior. Si hay un problema, una sola medida común para todo el equipo. Ejemplo de acuerdo: «El clima mejora; se mantiene … »."
   },
   "Revisión del rendimiento del alumnado en refuerzo": {
    "c": "Resultados del alumnado con programa de refuerzo en el 3.er trimestre.",
    "q": "Resultados del alumnado con programa de refuerzo en el tercer trimestre.",
-   "p": "Valorar si supera los criterios reforzados y dejar preparada la información para el curso siguiente. Ejemplo de acuerdo: «… supera los criterios reforzados; … mantiene el refuerzo el próximo curso»."
+   "p": "Para cada alumno con refuerzo: ¿ha superado lo que se reforzaba? Lo que no, se anota en el informe final para que el tutor del curso que viene lo sepa. Ejemplo de acuerdo: «… supera los criterios reforzados; … continuará con refuerzo»."
   },
   "Revisión metodológica y mejora de la acción tutorial": {
    "c": "Revisión de la metodología y de la tutoría en el ciclo.",
    "q": "Revisión de la metodología y de la tutoría en el ciclo. El Proyecto Educativo insiste en que la hora de tutoría tiene contenido propio: si se puede hacer en silencio rellenando una ficha, está mal planteada.",
-   "p": "Comprobar que la tutoría trabaja emociones, habilidades sociales y normas, y que cada docente comparte una buena práctica. Ejemplo de acuerdo: «El ciclo acuerda trabajar en tutoría …»."
+   "p": "Que cada tutoría comparta una actividad de tutoría que le haya funcionado (5 minutos) y el resto la pruebe. Así se crea un banco de tutorías sin esfuerzo. Ejemplo de acuerdo: «Se comparten actividades de tutoría; … se usará en todo el ciclo»."
   },
   "Revisión prevención violencia y acoso": {
    "c": "Recordar los protocolos de acoso, maltrato y riesgo.",
    "q": "Recordar los protocolos de acoso, maltrato, violencia de género y riesgo de autolesión.",
-   "p": "Mensaje clave: ante cualquier sospecha se comunica a dirección y a la coordinación de bienestar y protección el mismo día; no se investiga por cuenta propia ni se avisa antes a las familias. Ejemplo de acuerdo: «El Claustro queda informado de los protocolos»."
+   "p": "Recordar en 5 minutos una única regla: ante cualquier sospecha de acoso o maltrato, se comunica a dirección y a la coordinación de bienestar ese mismo día y no se investiga por cuenta propia. Ejemplo de acuerdo: «El Claustro queda informado de los protocolos»."
   },
   "Revisión y actualización de criterios de evaluación y promoción": {
    "c": "Criterios de evaluación y promoción del ciclo para el curso.",
    "q": "Criterios de evaluación y promoción del ciclo para el curso.",
-   "p": "Revisar que las rúbricas son de cuatro niveles y que cada criterio se evalúa al menos dos veces con dos instrumentos distintos. Ejemplo de acuerdo: «El ciclo actualiza sus rúbricas …»."
+   "p": "Revisar solo si las rúbricas del ciclo tienen 4 niveles y si cada criterio se evalúa con dos instrumentos (por ejemplo, prueba y cuaderno u observación). Lo demás ya está en el Plan de Centro. Ejemplo de acuerdo: «El ciclo revisa sus rúbricas y confirma el uso de dos instrumentos por criterio»."
   },
   "Seguimiento Bienestar Emocional": {
    "c": "Seguimiento del programa de Bienestar Emocional.",
    "q": "Seguimiento del programa de Bienestar Emocional.",
-   "p": "Actuaciones realizadas en el trimestre y número de casos atendidos, sin datos personales. Ejemplo de acuerdo: «El Consejo Escolar queda informado»."
+   "p": "Contar qué actuaciones se han hecho y cuántos casos se han atendido, sin datos personales. Ejemplo de acuerdo: «El Consejo Escolar queda informado»."
   },
   "Seguimiento PGA y resultados": {
    "c": "Seguimiento de la programación general y resultados del 2.º trimestre.",
    "q": "Seguimiento de la programación general y resultados del segundo trimestre.",
-   "p": "Resumen de resultados e indicadores. Ejemplo de acuerdo: «El Consejo Escolar queda informado»."
+   "p": "Los cuatro indicadores del centro con su dato y un color. Ejemplo de acuerdo: «El Consejo Escolar queda informado»."
   },
   "Seguimiento de casos y ajuste de medidas – Evaluación de la evolución del alumnado con NEAE y propuestas de intervención": {
    "c": "Seguimiento del alumnado NEAE en el 2.º trimestre.",
    "q": "Seguimiento del alumnado NEAE en el segundo trimestre.",
-   "p": "Revisión caso por caso con propuesta de intervención para el tercer trimestre. Ejemplo de acuerdo: «Se ajustan las intervenciones de …»."
+   "p": "Repasar el listado de alumnado NEAE y para cada uno decir qué se hará en el tercer trimestre en una frase. Ejemplo de acuerdo: «Se fijan las intervenciones del tercer trimestre»."
   },
   "Seguimiento de la adaptación del alumnado: evaluación de dificultades iniciales y ajuste de medidas de apoyo": {
    "c": "Cómo se ha adaptado el alumnado NEAE al inicio de curso.",
    "q": "Cómo se ha adaptado el alumnado NEAE al comienzo del curso.",
-   "p": "Ajustar apoyos y horarios de PT y AL según lo observado en septiembre. Ejemplo de acuerdo: «Se ajustan los apoyos de …»."
+   "p": "Comprobar que los horarios de PT y AL encajan con lo que se ha visto en septiembre y cambiar lo que no cuadre. Ejemplo de acuerdo: «Se ajusta el horario de apoyo de … »."
   },
   "Seguimiento de la autoevaluación: valoración de los indicadores del primer trimestre": {
    "c": "Cómo van los indicadores de autoevaluación del centro.",
    "q": "Cómo van los indicadores de autoevaluación del centro tras el primer trimestre. La autoevaluación no se deja para junio.",
-   "p": "Revisar cada indicador y señalar los que no avanzan para tomar medidas a tiempo. Ejemplo de acuerdo: «El Claustro valora los indicadores del primer trimestre …»."
+   "p": "Enseñar los cuatro indicadores del centro con su dato del primer trimestre y un color. Ejemplo de acuerdo: «El Claustro queda informado de los indicadores del primer trimestre»."
   },
   "Seguimiento de las programaciones": {
    "c": "Si se está cumpliendo lo programado en el ciclo.",
    "q": "Si se está cumpliendo lo programado en el ciclo.",
-   "p": "Cada nivel indica en qué situación de aprendizaje está y si va al ritmo previsto; si no, se ajusta. Ejemplo de acuerdo: «Las programaciones se desarrollan según lo previsto, salvo …»."
+   "p": "Cada tutoría dice en qué unidad o situación de aprendizaje está y si va al ritmo previsto. Si alguien va retrasado, que priorice lo imprescindible. Ejemplo de acuerdo: «Las programaciones van según lo previsto»."
   },
   "Seguimiento de planes de refuerzo según segunda evaluación": {
    "c": "Programas de refuerzo tras la 2.ª evaluación.",
    "q": "Programas de refuerzo después de la segunda evaluación.",
-   "p": "Mantener, cambiar o retirar cada programa e informar a la familia. Ejemplo de acuerdo: «Se revisan los programas de refuerzo …»."
+   "p": "Para cada alumno: sigue, cambia o se retira. Comunicarlo a la familia por iPasen. Ejemplo de acuerdo: «Tras la segunda evaluación se mantienen los refuerzos de … »."
   },
   "Seguimiento de posibles repetidores": {
    "c": "Alumnado en riesgo de no promocionar.",
    "q": "Alumnado en riesgo de no promocionar.",
-   "p": "Comprobar las medidas aplicadas y que la familia ha sido informada. Ejemplo de acuerdo: «Se hace seguimiento de …»."
+   "p": "Nombrar a los alumnos en riesgo y comprobar dos cosas: que tienen refuerzo y que la familia está avisada. Ejemplo de acuerdo: «Se hace seguimiento de …; la familia está informada»."
   },
   "Seguimiento del Plan de Mejora": {
    "c": "Cómo van las propuestas del Plan de Mejora.",
    "q": "Cómo van las propuestas del Plan de Mejora a mitad de curso.",
-   "p": "Semáforo por propuesta con su responsable y, si alguna va en rojo, qué se hace. Ejemplo de acuerdo: «Se revisa el Plan de Mejora …»."
+   "p": "Repasar las propuestas del Plan de Mejora con un color cada una y decidir qué hacer con la que vaya en rojo. Ejemplo de acuerdo: «El Plan de Mejora avanza; para … se … »."
   },
   "Seguimiento del Plan de Refuerzo con el Equipo de Orientación": {
    "c": "Coordinación del Plan de Refuerzo con orientación.",
    "q": "Coordinación del Plan de Refuerzo con el equipo de orientación.",
-   "p": "Revisar que todos los programas están redactados, registrados en Séneca y comunicados a las familias. Ejemplo de acuerdo: «Se constata que …»."
+   "p": "Comprobar con orientación que todos los programas de refuerzo están redactados, en Séneca y comunicados a las familias. Ejemplo de acuerdo: «Se constata que el Plan de Refuerzo está completo»."
   },
   "Seguimiento del alumnado con dificultades": {
    "c": "Alumnado con dificultades en el ciclo.",
    "q": "Alumnado con dificultades en el ciclo.",
-   "p": "Revisar las medidas generales aplicadas y valorar si procede activar el protocolo NEAE. Ejemplo de acuerdo: «Se hace seguimiento de …»."
+   "p": "Cada tutoría nombra a sus alumnos con más dificultades y dice si las medidas del aula están funcionando. Si después de tres meses no funcionan, se habla con orientación. Ejemplo de acuerdo: «Se hace seguimiento de …; se valorará derivar a orientación a … »."
   },
   "Seguimiento del alumnado con dificultades de aprendizaje": {
    "c": "Alumnado con dificultades de aprendizaje en los ciclos.",
    "q": "Alumnado con dificultades de aprendizaje en los ciclos.",
-   "p": "Listado por ciclo con las medidas aplicadas para detectar casos que necesiten orientación. Ejemplo de acuerdo: «El ETCP recoge los casos …»."
+   "p": "Cada coordinación dice cuántos alumnos con dificultades tiene su ciclo y si alguno debería pasar ya a orientación. Ejemplo de acuerdo: «Se recogen los casos de los ciclos; se derivarán … »."
   },
   "Seguimiento del alumnado en riesgo de repetición o con dificultades – Evaluación de medidas y alternativas de refuerzo": {
    "c": "Alumnado en riesgo de repetición y alternativas.",
    "q": "Alumnado en riesgo de repetición y alternativas antes de llegar a la permanencia.",
-   "p": "Valorar refuerzo dentro del aula, agrupamientos flexibles o desdobles antes de plantear la permanencia. Ejemplo de acuerdo: «Se proponen para … las alternativas …»."
+   "p": "Antes de pensar en repetir, comprobar si se ha probado el apoyo dentro del aula o el desdoble (en 2.º y 3.º lo hay). Si no, probarlo ya. Ejemplo de acuerdo: «Para … se probará … antes de valorar la permanencia»."
   },
   "Seguimiento del alumnado y de los planes de refuerzo": {
    "c": "Alumnado con refuerzo y su evolución.",
    "q": "Alumnado con refuerzo y su evolución.",
-   "p": "Revisar los programas y acordar ajustes. Ejemplo de acuerdo: «Se revisan los programas de refuerzo …»."
+   "p": "La tutoría lleva la lista de alumnos con refuerzo y para cada uno el equipo dice «va mejor», «igual» o «peor». Solo se habla de los que van igual o peor. Ejemplo de acuerdo: «Se mantienen los programas de refuerzo; se ajusta el de … »."
   },
   "Seguimiento del alumnado y medidas propuestas": {
    "c": "Seguimiento del grupo y medidas acordadas.",
    "q": "Seguimiento del grupo y de las medidas acordadas en reuniones anteriores.",
-   "p": "Revisar si se han cumplido los acuerdos de la última reunión y los casos que preocupan. Ejemplo de acuerdo: «Se mantienen las medidas … y se añade …»."
+   "p": "Se repasan solo los alumnos de los que se habló en la reunión anterior: ¿se ha hecho lo acordado?, ¿ha funcionado? Un minuto por alumno. Si sale alguno nuevo, se apunta para la próxima. Ejemplo de acuerdo: «Se mantienen las medidas de …; … mejora y se retira el seguimiento especial»."
   },
   "Seguimiento del plan de lectoescritura": {
    "c": "Cómo va el plan de lectoescritura en Infantil y 1.er ciclo.",
    "q": "Cómo va el plan de lectoescritura en Infantil y primer ciclo.",
-   "p": "Revisar si se sigue el orden de letras acordado y el nivel lector del alumnado de 1.º. Ejemplo de acuerdo: «Se constata que … ; se acuerda …»."
+   "p": "La coordinación de Infantil y la del primer ciclo dicen si se está siguiendo el orden de letras acordado y cómo leen los alumnos de 1.º. Ejemplo de acuerdo: «El plan de lectoescritura se sigue según lo acordado»."
   },
   "Seguimiento global del grupo": {
    "c": "Valoración general del grupo.",
    "q": "Valoración general del grupo.",
-   "p": "Puntos fuertes, dificultades y un acuerdo común del equipo docente. Ejemplo de acuerdo: «El equipo docente acuerda …»."
+   "p": "La tutoría dice una cosa que va bien y una que hay que mejorar del grupo, y el equipo acuerda un único gesto común para todos (p. ej., empezar todas las sesiones con la fecha y el plan del día en la pizarra). Ejemplo de acuerdo: «El equipo docente acuerda …»."
   },
   "Seguimiento planes y programas institucionales": {
    "c": "Cómo van los planes y programas del centro.",
    "q": "Cómo van los planes y programas del centro.",
-   "p": "Cada plan informa de las actuaciones hechas y de las pendientes. Ejemplo de acuerdo: «El Claustro queda informado»."
+   "p": "Cada coordinación de plan dice en una frase qué ha hecho y qué le queda. Ejemplo de acuerdo: «El Claustro queda informado del desarrollo de los planes»."
   },
   "Seguimiento programaciones": {
    "c": "Seguimiento de las programaciones en el Claustro.",
    "q": "Seguimiento de las programaciones en el Claustro.",
-   "p": "Informe del ETCP sobre su cumplimiento. Ejemplo de acuerdo: «El Claustro queda informado»."
+   "p": "La jefatura de estudios resume lo que han dicho los ciclos: si van al día o retrasados. Ejemplo de acuerdo: «El Claustro queda informado del seguimiento de las programaciones»."
   },
   "Segunda aplicación del sociograma: comparación con noviembre": {
    "c": "Sociograma de abril en el grupo y comparación con noviembre.",
    "q": "Sociograma de abril en el grupo y comparación con el de noviembre.",
-   "p": "Ver si han mejorado los casos de rechazo y usarlo para los agrupamientos del curso siguiente. Ejemplo de acuerdo: «Se analiza el sociograma de abril; se traslada a la comisión de grupos …»."
+   "p": "La tutoría compara los dos sociogramas y dice si los alumnos que estaban aislados en noviembre siguen igual. Esa información se guarda para hacer los grupos del curso que viene. Ejemplo de acuerdo: «… mejora su integración; … sigue aislado y se tendrá en cuenta en los agrupamientos»."
   },
   "Supervisión de la aplicación del Plan de Convivencia": {
    "c": "Si se aplica el Plan de Convivencia en todo el centro.",
    "q": "Si el Plan de Convivencia se está aplicando en todo el centro.",
-   "p": "Revisar los registros en Séneca y el funcionamiento de los recreos con juego dirigido. Ejemplo de acuerdo: «El ETCP constata que …»."
+   "p": "Dos preguntas a cada coordinación: ¿se registran las incidencias en Séneca? ¿Se hace el juego dirigido en el recreo? Ejemplo de acuerdo: «El Plan de Convivencia se aplica; se recuerda … »."
   },
   "Transición entre etapas – Plan de actuación para alumnado que pasará a secundaria o a un nuevo ciclo": {
    "c": "Tránsito del alumnado NEAE a la ESO o a otro ciclo.",
    "q": "Tránsito del alumnado NEAE a la ESO o a otro ciclo. La información debe viajar siempre con las medidas que le funcionaban.",
-   "p": "Informes con esas medidas y reunión con el departamento de orientación del instituto. Ejemplo de acuerdo: «Se prepara el tránsito de …»."
+   "p": "Para cada alumno de 6.º con dificultades: un informe de una página con lo que le funciona y pedir una reunión con orientación del instituto. Ejemplo de acuerdo: «Se preparan los informes de tránsito de … »."
   },
   "Tratamiento de conflictos y estrategias de resolución": {
    "c": "Cómo se están resolviendo los conflictos en el grupo.",
    "q": "Cómo se están resolviendo los conflictos en el grupo.",
-   "p": "Aplicar el esquema del Plan de Convivencia: parar, escuchar a las dos partes, reparar y comunicar a la familia. Ejemplo de acuerdo: «El equipo docente aplicará …»."
+   "p": "Acordar que todos los docentes del grupo resuelven los conflictos igual y en tres pasos: parar, escuchar a los dos y que reparen (pedir perdón, arreglar lo roto). Si se repite, se avisa a la familia por iPasen ese mismo día. Ejemplo de acuerdo: «El equipo docente aplicará el mismo esquema ante los conflictos: parar, escuchar y reparar»."
   },
   "Unificación de criterios en lectoescritura y coordinación con ETCP": {
    "c": "Criterios comunes de lectoescritura entre Infantil y 1.er ciclo.",
    "q": "Criterios comunes de lectoescritura entre Infantil y primer ciclo.",
-   "p": "Acordar el orden de enseñanza de las consonantes, el tipo de letra y el método, y llevarlo al ETCP. Ejemplo de acuerdo: «Se unifican los criterios de lectoescritura …»."
+   "p": "Acordar entre Infantil y primer ciclo tres cosas y por escrito: el orden de las letras, el tipo de letra y el método. La coordinación lo lleva al ETCP. Ejemplo de acuerdo: «Infantil y primer ciclo acuerdan el orden de letras …, letra … y método … »."
   },
   "Valoración 1ª evaluación": {
    "c": "Resultados de la 1.ª evaluación en el Claustro.",
    "q": "Resultados de la primera evaluación en el Claustro.",
-   "p": "Resumen por ciclos con datos de Gestión de Evaluaciones y medidas para el segundo trimestre. Ejemplo de acuerdo: «El Claustro valora los resultados de la primera evaluación»."
+   "p": "Dos datos por ciclo (Lengua y Matemáticas) y una medida común para el segundo trimestre. Ejemplo de acuerdo: «El Claustro valora los resultados de la primera evaluación»."
   },
   "Valoración 2ª evaluación": {
    "c": "Resultados de la 2.ª evaluación en el Claustro.",
    "q": "Resultados de la segunda evaluación en el Claustro.",
-   "p": "Comparativa con la primera y medidas para el tercer trimestre. Ejemplo de acuerdo: «El Claustro valora los resultados de la segunda evaluación»."
+   "p": "Los mismos dos datos comparados con la primera evaluación y qué se hará en el tercer trimestre. Ejemplo de acuerdo: «El Claustro valora los resultados de la segunda evaluación»."
   },
   "Valoración de la organización y del funcionamiento del equipo directivo y del uso de los espacios y tiempos": {
    "c": "Valoración del equipo directivo y de la organización para la autoevaluación.",
    "q": "Valoración del equipo directivo y de la organización del centro para la autoevaluación.",
-   "p": "Un cuestionario breve al Consejo Escolar y recoger propuestas de mejora. Ejemplo de acuerdo: «El Consejo Escolar valora …»."
+   "p": "Pasar antes un cuestionario de 5 preguntas por formulario y comentar los resultados en la sesión. Ejemplo de acuerdo: «El Consejo Escolar valora el funcionamiento del centro y propone … »."
   },
   "Valoración del clima de aula por ciclo": {
    "c": "Cómo está el clima de las aulas del ciclo.",
    "q": "Cómo está el clima de las aulas del ciclo.",
-   "p": "Un comentario por grupo y una medida si hay problemas. Ejemplo de acuerdo: «El ciclo valora el clima de aula …»."
+   "p": "Cada tutoría dice en una palabra cómo está su grupo (bien, regular, mal) y, si hay algo, una medida. Ejemplo de acuerdo: «El clima de aula del ciclo es bueno; en … se aplicará … »."
   },
   "Valoración del cuaderno del POAT y de los programas de refuerzo": {
    "c": "Uso del cuaderno del POAT y estado de los programas de refuerzo.",
    "q": "Uso del cuaderno del POAT y estado de los programas de refuerzo.",
-   "p": "Comprobar que los cuadernos están al día y que los programas están registrados. Ejemplo de acuerdo: «El ETCP valora …»."
+   "p": "Comprobar que cada tutoría tiene el cuaderno de tutoría al día y los programas de refuerzo registrados. Ejemplo de acuerdo: «Los cuadernos del POAT y los programas de refuerzo están al día»."
   },
   "Valoración del lenguaje del alumnado de cinco años para el tránsito": {
    "c": "Nivel de lenguaje del alumnado de 5 años antes de pasar a Primaria.",
    "q": "Nivel de lenguaje oral del alumnado de 5 años antes de pasar a Primaria.",
-   "p": "Detectar el alumnado que necesitará AL o refuerzo en 1.º y pasarlo al programa de tránsito. Ejemplo de acuerdo: «Se valora el lenguaje del alumnado de 5 años …»."
+   "p": "AL y la tutoría de 5 años señalan qué niños necesitarán apoyo de lenguaje en 1.º y se lo pasan al primer ciclo. Ejemplo de acuerdo: «Se propone apoyo de AL en 1.º para … »."
   },
   "Valoración general del curso": {
    "c": "Balance del curso en el Consejo Escolar.",
    "q": "Balance del curso en el Consejo Escolar.",
-   "p": "Resultados, convivencia y propuestas de mejora. Ejemplo de acuerdo: «El Consejo Escolar valora el curso»."
+   "p": "Resumen de los datos del curso y las propuestas de mejora de la memoria. Ejemplo de acuerdo: «El Consejo Escolar valora el curso»."
   },
   "Valoración inicial del alumnado NEAE. Revisión de informes previos, nuevas detecciones y planificación de intervenciones": {
    "c": "Revisión del alumnado NEAE al inicio de curso.",
    "q": "Revisión del alumnado NEAE al principio del curso.",
-   "p": "Leer los informes previos, detectar casos nuevos y fijar el horario de intervenciones. Ejemplo de acuerdo: «Se planifican las intervenciones del curso …»."
+   "p": "Leer los informes del curso pasado, apuntar los alumnos nuevos que preocupan y hacer el horario de apoyos. Lo nuevo, que pase primero por las medidas del aula. Ejemplo de acuerdo: «Se planifican los apoyos del curso según el listado adjunto»."
   },
   "Valoración planes y programas": {
    "c": "Valoración final de los planes y programas.",
    "q": "Valoración final de los planes y programas del curso.",
-   "p": "Memoria de una página por plan con actuaciones, evidencias y propuesta de mejora. Ejemplo de acuerdo: «El Claustro valora los planes y programas»."
+   "p": "Las memorias de una página de cada plan se envían antes y en el Claustro solo se aprueban. Ejemplo de acuerdo: «El Claustro valora los planes y programas del curso»."
   }
  }
 }

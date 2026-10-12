@@ -36,9 +36,10 @@
     return k===0 ? 'hoy' : k===1 ? 'mañana' : `el ${DIA[f.getDay()]} ${f.getDate()} de ${MES[f.getMonth()]}`;
   }
   let secActual = null;
-  function chips(p){
+  function chips(p, org){
     // Ayuda (qué tratar + propuesta): la ve todo el profesorado
-    const ay = (window.AYUDAS_ORDEN||{})[p];
+    const ay0 = (window.AYUDAS_ORDEN||{})[p];
+    const ay = ay0 ? {...ay0, p: (ay0.po && ay0.po[org]) || ay0.p} : null;
     const ayuda = ay ? `<details style="margin:3px 0 6px"><summary style="cursor:pointer;font-size:.8em;font-weight:700;color:#8a5a00">💡 Ayuda para este punto</summary><div style="font-size:.86em;background:#fff8e1;border-radius:8px;padding:8px 10px;margin-top:4px;line-height:1.45"><p style="margin:0 0 6px"><b>Qué tratar:</b> ${esc(ay.q)}</p><p style="margin:0"><b>Propuesta:</b> ${esc(ay.p)}</p></div></details>` : '';
     // Enlaces al Drive y a las apps: solo Equipo Directivo con sesión iniciada
     const enl = ((secActual === 'directivo' || secActual === 'orden') && window.enlacesDrive) ? window.enlacesDrive(p).map(e=>` <a href="${esc(e.url)}" target="_blank" rel="noopener" style="display:inline-block;font-size:.78em;font-weight:700;color:#1565c0;background:#e3f2fd;border-radius:10px;padding:1px 8px;margin:2px 0 0 4px;text-decoration:none;white-space:nowrap">${e.icono||'📁'} ${esc(e.titulo)}</a>`).join('') : '';
@@ -75,7 +76,7 @@
       const orgs = [...new Set(lista.map(r=>r.organo).filter(Boolean))];
       const bloques = orgs.map(o=>{ const pts = (O[o]||{})[mes] || [];
         return pts.length ? `<details style="margin-top:6px"${secActual==='orden'?' open':''}><summary style="cursor:pointer;font-weight:700;color:#283593">📋 Orden del día previsto · ${esc(NOMBRE_ORG[o]||o)} (${MES[+mes-1]})</summary>
-          <ol style="margin:6px 0 0 20px;padding:0;line-height:1.45">${pts.map(p=>`<li>${esc(p)}${chips(p)}</li>`).join('')}</ol></details>` : ''; }).join('');
+          <ol style="margin:6px 0 0 20px;padding:0;line-height:1.45">${pts.map(p=>`<li>${esc(p)}${chips(p, o)}</li>`).join('')}</ol></details>` : ''; }).join('');
       if (bloques) h += `<div style="margin-top:8px">${bloques}</div><div style="color:#64748b;font-size:.8rem;margin-top:6px">Puntos previstos en la app Teletrabajo; quien convoca puede ajustarlos.</div>`;
     }
     if (sig) h += `<div style="margin-top:10px;color:#475569;font-size:.88rem">Siguiente: ${DIA[sig.fecha.getDay()]} ${sig.fecha.getDate()} de ${MES[sig.fecha.getMonth()]} · ${ORD[sig.n]||sig.n+'.º'} lunes lectivo${((R.cuadrante||{})[String(sig.n)]||[]).length?' — '+esc(R.cuadrante[String(sig.n)].map(r=>r.nombre).join(', ')):' — sin reuniones de cuadrante'}</div>`;
