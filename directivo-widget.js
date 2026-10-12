@@ -126,6 +126,7 @@
       box.innerHTML = seccion === 'directivo' ? `<div style="color:#475569;font-size:.88rem;margin:0 0 12px;text-align:left">✉️ Para preparar el correo semanal al profesorado, inicia sesión con el botón <b>⚙️ Admin</b>.</div>` : '';
       return;
     }
+    if (window._novTablonDir) window._novTablonDir();
     box.innerHTML = html();
     const err = m => document.getElementById('dirError').textContent = m;
     const fallo = e => err(e && /permission|PERMISSION/.test(e.message||e.code||'') ? '⚠️ Firebase no deja guardar en «actividades_profesorado». Hay que añadir el permiso en las reglas de la base de datos.' : '⚠️ No se ha podido guardar. Revisa la conexión.');
@@ -188,3 +189,20 @@
   // cuando llegan los datos de reuniones, se repinta (por si ya estaba abierto)
   document.addEventListener('reuniones-lunes', ()=>{ if (seccion === 'directivo' && !document.getElementById('dirTxt')) pintar(); });
 })();
+
+// ===== Novedades (salen una sola vez en cada dispositivo) =====
+window._novTablonDir = function(){
+  var ID='2026-10-12', K='novedades-tablon-directivo', ITEMS=["📌 Las actividades que añadáis salen también en el bloque de <b>Profesorado</b> («Otras actividades de la semana»).", "👨‍👩‍👧 Con la casilla <b>«Mostrar también en Familias»</b> (o el botón Sí/No de cada actividad) salen además en el bloque de Familias.", "🧹 Todas desaparecen solas cuando pasa su día."];
+  function ver(){ try{ if(localStorage.getItem(K)===ID) return; }catch(e){ return; }
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;background:rgba(15,23,42,.55);display:flex;align-items:center;justify-content:center;z-index:99999;padding:18px;font-family:inherit';
+    d.innerHTML='<div role="dialog" aria-modal="true" style="background:#fff;border-radius:16px;max-width:440px;width:100%;max-height:88vh;overflow:auto;padding:22px 22px 18px;box-shadow:0 20px 60px rgba(0,0,0,.3);color:#1e293b">'+
+      '<div style="font-size:1.25rem;font-weight:800;margin-bottom:10px">✨ Novedades</div>'+
+      '<ul style="margin:0 0 16px;padding-left:20px;line-height:1.5;font-size:.95rem">'+ITEMS.map(function(i){return '<li style="margin-bottom:8px">'+i+'</li>';}).join('')+'</ul>'+
+      '<button type="button" style="width:100%;background:#2563eb;color:#fff;border:0;border-radius:10px;padding:12px;font-size:1rem;font-weight:700;cursor:pointer">¡Entendido!</button></div>';
+    function cerrar(){ try{ localStorage.setItem(K,ID); }catch(e){} d.remove(); }
+    d.querySelector('button').onclick=cerrar; d.addEventListener('click',function(e){ if(e.target===d) cerrar(); });
+    document.body.appendChild(d);
+  }
+  if (!window._novTablonHecho){ window._novTablonHecho=true; setTimeout(ver,600); }
+};
