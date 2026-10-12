@@ -441,10 +441,6 @@
    "q": "Informes finales y traspaso de información al tutor/a siguiente.",
    "p": "Informe por alumno con medidas que funcionaron y carpeta de tutoría completa."
   },
-  "Lectura y aprobación del acta anterior": {
-   "q": "Revisar y aprobar el acta de la reunión anterior.",
-   "p": "Enviar el acta con antelación y aprobarla sin leerla entera; solo se comentan correcciones."
-  },
   "Memoria de los planes y programas: una página por plan": {
    "q": "Memoria anual de cada plan (máximo una página).",
    "p": "Plantilla: actuaciones realizadas, evidencia y una propuesta de mejora."
@@ -700,10 +696,6 @@
   "Revisión y actualización de criterios de evaluación y promoción": {
    "q": "Criterios de evaluación y promoción del ciclo para el curso.",
    "p": "Revisar que las rúbricas son de 4 niveles y que cada criterio se evalúa con dos instrumentos."
-  },
-  "Ruegos y preguntas": {
-   "q": "Turno abierto de preguntas y propuestas.",
-   "p": "Recoger las propuestas que necesiten respuesta y contestarlas por escrito en la siguiente reunión."
   },
   "Seguimiento Bienestar Emocional": {
    "q": "Seguimiento del programa de Bienestar Emocional.",
