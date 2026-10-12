@@ -65,6 +65,7 @@
         else t += `• ${r.hora}: ${r.nombre}${r.nota?` (${r.nota})`:''}\n`;
       });
       if (!R.lista.length) t += `• Ese lunes no hay reuniones del cuadrante.\n`;
+      R.ordenes.forEach(o=>{ t += `\nOrden del día previsto · ${o.organo}:\n` + o.puntos.map((p,i)=>`${i+1}. ${p}`).join('\n') + '\n'; });
     }
     // Días sin clase de esa semana (festivos, vacaciones…), salvo el lunes que ya se ha explicado arriba
     const sinClase = [];
