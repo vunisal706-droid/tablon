@@ -1,0 +1,841 @@
+{
+ "nota": "Ayuda por punto del orden del día (q: qué tratar; p: propuesta). Solo se muestra en Equipo Directivo con sesión iniciada y en el correo semanal.",
+ "ayudas": {
+  "Acta competencial de la evaluación inicial: grado de desarrollo por competencia específica": {
+   "q": "Completar el acta con el nivel (1-4) de cada competencia específica por alumno, a partir de la rúbrica, no de una nota global.",
+   "p": "Cada tutor trae el acta rellenada en borrador; en la reunión solo se discuten los casos con nivel 1 y se decide la medida de cada uno."
+  },
+  "Actividades de concienciación y sensibilización – Proyectos inclusivos para fomentar la convivencia": {
+   "q": "Qué actuaciones de sensibilización se hacen este trimestre y cómo participa el alumnado del aula TEA.",
+   "p": "Una actividad por ciclo ligada a Escuela: Espacio de Paz (p. ej., «patio de todos» con juego dirigido), con un responsable y fecha."
+  },
+  "Actividades del Día de la Mujer Trabajadora": {
+   "q": "Actividad del 8 de marzo coordinada con el Plan de Igualdad, con referentes femeninos científicos y del entorno.",
+   "p": "Cada clase investiga a una mujer de Santa Fe o de la ciencia y lo expone en el pasillo; enlaza con el objetivo de Matemáticas (referentes científicos)."
+  },
+  "Actividades inclusivas de Navidad: organización de eventos en los que todo el alumnado pueda participar": {
+   "q": "Adaptar el festival o la actividad de Navidad para que el alumnado TEA y NEAE participe sin barreras.",
+   "p": "Ensayo previo en el espacio real, papel adaptado para cada alumno y zona tranquila disponible durante el acto."
+  },
+  "Acuerdo sobre la estructura común de comprensión lectora y de resolución de problemas": {
+   "q": "Fijar por escrito los pasos y el vocabulario común de lectura y problemas para todo el ciclo (prioridades 2 y 3 del centro).",
+   "p": "Adoptar la estructura del Ágora tal cual y dejar en acta: 30 min diarios de lectura y 3 sesiones de 30 min de problemas, con los mismos pasos."
+  },
+  "Ajustes metodológicos": {
+   "q": "Qué cambios de metodología se acuerdan tras los resultados de la evaluación.",
+   "p": "Elegir un solo ajuste común por ciclo (p. ej., verbalizar en voz alta cómo se resuelve un problema) y revisarlo en la siguiente evaluación."
+  },
+  "Ajustes que cada docente introduce en su programación tras la evaluación inicial": {
+   "q": "Qué saberes se refuerzan, qué criterios se retoman y qué cambia en metodología y agrupamientos en cada grupo.",
+   "p": "Cada docente aporta 2-3 ajustes concretos que pasan directamente al anexo de revisión de la programación."
+  },
+  "Anexo de revisión de las programaciones derivado de la evaluación inicial": {
+   "q": "Redactar el anexo que se incorpora a la programación antes del 15 de octubre con los ajustes de la evaluación inicial.",
+   "p": "Usar una plantilla de una página por nivel: saberes a reforzar, criterios retomados, cambios metodológicos y de agrupamiento."
+  },
+  "Análisis de adecuación curricular": {
+   "q": "Valorar si se ha impartido lo programado y qué saberes han quedado sin trabajar.",
+   "p": "Cada nivel marca los saberes no trabajados y se trasladan como prioridad al curso siguiente en el informe de ciclo."
+  },
+  "Análisis de la evaluación final": {
+   "q": "Resultados finales por área y nivel, comparados con la evaluación inicial y con el curso anterior.",
+   "p": "Sacar los datos de Gestión de Evaluaciones y quedarse con 3 conclusiones y 3 propuestas para la Memoria de Autoevaluación."
+  },
+  "Análisis de la segunda evaluación y protocolo de repetidores": {
+   "q": "Resultados de la 2.ª evaluación y alumnado en riesgo de no promocionar según la regla de los tres pasos.",
+   "p": "Listado provisional de posibles repetidores por nivel, con las medidas aplicadas, para informar a las familias antes de mayo."
+  },
+  "Análisis de los resultados del primer trimestre": {
+   "q": "Resultados del 1.er trimestre por área y nivel, con especial atención a Lengua y Matemáticas.",
+   "p": "Presentar al claustro una diapositiva por ciclo con datos de Gestión de Evaluaciones y una medida de mejora por ciclo."
+  },
+  "Análisis de resultados de la primera evaluación": {
+   "q": "Resultados de la 1.ª evaluación por ciclos y su relación con los cuatro objetivos del centro.",
+   "p": "El ETCP identifica el área con peores resultados en cada ciclo y acuerda una medida común para el 2.º trimestre."
+  },
+  "Análisis de resultados de la segunda evaluación": {
+   "q": "Resultados de la 2.ª evaluación del ciclo y evolución respecto a la 1.ª.",
+   "p": "Comparar con la 1.ª evaluación en Gestión de Evaluaciones y revisar si los programas de refuerzo se mantienen, se cambian o se retiran."
+  },
+  "Análisis del clima inicial de convivencia": {
+   "q": "Cómo ha empezado el grupo: normas de aula, conflictos, alumnado aislado o con conductas disruptivas.",
+   "p": "Revisar las normas de aula elaboradas en septiembre y preparar el sociograma de noviembre señalando qué alumnos preocupan."
+  },
+  "Análisis del grado de adecuación curricular": {
+   "q": "Si el ritmo de la programación se ajusta a lo previsto en el trimestre.",
+   "p": "Cada docente indica las SdA pendientes y se reajusta la temporalización del 2.º trimestre."
+  },
+  "Análisis del primer trimestre: revisión de logros y dificultades detectadas en las evaluaciones": {
+   "q": "Logros y dificultades del alumnado NEAE y con medidas tras la 1.ª evaluación.",
+   "p": "Por cada alumno con medidas: qué ha funcionado, qué no y qué se cambia; queda en acta."
+  },
+  "Análisis del sociograma y medidas de agrupamiento y acompañamiento": {
+   "q": "Resultados del sociograma de noviembre: alumnado rechazado, aislado o líder, y medidas.",
+   "p": "Recolocar el aula y los equipos cooperativos, asignar alumno acompañante a los aislados y revisar los grupos de recreo."
+  },
+  "Análisis medidas atención diversidad": {
+   "q": "Medidas de atención a la diversidad en marcha y su encaje en el horario.",
+   "p": "Presentar el mapa de apoyos (PT, refuerzo, desdobles de 2.º y 3.º) y comprobar que priman los apoyos dentro del aula."
+  },
+  "Análisis progreso alumnado": {
+   "q": "Evolución general del alumnado en el 2.º trimestre.",
+   "p": "Destacar avances y alumnado estancado; derivar estos casos al equipo docente para revisar su programa de refuerzo."
+  },
+  "Apoyo emocional y conducta – Intervención en casos de ansiedad, dificultades sociales o problemas de conducta": {
+   "q": "Casos con dificultades emocionales o de conducta y respuesta coordinada.",
+   "p": "Plan de actuación por caso con un adulto de referencia, pautas comunes del equipo docente y contacto con la familia; coordinar con Bienestar Emocional."
+  },
+  "Aprobación PGA y presupuesto": {
+   "q": "Aprobación del presupuesto anual (lo elabora la secretaría, se aprueba en octubre-noviembre) y de la programación general.",
+   "p": "Enviar el presupuesto con antelación, explicar el reparto por ciclos según alumnado y la reserva del 10% para inventariable."
+  },
+  "Aprobación Plan Convivencia": {
+   "q": "Aprobación del Plan de Convivencia actualizado (protocolos, LOPIVI, recreos inclusivos).",
+   "p": "Destacar los cambios del curso y recordar quién es la persona coordinadora de bienestar y protección."
+  },
+  "Aprobación Plan de Centro": {
+   "q": "Aprobación de los aspectos educativos del Plan de Centro por el Claustro.",
+   "p": "Presentar el resumen breve del Plan de Centro y señalar solo los apartados que cambian este curso."
+  },
+  "Aprobación calendario escolar": {
+   "q": "Calendario del curso: inicio, festivos, vacaciones y días de libre disposición de Santa Fe.",
+   "p": "Presentar el calendario con los días sin clase ya fijados (12 oct, 2 nov, 7-8 dic, 26 feb, 1 mar, 19 abr, 3 may, 28 may)."
+  },
+  "Aprobación criterios programaciones": {
+   "q": "Criterios comunes que deben cumplir todas las programaciones del centro.",
+   "p": "Aprobar la lista del Proyecto Educativo (I.2): rúbrica de 4 niveles, dos instrumentos, estructura común de lectura y problemas, DUA."
+  },
+  "Aprobación de la propuesta del plan de formación del profesorado": {
+   "q": "Plan de formación del curso siguiente, con al menos la mitad dedicado a los 4 objetivos.",
+   "p": "Proponer formación en centro (como la de OAOA) y exigir que cada actividad termine en un producto para el aula."
+  },
+  "Aprobación de las programaciones didácticas y de la propuesta pedagógica de Infantil": {
+   "q": "Aprobación de las programaciones (antes de finalizar octubre) tras el informe del ETCP.",
+   "p": "Aprobar en bloque las que cumplen los criterios del I.2 y dar 15 días a las que tengan observaciones del ETCP."
+  },
+  "Aprobación de los indicadores de calidad del centro para el curso": {
+   "q": "Indicadores con los que se medirá el curso, ligados a los 4 objetivos (absentismo, lectura, problemas, convivencia).",
+   "p": "Pocos y medibles: % de absentismo, comparativa lectora oct-jun, comparativa de problemas y n.º de incidencias en Séneca."
+  },
+  "Aprobación memoria final": {
+   "q": "Aprobación de la Memoria de Autoevaluación con las aportaciones del Claustro.",
+   "p": "Llevar la memoria con 3-5 propuestas de mejora concretas que no sean obligaciones legales ya existentes."
+  },
+  "Atención a la diversidad en el aula: estrategias para potenciar la autonomía y el aprendizaje significativo": {
+   "q": "Estrategias para que el alumnado NEAE trabaje con autonomía dentro del aula.",
+   "p": "Agendas visuales, tareas por pasos y tutoría entre iguales; elegir una y probarla en todos los grupos hasta la próxima reunión."
+  },
+  "Balance del curso y propuestas de mejora – Reflexión sobre los puntos fuertes y débiles del trabajo del equipo": {
+   "q": "Qué ha funcionado y qué no en el equipo de orientación durante el curso.",
+   "p": "Dos puntos fuertes, dos débiles y una propuesta concreta para septiembre, que pasa a la Memoria."
+  },
+  "Balance del trimestre y ajustes en la intervención: reflexión sobre las medidas aplicadas y propuestas de mejora": {
+   "q": "Valoración de las intervenciones con alumnado NEAE en el 1.er trimestre.",
+   "p": "Revisar caso por caso si la medida se mantiene, se ajusta o se retira, y dejarlo registrado."
+  },
+  "Colaborar con el equipo directivo en la actualización del Proyecto Educativo": {
+   "q": "Aportaciones del ciclo a la revisión del Proyecto Educativo.",
+   "p": "Cada ciclo revisa un apartado (p. ej., C.5 Refuerzo) y envía propuestas por escrito al equipo directivo."
+  },
+  "Comparativa de la prueba de comprensión lectora de octubre y de junio": {
+   "q": "Evolución individual en comprensión lectora entre la prueba de octubre y la de junio (objetivo 2).",
+   "p": "Volcar ambas pruebas en la app de Registro de lectura y sacar el % de alumnado que mejora de nivel por grupo."
+  },
+  "Constitución Consejo Escolar": {
+   "q": "Constitución del Consejo Escolar y bienvenida a los nuevos miembros.",
+   "p": "Repartir un resumen de funciones del Consejo y el calendario de sesiones del curso."
+  },
+  "Constitución comisiones": {
+   "q": "Constitución de la comisión permanente y la de convivencia.",
+   "p": "Elegir miembros y fijar que la comisión de convivencia se reúna al menos en enero y marzo."
+  },
+  "Constitución del equipo de orientación": {
+   "q": "Composición del equipo de orientación, horario y reparto de casos.",
+   "p": "Fijar responsable de cada alumno NEAE y el calendario de reuniones (1.er lunes lectivo, 18:00)."
+  },
+  "Constitución del equipo docente": {
+   "q": "Quién compone el equipo docente del grupo y cómo se coordina.",
+   "p": "Repasar el grupo: alumnado con medidas, informes del curso pasado y acuerdos de funcionamiento."
+  },
+  "Constitución equipos de ciclo": {
+   "q": "Composición de los cuatro equipos de ciclo y sus coordinaciones.",
+   "p": "Presentar coordinaciones del curso y recordar que el ciclo se reúne una vez al mes y otra como equipo docente."
+  },
+  "Coordinación con el EOE para la evaluación del programa de tránsito": {
+   "q": "Valorar cómo ha ido el tránsito de Infantil a Primaria y de 6.º a la ESO.",
+   "p": "Recoger qué información llegó al IES y si viajaron las medidas que funcionaban con el alumnado NEAE."
+  },
+  "Coordinación con el EOE: revisión del programa de tránsito y reparto de responsabilidades": {
+   "q": "Calendario y responsables del programa de tránsito del curso.",
+   "p": "Reparto por escrito: quién prepara informes, reunión con el IES y visitas de 5 años y 6.º."
+  },
+  "Coordinación con el Plan de Formación en Centros": {
+   "q": "Encaje de la formación en centro (OAOA) con el trabajo de los ciclos.",
+   "p": "Cada ciclo concreta qué producto de la formación aplicará en el aula este trimestre."
+  },
+  "Coordinación con familias: preparación de las reuniones para informar sobre los avances y necesidades": {
+   "q": "Cómo informar a las familias del alumnado NEAE sobre su evolución.",
+   "p": "Usar el guion de entrevista del POAT: empezar por lo positivo, dos compromisos (centro y familia) y fecha de revisión."
+  },
+  "Coordinación con los tutores y especialistas: trabajo conjunto para garantizar coherencia en la intervención educativa": {
+   "q": "Coordinación entre PT, AL, tutorías y especialistas para que todos trabajen igual con cada alumno.",
+   "p": "Una ficha por alumno NEAE con 3 pautas comunes que aplica todo el profesorado que entra en el grupo."
+  },
+  "Coordinación de actividades del Día de Andalucía": {
+   "q": "Organización del Día de Andalucía (1 de marzo no lectivo; se celebra antes).",
+   "p": "Actividad por ciclo con cultura andaluza y modalidad lingüística andaluza, y un acto común breve."
+  },
+  "Coordinación de actividades del Día del Libro": {
+   "q": "Actividades del 23 de abril ligadas al Plan de Lectura y la biblioteca.",
+   "p": "Mercadillo o intercambio de libros y lectura compartida entre cursos (mayores leen a pequeños)."
+  },
+  "Coordinación vertical con miembros de otros equipos docentes si fuera necesario": {
+   "q": "Coordinación con el nivel anterior o siguiente para casos concretos.",
+   "p": "Invitar al tutor/a del curso anterior 15 minutos para traspasar información de alumnado con medidas."
+  },
+  "Coordinación vertical con otros equipos docentes": {
+   "q": "Traspaso de información y continuidad entre niveles.",
+   "p": "Reunión breve entre niveles consecutivos para pasar informes y acordar secuencia de saberes."
+  },
+  "Criterios promoción LOMLOE": {
+   "q": "Recordar los criterios de promoción del Proyecto Educativo.",
+   "p": "Explicar la regla de los tres pasos, un único programa de refuerzo por alumno y la decisión por mayoría simple si no hay consenso."
+  },
+  "Cuestionarios de detección de altas capacidades del alumnado de segundo curso": {
+   "q": "Aplicación de los cuestionarios de altas capacidades (protocolo de la Junta).",
+   "p": "Fijar fechas de cumplimentación por tutoría y familias y el plazo de entrega a orientación."
+  },
+  "Decisión de promoción motivada según la regla de los tres pasos": {
+   "q": "Decidir la promoción de cada alumno aplicando los tres pasos del Proyecto Educativo.",
+   "p": "1) Nivel 2 en descriptores → promociona. 2) Si no, evolución positiva + implicación → promociona con refuerzo. 3) Solo si no, permanencia (una vez en la etapa)."
+  },
+  "Designación del ciclo responsable de cada efeméride asignada y del proyecto interdisciplinar": {
+   "q": "Qué ciclo organiza cada efeméride del curso.",
+   "p": "Repartir las efemérides en una tabla (ciclo, fecha, responsable) para que nadie organice dos seguidas."
+  },
+  "Detección de dificultades de aprendizaje": {
+   "q": "Alumnado con indicios de dificultad tras la evaluación inicial.",
+   "p": "Aplicar el protocolo: acta del equipo docente en menos de un mes y medidas generales al menos tres meses antes de pedir evaluación."
+  },
+  "Detección de necesidades formativas para el plan de formación del curso siguiente": {
+   "q": "Necesidades formativas a partir de la Memoria de Autoevaluación.",
+   "p": "Priorizar las del Proyecto Educativo: comprensión lectora, problemas, gestión del aula, DUA y AICLE."
+  },
+  "Elaboración de informes finales – Registro de orientaciones para el próximo curso y recomendaciones a tutores y familias": {
+   "q": "Informes finales del alumnado NEAE con lo que ha funcionado.",
+   "p": "Cada informe incluye las 3 medidas que mejor han funcionado, para que viajen con el alumno."
+  },
+  "Elaboración de la información para familias (normas del centro, objetivos, criterios de evaluación)": {
+   "q": "Qué se cuenta a las familias en la reunión grupal de inicio de curso.",
+   "p": "Un folleto común por ciclo: horario de entrada (puerta a las 9:10), normas, objetivos, criterios de evaluación y canal oficial iPasen."
+  },
+  "Elaboración de la memoria final": {
+   "q": "Redacción de la Memoria de Autoevaluación con los datos del curso.",
+   "p": "Repartir la memoria por responsables y que el ETCP revise indicadores antes del 25 de junio."
+  },
+  "Elaboración del Plan de Mejora": {
+   "q": "Propuestas de mejora del curso a partir de la Memoria de Autoevaluación.",
+   "p": "Pocas y concretas (3-4), cada una con indicador, responsable y fecha; nada que ya sea obligación legal."
+  },
+  "Elaboración del calendario de sesiones de evaluación": {
+   "q": "Fechas de las sesiones de evaluación del trimestre (última semana lectiva).",
+   "p": "Cuadrante de sesiones por grupo de 15-20 min, evitando lunes de reuniones."
+  },
+  "Elaborar calendario de sesiones de evaluación": {
+   "q": "Fechas de las sesiones de evaluación (última semana lectiva del trimestre).",
+   "p": "Cuadrante por grupos y fecha límite para tener las notas en Séneca dos días antes."
+  },
+  "Elaborar programaciones didácticas o propuestas pedagógicas": {
+   "q": "Revisión y actualización de la programación del ciclo con las mejoras de la Memoria.",
+   "p": "Partir de la del curso pasado y completar solo lo que exige el I.2: rúbricas, dos instrumentos y estructuras comunes."
+  },
+  "Elección de los representantes del equipo de evaluación": {
+   "q": "El Consejo Escolar elige a los representantes de cada sector en el equipo de evaluación.",
+   "p": "Proponer una persona por sector con disponibilidad para 3 reuniones al año."
+  },
+  "Encaje en el calendario de las actuaciones de los planes y programas": {
+   "q": "Calendario de actuaciones de cada plan sin solapamientos (máx. 3 actuaciones por plan).",
+   "p": "Tabla única de actuaciones por mes con el objetivo del centro al que sirve cada una."
+  },
+  "Establecer criterios para revisión de programaciones y propuestas pedagógicas": {
+   "q": "Qué va a revisar el ETCP en las programaciones.",
+   "p": "Lista de comprobación del I.2 del Proyecto Educativo que cada ciclo aplica antes de entregar."
+  },
+  "Estrategias de apoyo emocional y convivencia: actuaciones para prevenir conflictos y promover el bienestar del alumnado": {
+   "q": "Actuaciones preventivas de convivencia y bienestar emocional.",
+   "p": "Rincón de la calma en las aulas y una sesión de educación emocional al mes en tutoría, coordinada con Bienestar Emocional."
+  },
+  "Estrategias para fomentar la inclusión: metodología y recursos para mejorar la participación del alumnado NEAE en el aula": {
+   "q": "Cómo aumentar la participación del alumnado NEAE en el aula ordinaria.",
+   "p": "Apoyo dentro del aula como modalidad preferente, DUA y trabajo cooperativo con roles adaptados."
+  },
+  "Estrategias para la inclusión en actividades escolares – Adaptación de proyectos, salidas y celebraciones": {
+   "q": "Adaptar salidas y celebraciones del trimestre para el alumnado NEAE y TEA.",
+   "p": "Anticipación visual de cada salida, acompañante asignado y plan B si hay sobrecarga."
+  },
+  "Evaluación convivencia": {
+   "q": "Informe de convivencia del trimestre para el Consejo Escolar.",
+   "p": "Datos de Séneca (incidencias, compromisos) comparados con el trimestre anterior y medidas tomadas."
+  },
+  "Evaluación de alumnado en todas las áreas": {
+   "q": "Evaluación del 2.º trimestre por áreas en el equipo docente.",
+   "p": "Revisar solo alumnado con áreas no superadas y decidir medida para cada uno."
+  },
+  "Evaluación de la práctica docente y ajuste metodológico": {
+   "q": "Reflexión del equipo sobre su propia práctica en el trimestre.",
+   "p": "Cuestionario breve de autoevaluación docente y un ajuste metodológico común para el siguiente trimestre."
+  },
+  "Evaluación de la respuesta del alumnado a las medidas implantadas – Valoración del impacto de las estrategias aplicadas": {
+   "q": "Si las medidas con alumnado NEAE están dando resultado.",
+   "p": "Por alumno: medida, evidencia de avance y decisión (mantener, ajustar o retirar)."
+  },
+  "Evaluación de las medidas de atención a la diversidad": {
+   "q": "Valoración trimestral de las medidas de atención a la diversidad del ciclo.",
+   "p": "Comprobar que cada medida tiene evidencia de efecto; las que no, se cambian."
+  },
+  "Evaluación de programas de refuerzo aplicados": {
+   "q": "Revisión trimestral de cada programa de refuerzo: criterio superado, se mantiene o se sustituye.",
+   "p": "Repasar la lista de Plan de refuerzo 26/27 e informar por escrito a las familias del resultado."
+  },
+  "Evaluación de programas de refuerzo y medidas pertinentes": {
+   "q": "Revisión de los programas de refuerzo en la 2.ª evaluación.",
+   "p": "Decidir para cada programa si se mantiene, se cambia o se retira, e informar a la familia."
+  },
+  "Evaluación del alumnado en todas las áreas": {
+   "q": "Sesión de evaluación del 1.er trimestre por áreas.",
+   "p": "Notas en Séneca antes de la sesión; en la reunión solo casos con dificultades y acuerdos del grupo."
+  },
+  "Evaluación del clima de convivencia": {
+   "q": "Cómo está la convivencia en el grupo este trimestre.",
+   "p": "Revisar incidencias registradas y el sociograma; si hay casos, acordar compromiso de convivencia con la familia."
+  },
+  "Evaluación del funcionamiento del equipo docente": {
+   "q": "Si el equipo docente se coordina bien y cumple acuerdos.",
+   "p": "Revisar qué acuerdos de actas anteriores se han cumplido y cuáles no."
+  },
+  "Evaluación del grupo aula": {
+   "q": "Valoración global del grupo en el 2.º trimestre.",
+   "p": "Puntos fuertes del grupo, dificultades y una medida de aula para el 3.er trimestre."
+  },
+  "Evaluación del rendimiento del alumnado": {
+   "q": "Rendimiento del grupo en el 1.er trimestre.",
+   "p": "Comparar con la evaluación inicial en Gestión de Evaluaciones y señalar alumnado que no avanza."
+  },
+  "Evaluación del rendimiento en el segundo trimestre": {
+   "q": "Rendimiento del ciclo en el 2.º trimestre.",
+   "p": "Datos por nivel y área instrumental, y una medida común del ciclo para el 3.er trimestre."
+  },
+  "Evaluación del trimestre": {
+   "q": "Balance del trimestre en el ETCP con los datos de los ciclos.",
+   "p": "Cada coordinación trae 1 logro, 1 dificultad y 1 propuesta; se elevan al Claustro."
+  },
+  "Evaluación final del Plan de Mejora": {
+   "q": "Grado de cumplimiento de cada propuesta del Plan de Mejora.",
+   "p": "Semáforo por propuesta (conseguida, en proceso, no iniciada) con su evidencia, para la Memoria."
+  },
+  "Evaluación final del alumnado y competencias clave": {
+   "q": "Evaluación final del alumnado y nivel de las competencias clave.",
+   "p": "Calificaciones en Séneca, y en la sesión solo casos dudosos de promoción y menciones."
+  },
+  "Evaluación final del curso": {
+   "q": "Balance final del curso en el Claustro.",
+   "p": "Presentar resultados, indicadores y propuestas de mejora que irán a la Memoria."
+  },
+  "Evaluación final y propuestas de mejora para el siguiente curso": {
+   "q": "Balance del ciclo y propuestas para el curso siguiente.",
+   "p": "Tres propuestas concretas y medibles que se traslada al ETCP para la Memoria."
+  },
+  "Evaluación global del proceso de enseñanza-aprendizaje": {
+   "q": "Cómo están funcionando la enseñanza y el aprendizaje en el ciclo.",
+   "p": "Revisar si se cumplen los 30 min de lectura diaria y las 3 sesiones de problemas en todos los grupos."
+  },
+  "Evaluación inicial": {
+   "q": "Organización de la evaluación inicial (antes del 15 de octubre).",
+   "p": "Pruebas comunes por nivel (carpeta de Drive), observación de 2 semanas y sesión de evaluación con acta competencial."
+  },
+  "Evaluación inicial: conclusiones": {
+   "q": "Conclusiones de la evaluación inicial para el Claustro.",
+   "p": "Resumen por ciclo: nivel de partida en lectura y problemas y alumnado con refuerzo propuesto."
+  },
+  "Evaluación intermedia PGA": {
+   "q": "Seguimiento de la programación general a mitad de curso.",
+   "p": "Repasar objetivos e indicadores y ajustar lo que no se está cumpliendo."
+  },
+  "Formación profesorado": {
+   "q": "Plan de formación del curso y formación en centro (OAOA).",
+   "p": "Informar de la FC «OAOA en Capitulaciones» y de que la formación debe terminar en un producto de aula."
+  },
+  "Gestión del proceso de libros de texto": {
+   "q": "Recogida y revisión de lotes de libros en junio (gratuidad).",
+   "p": "Calendario de recogida por grupos y registro del estado (bueno, aceptable, inservible) para secretaría."
+  },
+  "Horario de participación del alumnado del aula específica en su grupo de referencia": {
+   "q": "En qué sesiones se integra cada alumno del aula TEA en su grupo ordinario.",
+   "p": "Empezar por sesiones de rutina (asamblea, EF, Música, Plástica) y ampliar según su respuesta."
+  },
+  "Inclusión en actividades de fin de curso – Adaptación de celebraciones para garantizar la participación de todos": {
+   "q": "Adaptar la fiesta de fin de curso y graduaciones para todo el alumnado.",
+   "p": "Ensayos con anticipación visual, papel adaptado y espacio de retirada para alumnado TEA."
+  },
+  "Indicadores de impacto del Plan de Lectura": {
+   "q": "Cómo se mide si el Plan de Lectura funciona.",
+   "p": "Indicadores: % de alumnado que sube de nivel en la prueba común y préstamos de biblioteca por grupo."
+  },
+  "Información desarrollo inicial": {
+   "q": "Cómo ha empezado el curso: matrícula, plantilla y funcionamiento.",
+   "p": "Resumen breve de matrícula, grupos y novedades del curso."
+  },
+  "Información económica del segundo trimestre": {
+   "q": "Estado de cuentas del trimestre.",
+   "p": "Ingresos y gastos por partida frente al presupuesto aprobado."
+  },
+  "Información económica trimestre": {
+   "q": "Estado de cuentas del trimestre.",
+   "p": "Ingresos y gastos por partida frente al presupuesto aprobado."
+  },
+  "Información escolarización": {
+   "q": "Proceso de escolarización del curso siguiente.",
+   "p": "Datos de solicitudes y plazas por nivel y calendario del proceso."
+  },
+  "Información general inicio curso": {
+   "q": "Información de inicio de curso para el Claustro.",
+   "p": "Calendario, horarios, coordinaciones, cuadrante de reuniones y prioridades del Plan de Centro."
+  },
+  "Información inicio curso": {
+   "q": "Información de inicio de curso para el Consejo Escolar.",
+   "p": "Matrícula, plantilla, calendario y principales novedades."
+  },
+  "Información sobre calendario de reuniones": {
+   "q": "Calendario de reuniones de los lunes del curso.",
+   "p": "Presentar el cuadrante (1.º-4.º lunes lectivo) y el calendario para Google Calendar del Tablón."
+  },
+  "Información tutorías y convivencia": {
+   "q": "Cómo están las tutorías y la convivencia en el centro.",
+   "p": "Datos de incidencias, compromisos firmados y resultados del sociograma de noviembre."
+  },
+  "Informar sobre criterios de evaluación y promoción": {
+   "q": "Trasladar a los ciclos los criterios de evaluación y promoción del Proyecto Educativo.",
+   "p": "Repasar la rúbrica de 4 niveles, los dos instrumentos por criterio y la regla de los tres pasos."
+  },
+  "Informar sobre medidas y programas de atención a la diversidad (Protocolo NEAE)": {
+   "q": "Protocolo NEAE y medidas de atención a la diversidad del centro.",
+   "p": "Recordar los 4 pasos: indicios, acta en un mes, 3 meses de medidas generales y solicitud en Séneca."
+  },
+  "Informe actividad lectiva": {
+   "q": "Informe del funcionamiento del trimestre al Consejo Escolar.",
+   "p": "Actividades realizadas, resultados generales y convivencia, en una página."
+  },
+  "Informe comisiones": {
+   "q": "Informe de las comisiones del Consejo Escolar.",
+   "p": "Resumen de acuerdos de la comisión permanente y de convivencia."
+  },
+  "Informe de las programaciones didácticas para su elevación al Claustro": {
+   "q": "El ETCP informa las programaciones antes de su aprobación por el Claustro.",
+   "p": "Revisarlas con la lista del I.2 y anotar observaciones por ciclo."
+  },
+  "Informe organización docente": {
+   "q": "Organización docente del curso al Consejo Escolar.",
+   "p": "Grupos, tutorías, especialistas y medidas de apoyo (PT, refuerzo, desdobles)."
+  },
+  "Informes finales de ciclo y traspaso al siguiente tutor o tutora": {
+   "q": "Informes finales y traspaso de información al tutor/a siguiente.",
+   "p": "Informe por alumno con medidas que funcionaron y carpeta de tutoría completa."
+  },
+  "Lectura y aprobación del acta anterior": {
+   "q": "Revisar y aprobar el acta de la reunión anterior.",
+   "p": "Enviar el acta con antelación y aprobarla sin leerla entera; solo se comentan correcciones."
+  },
+  "Memoria de los planes y programas: una página por plan": {
+   "q": "Memoria anual de cada plan (máximo una página).",
+   "p": "Plantilla: actuaciones realizadas, evidencia y una propuesta de mejora."
+  },
+  "Modificaciones presupuestarias": {
+   "q": "Cambios en el presupuesto por ingresos o gastos no previstos.",
+   "p": "Explicar cada modificación y su motivo para su aprobación."
+  },
+  "Organización curso siguiente": {
+   "q": "Primeras previsiones del próximo curso.",
+   "p": "Previsión de grupos, tutorías y necesidades de plantilla."
+  },
+  "Organización de actividades complementarias con criterios pedagógicos": {
+   "q": "Propuesta de actividades complementarias del curso, cada una con finalidad curricular.",
+   "p": "Máximo una salida por trimestre y grupo, vinculada a una SdA, y que ninguna excluya a nadie por motivos económicos."
+  },
+  "Organizar actividades complementarias y extraescolares": {
+   "q": "Actividades del ciclo para el curso, que aprueba el Consejo Escolar.",
+   "p": "Tabla por trimestre con actividad, finalidad curricular, coste y responsable."
+  },
+  "Organizar el Plan de Formación en Centros (CEP)": {
+   "q": "Organización de la formación en centro con el CEP.",
+   "p": "Calendario de sesiones de la FC OAOA y producto que se elaborará."
+  },
+  "Plan de acogida y adaptación: estrategias para facilitar la integración del alumnado, especialmente el de TEA": {
+   "q": "Plan de acogida del alumnado nuevo y del aula TEA.",
+   "p": "Anticipación visual de rutinas, adulto de referencia y entrada progresiva."
+  },
+  "Planificación de actividades de febrero (Carnaval, Día de Andalucía)": {
+   "q": "Actividades de Carnaval y Día de Andalucía.",
+   "p": "Repartir responsables y fechas antes del 26 de febrero (Día de la Comunidad Educativa, sin clase)."
+  },
+  "Planificación de actividades de fin de curso": {
+   "q": "Actividades de final de curso del ciclo.",
+   "p": "Calendario de junio con fiesta, graduaciones y despedidas, evitando la última semana de evaluación."
+  },
+  "Planificación de actividades del Día de Andalucía y Carnaval": {
+   "q": "Actividades del ciclo para Carnaval y Día de Andalucía.",
+   "p": "Una actividad por nivel con cultura andaluza y un acto común breve."
+  },
+  "Planificación de actividades del Día de la Constitución": {
+   "q": "Actividades del Día de la Constitución.",
+   "p": "Asamblea en cada clase sobre derechos y deberes, ligada a las normas de aula."
+  },
+  "Planificación de actividades del Día de los Derechos de la Infancia y Día contra la Violencia Machista": {
+   "q": "Actividades del 20 y 25 de noviembre.",
+   "p": "Una actividad por ciclo coordinada con el Plan de Igualdad y Bienestar Emocional."
+  },
+  "Planificación de calendario final de curso": {
+   "q": "Calendario de junio: evaluaciones, informes, libros y fin de curso.",
+   "p": "Cronograma único de junio con fechas límite para cada tarea."
+  },
+  "Planificación de medidas para la recta final del curso – Ajuste de apoyos y preparación para la transición de etapa": {
+   "q": "Ajuste de apoyos en el 3.er trimestre y preparación del tránsito.",
+   "p": "Reforzar al alumnado NEAE de 5 años y 6.º y preparar sus informes de tránsito."
+  },
+  "Planificación de reuniones con familias": {
+   "q": "Reunión grupal de inicio de curso con las familias.",
+   "p": "Primera quincena del trimestre, guion común por ciclo y elección de delegado/a de familias."
+  },
+  "Planificación del Día de la Constitución y Navidad": {
+   "q": "Actividades de diciembre (Constitución y Navidad).",
+   "p": "Repartir fechas teniendo en cuenta los días sin clase del 7 y 8 de diciembre."
+  },
+  "Planificación del Día de la Mujer Trabajadora": {
+   "q": "Actividad del 8 de marzo para todo el centro.",
+   "p": "Coordinar con el Plan de Igualdad una actividad común con referentes femeninos."
+  },
+  "Planificación del Día de la Paz y la No Violencia": {
+   "q": "Actividades del 30 de enero (Escuela: Espacio de Paz).",
+   "p": "Acto común breve y una actividad de aula ligada a las normas de convivencia."
+  },
+  "Planificación del Día del Libro": {
+   "q": "Actividades del 23 de abril en el ciclo.",
+   "p": "Lectura compartida entre niveles y actividad de biblioteca."
+  },
+  "Planificación del Día del Libro con la biblioteca": {
+   "q": "Coordinación del Día del Libro con la biblioteca escolar.",
+   "p": "Programa común (mercadillo, cuentacuentos, lecturas) con el Plan de Lectura."
+  },
+  "Planificación del inicio del próximo curso – Estrategias para la acogida de nuevo alumnado y puesta en marcha de protocolos": {
+   "q": "Acogida del alumnado NEAE nuevo el próximo curso.",
+   "p": "Lista de alumnado que llega, reunión con familias en septiembre y adaptación de los primeros días."
+  },
+  "Planificación fin curso": {
+   "q": "Final de curso en el Consejo Escolar.",
+   "p": "Calendario de junio y actividades de fin de curso."
+  },
+  "Preparación de las evaluaciones adaptadas: revisión de medidas para garantizar la accesibilidad en la primera evaluación": {
+   "q": "Adaptaciones de las pruebas para alumnado NEAE en la 1.ª evaluación.",
+   "p": "Más tiempo, lectura de enunciados, formato accesible y dos instrumentos, no solo examen."
+  },
+  "Preparación del cierre de curso – Revisión de informes y orientaciones para el próximo año": {
+   "q": "Revisión de informes del alumnado NEAE antes de junio.",
+   "p": "Comprobar que cada informe recoge las medidas que funcionaron."
+  },
+  "Preparación evaluación final": {
+   "q": "Organización de la evaluación final de junio.",
+   "p": "Calendario de sesiones, plazo de notas en Séneca y audiencia previa a las familias sobre la promoción."
+  },
+  "Presentación borrador PGA": {
+   "q": "Presentación del borrador de la programación general.",
+   "p": "Resumen de objetivos, calendario y planes del curso."
+  },
+  "Presentación planes y programas educativos": {
+   "q": "Planes y programas del centro este curso.",
+   "p": "Cada coordinación presenta en 2 minutos sus 3 actuaciones y el objetivo al que sirven."
+  },
+  "Previsión de repetidores para comunicar a familias": {
+   "q": "Alumnado en riesgo de no promocionar para informar a las familias.",
+   "p": "Aplicar la regla de los tres pasos y citar a las familias antes de mayo."
+  },
+  "Previsión plantilla": {
+   "q": "Previsión de plantilla del próximo curso.",
+   "p": "Necesidades de profesorado según grupos y medidas de apoyo."
+  },
+  "Proceso evaluación inicial": {
+   "q": "Cómo se hace la evaluación inicial este curso.",
+   "p": "Pruebas comunes, observación, sesión antes del 15 de octubre y acta competencial."
+  },
+  "Propuesta Bienestar Emocional": {
+   "q": "Propuesta de actuaciones del programa de Bienestar Emocional.",
+   "p": "Tres actuaciones del curso (p. ej., rincón de la calma, sesión mensual de emociones y protocolo de detección)."
+  },
+  "Propuesta actividades complementarias": {
+   "q": "Actividades complementarias del curso para aprobar.",
+   "p": "Tabla por ciclos con finalidad curricular y coste; ninguna excluye por motivos económicos."
+  },
+  "Propuesta de actividades para Halloween y Día contra la Violencia Machista": {
+   "q": "Actividades de finales de octubre y del 25 de noviembre.",
+   "p": "Halloween desde inglés (bilingüe) y 25-N coordinado con el Plan de Igualdad."
+  },
+  "Propuesta de alumnado para refuerzo educativo": {
+   "q": "Alumnado que necesita programa de refuerzo tras la evaluación inicial.",
+   "p": "Para cada alumno: área y criterio concreto a reforzar; programa redactado y comunicado en la 2.ª quincena de octubre."
+  },
+  "Propuesta de alumnado que no promociona": {
+   "q": "Propuesta de no promoción en el ETCP.",
+   "p": "Revisar que en cada caso se han agotado los pasos 1 y 2 y que hay programa de refuerzo previsto."
+  },
+  "Propuesta de alumnado que no promociona al finalizar ciclo": {
+   "q": "Alumnado de final de ciclo que podría no promocionar.",
+   "p": "Regla de los tres pasos y audiencia a la familia antes de decidir."
+  },
+  "Propuestas de Mención Honorífica en sexto curso": {
+   "q": "Menciones honoríficas del alumnado de 6.º.",
+   "p": "Aplicar los criterios oficiales y dejarlo motivado en el acta."
+  },
+  "Propuestas de mejora": {
+   "q": "Propuestas de mejora tras la evaluación inicial.",
+   "p": "Una propuesta por ciclo, concreta y medible."
+  },
+  "Propuestas de mejora de los distintos aspectos evaluados": {
+   "q": "Propuestas de mejora del equipo docente para la Memoria.",
+   "p": "Pocas y concretas, cada una con indicador."
+  },
+  "Propuestas de mejora del rendimiento académico": {
+   "q": "Medidas para mejorar resultados en el 3.er trimestre.",
+   "p": "Una medida común del ciclo en lectura o problemas y su seguimiento."
+  },
+  "Propuestas mejora próximo curso": {
+   "q": "Propuestas de mejora para el próximo curso.",
+   "p": "Las que salen de la Memoria: 3-4, medibles, sin repetir obligaciones legales."
+  },
+  "Prueba común de comprensión lectora: aplicación y corrección con rúbrica de ciclo": {
+   "q": "Aplicar la prueba común de lectura en octubre y corregirla con la misma rúbrica en todo el ciclo.",
+   "p": "Usar las pruebas de la app de Registro (pestaña Pruebas), corregir en pareja un par de pruebas para unificar criterio y volcar resultados."
+  },
+  "Pruebas de diagnóstico (alumnado con NEE)": {
+   "q": "Adaptaciones del alumnado NEE en las pruebas de diagnóstico.",
+   "p": "Decidir caso por caso las adaptaciones permitidas y quién acompaña."
+  },
+  "Refuerzo educativo y adaptación de estrategias: planificación de nuevas medidas de apoyo en el aula TEA y alumnado NEAE": {
+   "q": "Nuevas medidas para el aula TEA y alumnado NEAE en el 2.º trimestre.",
+   "p": "Revisar horarios de apoyo y ampliar la inclusión en el grupo de referencia donde haya ido bien."
+  },
+  "Remisión de nuevas propuestas al equipo de orientación": {
+   "q": "Alumnado nuevo que se deriva a orientación.",
+   "p": "Solo tras 3 meses de medidas generales registradas, con acta del equipo docente."
+  },
+  "Reparto por ciclos de las efemérides del curso": {
+   "q": "Qué ciclo organiza cada efeméride.",
+   "p": "Tabla de efemérides por ciclo y fecha, aprobada en el ETCP."
+  },
+  "Repercusión de la evaluación inicial en las programaciones didácticas": {
+   "q": "Cómo cambian las programaciones tras la evaluación inicial.",
+   "p": "Revisar que cada ciclo ha hecho su anexo de revisión antes del 15 de octubre."
+  },
+  "Resultados del cribado de fluidez y comprensión lectora": {
+   "q": "Resultados de la prueba común de lectura de octubre.",
+   "p": "Datos por nivel desde la app de Registro y alumnado con desfase que pasa a refuerzo."
+  },
+  "Resultados del sociograma de abril y comparación con el de noviembre": {
+   "q": "Evolución de las relaciones del alumnado entre noviembre y abril.",
+   "p": "Comparar casos de rechazo y aislamiento y usarlo para formar los grupos del curso siguiente."
+  },
+  "Resultados del sociograma de noviembre y medidas adoptadas": {
+   "q": "Resultados del sociograma por ciclos y medidas tomadas.",
+   "p": "Resumen por grupo (sin nombres) y medidas de aula y recreo adoptadas."
+  },
+  "Revisión de actividades complementarias del segundo trimestre": {
+   "q": "Actividades complementarias previstas para el 2.º trimestre.",
+   "p": "Confirmar fechas, autorizaciones y coste de cada salida."
+  },
+  "Revisión de alumnado en refuerzo": {
+   "q": "Cómo va el alumnado con programa de refuerzo.",
+   "p": "Revisar cada programa con su criterio y decidir si sigue o se ajusta."
+  },
+  "Revisión de la evolución del alumnado – Análisis de avances antes de la segunda evaluación": {
+   "q": "Avances del alumnado NEAE antes de la 2.ª evaluación.",
+   "p": "Revisar objetivos de cada alumno y preparar la información a familias."
+  },
+  "Revisión de la evolución del alumnado: análisis de avances y detección de posibles ajustes en la intervención": {
+   "q": "Evolución del alumnado NEAE en el 1.er trimestre.",
+   "p": "Por alumno: avances, dificultades y ajuste de la intervención."
+  },
+  "Revisión de las rúbricas de la producción escrita del trimestre": {
+   "q": "Revisión de la producción escrita trimestral con la rúbrica común.",
+   "p": "Cada nivel trae 3 muestras corregidas para comprobar que se aplica la rúbrica igual."
+  },
+  "Revisión de medidas de atención a la diversidad": {
+   "q": "Revisión de las medidas de atención a la diversidad del ciclo.",
+   "p": "Mantener, cambiar o retirar cada medida según su efecto."
+  },
+  "Revisión de medidas de atención a la diversidad y refuerzo educativo": {
+   "q": "Revisión trimestral de medidas y programas de refuerzo en el ETCP.",
+   "p": "Comprobar que todos los programas están registrados en Séneca (jefatura revisa en enero)."
+  },
+  "Revisión de propuestas de alumnado con refuerzo según 1ª evaluación": {
+   "q": "Ajustar la lista de alumnado con refuerzo tras la 1.ª evaluación.",
+   "p": "Altas y bajas de refuerzo y comunicación a las familias."
+  },
+  "Revisión del Plan de Convivencia y propuestas de mejora": {
+   "q": "Revisión del Plan de Convivencia a mitad de curso.",
+   "p": "Datos de incidencias, funcionamiento de los recreos con juego dirigido y propuestas."
+  },
+  "Revisión del clima de convivencia": {
+   "q": "Cómo está la convivencia del grupo.",
+   "p": "Revisar incidencias y relaciones; acordar medidas concretas si hay casos."
+  },
+  "Revisión del rendimiento del alumnado en refuerzo": {
+   "q": "Resultados del alumnado con programa de refuerzo en el 3.er trimestre.",
+   "p": "Valorar si supera los criterios reforzados y preparar la información para el curso siguiente."
+  },
+  "Revisión metodológica y mejora de la acción tutorial": {
+   "q": "Revisión de la metodología y de la tutoría en el ciclo.",
+   "p": "Comprobar que la hora de tutoría tiene contenido (emociones, habilidades sociales) y compartir una buena práctica."
+  },
+  "Revisión prevención violencia y acoso": {
+   "q": "Recordar los protocolos de acoso, maltrato y riesgo.",
+   "p": "Mensaje clave: ante sospecha, se comunica a dirección y a la coordinación de bienestar el mismo día; no se investiga."
+  },
+  "Revisión y actualización de criterios de evaluación y promoción": {
+   "q": "Criterios de evaluación y promoción del ciclo para el curso.",
+   "p": "Revisar que las rúbricas son de 4 niveles y que cada criterio se evalúa con dos instrumentos."
+  },
+  "Ruegos y preguntas": {
+   "q": "Turno abierto de preguntas y propuestas.",
+   "p": "Recoger las propuestas que necesiten respuesta y contestarlas por escrito en la siguiente reunión."
+  },
+  "Seguimiento Bienestar Emocional": {
+   "q": "Seguimiento del programa de Bienestar Emocional.",
+   "p": "Actuaciones realizadas en el trimestre y casos atendidos (sin datos personales)."
+  },
+  "Seguimiento PGA y resultados": {
+   "q": "Seguimiento de la programación general y resultados del 2.º trimestre.",
+   "p": "Resumen de resultados e indicadores para el Consejo Escolar."
+  },
+  "Seguimiento de casos y ajuste de medidas – Evaluación de la evolución del alumnado con NEAE y propuestas de intervención": {
+   "q": "Seguimiento del alumnado NEAE en el 2.º trimestre.",
+   "p": "Revisión caso por caso con propuesta de intervención para el 3.er trimestre."
+  },
+  "Seguimiento de la adaptación del alumnado: evaluación de dificultades iniciales y ajuste de medidas de apoyo": {
+   "q": "Cómo se ha adaptado el alumnado NEAE al inicio de curso.",
+   "p": "Ajustar apoyos y horarios de PT/AL según lo observado en septiembre."
+  },
+  "Seguimiento de la autoevaluación: valoración de los indicadores del primer trimestre": {
+   "q": "Cómo van los indicadores de autoevaluación del centro.",
+   "p": "Revisar cada indicador del 1.er trimestre y señalar los que no avanzan."
+  },
+  "Seguimiento de las programaciones": {
+   "q": "Si se está cumpliendo lo programado en el ciclo.",
+   "p": "Cada nivel indica en qué SdA está y si va al ritmo previsto."
+  },
+  "Seguimiento de planes de refuerzo según segunda evaluación": {
+   "q": "Programas de refuerzo tras la 2.ª evaluación.",
+   "p": "Mantener, cambiar o retirar cada programa e informar a la familia."
+  },
+  "Seguimiento de posibles repetidores": {
+   "q": "Alumnado en riesgo de no promocionar.",
+   "p": "Comprobar medidas aplicadas y que la familia ha sido informada."
+  },
+  "Seguimiento del Plan de Mejora": {
+   "q": "Cómo van las propuestas del Plan de Mejora.",
+   "p": "Semáforo por propuesta y responsable."
+  },
+  "Seguimiento del Plan de Refuerzo con el Equipo de Orientación": {
+   "q": "Coordinación del Plan de Refuerzo con orientación.",
+   "p": "Revisar que todos los programas están redactados, registrados y comunicados."
+  },
+  "Seguimiento del alumnado con dificultades": {
+   "q": "Alumnado con dificultades en el ciclo.",
+   "p": "Revisar medidas generales aplicadas y si procede activar el protocolo NEAE."
+  },
+  "Seguimiento del alumnado con dificultades de aprendizaje": {
+   "q": "Alumnado con dificultades de aprendizaje en los ciclos.",
+   "p": "Listado por ciclo y medidas aplicadas, para detectar casos que necesiten orientación."
+  },
+  "Seguimiento del alumnado en riesgo de repetición o con dificultades – Evaluación de medidas y alternativas de refuerzo": {
+   "q": "Alumnado en riesgo de repetición y alternativas.",
+   "p": "Valorar alternativas antes de la permanencia (refuerzo, flexibles, desdobles)."
+  },
+  "Seguimiento del alumnado y de los planes de refuerzo": {
+   "q": "Alumnado con refuerzo y su evolución.",
+   "p": "Revisar programas y acordar ajustes."
+  },
+  "Seguimiento del alumnado y medidas propuestas": {
+   "q": "Seguimiento del grupo y medidas acordadas.",
+   "p": "Revisar acuerdos de la última reunión y casos que preocupan."
+  },
+  "Seguimiento del plan de lectoescritura": {
+   "q": "Cómo va el plan de lectoescritura en Infantil y 1.er ciclo.",
+   "p": "Revisar el orden de letras acordado y el nivel de lectura del alumnado de 1.º."
+  },
+  "Seguimiento global del grupo": {
+   "q": "Valoración general del grupo.",
+   "p": "Puntos fuertes, dificultades y acuerdo común del equipo docente."
+  },
+  "Seguimiento planes y programas institucionales": {
+   "q": "Cómo van los planes y programas del centro.",
+   "p": "Cada plan: actuaciones hechas y pendientes del curso."
+  },
+  "Seguimiento programaciones": {
+   "q": "Seguimiento de las programaciones en el Claustro.",
+   "p": "Informe del ETCP sobre el cumplimiento de las programaciones."
+  },
+  "Segunda aplicación del sociograma: comparación con noviembre": {
+   "q": "Sociograma de abril en el grupo y comparación con noviembre.",
+   "p": "Ver si han mejorado los casos de rechazo y usarlo para los agrupamientos del curso siguiente."
+  },
+  "Supervisión de la aplicación del Plan de Convivencia": {
+   "q": "Si se aplica el Plan de Convivencia en todo el centro.",
+   "p": "Revisar registros en Séneca y funcionamiento de los recreos con juego dirigido."
+  },
+  "Transición entre etapas – Plan de actuación para alumnado que pasará a secundaria o a un nuevo ciclo": {
+   "q": "Tránsito del alumnado NEAE a la ESO o a otro ciclo.",
+   "p": "Informes con medidas que funcionan y reunión con el departamento de orientación del IES."
+  },
+  "Tratamiento de conflictos y estrategias de resolución": {
+   "q": "Cómo se están resolviendo los conflictos en el grupo.",
+   "p": "Aplicar el esquema del Plan de Convivencia: parar, escuchar a las dos partes, reparar y comunicar a la familia."
+  },
+  "Unificación de criterios en lectoescritura y coordinación con ETCP": {
+   "q": "Criterios comunes de lectoescritura entre Infantil y 1.er ciclo.",
+   "p": "Acordar el orden de consonantes, tipo de letra y método, y llevarlo al ETCP."
+  },
+  "Valoración 1ª evaluación": {
+   "q": "Resultados de la 1.ª evaluación en el Claustro.",
+   "p": "Resumen por ciclos con Gestión de Evaluaciones y medidas para el 2.º trimestre."
+  },
+  "Valoración 2ª evaluación": {
+   "q": "Resultados de la 2.ª evaluación en el Claustro.",
+   "p": "Comparativa con la 1.ª y medidas para el 3.er trimestre."
+  },
+  "Valoración de la organización y del funcionamiento del equipo directivo y del uso de los espacios y tiempos": {
+   "q": "Valoración del equipo directivo y de la organización para la autoevaluación.",
+   "p": "Cuestionario breve al Consejo Escolar y propuestas de mejora."
+  },
+  "Valoración del clima de aula por ciclo": {
+   "q": "Cómo está el clima de las aulas del ciclo.",
+   "p": "Un comentario por grupo y medida si hay problemas."
+  },
+  "Valoración del cuaderno del POAT y de los programas de refuerzo": {
+   "q": "Uso del cuaderno del POAT y estado de los programas de refuerzo.",
+   "p": "Comprobar que los cuadernos están al día y los programas registrados."
+  },
+  "Valoración del lenguaje del alumnado de cinco años para el tránsito": {
+   "q": "Nivel de lenguaje del alumnado de 5 años antes de pasar a Primaria.",
+   "p": "Detectar alumnado que necesite AL o refuerzo en 1.º y pasar la información al tránsito."
+  },
+  "Valoración general del curso": {
+   "q": "Balance del curso en el Consejo Escolar.",
+   "p": "Resultados, convivencia y propuestas de mejora."
+  },
+  "Valoración inicial del alumnado NEAE. Revisión de informes previos, nuevas detecciones y planificación de intervenciones": {
+   "q": "Revisión del alumnado NEAE al inicio de curso.",
+   "p": "Leer informes, detectar casos nuevos y fijar horario de intervenciones."
+  },
+  "Valoración planes y programas": {
+   "q": "Valoración final de los planes y programas.",
+   "p": "Memoria de una página por plan."
+  }
+ }
+}

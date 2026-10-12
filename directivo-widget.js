@@ -26,6 +26,16 @@
     {patron:"resultados|rendimiento|evaluación (final|del alumnado|del trimestre)|análisis progreso|promoción|repetidores|no promociona", icono:'📱', titulo:"Gestión de Evaluaciones", url:"https://vunisal706-droid.github.io/gestorevalu/"},
     {patron:"refuerzo", icono:'📁', titulo:"Plan de refuerzo 26/27", url:"https://drive.google.com/drive/folders/11iG_oq5ci3n72iN1AZ6jlBtkoO8tBarU"}
   ];
+  let AYUDAS = null, pidiendoAyudas = false;
+  function cargarAyudas(){
+    if (AYUDAS || pidiendoAyudas || !window.adminActivo) return;
+    pidiendoAyudas = true;
+    fetch('ayudas-orden.json?_='+Date.now(), {cache:'no-store'}).then(r=>r.ok?r.json():null).then(j=>{
+      AYUDAS = (j && j.ayudas) || {}; pidiendoAyudas = false;
+      if (window.pintarReuniones) window.pintarReuniones(seccion);
+    }).catch(()=>{ pidiendoAyudas = false; });
+  }
+  window.ayudaPunto = function(p){ return (window.adminActivo && AYUDAS && AYUDAS[p]) || null; };
   window.enlacesDrive = function(p){
     if (!window.adminActivo) return [];
     const out = [];
@@ -64,7 +74,7 @@
         else t += `• ${r.hora}: ${r.nombre}${r.nota?` (${r.nota})`:''}\n`;
       });
       if (!R.lista.length) t += `• Ese lunes no hay reuniones del cuadrante.\n`;
-      R.ordenes.forEach(o=>{ t += `\nOrden del día previsto · ${o.organo}:\n` + o.puntos.map((p,i)=>`${i+1}. ${p}` + window.enlacesDrive(p).map(e=>`\n   ${e.icono||'📁'} ${e.titulo}: ${e.url}`).join('')).join('\n') + '\n'; });
+      R.ordenes.forEach(o=>{ t += `\nOrden del día previsto · ${o.organo}:\n` + o.puntos.map((p,i)=>{ const ay = window.ayudaPunto(p); return `${i+1}. ${p}` + (ay?`\n   💡 Qué tratar: ${ay.q}\n   ✅ Propuesta: ${ay.p}`:'') + window.enlacesDrive(p).map(e=>`\n   ${e.icono||'📁'} ${e.titulo}: ${e.url}`).join(''); }).join('\n') + '\n'; });
     }
     // Días sin clase de esa semana (festivos, vacaciones…), salvo el lunes que ya se ha explicado arriba
     const sinClase = [];
@@ -149,6 +159,7 @@
 
   window.pintarCorreo = function(sec){
     seccion = sec;
+    if (sec === 'directivo') cargarAyudas();
     if (window.pintarReuniones) window.pintarReuniones(sec);
     if (sec === 'directivo' && window.adminActivo && !escucha){
       escucha = ref().on('value', s=>{ actividades = s.val() || {}; pintar(); }, e=>{ actividades = {}; pintar(); const d=document.getElementById('dirError'); if(d) d.textContent='⚠️ Firebase no deja leer «actividades_profesorado». Hay que añadir el permiso en las reglas de la base de datos.'; });
