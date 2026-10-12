@@ -35,6 +35,7 @@
       if (window.pintarReuniones) window.pintarReuniones(seccion);
     }).catch(()=>{ pidiendoAyudas = false; });
   }
+  const conAyudas = () => { const c = document.getElementById('dirAyudas'); return !!(c && c.checked); };
   window.ayudaPunto = function(p){ return (window.adminActivo && AYUDAS && AYUDAS[p]) || null; };
   window.enlacesDrive = function(p){
     if (!window.adminActivo) return [];
@@ -74,7 +75,8 @@
         else t += `• ${r.hora}: ${r.nombre}${r.nota?` (${r.nota})`:''}\n`;
       });
       if (!R.lista.length) t += `• Ese lunes no hay reuniones del cuadrante.\n`;
-      R.ordenes.forEach(o=>{ t += `\nOrden del día previsto · ${o.organo}:\n` + o.puntos.map((p,i)=>{ const ay = window.ayudaPunto(p); return `${i+1}. ${p}` + (ay?`\n   💡 Qué tratar: ${ay.q}\n   ✅ Propuesta: ${ay.p}`:'') + window.enlacesDrive(p).map(e=>`\n   ${e.icono||'📁'} ${e.titulo}: ${e.url}`).join(''); }).join('\n') + '\n'; });
+      const usados = new Set(); // cada enlace solo la primera vez que aparece (Séneca limita a 3500 caracteres)
+      R.ordenes.forEach(o=>{ t += `\nOrden del día previsto · ${o.organo}:\n` + o.puntos.map((p,i)=>{ const ay = conAyudas() ? window.ayudaPunto(p) : null; return `${i+1}. ${p}` + (ay?`\n   💡 Qué tratar: ${ay.q}\n   ✅ Propuesta: ${ay.p}`:'') + window.enlacesDrive(p).filter(e=>!usados.has(e.url) && usados.add(e.url)).map(e=>`\n   ${e.icono||'📁'} ${e.titulo}: ${e.url}`).join(''); }).join('\n') + '\n'; });
     }
     // Días sin clase de esa semana (festivos, vacaciones…), salvo el lunes que ya se ha explicado arriba
     const sinClase = [];
@@ -117,6 +119,7 @@
       <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:12px">
         <label style="font-size:.9rem">Firma: <select id="dirFirma" style="${inp}">${Object.entries(FIRMAS).map(([k,f])=>`<option value="${k}" ${k===(yo in FIRMAS?yo:'mrodrod323')?'selected':''}>${esc(f.nombre)} (${esc(f.cargo)})</option>`).join('')}</select></label>
         <button type="button" id="dirGen" style="${btn};background:#283593;color:#fff">📝 Generar correo</button>
+        <label style="font-size:.85rem;display:flex;align-items:center;gap:4px"><input type="checkbox" id="dirAyudas"> Incluir ayudas 💡 (alarga mucho el correo)</label>
       </div>
       <div id="dirSalida"></div>
       <div id="dirError" style="color:#b91c1c;font-weight:700;font-size:.88rem;margin-top:6px"></div>
@@ -148,6 +151,7 @@
       sal.innerHTML = `<div style="margin-top:10px;font-size:.88rem"><b>Asunto:</b> <span id="dirAsunto">${esc(c.asunto)}</span>
         <button type="button" id="dirCopAs" style="font:inherit;font-size:.8rem;border:1px solid #c7d2fe;background:#fff;border-radius:6px;padding:2px 8px;cursor:pointer;margin-left:6px">Copiar asunto</button></div>
         <textarea id="dirTxt" rows="16" style="width:100%;box-sizing:border-box;margin-top:6px;font:inherit;font-size:.9rem;border:1px solid #cbd5e1;border-radius:8px;padding:8px;background:#fff;color:#1f2a37">${esc(c.texto)}</textarea>
+        <div id="dirCuenta" style="font-size:.85rem;font-weight:700;margin-top:4px"></div>
         <button type="button" id="dirCopiar" style="font:inherit;font-weight:800;border:0;border-radius:8px;height:38px;padding:0 16px;cursor:pointer;background:#16a34a;color:#fff;margin-top:6px">📋 Copiar correo</button>`;
       const copiar = (txt, b, ok) => (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject())
         .catch(()=>{ const ta=document.getElementById('dirTxt'); ta.select(); document.execCommand('copy'); })
@@ -156,10 +160,10 @@
       const aHtml = txt => esc(txt).split('\n').map(l=>{
         l = l.replace(/^(\s*)(📁|📱) ([^:]+): (https?:\/\/\S+)$/u, (m,sp,ic,ti,u)=>`${sp}${ic} <a href="${u}">${ti}</a>`);
         if (!/<a /.test(l)) l = l.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1">$1</a>');
-        return l.replace(/^ +/, m=>'&nbsp;'.repeat(m.length));
+        return l.replace(/^ +/, '&nbsp; ');
       }).join('<br>');
       const copiarRico = (txt, b) => {
-        const html = `<div style="font-family:Arial,sans-serif;font-size:14px">${aHtml(txt)}</div>`;
+        const html = aHtml(txt);
         const hecho = ()=>{ const o=b.textContent; b.textContent='✅ Copiado con enlaces'; setTimeout(()=>b.textContent=o,2000); };
         if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write)
           return navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob([txt],{type:'text/plain'})})]).then(hecho).catch(()=>viejo());
@@ -169,6 +173,10 @@
           try{ document.execCommand('copy'); hecho(); }catch(_){ copiar(txt, b, '✅ Copiado'); } sel.removeAllRanges(); d.remove(); }
       };
       document.getElementById('dirCopiar').onclick = e => copiarRico(document.getElementById('dirTxt').value, e.target);
+      const LIM = 3500, cuenta = ()=>{ const ta=document.getElementById('dirTxt'), n=aHtml(ta.value).length, el=document.getElementById('dirCuenta');
+        el.innerHTML = n<=LIM ? `✅ Cabe en Séneca: ${n} de ${LIM} caracteres` : `⚠️ Séneca admite ${LIM} caracteres y este correo ocupa ${n}. ${conAyudas()?'Desmarca «Incluir ayudas» y vuelve a generarlo, o':'Acorta algún punto o'} pégalo en dos mensajes.`;
+        el.style.color = n<=LIM ? '#15803d' : '#b91c1c'; };
+      document.getElementById('dirTxt').addEventListener('input', cuenta); cuenta();
       document.getElementById('dirCopAs').onclick = e => copiar(c.asunto, e.target, '✅');
     };
   }
