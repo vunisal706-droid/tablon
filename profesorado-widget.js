@@ -38,7 +38,7 @@
   let secActual = null;
   function chips(p){
     if (secActual !== 'directivo' || !window.enlacesDrive) return '';
-    return window.enlacesDrive(p).map(e=>` <a href="${esc(e.url)}" target="_blank" rel="noopener" style="display:inline-block;font-size:.78em;font-weight:700;color:#1565c0;background:#e3f2fd;border-radius:10px;padding:1px 8px;margin:2px 0 0 4px;text-decoration:none;white-space:nowrap">📁 ${esc(e.titulo)}</a>`).join('');
+    return window.enlacesDrive(p).map(e=>` <a href="${esc(e.url)}" target="_blank" rel="noopener" style="display:inline-block;font-size:.78em;font-weight:700;color:#1565c0;background:#e3f2fd;border-radius:10px;padding:1px 8px;margin:2px 0 0 4px;text-decoration:none;white-space:nowrap">${e.icono||'📁'} ${esc(e.titulo)}</a>`).join('');
   }
   function html(){
     const R = datos.reuniones, O = (datos.ordenes||{}).organos || {};
