@@ -50,11 +50,13 @@ self.addEventListener('fetch', function(event) {
   const shouldBypass = BYPASS_DOMAINS.some(domain => url.includes(domain));
   if (shouldBypass) return;
 
-  // Para el resto: cache-first con fallback a red
+  // Para el resto: red primero (así se ven los cambios al momento) y caché si no hay conexión
   event.respondWith(
-    caches.match(event.request).then(function(cached) {
-      if (cached) return cached;
-      return fetch(event.request).then(function(response) {
+    fetch(event.request, {cache: 'no-cache'}).catch(function() {
+      return caches.match(event.request);
+    }).then(function(response) {
+      if (!response) return caches.match('./index.html');
+      return (function() {
         // Solo cachear respuestas válidas de nuestro propio origen
         if (response && response.status === 200 && response.type === 'basic') {
           var responseClone = response.clone();
@@ -63,7 +65,7 @@ self.addEventListener('fetch', function(event) {
           });
         }
         return response;
-      });
+      })();
     })
   );
 });
