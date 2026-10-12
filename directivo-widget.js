@@ -1,5 +1,5 @@
 /* Tablón · Equipo Directivo: actividades de la semana para el profesorado (las añaden Víctor, María o
-   Encarna) y botón para generar el correo semanal al claustro con las reuniones del lunes lectivo.
+   Encarna; opcionalmente también para las familias) y botón para generar el correo semanal al claustro con las reuniones del lunes lectivo.
    Se guarda en Firebase (actividades_profesorado). Solo se ve con la sesión de administración iniciada. */
 (function(){
   const esc = t => String(t||'').replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -101,6 +101,7 @@
       <div style="margin-top:10px;font-weight:700">Otras actividades de la semana</div>
       <div style="display:grid;gap:4px;margin-top:4px">${acts.length ? acts.map(([k,a])=>`<div style="background:#fff;border:1px solid #fde68a;border-radius:8px;padding:6px 10px;display:flex;gap:8px;align-items:center">
         <span style="flex:1"><b>${esc(fechaLarga(a.fecha))}${a.hora?`, ${esc(a.hora)}`:''}</b> · ${esc(a.texto)} <span style="color:#94a3b8;font-size:.8rem">(${esc((FIRMAS[a.autor]||{}).nombre?.split(' ')[0]||a.autor||'')})</span></span>
+        <button type="button" data-fam="${esc(k)}" title="${a.familias?'Se ve también en Familias (pulsa para quitar)':'Solo profesorado (pulsa para mostrar también a las familias)'}" style="${btn};height:28px;padding:0 8px;white-space:nowrap;${a.familias?'background:#dcfce7;color:#166534':'background:#f1f5f9;color:#94a3b8'}">👨‍👩‍👧 ${a.familias?'Sí':'No'}</button>
         <button type="button" data-borrar="${esc(k)}" title="Quitar" style="${btn};height:28px;padding:0 8px;background:#fee2e2;color:#b91c1c">✕</button></div>`).join('') : '<div style="color:#92400e">Todavía no hay actividades añadidas para esta semana.</div>'}</div>
       <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px">
         <input type="date" id="dirFecha" value="${S.desde}" min="${S.desde}" max="${S.hasta}" style="${inp}">
@@ -108,6 +109,8 @@
         <input type="text" id="dirTexto" maxlength="200" placeholder="Actividad (p. ej. Simulacro de evacuación a las 12:00)" style="${inp};flex:1;min-width:200px">
         <button type="button" id="dirAdd" style="${btn};background:#d97706;color:#fff">➕ Añadir</button>
       </div>
+      <label style="display:flex;gap:6px;align-items:center;margin-top:6px;font-size:.9rem;cursor:pointer"><input type="checkbox" id="dirFam" style="width:18px;height:18px"> 👨‍👩‍👧 Mostrar también en el bloque de <b>Familias</b></label>
+      <div style="color:#92400e;font-size:.8rem;margin-top:2px">Las actividades salen en el bloque de Profesorado (y en Familias si se marca) y desaparecen solas cuando pasa el día.</div>
       <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:12px">
         <label style="font-size:.9rem">Firma: <select id="dirFirma" style="${inp}">${Object.entries(FIRMAS).map(([k,f])=>`<option value="${k}" ${k===(yo in FIRMAS?yo:'mrodrod323')?'selected':''}>${esc(f.nombre)} (${esc(f.cargo)})</option>`).join('')}</select></label>
         <button type="button" id="dirGen" style="${btn};background:#283593;color:#fff">📝 Generar correo</button>
@@ -129,13 +132,14 @@
     document.getElementById('dirAdd').onclick = ()=>{
       const f = document.getElementById('dirFecha').value, h = document.getElementById('dirHora').value, t = document.getElementById('dirTexto').value.trim();
       if (!f || !t){ err('Pon la fecha y la actividad.'); return; }
-      ref().push({fecha:f, hora:h||'', texto:t, autor:usuario(), creado:Date.now()}).catch(fallo);
+      ref().push({fecha:f, hora:h||'', texto:t, familias:document.getElementById('dirFam').checked, autor:usuario(), creado:Date.now()}).catch(fallo);
     };
     box.querySelectorAll('[data-sem]').forEach(b=>b.onclick=()=>{
       const k = +b.dataset.sem;
       if (!k) lunesSel = null; else { const d = new Date(semana().lunes); d.setDate(d.getDate()+7*k); lunesSel = d; }
       pintar();
     });
+    box.querySelectorAll('[data-fam]').forEach(b=>b.onclick=()=>{ const a = actividades[b.dataset.fam]; if (a) ref().child(b.dataset.fam).update({familias:!a.familias}).catch(fallo); });
     box.querySelectorAll('[data-borrar]').forEach(b=>b.onclick=()=>{ if (confirm('¿Quitar esta actividad?')) ref().child(b.dataset.borrar).remove().catch(fallo); });
     document.getElementById('dirGen').onclick = ()=>{
       const aHtml = txt => esc(txt).split('\n').map(l=>{

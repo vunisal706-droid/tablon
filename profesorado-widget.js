@@ -1,5 +1,6 @@
 /* Tablón · Profesorado: qué equipos se reúnen el próximo lunes lectivo (cuadrante del centro)
-   y los puntos del orden del día previstos ese mes (app Teletrabajo).
+   y los puntos del orden del día previstos ese mes (app Teletrabajo), más las otras actividades
+   de esa semana que añade el Equipo Directivo (desaparecen cuando pasa su día).
    El 1.º, 2.º, 3.º y 4.º lunes cuentan solo los lunes con clase (calendario común). */
 (function(){
   const esc = t => String(t||'').replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -11,6 +12,24 @@
   const sinCole = ds => window.CalendarioCole ? CalendarioCole.sinCole(ds) : null;
   const NOMBRE_ORG = {'CLAUSTRO':'Claustro','EQUIPO DE ORIENTACIÓN':'Equipo de Orientación','EQUIPOS DE CICLO':'Equipos de ciclo','ETCP':'ETCP','EQUIPOS DOCENTES':'Equipos docentes'};
   let datos = null, cursor = null;   // cursor = lunes que se está viendo (null = el próximo)
+  let acts = {}, escuchaActs = false;   // actividades de la semana que añade el Equipo Directivo (Firebase)
+  function escucharActs(){
+    if (escuchaActs || !window.firebase || !firebase.apps.length) return;
+    escuchaActs = true;
+    firebase.database().ref('actividades_profesorado').on('value', s=>{ acts = s.val() || {};
+      const box = document.getElementById('reunionesBox'); if (box && datos && box.innerHTML) pintarCaja(box); }, ()=>{ acts = {}; });
+  }
+  function bloqueActs(lunes){
+    const hoy = iso(new Date()), v = new Date(lunes); v.setDate(v.getDate()+4);
+    const desde = iso(lunes) > hoy ? iso(lunes) : hoy, hasta = iso(v);
+    const l = Object.values(acts).filter(a=>a && a.fecha>=desde && a.fecha<=hasta)
+      .sort((a,b)=>(a.fecha+(a.hora||'')).localeCompare(b.fecha+(b.hora||'')));
+    if (!l.length) return '';
+    return `<div style="margin-top:10px;background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:8px 12px">
+      <div style="font-weight:800;color:#92400e">📌 Otras actividades de la semana</div>
+      <ul style="margin:4px 0 0 18px;padding:0;line-height:1.45">${l.map(a=>{ const d = new Date(a.fecha+'T12:00');
+        return `<li><b>${DIA[d.getDay()].replace(/^./,c=>c.toUpperCase())} ${d.getDate()}${a.hora?`, ${esc(a.hora)}`:''}</b> · ${esc(a.texto)}</li>`; }).join('')}</ul></div>`;
+  }
 
   function lunesLectivos(desde, cuantos){
     const out = []; const d = new Date(desde); d.setHours(12,0,0,0);
@@ -79,6 +98,7 @@
           <ol style="margin:6px 0 0 20px;padding:0;line-height:1.45">${pts.map(p=>`<li>${esc(p)}${chips(p, o)}</li>`).join('')}</ol></details>` : ''; }).join('');
       if (bloques) h += `<div style="margin-top:8px">${bloques}</div><div style="color:#64748b;font-size:.8rem;margin-top:6px">Puntos previstos en la app Teletrabajo; quien convoca puede ajustarlos.</div>`;
     }
+    h += bloqueActs(L.fecha);
     if (sig) h += `<div style="margin-top:10px;color:#475569;font-size:.88rem">Siguiente: ${DIA[sig.fecha.getDay()]} ${sig.fecha.getDate()} de ${MES[sig.fecha.getMonth()]} · ${ORD[sig.n]||sig.n+'.º'} lunes lectivo${((R.cuadrante||{})[String(sig.n)]||[]).length?' — '+esc(R.cuadrante[String(sig.n)].map(r=>r.nombre).join(', ')):' — sin reuniones de cuadrante'}</div>`;
     const ics = 'webcal://vunisal706-droid.github.io/agenda/calendario-profesorado.ics';
     h += `<div style="margin-top:10px;font-size:.85rem"><a href="https://calendar.google.com/calendar/r?cid=${encodeURIComponent(ics)}" target="_blank" rel="noopener" style="color:#283593;font-weight:700">📲 Añadir todas las reuniones a mi Google Calendar</a> · <a href="${ics}" style="color:#283593">otro calendario</a></div>`;
@@ -132,6 +152,7 @@
         datos = {reuniones, ordenes};
         window.AYUDAS_ORDEN = (ayudas && ayudas.ayudas) || {};
       }
+      escucharActs();
       pintarCaja(box);
     }catch(e){ box.innerHTML = ''; }
   };

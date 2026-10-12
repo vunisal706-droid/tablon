@@ -52,7 +52,18 @@
         ['🤝 Vos droits (règlement, art. 26).','Être traités avec respect, participer à l’éducation de vos enfants, recevoir régulièrement des informations sur leurs progrès, les critères d’évaluation, les absences et les manuels, être écoutés pour les décisions qui les concernent et participer au Conseil d’école.'],
         ['✋ Votre engagement (règlement, art. 27).','Collaborer aux activités de l’école, respecter ses règles et son personnel, prendre soin du matériel scolaire, justifier les absences et respecter les engagements éducatifs et de vivre-ensemble signés.']]};
 
-  let datos = null, lang = 'es';
+  let datos = null, lang = 'es', acts = {};
+  const pad = n => String(n).padStart(2,'0');
+  const iso = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+  // Actividades marcadas para familias: desde hoy hasta el viernes de la semana escolar (el finde, la siguiente)
+  function actsFam(){
+    const h = new Date(); h.setHours(12,0,0,0); const w = h.getDay(), v = new Date(h);
+    v.setDate(v.getDate() + (w===6 ? 6 : w===0 ? 5 : 5-w));
+    const desde = iso(h), hasta = iso(v);
+    return Object.values(acts).filter(a=>a && a.familias && a.fecha>=desde && a.fecha<=hasta);
+  }
+  const LOC = {es:'es-ES', ar:'ar', ro:'ro-RO', en:'en-GB', fr:'fr-FR'};
+  function cuandoFam(f, l){ try { return f.toLocaleDateString(LOC[l]||'es-ES', {weekday:'long', day:'numeric', month:'long'}); } catch(e){ return iso(f); } }
   try { lang = localStorage.getItem('tablon-idioma') || ''; } catch(e) {}
   if (!LANGS.some(l=>l.id===lang)) { const n=(navigator.language||'es').slice(0,2); lang = LANGS.some(l=>l.id===n) ? n : 'es'; }
 
@@ -73,10 +84,17 @@
         d.tramites.forEach(t=> h += card(t.abierto?'#d97706':'#94a3b8', t.abierto?'#fffbeb':'#f8fafc',
           `<b>${esc(t.emoji)} ${esc(t.nombre)}</b> <span style="display:inline-block;background:${t.abierto?'#d97706':'#64748b'};color:#fff;border-radius:999px;padding:1px 9px;font-size:.8rem;font-weight:800">${esc(t.estado)}</span>${t.detalle?`<div style="margin-top:3px;color:#475569">${esc(t.detalle)}</div>`:''}`));
       }
-      if ((d.semana||[]).length){
-        h += titulo(u.sem);
-        h += card('#7c3aed', '#faf5ff', d.semana.map(s=>`<div><b>${esc(s.texto)}</b> · ${esc(s.cuando)}</div>`).join(''));
-      }
+    }
+    // Semana: lo automático (familias.json) + lo que el Equipo Directivo marca «también para familias»
+    const sem = ((d && d.semana) || []).map(s=>({k:(s.fecha||'')+'0', html:`<div><b>${esc(s.texto)}</b> · ${esc(s.cuando)}</div>`}))
+      .concat(actsFam().map(a=>{ const f = new Date(a.fecha+'T12:00');
+        return {k:a.fecha+'1'+(a.hora||''), html:`<div><b>${esc(a.texto)}</b> · ${esc(cuandoFam(f, lang))}${a.hora?` · ${esc(a.hora)}`:''}</div>`}; }))
+      .sort((a,b)=>a.k.localeCompare(b.k));
+    if (sem.length){
+      h += titulo(u.sem);
+      h += card('#7c3aed', '#faf5ff', sem.map(s=>s.html).join(''));
+    }
+    if (d){
       if ((datos.boja||[]).length){
         h += titulo(u.boja + (u.bojaNota ? ' ' + u.bojaNota : ''));
         h += card('#283593', '#eef2ff', datos.boja.map(b=>`<div dir="ltr" style="margin:2px 0;text-align:left"><a href="${esc(b.url)}" target="_blank" rel="noopener" style="color:#283593;font-weight:700">${esc(b.t)}</a></div>`).join(''));
@@ -157,5 +175,6 @@
   }
   if (synth && synth.onvoiceschanged !== undefined) synth.onvoiceschanged = ()=>{};
   pintar();
+  try { firebase.database().ref('actividades_profesorado').on('value', s=>{ acts = s.val() || {}; pintar(); }, ()=>{ acts = {}; }); } catch(e) {}
   fetch('familias.json?_=' + Date.now(), {cache:'no-store'}).then(r=>r.ok?r.json():null).then(j=>{ if(j){ datos=j; pintar(); } }).catch(()=>{});
 })();
