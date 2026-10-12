@@ -19,18 +19,12 @@
     {patron:"proyecto educativo", icono:'📁', titulo:"Proyecto Educativo", url:"https://drive.google.com/file/d/1cheToikm-Ms_KYWBbvgzPTSmPq9YLDgY/view"},
     {patron:"plan de centro|proyecto educativo|rof\\b|criterios de (evaluación y )?promoción|protocolo neae", icono:'📱', titulo:"App Plan de Centro", url:"https://vunisal706-droid.github.io/proyectocentro/"},
     {patron:"plan de centro", icono:'📁', titulo:"Plan de Centro 26/27", url:"https://drive.google.com/drive/folders/1UKegBfwBwCXplZGPdUN6AgmNGiDbhWL1"},
-    {patron:"sociograma|agrupamiento", icono:'📱', titulo:"ConVive (sociograma)", url:"https://vunisal706-droid.github.io/convivencia/"},
-    {patron:"convivencia|conducta|conflictos", icono:'📱', titulo:"Convive+ (gestor de convivencia)", url:"https://vunisal706-droid.github.io/parteconvivencia/"},
     {patron:"convivencia", icono:'📁', titulo:"Proyecto Educativo", url:"https://drive.google.com/file/d/1cheToikm-Ms_KYWBbvgzPTSmPq9YLDgY/view"},
     {patron:"programaci|propuestas? pedag", icono:'📁', titulo:"Programaciones 26/27", url:"https://drive.google.com/drive/folders/1b4yXrE54-4xiFQglLYX9R6wwoMXHJlTi"},
-    {patron:"programaci|situaci[oó]n(es)? de aprendizaje", icono:'📱', titulo:"SDA Capitulaciones", url:"https://vunisal706-droid.github.io/sdacapitulaciones/"},
     {patron:"acta competencial", icono:'📁', titulo:"Modelo de acta competencial", url:"https://drive.google.com/file/d/1Z_LCZJFs9oGuBHnaUzOL9eBafiAnSjwc/view"},
     {patron:"evaluación inicial", icono:'📁', titulo:"Pruebas de evaluación inicial", url:"https://drive.google.com/drive/folders/1UCYfASe96ZOuQ3qo-eANw3APJkk_wUGz"},
     {patron:"resultados|rendimiento|evaluación (final|del alumnado|del trimestre)|análisis progreso|promoción|repetidores|no promociona", icono:'📱', titulo:"Gestión de Evaluaciones", url:"https://vunisal706-droid.github.io/gestorevalu/"},
-    {patron:"refuerzo", icono:'📁', titulo:"Plan de refuerzo 26/27", url:"https://drive.google.com/drive/folders/11iG_oq5ci3n72iN1AZ6jlBtkoO8tBarU"},
-    {patron:"neae|atención a la diversidad|aula específica|tea\\b|adaptaci", icono:'📱', titulo:"Gestor PE", url:"https://vunisal706-droid.github.io/gestorpt/"},
-    {patron:"horario", icono:'📱', titulo:"Cuadra Horarios", url:"https://vunisal706-droid.github.io/horario/"},
-    {patron:"calendario|sesiones de evaluación|efeméride|planes y programas", icono:'📱', titulo:"Agenda del Equipo Directivo", url:"https://vunisal706-droid.github.io/agenda/"}
+    {patron:"refuerzo", icono:'📁', titulo:"Plan de refuerzo 26/27", url:"https://drive.google.com/drive/folders/11iG_oq5ci3n72iN1AZ6jlBtkoO8tBarU"}
   ];
   window.enlacesDrive = function(p){
     if (!window.adminActivo) return [];
