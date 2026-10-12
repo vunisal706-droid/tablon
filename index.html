@@ -152,6 +152,9 @@ textarea{resize:vertical;min-height:90px}
 /* ── BANNERS ── */
 .admin-banner{display:none;background:var(--ocre);color:var(--carbon);text-align:center;padding:8px;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 body.admin-active .admin-banner{display:block}
+.pub-bar{display:none;text-align:right;margin:4px 0 10px}
+body.admin-active .pub-bar{display:block}
+#btnPublicar{font:inherit;font-weight:800;font-size:.9rem;border:0;border-radius:10px;padding:9px 16px;cursor:pointer;background:var(--verde);color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.12)}
 .btn-delete{background:none;border:none;color:var(--rojo);font-size:.8rem;font-weight:600;cursor:pointer;padding:2px 6px;border-radius:6px}
 
 /* ── TOAST ── */
@@ -248,6 +251,7 @@ body.admin-active .admin-banner{display:block}
     <p id="seccionSubtitle"></p>
   </div>
   <main>
+    <div class="pub-bar"><button type="button" id="btnPublicar">📢 Publicar aviso</button></div>
     <div id="correoBox"></div>
     <div id="reunionesBox"></div>
     <div id="muroContainer">
@@ -556,6 +560,7 @@ document.addEventListener("keydown", function(e){ if(e.key==="Escape") closeLigh
 // ADMIN
 // ════════════════════════════════════════════════════════════════
 document.getElementById("btnAdmin").addEventListener("click", openAdminModal);
+document.getElementById("btnPublicar").addEventListener("click", openAdminModal);
 document.getElementById("btnCloseAdmin").addEventListener("click", closeAdminModal);
 document.getElementById("btnCheckAdminPass").addEventListener("click", checkAdminPassword);
 document.getElementById("btnSubir").addEventListener("click", subirAviso);
@@ -598,9 +603,8 @@ function checkAdminPassword() {
     .then(function () {
       adminActivo = true;
       document.body.classList.add("admin-active");
-      showAdminScreen("screenUpload");
-      document.getElementById("modalAdminTitle").textContent = "Publicar Aviso";
       document.getElementById("inputAdminPassword").value = "";
+      closeAdminModal();
       showToast("Sesión iniciada");
       if (window.pintarCorreo) window.pintarCorreo(currentSeccion);
     })
@@ -767,7 +771,7 @@ var deferredPrompt = null;
 window.addEventListener("beforeinstallprompt", function(e){
   e.preventDefault();
   deferredPrompt = e;
-  document.getElementById("installBanner").classList.add("show");
+  // Sin banner de instalación: se puede instalar desde el menú del navegador si se quiere
 });
 document.getElementById("btnInstall").addEventListener("click", function(){
   if (!deferredPrompt) return;

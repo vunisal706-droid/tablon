@@ -76,7 +76,7 @@
       });
       if (!R.lista.length) t += `• Ese lunes no hay reuniones del cuadrante.\n`;
       const usados = new Set(); // cada enlace solo la primera vez que aparece (Séneca limita a 3500 caracteres)
-      R.ordenes.forEach(o=>{ t += `\nOrden del día previsto · ${o.organo}:\n` + o.puntos.map((p,i)=>{ const ay = conAyudas() ? window.ayudaPunto(p) : null; return `${i+1}. ${p}` + (ay?`\n   💡 Qué tratar: ${ay.q}\n   ✅ Propuesta: ${ay.p}`:'') + window.enlacesDrive(p).filter(e=>!usados.has(e.url) && usados.add(e.url)).map(e=>`\n   ${e.icono||'📁'} ${e.titulo}: ${e.url}`).join(''); }).join('\n') + '\n'; });
+      R.ordenes.forEach(o=>{ t += `\nOrden del día previsto · ${o.organo}:\n` + o.puntos.map((p,i)=>{ const ay = conAyudas() ? window.ayudaPunto(p) : null; return `${i+1}. ${p}` + (ay?`\n   💡 ${ay.q}`:'') + window.enlacesDrive(p).filter(e=>!usados.has(e.url) && usados.add(e.url)).map(e=>`\n   ${e.icono||'📁'} ${e.titulo}: ${e.url}`).join(''); }).join('\n') + '\n'; });
     }
     // Días sin clase de esa semana (festivos, vacaciones…), salvo el lunes que ya se ha explicado arriba
     const sinClase = [];
@@ -119,7 +119,7 @@
       <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:12px">
         <label style="font-size:.9rem">Firma: <select id="dirFirma" style="${inp}">${Object.entries(FIRMAS).map(([k,f])=>`<option value="${k}" ${k===(yo in FIRMAS?yo:'mrodrod323')?'selected':''}>${esc(f.nombre)} (${esc(f.cargo)})</option>`).join('')}</select></label>
         <button type="button" id="dirGen" style="${btn};background:#283593;color:#fff">📝 Generar correo</button>
-        <label style="font-size:.85rem;display:flex;align-items:center;gap:4px"><input type="checkbox" id="dirAyudas"> Incluir ayudas 💡 (alarga mucho el correo)</label>
+        <label style="font-size:.85rem;display:flex;align-items:center;gap:4px"><input type="checkbox" id="dirAyudas" checked> Incluir ayudas 💡</label>
       </div>
       <div id="dirSalida"></div>
       <div id="dirError" style="color:#b91c1c;font-weight:700;font-size:.88rem;margin-top:6px"></div>
@@ -147,21 +147,23 @@
     });
     box.querySelectorAll('[data-borrar]').forEach(b=>b.onclick=()=>{ if (confirm('¿Quitar esta actividad?')) ref().child(b.dataset.borrar).remove().catch(fallo); });
     document.getElementById('dirGen').onclick = ()=>{
-      const c = correo(), sal = document.getElementById('dirSalida');
-      sal.innerHTML = `<div style="margin-top:10px;font-size:.88rem"><b>Asunto:</b> <span id="dirAsunto">${esc(c.asunto)}</span>
-        <button type="button" id="dirCopAs" style="font:inherit;font-size:.8rem;border:1px solid #c7d2fe;background:#fff;border-radius:6px;padding:2px 8px;cursor:pointer;margin-left:6px">Copiar asunto</button></div>
-        <textarea id="dirTxt" rows="16" style="width:100%;box-sizing:border-box;margin-top:6px;font:inherit;font-size:.9rem;border:1px solid #cbd5e1;border-radius:8px;padding:8px;background:#fff;color:#1f2a37">${esc(c.texto)}</textarea>
-        <div id="dirCuenta" style="font-size:.85rem;font-weight:700;margin-top:4px"></div>
-        <button type="button" id="dirCopiar" style="font:inherit;font-weight:800;border:0;border-radius:8px;height:38px;padding:0 16px;cursor:pointer;background:#16a34a;color:#fff;margin-top:6px">📋 Copiar correo</button>`;
-      const copiar = (txt, b, ok) => (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject())
-        .catch(()=>{ const ta=document.getElementById('dirTxt'); ta.select(); document.execCommand('copy'); })
-        .then(()=>{ const o=b.textContent; b.textContent=ok; setTimeout(()=>b.textContent=o,1800); });
-      // Copia con formato: los enlaces quedan en azul y se pueden pinchar al pegar en el correo
       const aHtml = txt => esc(txt).split('\n').map(l=>{
         l = l.replace(/^(\s*)(📁|📱) ([^:]+): (https?:\/\/\S+)$/u, (m,sp,ic,ti,u)=>`${sp}${ic} <a href="${u}">${ti}</a>`);
         if (!/<a /.test(l)) l = l.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1">$1</a>');
         return l.replace(/^ +/, '&nbsp; ');
       }).join('<br>');
+      let c = correo(), recorte = false; const sal = document.getElementById('dirSalida');
+      if (aHtml(c.texto).length > 3500 && conAyudas()){ document.getElementById('dirAyudas').checked = false; c = correo(); recorte = true; }
+      sal.innerHTML = `<div style="margin-top:10px;font-size:.88rem"><b>Asunto:</b> <span id="dirAsunto">${esc(c.asunto)}</span>
+        <button type="button" id="dirCopAs" style="font:inherit;font-size:.8rem;border:1px solid #c7d2fe;background:#fff;border-radius:6px;padding:2px 8px;cursor:pointer;margin-left:6px">Copiar asunto</button></div>
+        <textarea id="dirTxt" rows="16" style="width:100%;box-sizing:border-box;margin-top:6px;font:inherit;font-size:.9rem;border:1px solid #cbd5e1;border-radius:8px;padding:8px;background:#fff;color:#1f2a37">${esc(c.texto)}</textarea>
+        ${recorte?'<div style="font-size:.85rem;color:#8a5a00;margin-top:4px">ℹ️ Esta semana el orden del día es largo: he quitado las ayudas 💡 para que quepa en Séneca. Las tienes en el Tablón.</div>':''}<div id="dirCuenta" style="font-size:.85rem;font-weight:700;margin-top:4px"></div>
+        <button type="button" id="dirCopiar" style="font:inherit;font-weight:800;border:0;border-radius:8px;height:38px;padding:0 16px;cursor:pointer;background:#16a34a;color:#fff;margin-top:6px">📋 Copiar correo</button>`;
+      const copiar = (txt, b, ok) => (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject())
+        .catch(()=>{ const ta=document.getElementById('dirTxt'); ta.select(); document.execCommand('copy'); })
+        .then(()=>{ const o=b.textContent; b.textContent=ok; setTimeout(()=>b.textContent=o,1800); });
+      // Copia con formato: los enlaces quedan en azul y se pueden pinchar al pegar en el correo
+
       const copiarRico = (txt, b) => {
         const html = aHtml(txt);
         const hecho = ()=>{ const o=b.textContent; b.textContent='✅ Copiado con enlaces'; setTimeout(()=>b.textContent=o,2000); };
