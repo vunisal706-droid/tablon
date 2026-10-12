@@ -35,6 +35,12 @@
     const k = Math.round((f - h)/864e5);
     return k===0 ? 'hoy' : k===1 ? 'mañana' : `el ${DIA[f.getDay()]} ${f.getDate()} de ${MES[f.getMonth()]}`;
   }
+  function chips(p){
+    const E=(datos.enlaces&&datos.enlaces.enlaces)||[], out=[];
+    for (const e of E){ try{ if (new RegExp(e.patron,'i').test(p) && !out.some(x=>x.url===e.url)) out.push(e); }catch(_){}
+      if (out.length>=2) break; }
+    return out.map(e=>` <a href="${esc(e.url)}" target="_blank" rel="noopener" style="display:inline-block;font-size:.78em;font-weight:700;color:#1565c0;background:#e3f2fd;border-radius:10px;padding:1px 8px;margin:2px 0 0 4px;text-decoration:none;white-space:nowrap">📁 ${esc(e.titulo)}</a>`).join('');
+  }
   function html(){
     const R = datos.reuniones, O = (datos.ordenes||{}).organos || {};
     const ahora = new Date(); let desde = new Date(ahora);
@@ -66,7 +72,7 @@
       const orgs = [...new Set(lista.map(r=>r.organo).filter(Boolean))];
       const bloques = orgs.map(o=>{ const pts = (O[o]||{})[mes] || [];
         return pts.length ? `<details style="margin-top:6px"><summary style="cursor:pointer;font-weight:700;color:#283593">📋 Orden del día previsto · ${esc(NOMBRE_ORG[o]||o)} (${MES[+mes-1]})</summary>
-          <ol style="margin:6px 0 0 20px;padding:0;line-height:1.45">${pts.map(p=>`<li>${esc(p)}</li>`).join('')}</ol></details>` : ''; }).join('');
+          <ol style="margin:6px 0 0 20px;padding:0;line-height:1.45">${pts.map(p=>`<li>${esc(p)}${chips(p)}</li>`).join('')}</ol></details>` : ''; }).join('');
       if (bloques) h += `<div style="margin-top:8px">${bloques}</div><div style="color:#64748b;font-size:.8rem;margin-top:6px">Puntos previstos en la app Teletrabajo; quien convoca puede ajustarlos.</div>`;
     }
     if (sig) h += `<div style="margin-top:10px;color:#475569;font-size:.88rem">Siguiente: ${DIA[sig.fecha.getDay()]} ${sig.fecha.getDate()} de ${MES[sig.fecha.getMonth()]} · ${ORD[sig.n]||sig.n+'.º'} lunes lectivo${((R.cuadrante||{})[String(sig.n)]||[]).length?' — '+esc(R.cuadrante[String(sig.n)].map(r=>r.nombre).join(', ')):' — sin reuniones de cuadrante'}</div>`;
@@ -114,10 +120,10 @@
     try{
       if (!datos){
         const get = u => fetch(u+'?_='+Date.now(), {cache:'no-store'}).then(r=>r.ok?r.json():null).catch(()=>null);
-        const [reuniones, ordenes] = await Promise.all([get('/agenda/reuniones.json'), get('/teletrabajo/ordenes-del-dia.json'),
+        const [reuniones, ordenes, enlaces] = await Promise.all([get('/agenda/reuniones.json'), get('/teletrabajo/ordenes-del-dia.json'), get('/tablon/enlaces.json'),
           window.CalendarioCole ? CalendarioCole.listo : null]);
         if (!reuniones) return;
-        datos = {reuniones, ordenes};
+        datos = {reuniones, ordenes, enlaces};
       }
       pintarCaja(box);
     }catch(e){ box.innerHTML = ''; }
