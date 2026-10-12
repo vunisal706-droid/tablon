@@ -37,10 +37,12 @@
   }
   let secActual = null;
   function chips(p){
-    if (secActual !== 'directivo' || !window.enlacesDrive) return '';
-    const ay = window.ayudaPunto ? window.ayudaPunto(p) : null;
-    const ayuda = ay ? `<details style="margin:3px 0 4px"><summary style="cursor:pointer;font-size:.8em;font-weight:700;color:#8a5a00">💡 Ayuda</summary><div style="font-size:.85em;background:#fff8e1;border-radius:8px;padding:6px 9px;margin-top:3px;line-height:1.4"><b>Qué tratar:</b> ${esc(ay.q)}<br><b>Propuesta:</b> ${esc(ay.p)}</div></details>` : '';
-    return window.enlacesDrive(p).map(e=>` <a href="${esc(e.url)}" target="_blank" rel="noopener" style="display:inline-block;font-size:.78em;font-weight:700;color:#1565c0;background:#e3f2fd;border-radius:10px;padding:1px 8px;margin:2px 0 0 4px;text-decoration:none;white-space:nowrap">${e.icono||'📁'} ${esc(e.titulo)}</a>`).join('') + ayuda;
+    // Ayuda (qué tratar + propuesta): la ve todo el profesorado
+    const ay = (window.AYUDAS_ORDEN||{})[p];
+    const ayuda = ay ? `<details style="margin:3px 0 6px"><summary style="cursor:pointer;font-size:.8em;font-weight:700;color:#8a5a00">💡 Ayuda para este punto</summary><div style="font-size:.86em;background:#fff8e1;border-radius:8px;padding:8px 10px;margin-top:4px;line-height:1.45"><p style="margin:0 0 6px"><b>Qué tratar:</b> ${esc(ay.q)}</p><p style="margin:0"><b>Propuesta:</b> ${esc(ay.p)}</p></div></details>` : '';
+    // Enlaces al Drive y a las apps: solo Equipo Directivo con sesión iniciada
+    const enl = (secActual === 'directivo' && window.enlacesDrive) ? window.enlacesDrive(p).map(e=>` <a href="${esc(e.url)}" target="_blank" rel="noopener" style="display:inline-block;font-size:.78em;font-weight:700;color:#1565c0;background:#e3f2fd;border-radius:10px;padding:1px 8px;margin:2px 0 0 4px;text-decoration:none;white-space:nowrap">${e.icono||'📁'} ${esc(e.titulo)}</a>`).join('') : '';
+    return enl + ayuda;
   }
   function html(){
     const R = datos.reuniones, O = (datos.ordenes||{}).organos || {};
@@ -122,10 +124,11 @@
     try{
       if (!datos){
         const get = u => fetch(u+'?_='+Date.now(), {cache:'no-store'}).then(r=>r.ok?r.json():null).catch(()=>null);
-        const [reuniones, ordenes] = await Promise.all([get('/agenda/reuniones.json'), get('/teletrabajo/ordenes-del-dia.json'),
+        const [reuniones, ordenes, ayudas] = await Promise.all([get('/agenda/reuniones.json'), get('/teletrabajo/ordenes-del-dia.json'), get('/tablon/ayudas-orden.json'),
           window.CalendarioCole ? CalendarioCole.listo : null]);
         if (!reuniones) return;
         datos = {reuniones, ordenes};
+        window.AYUDAS_ORDEN = (ayudas && ayudas.ayudas) || {};
       }
       pintarCaja(box);
     }catch(e){ box.innerHTML = ''; }

@@ -26,17 +26,8 @@
     {patron:"resultados|rendimiento|evaluación (final|del alumnado|del trimestre)|análisis progreso|promoción|repetidores|no promociona", icono:'📱', titulo:"Gestión de Evaluaciones", url:"https://vunisal706-droid.github.io/gestorevalu/"},
     {patron:"refuerzo", icono:'📁', titulo:"Plan de refuerzo 26/27", url:"https://drive.google.com/drive/folders/11iG_oq5ci3n72iN1AZ6jlBtkoO8tBarU"}
   ];
-  let AYUDAS = null, pidiendoAyudas = false;
-  function cargarAyudas(){
-    if (AYUDAS || pidiendoAyudas || !window.adminActivo) return;
-    pidiendoAyudas = true;
-    fetch('ayudas-orden.json?_='+Date.now(), {cache:'no-store'}).then(r=>r.ok?r.json():null).then(j=>{
-      AYUDAS = (j && j.ayudas) || {}; pidiendoAyudas = false;
-      if (window.pintarReuniones) window.pintarReuniones(seccion);
-    }).catch(()=>{ pidiendoAyudas = false; });
-  }
   const conAyudas = () => { const c = document.getElementById('dirAyudas'); return !!(c && c.checked); };
-  window.ayudaPunto = function(p){ return (window.adminActivo && AYUDAS && AYUDAS[p]) || null; };
+  window.ayudaPunto = function(p){ return (window.AYUDAS_ORDEN||{})[p] || null; };
   window.enlacesDrive = function(p){
     if (!window.adminActivo) return [];
     const out = [];
@@ -76,7 +67,7 @@
       });
       if (!R.lista.length) t += `• Ese lunes no hay reuniones del cuadrante.\n`;
       const usados = new Set(); // cada enlace solo la primera vez que aparece (Séneca limita a 3500 caracteres)
-      R.ordenes.forEach(o=>{ t += `\nOrden del día previsto · ${o.organo}:\n` + o.puntos.map((p,i)=>{ const ay = conAyudas() ? window.ayudaPunto(p) : null; return `${i+1}. ${p}` + (ay?`\n   💡 ${ay.q}`:'') + window.enlacesDrive(p).filter(e=>!usados.has(e.url) && usados.add(e.url)).map(e=>`\n   ${e.icono||'📁'} ${e.titulo}: ${e.url}`).join(''); }).join('\n') + '\n'; });
+      R.ordenes.forEach(o=>{ t += `\nOrden del día previsto · ${o.organo}:\n` + o.puntos.map((p,i)=>{ const ay = conAyudas() ? window.ayudaPunto(p) : null; return `${i+1}. ${p}` + (ay?`\n   💡 ${ay.c}`:'') + window.enlacesDrive(p).filter(e=>!usados.has(e.url) && usados.add(e.url)).map(e=>`\n   ${e.icono||'📁'} ${e.titulo}: ${e.url}`).join(''); }).join('\n') + '\n'; });
     }
     // Días sin clase de esa semana (festivos, vacaciones…), salvo el lunes que ya se ha explicado arriba
     const sinClase = [];
@@ -185,7 +176,6 @@
 
   window.pintarCorreo = function(sec){
     seccion = sec;
-    if (sec === 'directivo') cargarAyudas();
     if (window.pintarReuniones) window.pintarReuniones(sec);
     if (sec === 'directivo' && window.adminActivo && !escucha){
       escucha = ref().on('value', s=>{ actividades = s.val() || {}; pintar(); }, e=>{ actividades = {}; pintar(); const d=document.getElementById('dirError'); if(d) d.textContent='⚠️ Firebase no deja leer «actividades_profesorado». Hay que añadir el permiso en las reglas de la base de datos.'; });
