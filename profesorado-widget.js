@@ -20,15 +20,25 @@
       const box = document.getElementById('reunionesBox'); if (box && datos && box.innerHTML) pintarCaja(box); }, ()=>{ acts = {}; });
   }
   // Actividades que añade el Equipo Directivo: salen en cuanto se guardan y hasta que pasa su día (no esperan a su semana)
+  const limpio = t => String(t||'').replace(/\s+([,.;:])/g,'$1').replace(/\s+/g,' ').trim().replace(/^./,c=>c.toUpperCase()).replace(/([.!?]\s+)(\p{Ll})/gu,(m,a,b)=>a+b.toUpperCase());
   function bloqueActs(){
-    const hoy = iso(new Date());
-    const l = Object.values(acts).filter(a=>a && a.fecha>=hoy)
-      .sort((a,b)=>(a.fecha+(a.hora||'')).localeCompare(b.fecha+(b.hora||'')));
-    if (!l.length) return '';
-    return `<div style="margin-top:10px;background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:8px 12px">
-      <div style="font-weight:800;color:#92400e">📌 Próximas actividades</div>
-      <ul style="margin:4px 0 0 18px;padding:0;line-height:1.45">${l.map(a=>{ const d = new Date(a.fecha+'T12:00');
-        return `<li><b>${DIA[d.getDay()].replace(/^./,c=>c.toUpperCase())} ${d.getDate()} de ${MES[d.getMonth()]}${a.hora?`, ${esc(a.hora)}`:''}</b> · ${esc(a.texto)}</li>`; }).join('')}</ul></div>`;
+    const hoy = iso(new Date()), dias = {};
+    Object.values(acts).filter(a=>a && a.fecha>=hoy).forEach(a=>{ (dias[a.fecha] = dias[a.fecha] || []).push(a); });
+    const fechas = Object.keys(dias).sort();
+    if (!fechas.length) return '';
+    const fichas = fechas.map(f=>{
+      const d = new Date(f+'T12:00'), l = dias[f].sort((a,b)=>(a.hora||'').localeCompare(b.hora||''));
+      return `<div style="display:flex;gap:12px;background:#fff;border:1px solid #fde68a;border-radius:12px;padding:8px 10px;margin-top:6px">
+        <div style="flex:0 0 52px;text-align:center;border-radius:10px;overflow:hidden;border:1.5px solid #fcd34d;align-self:flex-start">
+          <div style="background:#d97706;color:#fff;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;padding:2px 0">${DIA[d.getDay()].slice(0,3)}</div>
+          <div style="font-size:1.4rem;font-weight:800;color:#78350f;line-height:1.15;padding-top:2px">${d.getDate()}</div>
+          <div style="font-size:.68rem;color:#b45309;text-transform:uppercase;padding-bottom:3px">${MES[d.getMonth()].slice(0,3)}</div></div>
+        <div style="flex:1;min-width:0">${l.map((a,i)=>`<div style="display:flex;gap:8px;align-items:flex-start;padding:5px 0;${i<l.length-1?'border-bottom:1px dashed #fde68a;':''}">
+          ${a.hora?`<span style="flex:0 0 auto;background:#fef3c7;color:#92400e;font-weight:800;font-size:.8rem;border-radius:999px;padding:1px 9px;margin-top:2px">${esc(a.hora)}</span>`:''}
+          <span style="flex:1;line-height:1.4">${esc(limpio(a.texto))}</span></div>`).join('')}</div></div>`;
+    }).join('');
+    return `<div style="margin-top:10px;background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:8px 10px">
+      <div style="font-weight:800;color:#92400e">📌 Próximas actividades</div>${fichas}</div>`;
   }
 
   function lunesLectivos(desde, cuantos){

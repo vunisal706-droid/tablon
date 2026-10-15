@@ -10,11 +10,11 @@
     {id:'en', name:'English', corto:'EN', voz:'en-GB'},
     {id:'fr', name:'Français', corto:'FR', voz:'fr-FR'}];
   const UI = {
-    es:{tram:'📌 Trámites con plazo', sem:'📅 Esta semana en el cole', boja:'📢 Novedades de la Junta para familias', escuchar:'🔊 Escuchar', parar:'⏹️ Parar', info:'📖 Información para familias', novoz:'Este móvil no tiene voz instalada para este idioma.', bojaNota:''},
-    ar:{tram:'📌 إجراءات لها آجال', sem:'📅 هذا الأسبوع في المدرسة', boja:'📢 مستجدات حكومة الأندلس للأسر', escuchar:'🔊 استمع', parar:'⏹️ إيقاف', info:'📖 معلومات للأسر', novoz:'لا يوجد صوت مثبّت لهذه اللغة في هذا الهاتف.', bojaNota:'(باللغة الإسبانية)'},
-    ro:{tram:'📌 Proceduri cu termen', sem:'📅 Săptămâna aceasta la școală', boja:'📢 Noutăți de la Junta pentru familii', escuchar:'🔊 Ascultă', parar:'⏹️ Oprește', info:'📖 Informații pentru familii', novoz:'Acest telefon nu are voce instalată pentru această limbă.', bojaNota:'(în spaniolă)'},
-    en:{tram:'📌 Deadlines and procedures', sem:'📅 This week at school', boja:'📢 Regional government news for families', escuchar:'🔊 Listen', parar:'⏹️ Stop', info:'📖 Information for families', novoz:'This phone has no voice installed for this language.', bojaNota:'(in Spanish)'},
-    fr:{tram:'📌 Démarches et délais', sem:'📅 Cette semaine à l’école', boja:'📢 Actualités de la Junta pour les familles', escuchar:'🔊 Écouter', parar:'⏹️ Arrêter', info:'📖 Informations pour les familles', novoz:'Ce téléphone n’a pas de voix installée pour cette langue.', bojaNota:'(en espagnol)'}};
+    es:{tram:'📌 Trámites con plazo', sem:'📅 Agenda del cole', boja:'📢 Novedades de la Junta para familias', escuchar:'🔊 Escuchar', parar:'⏹️ Parar', info:'📖 Información para familias', novoz:'Este móvil no tiene voz instalada para este idioma.', bojaNota:''},
+    ar:{tram:'📌 إجراءات لها آجال', sem:'📅 مواعيد المدرسة', boja:'📢 مستجدات حكومة الأندلس للأسر', escuchar:'🔊 استمع', parar:'⏹️ إيقاف', info:'📖 معلومات للأسر', novoz:'لا يوجد صوت مثبّت لهذه اللغة في هذا الهاتف.', bojaNota:'(باللغة الإسبانية)'},
+    ro:{tram:'📌 Proceduri cu termen', sem:'📅 Agenda școlii', boja:'📢 Noutăți de la Junta pentru familii', escuchar:'🔊 Ascultă', parar:'⏹️ Oprește', info:'📖 Informații pentru familii', novoz:'Acest telefon nu are voce instalată pentru această limbă.', bojaNota:'(în spaniolă)'},
+    en:{tram:'📌 Deadlines and procedures', sem:'📅 School calendar', boja:'📢 Regional government news for families', escuchar:'🔊 Listen', parar:'⏹️ Stop', info:'📖 Information for families', novoz:'This phone has no voice installed for this language.', bojaNota:'(in Spanish)'},
+    fr:{tram:'📌 Démarches et délais', sem:'📅 Agenda de l’école', boja:'📢 Actualités de la Junta pour les familles', escuchar:'🔊 Écouter', parar:'⏹️ Arrêter', info:'📖 Informations pour les familles', novoz:'Ce téléphone n’a pas de voix installée pour cette langue.', bojaNota:'(en espagnol)'}};
   const INFO = {
     es:[['🌧️ Días de lluvia.','El alumnado de Infantil y del aula TEA entra por el patio de Infantil directamente a sus clases, y la recogida se hace igual por ese patio. El alumnado de Primaria sube directamente a clase sin hacer la fila.'],
         ['📱 Comunicación con el colegio.','El canal oficial es iPasen (Séneca): mensajes, notas, faltas y citas de tutoría. Informad al centro de cualquier situación familiar relevante.'],
@@ -61,6 +61,27 @@
     return Object.values(acts).filter(a=>a && a.familias && a.fecha>=hoy);
   }
   const LOC = {es:'es-ES', ar:'ar', ro:'ro-RO', en:'en-GB', fr:'fr-FR'};
+  // Texto limpio: sin espacios antes de comas o puntos y con mayúscula inicial
+  const limpio = t => String(t||'').replace(/\s+([,.;:])/g,'$1').replace(/\s+/g,' ').trim().replace(/^./,c=>c.toUpperCase()).replace(/([.!?]\s+)(\p{Ll})/gu,(m,a,b)=>a+b.toUpperCase());
+  // Agenda bonita: una ficha por día (calendario a la izquierda) con sus actividades y la hora
+  function agenda(items, L){
+    const loc = LOC[L.id]||'es-ES', dias = {};
+    items.forEach(x=>{ (dias[x.fecha] = dias[x.fecha] || []).push(x); });
+    return Object.keys(dias).sort().map(f=>{
+      const fd = f ? new Date(f+'T12:00') : null;
+      let sem = '', num = '', mes = '';
+      if (fd){ try{ sem = fd.toLocaleDateString(loc,{weekday:'short'}).replace('.',''); mes = fd.toLocaleDateString(loc,{month:'short'}).replace('.',''); }catch(e){} num = fd.getDate(); }
+      const l = dias[f].sort((a,b)=>(a.hora||'').localeCompare(b.hora||''));
+      const tile = fd ? `<div style="flex:0 0 54px;text-align:center;border-radius:12px;overflow:hidden;border:1.5px solid #ddd6fe;background:#fff;align-self:flex-start">
+          <div style="background:#7c3aed;color:#fff;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;padding:2px 0">${esc(sem)}</div>
+          <div style="font-size:1.45rem;font-weight:800;color:#4c1d95;line-height:1.15;padding-top:2px">${num}</div>
+          <div style="font-size:.7rem;color:#6d28d9;text-transform:uppercase;padding-bottom:3px">${esc(mes)}</div></div>` : '';
+      const lista = l.map((x,i)=>`<div style="display:flex;gap:8px;align-items:flex-start;padding:5px 0;${i<l.length-1?'border-bottom:1px dashed #e9d5ff;':''}">
+          ${x.hora?`<span style="flex:0 0 auto;background:#ede9fe;color:#5b21b6;font-weight:800;font-size:.8rem;border-radius:999px;padding:1px 9px;margin-top:2px" dir="ltr">${esc(x.hora)}</span>`:''}
+          <span style="flex:1;color:#1f2a37;line-height:1.4">${esc(limpio(x.texto))}${!fd&&x.cuando?` <span style="color:#64748b">· ${esc(x.cuando)}</span>`:''}</span></div>`).join('');
+      return `<div class="fam-card" style="display:flex;gap:12px;background:#faf5ff;border:1.5px solid #ddd6fe;border-radius:14px;padding:10px 12px;margin:8px 0">${tile}<div style="flex:1;min-width:0">${lista}</div></div>`;
+    }).join('');
+  }
   function cuandoFam(f, l){ try { return f.toLocaleDateString(LOC[l]||'es-ES', {weekday:'long', day:'numeric', month:'long'}); } catch(e){ return iso(f); } }
   try { lang = localStorage.getItem('tablon-idioma') || ''; } catch(e) {}
   if (!LANGS.some(l=>l.id===lang)) { const n=(navigator.language||'es').slice(0,2); lang = LANGS.some(l=>l.id===n) ? n : 'es'; }
@@ -83,14 +104,12 @@
           `<b>${esc(t.emoji)} ${esc(t.nombre)}</b> <span style="display:inline-block;background:${t.abierto?'#d97706':'#64748b'};color:#fff;border-radius:999px;padding:1px 9px;font-size:.8rem;font-weight:800">${esc(t.estado)}</span>${t.detalle?`<div style="margin-top:3px;color:#475569">${esc(t.detalle)}</div>`:''}`));
       }
     }
-    // Semana: lo automático (familias.json) + lo que el Equipo Directivo marca «también para familias»
-    const sem = ((d && d.semana) || []).map(s=>({k:(s.fecha||'')+'0', html:`<div><b>${esc(s.texto)}</b> · ${esc(s.cuando)}</div>`}))
-      .concat(actsFam().map(a=>{ const f = new Date(a.fecha+'T12:00');
-        return {k:a.fecha+'1'+(a.hora||''), html:`<div><b>${esc(a.texto)}</b> · ${esc(cuandoFam(f, lang))}${a.hora?` · ${esc(a.hora)}`:''}</div>`}; }))
-      .sort((a,b)=>a.k.localeCompare(b.k));
-    if (sem.length){
+    // Agenda: lo automático (familias.json) + lo que el Equipo Directivo marca «también para familias», agrupado por día
+    const items = ((d && d.semana) || []).map(s=>({fecha:s.fecha||'', hora:'', texto:s.texto||'', cuando:s.cuando||''}))
+      .concat(actsFam().map(a=>({fecha:a.fecha, hora:a.hora||'', texto:a.texto||''})));
+    if (items.length){
       h += titulo(u.sem);
-      h += card('#7c3aed', '#faf5ff', sem.map(s=>s.html).join(''));
+      h += agenda(items, L);
     }
     if (d){
       if ((datos.boja||[]).length){
