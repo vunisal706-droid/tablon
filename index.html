@@ -254,6 +254,7 @@ body.admin-active .pub-bar{display:block}
     <div class="pub-bar"><button type="button" id="btnPublicar">📢 Publicar aviso</button></div>
     <div id="correoBox"></div>
     <div id="reunionesBox"></div>
+    <div id="agendaBox" style="max-width:640px;margin:0 auto"></div>
     <div id="muroContainer">
       <div class="loading-state"><div class="spinner"></div><span>Cargando avisos...</span></div>
     </div>
@@ -465,6 +466,7 @@ function entrarSeccion(sec) {
   document.getElementById("muroContainer").style.display = "";
   if (window.pintarReuniones) window.pintarReuniones(sec);
   if (window.pintarCorreo) window.pintarCorreo(sec);
+  if (window.pintarAgendaSeccion) window.pintarAgendaSeccion(sec);
   cargarAvisos(sec);
 }
 

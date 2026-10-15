@@ -185,10 +185,22 @@
     c.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>{ lang=b.dataset.lang; try{localStorage.setItem('tablon-idioma',lang)}catch(e){} pintar(); });
     c.querySelector('#famVoz').onclick = leer;
   }
+  // Agenda del cole también dentro de la sección Familias (actividades del Equipo Directivo + familias.json)
+  let secAgenda = null;
+  function pintarAgendaSec(){
+    const box = document.getElementById('agendaBox'); if (!box) return;
+    if (secAgenda !== 'familias'){ box.innerHTML = ''; return; }
+    const d = !datos ? null : lang==='es' ? datos : ((datos.idiomas||{})[lang] || datos), L = LANGS.find(l=>l.id===lang), u = UI[lang];
+    const items = ((d && d.semana) || []).map(s=>({fecha:s.fecha||'', hora:'', texto:s.texto||'', cuando:s.cuando||''}))
+      .concat(actsFam().map(a=>({fecha:a.fecha, hora:a.hora||'', texto:a.texto||''})));
+    box.innerHTML = items.length ? `<div dir="${L.rtl?'rtl':'ltr'}" style="text-align:${L.rtl?'right':'left'};margin:0 0 14px">${titulo(u.sem)}${agenda(items, L)}</div>` : '';
+  }
+  window.pintarAgendaSeccion = function(sec){ secAgenda = sec; pintarAgendaSec(); };
   function pintar(){
     if (synth && synth.speaking) synth.cancel();
     el.innerHTML = contenido();
     controles();
+    pintarAgendaSec();
   }
   if (synth && synth.onvoiceschanged !== undefined) synth.onvoiceschanged = ()=>{};
   pintar();
