@@ -11,26 +11,13 @@
     vunisal706: {nombre:'Víctor Manuel Única Salas', cargo:'Director'},
     mrodrod323: {nombre:'María Rodríguez Rodríguez', cargo:'Jefa de Estudios'},
     emunrom369: {nombre:'Encarnación Muñoz Romero', cargo:'Secretaria'}};
-  // Enlaces al Drive del centro para los puntos del orden del día (solo se muestran con la sesión iniciada)
-  const ENLACES = [
-    {patron:"acta anterior", icono:'📁', titulo:"Reuniones y actas", url:"https://drive.google.com/drive/folders/1bRUcI0C6gE0-IZFSTxE8Bnz9GcJtuUwW"},
-    {patron:"comprensión lectora", icono:'📱', titulo:"Pruebas de lectura (Registro)", url:"https://vunisal706-droid.github.io/lecturayproblemas/#pruebas"},
-    {patron:"comprensión lectora|resolución de problemas|plan de lectura|día del libro|biblioteca", icono:'📱', titulo:"Ágora · Plan de Lectura y Problemas", url:"https://vunisal706-droid.github.io/leoresuelvo/"},
-    {patron:"proyecto educativo", icono:'📁', titulo:"Proyecto Educativo", url:"https://drive.google.com/file/d/1cheToikm-Ms_KYWBbvgzPTSmPq9YLDgY/view"},
-    {patron:"plan de centro|proyecto educativo|rof\\b|criterios de (evaluación y )?promoción|protocolo neae", icono:'📱', titulo:"App Plan de Centro", url:"https://vunisal706-droid.github.io/proyectocentro/"},
-    {patron:"plan de centro", icono:'📁', titulo:"Plan de Centro 26/27", url:"https://drive.google.com/drive/folders/1UKegBfwBwCXplZGPdUN6AgmNGiDbhWL1"},
-    {patron:"convivencia", icono:'📁', titulo:"Proyecto Educativo", url:"https://drive.google.com/file/d/1cheToikm-Ms_KYWBbvgzPTSmPq9YLDgY/view"},
-    {patron:"programaci|propuestas? pedag", icono:'📁', titulo:"Programaciones 26/27", url:"https://drive.google.com/drive/folders/1b4yXrE54-4xiFQglLYX9R6wwoMXHJlTi"},
-    {patron:"acta competencial", icono:'📁', titulo:"Modelo de acta competencial", url:"https://drive.google.com/file/d/1Z_LCZJFs9oGuBHnaUzOL9eBafiAnSjwc/view"},
-    {patron:"evaluación inicial", icono:'📁', titulo:"Pruebas de evaluación inicial", url:"https://drive.google.com/drive/folders/1UCYfASe96ZOuQ3qo-eANw3APJkk_wUGz"},
-    {patron:"resultados|rendimiento|evaluación (final|del alumnado|del trimestre)|análisis progreso|promoción|repetidores|no promociona", icono:'📱', titulo:"Gestión de Evaluaciones", url:"https://vunisal706-droid.github.io/gestorevalu/"},
-    {patron:"refuerzo", icono:'📁', titulo:"Plan de refuerzo 26/27", url:"https://drive.google.com/drive/folders/11iG_oq5ci3n72iN1AZ6jlBtkoO8tBarU"}
-  ];
+  // Enlaces al Drive del centro para los puntos del orden del día: están en enlaces-orden.json (lo comparten el Tablón y Teletrabajo)
+
   window.ayudaPunto = function(p){ return (window.AYUDAS_ORDEN||{})[p] || null; };
   window.enlacesDrive = function(p){
     if (!window.adminActivo && !window.MODO_ORDEN) return [];
     const out = [];
-    for (const e of ENLACES){ if (new RegExp(e.patron,'i').test(p) && !out.some(x=>x.url===e.url)) out.push(e); if (out.length>=3) break; }
+    for (const e of (window.ENLACES_ORDEN||[])){ if (new RegExp(e.patron,'i').test(p) && !out.some(x=>x.url===e.url)) out.push(e); if (out.length>=3) break; }
     return out;
   };
   let actividades = {}, escucha = null, seccion = null, lunesSel = null;

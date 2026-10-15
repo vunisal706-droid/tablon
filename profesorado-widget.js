@@ -146,11 +146,12 @@
     try{
       if (!datos){
         const get = u => fetch(u+'?_='+Date.now(), {cache:'no-store'}).then(r=>r.ok?r.json():null).catch(()=>null);
-        const [reuniones, ordenes, ayudas] = await Promise.all([get('/agenda/reuniones.json'), get('/teletrabajo/ordenes-del-dia.json'), get('/tablon/ayudas-orden.json'),
+        const [reuniones, ordenes, ayudas, enlaces] = await Promise.all([get('/agenda/reuniones.json'), get('/teletrabajo/ordenes-del-dia.json'), get('/tablon/ayudas-orden.json'), get('/tablon/enlaces-orden.json'),
           window.CalendarioCole ? CalendarioCole.listo : null]);
         if (!reuniones) return;
         datos = {reuniones, ordenes};
         window.AYUDAS_ORDEN = (ayudas && ayudas.ayudas) || {};
+        window.ENLACES_ORDEN = (enlaces && enlaces.enlaces) || [];
       }
       escucharActs();
       pintarCaja(box);
