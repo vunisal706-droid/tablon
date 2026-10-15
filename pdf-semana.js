@@ -51,12 +51,6 @@
     ], columnGap:0 });
     content.push({canvas:[{type:'rect', x:0, y:8, w:515, h:4, r:2, linearGradient:[C.azul, C.azul2, '#7c86e0'], color:C.azul}], margin:[0,0,0,4]});
 
-    // Resumen en tres cifras
-    const nReu = R ? R.lista.length : 0, nPts = R ? R.ordenes.reduce((n,o)=>n+o.puntos.length,0) : 0, nAct = d.acts.length;
-    const cifra = (n, t, col, fondo) => ({table:{widths:['*'], body:[[{stack:[{text:String(n), fontSize:18, bold:true, color:col, alignment:'center'}, {text:t, fontSize:8.5, color:C.gris, alignment:'center'}], margin:[0,6,0,6]}]]},
-      layout:{fillColor:()=>fondo, hLineWidth:()=>0, vLineWidth:()=>0}});
-    content.push({columns:[cifra(nReu,'reuniones el lunes',C.azul,C.claro), cifra(nPts,'puntos del orden del día',C.verde,C.verdeClaro), cifra(nAct,'otras actividades',C.oro,C.oroClaro)], columnGap:8, margin:[0,10,0,0]});
-
     // Reuniones del lunes
     content.push(seccion('Reuniones del lunes'));
     if (R){
