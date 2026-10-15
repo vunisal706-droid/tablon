@@ -19,16 +19,16 @@
     firebase.database().ref('actividades_profesorado').on('value', s=>{ acts = s.val() || {};
       const box = document.getElementById('reunionesBox'); if (box && datos && box.innerHTML) pintarCaja(box); }, ()=>{ acts = {}; });
   }
-  function bloqueActs(lunes){
-    const hoy = iso(new Date()), v = new Date(lunes); v.setDate(v.getDate()+4);
-    const desde = iso(lunes) > hoy ? iso(lunes) : hoy, hasta = iso(v);
-    const l = Object.values(acts).filter(a=>a && a.fecha>=desde && a.fecha<=hasta)
+  // Actividades que añade el Equipo Directivo: salen en cuanto se guardan y hasta que pasa su día (no esperan a su semana)
+  function bloqueActs(){
+    const hoy = iso(new Date());
+    const l = Object.values(acts).filter(a=>a && a.fecha>=hoy)
       .sort((a,b)=>(a.fecha+(a.hora||'')).localeCompare(b.fecha+(b.hora||'')));
     if (!l.length) return '';
     return `<div style="margin-top:10px;background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:8px 12px">
-      <div style="font-weight:800;color:#92400e">📌 Otras actividades de la semana</div>
+      <div style="font-weight:800;color:#92400e">📌 Próximas actividades</div>
       <ul style="margin:4px 0 0 18px;padding:0;line-height:1.45">${l.map(a=>{ const d = new Date(a.fecha+'T12:00');
-        return `<li><b>${DIA[d.getDay()].replace(/^./,c=>c.toUpperCase())} ${d.getDate()}${a.hora?`, ${esc(a.hora)}`:''}</b> · ${esc(a.texto)}</li>`; }).join('')}</ul></div>`;
+        return `<li><b>${DIA[d.getDay()].replace(/^./,c=>c.toUpperCase())} ${d.getDate()} de ${MES[d.getMonth()]}${a.hora?`, ${esc(a.hora)}`:''}</b> · ${esc(a.texto)}</li>`; }).join('')}</ul></div>`;
   }
 
   function lunesLectivos(desde, cuantos){
@@ -98,7 +98,7 @@
           <ol style="margin:6px 0 0 20px;padding:0;line-height:1.45">${pts.map(p=>`<li>${esc(p)}${chips(p, o)}</li>`).join('')}</ol></details>` : ''; }).join('');
       if (bloques) h += `<div style="margin-top:8px">${bloques}</div><div style="color:#64748b;font-size:.8rem;margin-top:6px">Puntos previstos en la app Teletrabajo; quien convoca puede ajustarlos.</div>`;
     }
-    h += bloqueActs(L.fecha);
+    h += bloqueActs();
     if (sig) h += `<div style="margin-top:10px;color:#475569;font-size:.88rem">Siguiente: ${DIA[sig.fecha.getDay()]} ${sig.fecha.getDate()} de ${MES[sig.fecha.getMonth()]} · ${ORD[sig.n]||sig.n+'.º'} lunes lectivo${((R.cuadrante||{})[String(sig.n)]||[]).length?' — '+esc(R.cuadrante[String(sig.n)].map(r=>r.nombre).join(', ')):' — sin reuniones de cuadrante'}</div>`;
     const ics = 'webcal://vunisal706-droid.github.io/agenda/calendario-profesorado.ics';
     h += `<div style="margin-top:10px;font-size:.85rem"><a href="https://calendar.google.com/calendar/r?cid=${encodeURIComponent(ics)}" target="_blank" rel="noopener" style="color:#283593;font-weight:700">📲 Añadir todas las reuniones a mi Google Calendar</a> · <a href="${ics}" style="color:#283593">otro calendario</a></div>`;
@@ -111,7 +111,7 @@
       const L = lunesLectivos(cursor, 1)[0];
       if (L){ const lista = (datos.reuniones.cuadrante||{})[String(L.n)] || [];
         const O = (datos.ordenes||{}).organos || {}, mes = pad(L.fecha.getMonth()+1);
-        const ordenes = [...new Set(lista.map(r=>r.organo).filter(Boolean))].map(o=>({organo:NOMBRE_ORG[o]||o, puntos:(O[o]||{})[mes]||[]})).filter(x=>x.puntos.length);
+        const ordenes = [...new Set(lista.map(r=>r.organo).filter(Boolean))].map(o=>({organo:NOMBRE_ORG[o]||o, codigo:o, puntos:(O[o]||{})[mes]||[]})).filter(x=>x.puntos.length);
         window.reunionesLunes = {fecha:L.fecha, ds:L.ds, n:L.n, lista, ordenes, tutorias:datos.reuniones.tutorias||'16:00 - 17:00'};
         document.dispatchEvent(new CustomEvent('reuniones-lunes'));
       }
@@ -135,7 +135,7 @@
     const L = lunesLectivos(d, 1)[0]; if (!L || L.ds !== iso(d)) return null;
     const lista = (datos.reuniones.cuadrante||{})[String(L.n)] || [];
     const O = (datos.ordenes||{}).organos || {}, mes = pad(L.fecha.getMonth()+1);
-    const ordenes = [...new Set(lista.map(r=>r.organo).filter(Boolean))].map(o=>({organo:NOMBRE_ORG[o]||o, puntos:(O[o]||{})[mes]||[]})).filter(x=>x.puntos.length);
+    const ordenes = [...new Set(lista.map(r=>r.organo).filter(Boolean))].map(o=>({organo:NOMBRE_ORG[o]||o, codigo:o, puntos:(O[o]||{})[mes]||[]})).filter(x=>x.puntos.length);
     return {fecha:L.fecha, ds:L.ds, n:L.n, lista, ordenes, tutorias:datos.reuniones.tutorias||'16:00 - 17:00'};
   };
   window.pintarReuniones = async function(sec){

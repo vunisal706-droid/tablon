@@ -55,12 +55,10 @@
   let datos = null, lang = 'es', acts = {};
   const pad = n => String(n).padStart(2,'0');
   const iso = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
-  // Actividades marcadas para familias: desde hoy hasta el viernes de la semana escolar (el finde, la siguiente)
+  // Actividades marcadas para familias: salen en cuanto se guardan y hasta que pasa su día
   function actsFam(){
-    const h = new Date(); h.setHours(12,0,0,0); const w = h.getDay(), v = new Date(h);
-    v.setDate(v.getDate() + (w===6 ? 6 : w===0 ? 5 : 5-w));
-    const desde = iso(h), hasta = iso(v);
-    return Object.values(acts).filter(a=>a && a.familias && a.fecha>=desde && a.fecha<=hasta);
+    const hoy = iso(new Date());
+    return Object.values(acts).filter(a=>a && a.familias && a.fecha>=hoy);
   }
   const LOC = {es:'es-ES', ar:'ar', ro:'ro-RO', en:'en-GB', fr:'fr-FR'};
   function cuandoFam(f, l){ try { return f.toLocaleDateString(LOC[l]||'es-ES', {weekday:'long', day:'numeric', month:'long'}); } catch(e){ return iso(f); } }

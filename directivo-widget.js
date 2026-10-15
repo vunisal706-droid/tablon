@@ -68,8 +68,15 @@
     if (R && R.ordenes.length){
       t += `\nEl orden del día de cada reunión, con ayudas, propuestas y enlaces para preparar cada punto, está aquí:\n👉 Orden del día y ayudas: https://vunisal706-droid.github.io/tablon/?orden=${R.ds}\n`;
     }
+    t += `\nOs adjunto también un PDF con toda esta información (reuniones, orden del día con ayudas y enlaces, y actividades) para consultarla sin entrar en Séneca.\n`;
     t += `\nUn saludo,\n${yo.nombre||''}\n${yo.cargo?yo.cargo+' · ':''}CEIP Capitulaciones`;
-    return {asunto, texto:t};
+    const sinClaseD = [];
+    if (window.CalendarioCole) for (let k=0; k<5; k++){
+      const d = new Date(S.lunes); d.setDate(d.getDate()+k); const ds = iso(d), x = CalendarioCole.sinCole(ds);
+      if (x && x.tipo !== 'finde') sinClaseD.push({dia:fechaLarga(ds), motivo:x.nombre});
+    }
+    const pdf = {S, R, acts, sinClase:sinClaseD, yo, asunto, enlaceOrden: R && R.ordenes.length ? `https://vunisal706-droid.github.io/tablon/?orden=${R.ds}` : ''};
+    return {asunto, texto:t, pdf};
   }
 
   function html(){
@@ -140,7 +147,11 @@
         <button type="button" id="dirCopAs" style="font:inherit;font-size:.8rem;border:1px solid #c7d2fe;background:#fff;border-radius:6px;padding:2px 8px;cursor:pointer;margin-left:6px">Copiar asunto</button></div>
         <textarea id="dirTxt" rows="16" style="width:100%;box-sizing:border-box;margin-top:6px;font:inherit;font-size:.9rem;border:1px solid #cbd5e1;border-radius:8px;padding:8px;background:#fff;color:#1f2a37">${esc(c.texto)}</textarea>
         <div id="dirCuenta" style="font-size:.85rem;font-weight:700;margin-top:4px"></div>
-        <button type="button" id="dirCopiar" style="font:inherit;font-weight:800;border:0;border-radius:8px;height:38px;padding:0 16px;cursor:pointer;background:#16a34a;color:#fff;margin-top:6px">📋 Copiar correo</button>`;
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px">
+          <button type="button" id="dirCopiar" style="font:inherit;font-weight:800;border:0;border-radius:8px;height:38px;padding:0 16px;cursor:pointer;background:#16a34a;color:#fff">📋 Copiar correo</button>
+          <button type="button" id="dirPdf" style="font:inherit;font-weight:800;border:0;border-radius:8px;height:38px;padding:0 16px;cursor:pointer;background:#23297a;color:#fff">📄 Descargar PDF para adjuntar en Séneca</button>
+        </div>
+        <div id="dirPdfMsg" style="font-size:.85rem;margin-top:4px;color:#475569"></div>`;
       const copiar = (txt, b, ok) => (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject())
         .catch(()=>{ const ta=document.getElementById('dirTxt'); ta.select(); document.execCommand('copy'); })
         .then(()=>{ const o=b.textContent; b.textContent=ok; setTimeout(()=>b.textContent=o,1800); });
@@ -157,6 +168,14 @@
           try{ document.execCommand('copy'); hecho(); }catch(_){ copiar(txt, b, '✅ Copiado'); } sel.removeAllRanges(); d.remove(); }
       };
       document.getElementById('dirCopiar').onclick = e => copiarRico(document.getElementById('dirTxt').value, e.target);
+      document.getElementById('dirPdf').onclick = e => {
+        const b = e.target, m = document.getElementById('dirPdfMsg'), o = b.textContent;
+        b.disabled = true; b.textContent = '⏳ Preparando el PDF…';
+        Promise.resolve().then(()=>window.pdfSemana(correo().pdf))
+          .then(n=>{ m.innerHTML = `✅ Descargado: <b>${esc(n)}</b>. Adjúntalo al mensaje de Séneca.`; m.style.color = '#15803d'; })
+          .catch(()=>{ m.textContent = '⚠️ No se ha podido crear el PDF. Revisa la conexión e inténtalo otra vez.'; m.style.color = '#b91c1c'; })
+          .finally(()=>{ b.disabled = false; b.textContent = o; });
+      };
       const LIM = 3500, cuenta = ()=>{ const ta=document.getElementById('dirTxt'), n=aHtml(ta.value).length, el=document.getElementById('dirCuenta');
         el.innerHTML = n<=LIM ? `✅ Cabe en Séneca: ${n} de ${LIM} caracteres` : `⚠️ Séneca admite ${LIM} caracteres y este correo ocupa ${n}. Acorta el texto o pégalo en dos mensajes.`;
         el.style.color = n<=LIM ? '#15803d' : '#b91c1c'; };
@@ -169,7 +188,11 @@
     seccion = sec;
     if (window.pintarReuniones) window.pintarReuniones(sec);
     if (sec === 'directivo' && window.adminActivo && !escucha){
-      escucha = ref().on('value', s=>{ actividades = s.val() || {}; pintar(); }, e=>{ actividades = {}; pintar(); const d=document.getElementById('dirError'); if(d) d.textContent='⚠️ Firebase no deja leer «actividades_profesorado». Hay que añadir el permiso en las reglas de la base de datos.'; });
+      escucha = ref().on('value', s=>{ actividades = s.val() || {};
+        // Las actividades cuyo día ya ha pasado se borran solas
+        const hoy = iso(new Date());
+        Object.entries(actividades).forEach(([k,a])=>{ if (a && a.fecha && a.fecha < hoy) ref().child(k).remove().catch(()=>{}); });
+        pintar(); }, e=>{ actividades = {}; pintar(); const d=document.getElementById('dirError'); if(d) d.textContent='⚠️ Firebase no deja leer «actividades_profesorado». Hay que añadir el permiso en las reglas de la base de datos.'; });
     }
     pintar();
   };
@@ -179,7 +202,7 @@
 
 // ===== Novedades (salen una sola vez en cada dispositivo) =====
 window._novTablonDir = function(){
-  var ID='2026-10-15', K='novedades-tablon-directivo', ITEMS=["📎 Nuevos enlaces en el orden del día: <b>Anexo de revisión de las programaciones</b> y <b>Plantilla de actividades complementarias y extraescolares</b>. Los enlaces son los mismos que en Teletrabajo.", "📌 Las actividades que añadáis salen también en el bloque de <b>Profesorado</b> («Otras actividades de la semana»).", "👨‍👩‍👧 Con la casilla <b>«Mostrar también en Familias»</b> (o el botón Sí/No de cada actividad) salen además en el bloque de Familias.", "🧹 Todas desaparecen solas cuando pasa su día."];
+  var ID='2026-10-15b', K='novedades-tablon-directivo', ITEMS=["📄 Al generar el correo semanal aparece <b>«Descargar PDF para adjuntar en Séneca»</b>: un PDF con las reuniones, el orden del día con ayudas y enlaces que se pueden pinchar, los días sin clase y las actividades.", "📌 Las actividades salen en Profesorado (y en Familias si se marca) <b>en cuanto se añaden</b>, sin esperar a su semana, y se borran solas cuando pasa su día.", "📎 Nuevos enlaces en el orden del día: <b>Anexo de revisión de las programaciones</b> y <b>Plantilla de actividades complementarias y extraescolares</b>. Los enlaces son los mismos que en Teletrabajo."];
   function ver(){ try{ if(localStorage.getItem(K)===ID) return; }catch(e){ return; }
     var d=document.createElement('div');
     d.style.cssText='position:fixed;inset:0;background:rgba(15,23,42,.55);display:flex;align-items:center;justify-content:center;z-index:99999;padding:18px;font-family:inherit';
