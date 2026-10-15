@@ -2,6 +2,18 @@
  "nota": "Enlaces al Drive y a las apps para los puntos del orden del día. Lo usan el Tablón y Teletrabajo. patron: expresión regular (sin distinguir mayúsculas) que se busca en el texto del punto; se muestran como máximo 3 enlaces por punto.",
  "enlaces": [
   {
+   "patron": "anexo de revisi|revisión de (las )?programaci|seguimiento de las programaciones|ajustes .*programaci|elaborar programaciones",
+   "icono": "📝",
+   "titulo": "Anexo de revisión de las programaciones",
+   "url": "https://docs.google.com/document/d/1zSxl-DSLUp5E-WYHUoRfOF5rOZBrpvZiaHelcqrYK5U/edit"
+  },
+  {
+   "patron": "actividades complementarias|extraescolares",
+   "icono": "📝",
+   "titulo": "Plantilla de actividades complementarias y extraescolares",
+   "url": "https://docs.google.com/document/d/1etXD2JG-TvuPAiYm8nIaSVA463yQfdIRUdkIi5qKQgA/edit"
+  },
+  {
    "patron": "acta anterior",
    "icono": "📁",
    "titulo": "Reuniones y actas",

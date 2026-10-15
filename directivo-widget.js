@@ -179,7 +179,7 @@
 
 // ===== Novedades (salen una sola vez en cada dispositivo) =====
 window._novTablonDir = function(){
-  var ID='2026-10-12', K='novedades-tablon-directivo', ITEMS=["📌 Las actividades que añadáis salen también en el bloque de <b>Profesorado</b> («Otras actividades de la semana»).", "👨‍👩‍👧 Con la casilla <b>«Mostrar también en Familias»</b> (o el botón Sí/No de cada actividad) salen además en el bloque de Familias.", "🧹 Todas desaparecen solas cuando pasa su día."];
+  var ID='2026-10-15', K='novedades-tablon-directivo', ITEMS=["📎 Nuevos enlaces en el orden del día: <b>Anexo de revisión de las programaciones</b> y <b>Plantilla de actividades complementarias y extraescolares</b>. Los enlaces son los mismos que en Teletrabajo.", "📌 Las actividades que añadáis salen también en el bloque de <b>Profesorado</b> («Otras actividades de la semana»).", "👨‍👩‍👧 Con la casilla <b>«Mostrar también en Familias»</b> (o el botón Sí/No de cada actividad) salen además en el bloque de Familias.", "🧹 Todas desaparecen solas cuando pasa su día."];
   function ver(){ try{ if(localStorage.getItem(K)===ID) return; }catch(e){ return; }
     var d=document.createElement('div');
     d.style.cssText='position:fixed;inset:0;background:rgba(15,23,42,.55);display:flex;align-items:center;justify-content:center;z-index:99999;padding:18px;font-family:inherit';
