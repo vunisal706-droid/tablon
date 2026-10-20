@@ -1,13 +1,6 @@
 {
- "actualizado": "2026-10-20T11:54+02:00",
- "avisos": [
-  {
-   "emoji": "🌧️",
-   "titulo": "Previsión de lluvia hoy a la entrada (9:00)",
-   "texto": "Probabilidad de lluvia: 48 %. Si llueve a la entrada, el alumnado de Infantil y del aula TEA entra por el patio de Infantil directamente a sus clases, y el alumnado de Primaria sube directamente a clase sin hacer la fila.",
-   "nivel": "aviso"
-  }
- ],
+ "actualizado": "2026-10-20T21:56+02:00",
+ "avisos": [],
  "tramites": [],
  "semana": [],
  "boja": [
@@ -19,50 +12,22 @@
  ],
  "idiomas": {
   "ar": {
-   "avisos": [
-    {
-     "emoji": "🌧️",
-     "titulo": "توقّع هطول أمطار اليوم عند الدخول (9:00)",
-     "texto": "احتمال المطر: 48٪. إذا كانت تمطر عند الدخول، يدخل تلاميذ مرحلة الروضة (Infantil) وقسم التوحد (TEA) من ساحة الروضة مباشرة إلى أقسامهم، ويصعد تلاميذ الابتدائي مباشرة إلى القسم دون الوقوف في الصف.",
-     "nivel": "aviso"
-    }
-   ],
+   "avisos": [],
    "tramites": [],
    "semana": []
   },
   "ro": {
-   "avisos": [
-    {
-     "emoji": "🌧️",
-     "titulo": "Se prognozează ploaie azi la intrare (9:00)",
-     "texto": "Probabilitate de ploaie: 48 %. Dacă plouă la intrare, elevii de la Infantil și din clasa TEA intră prin curtea de la Infantil direct în clasele lor, iar elevii de la Primaria urcă direct în clasă, fără să se mai așeze la rând.",
-     "nivel": "aviso"
-    }
-   ],
+   "avisos": [],
    "tramites": [],
    "semana": []
   },
   "en": {
-   "avisos": [
-    {
-     "emoji": "🌧️",
-     "titulo": "Rain forecast today at drop-off (9:00)",
-     "texto": "Chance of rain: 48%. If it rains at drop-off, Infant (Infantil) and TEA classroom pupils go in through the Infantil playground straight to their classrooms, and Primary pupils go straight up to class without lining up.",
-     "nivel": "aviso"
-    }
-   ],
+   "avisos": [],
    "tramites": [],
    "semana": []
   },
   "fr": {
-   "avisos": [
-    {
-     "emoji": "🌧️",
-     "titulo": "Pluie prévue aujourd'hui à l'entrée (9h00)",
-     "texto": "Probabilité de pluie : 48 %. S'il pleut à l'entrée, les élèves d'Infantil et de la classe TEA entrent par la cour d'Infantil directement dans leurs classes, et les élèves de Primaire montent directement en classe sans faire la file.",
-     "nivel": "aviso"
-    }
-   ],
+   "avisos": [],
    "tramites": [],
    "semana": []
   }
