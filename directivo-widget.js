@@ -20,7 +20,7 @@
     for (const e of (window.ENLACES_ORDEN||[])){ if (new RegExp(e.patron,'i').test(p) && !out.some(x=>x.url===e.url)) out.push(e); if (out.length>=3) break; }
     return out;
   };
-  let actividades = {}, escucha = null, seccion = null, lunesSel = null;
+  let actividades = {}, escucha = null, seccion = null, lunesSel = null, editando = null;   // editando = clave de la actividad que se está modificando
   const ref = () => firebase.database().ref('actividades_profesorado');
   const usuario = () => { const u = firebase.auth().currentUser; return u && u.email ? u.email.split('@')[0].toLowerCase() : ''; };
 
@@ -81,6 +81,7 @@
 
   function html(){
     const S = semana(), yo = usuario();
+    const E = editando ? actividades[editando] : null;
     const acts = Object.entries(actividades).filter(([,a])=>a.fecha>=S.desde && a.fecha<=S.hasta).sort((a,b)=>(a[1].fecha+(a[1].hora||'')).localeCompare(b[1].fecha+(b[1].hora||'')));
     const inp = 'font:inherit;border:1px solid #cbd5e1;border-radius:8px;height:36px;padding:0 8px;background:#fff;color:#1f2a37';
     const btn = 'font:inherit;font-weight:700;border:0;border-radius:8px;height:36px;padding:0 14px;cursor:pointer';
@@ -96,14 +97,17 @@
       <div style="display:grid;gap:4px;margin-top:4px">${acts.length ? acts.map(([k,a])=>`<div style="background:#fff;border:1px solid #fde68a;border-radius:8px;padding:6px 10px;display:flex;gap:8px;align-items:center">
         <span style="flex:1"><b>${esc(fechaLarga(a.fecha))}${a.hora?`, ${esc(a.hora)}`:''}</b> · ${esc(a.texto)} <span style="color:#94a3b8;font-size:.8rem">(${esc((FIRMAS[a.autor]||{}).nombre?.split(' ')[0]||a.autor||'')})</span></span>
         <button type="button" data-fam="${esc(k)}" title="${a.familias?'Se ve también en Familias (pulsa para quitar)':'Solo profesorado (pulsa para mostrar también a las familias)'}" style="${btn};height:28px;padding:0 8px;white-space:nowrap;${a.familias?'background:#dcfce7;color:#166534':'background:#f1f5f9;color:#94a3b8'}">👨‍👩‍👧 ${a.familias?'Sí':'No'}</button>
-        <button type="button" data-borrar="${esc(k)}" title="Quitar" style="${btn};height:28px;padding:0 8px;background:#fee2e2;color:#b91c1c">✕</button></div>`).join('') : '<div style="color:#92400e">Todavía no hay actividades añadidas para esta semana.</div>'}</div>
+        <button type="button" data-editar="${esc(k)}" title="Modificar" style="${btn};height:28px;padding:0 8px;${k===editando?'background:#d97706;color:#fff':'background:#e0e7ff;color:#283593'}">✏️</button>
+        <button type="button" data-borrar="${esc(k)}" title="Borrar" style="${btn};height:28px;padding:0 8px;background:#fee2e2;color:#b91c1c">✕</button></div>`).join('') : '<div style="color:#92400e">Todavía no hay actividades añadidas para esta semana.</div>'}</div>
       <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px">
-        <input type="date" id="dirFecha" value="${S.desde}" min="${S.desde}" max="${S.hasta}" style="${inp}">
-        <input type="time" id="dirHora" style="${inp};width:110px" aria-label="Hora (opcional)">
-        <input type="text" id="dirTexto" maxlength="200" placeholder="Actividad (p. ej. Simulacro de evacuación a las 12:00)" style="${inp};flex:1;min-width:200px">
-        <button type="button" id="dirAdd" style="${btn};background:#d97706;color:#fff">➕ Añadir</button>
+        ${E?`<div style="width:100%;font-weight:700;color:#b45309">✏️ Modificando la actividad:</div>`:''}
+        <input type="date" id="dirFecha" value="${E?esc(E.fecha):S.desde}" ${E?'':`min="${S.desde}" max="${S.hasta}"`} style="${inp}">
+        <input type="time" id="dirHora" value="${E?esc(E.hora||''):''}" style="${inp};width:110px" aria-label="Hora (opcional)">
+        <input type="text" id="dirTexto" maxlength="200" value="${E?esc(E.texto):''}" placeholder="Actividad (p. ej. Simulacro de evacuación a las 12:00)" style="${inp};flex:1;min-width:200px">
+        <button type="button" id="dirAdd" style="${btn};background:${E?'#16a34a':'#d97706'};color:#fff">${E?'💾 Guardar cambios':'➕ Añadir'}</button>
+        ${E?`<button type="button" id="dirCancel" style="${btn};background:#f1f5f9;color:#475569">Cancelar</button>`:''}
       </div>
-      <label style="display:flex;gap:6px;align-items:center;margin-top:6px;font-size:.9rem;cursor:pointer"><input type="checkbox" id="dirFam" style="width:18px;height:18px"> 👨‍👩‍👧 Mostrar también en el bloque de <b>Familias</b></label>
+      <label style="display:flex;gap:6px;align-items:center;margin-top:6px;font-size:.9rem;cursor:pointer"><input type="checkbox" id="dirFam" ${E&&E.familias?'checked':''} style="width:18px;height:18px"> 👨‍👩‍👧 Mostrar también en el bloque de <b>Familias</b></label>
       <div style="color:#92400e;font-size:.8rem;margin-top:2px">Las actividades salen en el bloque de Profesorado (y en Familias si se marca) y desaparecen solas cuando pasa el día.</div>
       <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:12px">
         <label style="font-size:.9rem">Firma: <select id="dirFirma" style="${inp}">${Object.entries(FIRMAS).map(([k,f])=>`<option value="${k}" ${k===(yo in FIRMAS?yo:'mrodrod323')?'selected':''}>${esc(f.nombre)} (${esc(f.cargo)})</option>`).join('')}</select></label>
@@ -127,15 +131,24 @@
     document.getElementById('dirAdd').onclick = ()=>{
       const f = document.getElementById('dirFecha').value, h = document.getElementById('dirHora').value, t = document.getElementById('dirTexto').value.trim();
       if (!f || !t){ err('Pon la fecha y la actividad.'); return; }
-      ref().push({fecha:f, hora:h||'', texto:t, familias:document.getElementById('dirFam').checked, autor:usuario(), creado:Date.now()}).catch(fallo);
+      const fam = document.getElementById('dirFam').checked;
+      if (editando && actividades[editando]){
+        const k = editando; editando = null;
+        ref().child(k).update({fecha:f, hora:h||'', texto:t, familias:fam, editadoPor:usuario(), editado:Date.now()}).catch(fallo);
+        if (f < semana().desde || f > semana().hasta){ const d = new Date(f+'T12:00'), w = d.getDay(); d.setDate(d.getDate()-((w+6)%7)); lunesSel = d; }
+        pintar();
+      } else ref().push({fecha:f, hora:h||'', texto:t, familias:fam, autor:usuario(), creado:Date.now()}).catch(fallo);
     };
+    const cancel = document.getElementById('dirCancel'); if (cancel) cancel.onclick = ()=>{ editando = null; pintar(); };
+    document.getElementById('dirTexto').onkeydown = e=>{ if (e.key==='Enter'){ e.preventDefault(); document.getElementById('dirAdd').click(); } };
+    box.querySelectorAll('[data-editar]').forEach(b=>b.onclick=()=>{ editando = editando===b.dataset.editar ? null : b.dataset.editar; pintar(); if (editando) document.getElementById('dirTexto').focus(); });
     box.querySelectorAll('[data-sem]').forEach(b=>b.onclick=()=>{
       const k = +b.dataset.sem;
       if (!k) lunesSel = null; else { const d = new Date(semana().lunes); d.setDate(d.getDate()+7*k); lunesSel = d; }
       pintar();
     });
     box.querySelectorAll('[data-fam]').forEach(b=>b.onclick=()=>{ const a = actividades[b.dataset.fam]; if (a) ref().child(b.dataset.fam).update({familias:!a.familias}).catch(fallo); });
-    box.querySelectorAll('[data-borrar]').forEach(b=>b.onclick=()=>{ if (confirm('¿Quitar esta actividad?')) ref().child(b.dataset.borrar).remove().catch(fallo); });
+    box.querySelectorAll('[data-borrar]').forEach(b=>b.onclick=()=>{ if (confirm('¿Borrar esta actividad?')){ if (editando===b.dataset.borrar) editando = null; ref().child(b.dataset.borrar).remove().catch(fallo); } });
     document.getElementById('dirGen').onclick = ()=>{
       const aHtml = txt => esc(txt).split('\n').map(l=>{
         l = l.replace(/^(\s*)(📁|📱|👉) ([^:]+): (https?:\/\/\S+)$/u, (m,sp,ic,ti,u)=>`${sp}${ic} <a href="${u}">${ti}</a>`);
@@ -188,7 +201,8 @@
     seccion = sec;
     if (window.pintarReuniones) window.pintarReuniones(sec);
     if (sec === 'directivo' && window.adminActivo && !escucha){
-      escucha = ref().on('value', s=>{ actividades = s.val() || {};
+      escucha = ref().on('value', s=>{ actividades = s.val() || {}; delete actividades._ordenes;   // _ordenes = órdenes del día editados (no son actividades)
+        if (editando && !actividades[editando]) editando = null;
         // Las actividades cuyo día ya ha pasado se borran solas
         const hoy = iso(new Date());
         Object.entries(actividades).forEach(([k,a])=>{ if (a && a.fecha && a.fecha < hoy) ref().child(k).remove().catch(()=>{}); });
@@ -202,7 +216,7 @@
 
 // ===== Novedades (salen una sola vez en cada dispositivo) =====
 window._novTablonDir = function(){
-  var ID='2026-10-15d', K='novedades-tablon-directivo', ITEMS=["👨‍👩‍👧 Las actividades marcadas para familias salen ahora también dentro de la sección <b>Familias</b> («Agenda del cole»), no solo en la página principal.", "🗓️ Las actividades se ven ahora más bonitas en Familias y Profesorado: una ficha por día con su fecha, la hora y cada actividad.", "📄 Al generar el correo semanal aparece <b>«Descargar PDF para adjuntar en Séneca»</b>: un PDF con las reuniones, el orden del día con ayudas y enlaces que se pueden pinchar, los días sin clase y las actividades.", "📌 Las actividades salen en Profesorado (y en Familias si se marca) <b>en cuanto se añaden</b>, sin esperar a su semana, y se borran solas cuando pasa su día.", "📎 Nuevos enlaces en el orden del día: <b>Anexo de revisión de las programaciones</b> y <b>Plantilla de actividades complementarias y extraescolares</b>. Los enlaces son los mismos que en Teletrabajo."];
+  var ID='2026-10-23a', K='novedades-tablon-directivo', ITEMS=["✏️ Las <b>otras actividades</b> ya se pueden <b>modificar</b> (botón ✏️: cambia fecha, hora, texto o si sale en Familias) y <b>borrar</b> (✕).", "📋 En el <b>orden del día</b> de cada equipo ahora puedes <b>modificar</b> (✏️) o <b>borrar</b> (✕) cada punto y <b>añadir</b> puntos nuevos. Los cambios los ve todo el profesorado y salen en el correo y el PDF. Con «↺ Original» vuelves a los puntos de Teletrabajo.", ];
   function ver(){ try{ if(localStorage.getItem(K)===ID) return; }catch(e){ return; }
     var d=document.createElement('div');
     d.style.cssText='position:fixed;inset:0;background:rgba(15,23,42,.55);display:flex;align-items:center;justify-content:center;z-index:99999;padding:18px;font-family:inherit';

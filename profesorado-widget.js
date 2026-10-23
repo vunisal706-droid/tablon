@@ -13,10 +13,20 @@
   const NOMBRE_ORG = {'CLAUSTRO':'Claustro','EQUIPO DE ORIENTACIÓN':'Equipo de Orientación','EQUIPOS DE CICLO':'Equipos de ciclo','ETCP':'ETCP','EQUIPOS DOCENTES':'Equipos docentes'};
   let datos = null, cursor = null;   // cursor = lunes que se está viendo (null = el próximo)
   let acts = {}, escuchaActs = false;   // actividades de la semana que añade el Equipo Directivo (Firebase)
+  // Órdenes del día editados por el Equipo Directivo (se guardan en actividades_profesorado/_ordenes/ÓRGANO/MES y mandan sobre los de Teletrabajo)
+  let ovr = {};
+  const puntosDe = (O, o, mes) => { const x = (ovr[o]||{})[mes]; return x ? (x.puntos||[]) : ((O[o]||{})[mes]||[]); };
+  const edita = () => secActual === 'directivo' && window.adminActivo;
+  const refOrden = (o, mes) => firebase.database().ref('actividades_profesorado/_ordenes/'+o+'/'+mes);
+  function guardarOrden(o, mes, puntos){
+    const u = firebase.auth().currentUser;
+    return refOrden(o, mes).set({puntos, autor: u && u.email ? u.email.split('@')[0] : '', editado: Date.now()})
+      .catch(()=>alert('⚠️ No se ha podido guardar el orden del día. Revisa la conexión.'));
+  }
   function escucharActs(){
     if (escuchaActs || !window.firebase || !firebase.apps.length) return;
     escuchaActs = true;
-    firebase.database().ref('actividades_profesorado').on('value', s=>{ acts = s.val() || {};
+    firebase.database().ref('actividades_profesorado').on('value', s=>{ acts = s.val() || {}; ovr = acts._ordenes || {}; delete acts._ordenes;
       const box = document.getElementById('reunionesBox'); if (box && datos && box.innerHTML) pintarCaja(box); }, ()=>{ acts = {}; });
   }
   // Actividades que añade el Equipo Directivo: salen en cuanto se guardan y hasta que pasa su día (no esperan a su semana)
@@ -83,6 +93,7 @@
     if (!L) return '';
     cursor = L.fecha;
     const btn = 'font:inherit;font-weight:700;border:1px solid #c7d2fe;background:#fff;color:#283593;border-radius:8px;height:32px;min-width:32px;padding:0 8px;cursor:pointer';
+    const bmini = 'font:inherit;font-size:.78rem;font-weight:700;border:0;border-radius:6px;height:24px;padding:0 7px;cursor:pointer;vertical-align:middle';
     const nav = `<div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:8px">
       <button type="button" data-reu="prev" style="${btn}" aria-label="Lunes anterior">‹</button>
       <button type="button" data-reu="hoy" style="${btn}">Próximo</button>
@@ -103,10 +114,16 @@
         </div>`).join('') + `</div>`;
       // Orden del día previsto por órgano (una vez por órgano)
       const orgs = [...new Set(lista.map(r=>r.organo).filter(Boolean))];
-      const bloques = orgs.map(o=>{ const pts = (O[o]||{})[mes] || [];
+      const bloques = orgs.map(o=>{ const pts = puntosDe(O,o,mes), ed = edita();
         return pts.length ? `<details style="margin-top:6px"${secActual==='orden'?' open':''}><summary style="cursor:pointer;font-weight:700;color:#283593">📋 Orden del día previsto · ${esc(NOMBRE_ORG[o]||o)} (${MES[+mes-1]})</summary>
-          <ol style="margin:6px 0 0 20px;padding:0;line-height:1.45">${pts.map(p=>`<li>${esc(p)}${chips(p, o)}</li>`).join('')}</ol></details>` : ''; }).join('');
-      if (bloques) h += `<div style="margin-top:8px">${bloques}</div><div style="color:#64748b;font-size:.8rem;margin-top:6px">Puntos previstos en la app Teletrabajo; quien convoca puede ajustarlos.</div>`;
+          <ol style="margin:6px 0 0 20px;padding:0;line-height:1.45">${pts.map((p,i)=>`<li>${esc(p)}${ed?` <span style="white-space:nowrap"><button type="button" data-ord="editar" data-o="${esc(o)}" data-m="${mes}" data-i="${i}" title="Modificar este punto" style="${bmini};background:#e0e7ff;color:#283593">✏️</button> <button type="button" data-ord="borrar" data-o="${esc(o)}" data-m="${mes}" data-i="${i}" title="Borrar este punto" style="${bmini};background:#fee2e2;color:#b91c1c">✕</button></span>`:''}${chips(p, o)}</li>`).join('')}</ol>${ed?`
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px"><input type="text" data-nuevo="${esc(o)}" maxlength="300" placeholder="Nuevo punto del orden del día" style="font:inherit;flex:1;min-width:180px;border:1px solid #c7d2fe;border-radius:8px;height:32px;padding:0 8px;background:#fff;color:#1f2a37">
+          <button type="button" data-ord="anadir" data-o="${esc(o)}" data-m="${mes}" style="${bmini};height:32px;padding:0 12px;background:#283593;color:#fff">➕ Añadir</button>
+          ${(ovr[o]||{})[mes]?`<button type="button" data-ord="restaurar" data-o="${esc(o)}" data-m="${mes}" title="Volver a los puntos previstos en Teletrabajo" style="${bmini};height:32px;padding:0 12px;background:#f1f5f9;color:#475569">↺ Original</button>`:''}</div>`:''}</details>` : (ed ? `<details style="margin-top:6px"><summary style="cursor:pointer;font-weight:700;color:#283593">📋 Orden del día · ${esc(NOMBRE_ORG[o]||o)} (${MES[+mes-1]}) — sin puntos</summary>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px"><input type="text" data-nuevo="${esc(o)}" maxlength="300" placeholder="Nuevo punto del orden del día" style="font:inherit;flex:1;min-width:180px;border:1px solid #c7d2fe;border-radius:8px;height:32px;padding:0 8px;background:#fff;color:#1f2a37">
+          <button type="button" data-ord="anadir" data-o="${esc(o)}" data-m="${mes}" style="${bmini};height:32px;padding:0 12px;background:#283593;color:#fff">➕ Añadir</button>
+          ${(ovr[o]||{})[mes]?`<button type="button" data-ord="restaurar" data-o="${esc(o)}" data-m="${mes}" title="Volver a los puntos previstos en Teletrabajo" style="${bmini};height:32px;padding:0 12px;background:#f1f5f9;color:#475569">↺ Original</button>`:''}</div></details>` : ''); }).join('');
+      if (bloques) h += `<div style="margin-top:8px">${bloques}</div><div style="color:#64748b;font-size:.8rem;margin-top:6px">${edita()?'Con ✏️ y ✕ modificas o borras un punto; los cambios los ve todo el profesorado y salen en el correo y el PDF. «↺ Original» vuelve a los puntos de Teletrabajo.':'Puntos previstos en la app Teletrabajo; quien convoca puede ajustarlos.'}</div>`;
     }
     h += bloqueActs();
     if (sig) h += `<div style="margin-top:10px;color:#475569;font-size:.88rem">Siguiente: ${DIA[sig.fecha.getDay()]} ${sig.fecha.getDate()} de ${MES[sig.fecha.getMonth()]} · ${ORD[sig.n]||sig.n+'.º'} lunes lectivo${((R.cuadrante||{})[String(sig.n)]||[]).length?' — '+esc(R.cuadrante[String(sig.n)].map(r=>r.nombre).join(', ')):' — sin reuniones de cuadrante'}</div>`;
@@ -121,11 +138,22 @@
       const L = lunesLectivos(cursor, 1)[0];
       if (L){ const lista = (datos.reuniones.cuadrante||{})[String(L.n)] || [];
         const O = (datos.ordenes||{}).organos || {}, mes = pad(L.fecha.getMonth()+1);
-        const ordenes = [...new Set(lista.map(r=>r.organo).filter(Boolean))].map(o=>({organo:NOMBRE_ORG[o]||o, codigo:o, puntos:(O[o]||{})[mes]||[]})).filter(x=>x.puntos.length);
+        const ordenes = [...new Set(lista.map(r=>r.organo).filter(Boolean))].map(o=>({organo:NOMBRE_ORG[o]||o, codigo:o, puntos:puntosDe(O,o,mes)})).filter(x=>x.puntos.length);
         window.reunionesLunes = {fecha:L.fecha, ds:L.ds, n:L.n, lista, ordenes, tutorias:datos.reuniones.tutorias||'16:00 - 17:00'};
         document.dispatchEvent(new CustomEvent('reuniones-lunes'));
       }
     }catch(e){}
+    // Editar / borrar / añadir puntos del orden del día (solo Equipo Directivo con sesión)
+    box.querySelectorAll('[data-ord]').forEach(b=>b.onclick=()=>{
+      if (!edita()) return;
+      const a = b.dataset.ord, o = b.dataset.o, mes = b.dataset.m, i = +b.dataset.i;
+      const pts = puntosDe((datos.ordenes||{}).organos || {}, o, mes).slice();
+      if (a === 'editar'){ const t = prompt('Modificar el punto del orden del día:', pts[i]); if (t === null || !t.trim() || t.trim() === pts[i]) return; pts[i] = t.trim(); guardarOrden(o, mes, pts); }
+      else if (a === 'borrar'){ if (!confirm('¿Borrar este punto del orden del día?\n\n' + pts[i])) return; pts.splice(i,1); guardarOrden(o, mes, pts); }
+      else if (a === 'anadir'){ const inp = b.parentNode.querySelector('[data-nuevo]'), t = inp.value.trim(); if (!t){ inp.focus(); return; } pts.push(t); guardarOrden(o, mes, pts); }
+      else if (a === 'restaurar'){ if (confirm('¿Volver a los puntos originales previstos en Teletrabajo?')) refOrden(o, mes).remove().catch(()=>{}); }
+    });
+    box.querySelectorAll('[data-nuevo]').forEach(inp=>inp.onkeydown=e=>{ if (e.key==='Enter'){ e.preventDefault(); inp.parentNode.querySelector('[data-ord="anadir"]').click(); } });
     box.querySelectorAll('[data-reu]').forEach(b=>{
       const a = b.dataset.reu;
       if (a==='fecha') b.onchange = ()=>{ if (b.value){ cursor = new Date(b.value+'T12:00'); pintarCaja(box); } };
@@ -145,7 +173,7 @@
     const L = lunesLectivos(d, 1)[0]; if (!L || L.ds !== iso(d)) return null;
     const lista = (datos.reuniones.cuadrante||{})[String(L.n)] || [];
     const O = (datos.ordenes||{}).organos || {}, mes = pad(L.fecha.getMonth()+1);
-    const ordenes = [...new Set(lista.map(r=>r.organo).filter(Boolean))].map(o=>({organo:NOMBRE_ORG[o]||o, codigo:o, puntos:(O[o]||{})[mes]||[]})).filter(x=>x.puntos.length);
+    const ordenes = [...new Set(lista.map(r=>r.organo).filter(Boolean))].map(o=>({organo:NOMBRE_ORG[o]||o, codigo:o, puntos:puntosDe(O,o,mes)})).filter(x=>x.puntos.length);
     return {fecha:L.fecha, ds:L.ds, n:L.n, lista, ordenes, tutorias:datos.reuniones.tutorias||'16:00 - 17:00'};
   };
   window.pintarReuniones = async function(sec){
