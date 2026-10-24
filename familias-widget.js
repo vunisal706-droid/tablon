@@ -72,23 +72,24 @@
       let sem = '', num = '', mes = '';
       if (fd){ try{ sem = fd.toLocaleDateString(loc,{weekday:'short'}).replace('.',''); mes = fd.toLocaleDateString(loc,{month:'short'}).replace('.',''); }catch(e){} num = fd.getDate(); }
       const l = dias[f].sort((a,b)=>(a.hora||'').localeCompare(b.hora||''));
-      const tile = fd ? `<div style="flex:0 0 54px;text-align:center;border-radius:12px;overflow:hidden;border:1.5px solid #ddd6fe;background:#fff;align-self:flex-start">
-          <div style="background:#7c3aed;color:#fff;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;padding:2px 0">${esc(sem)}</div>
-          <div style="font-size:1.45rem;font-weight:800;color:#4c1d95;line-height:1.15;padding-top:2px">${num}</div>
-          <div style="font-size:.7rem;color:#6d28d9;text-transform:uppercase;padding-bottom:3px">${esc(mes)}</div></div>` : '';
-      const lista = l.map((x,i)=>`<div style="display:flex;gap:8px;align-items:flex-start;padding:5px 0;${i<l.length-1?'border-bottom:1px dashed #e9d5ff;':''}">
-          ${x.hora?`<span style="flex:0 0 auto;background:#ede9fe;color:#5b21b6;font-weight:800;font-size:.8rem;border-radius:999px;padding:1px 9px;margin-top:2px" dir="ltr">${esc(x.hora)}</span>`:''}
+      const tile = fd ? `<div style="flex:0 0 54px;text-align:center;border-radius:12px;overflow:hidden;border:1px solid #cddcf5;background:#fff;align-self:flex-start">
+          <div style="background:#1f5fbf;color:#fff;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;padding:2px 0">${esc(sem)}</div>
+          <div style="font-size:1.45rem;font-weight:800;color:#14306b;line-height:1.15;padding-top:2px">${num}</div>
+          <div style="font-size:.7rem;color:#1f5fbf;text-transform:uppercase;padding-bottom:3px">${esc(mes)}</div></div>` : '';
+      const lista = l.map((x,i)=>`<div style="display:flex;gap:8px;align-items:flex-start;padding:5px 0;${i<l.length-1?'border-bottom:1px dashed #cddcf5;':''}">
+          ${x.hora?`<span style="flex:0 0 auto;background:#eaf2fd;color:#17489a;font-weight:800;font-size:.8rem;border-radius:999px;padding:1px 9px;margin-top:2px" dir="ltr">${esc(x.hora)}</span>`:''}
           <span style="flex:1;color:#1f2a37;line-height:1.4">${esc(limpio(x.texto))}${!fd&&x.cuando?` <span style="color:#64748b">· ${esc(x.cuando)}</span>`:''}</span></div>`).join('');
-      return `<div class="fam-card" style="display:flex;gap:12px;background:#faf5ff;border:1.5px solid #ddd6fe;border-radius:14px;padding:10px 12px;margin:8px 0">${tile}<div style="flex:1;min-width:0">${lista}</div></div>`;
+      return `<div class="fam-card" style="display:flex;gap:12px;background:#fff;border:1px solid rgba(20,48,107,.10);border-radius:14px;padding:10px 12px;margin:8px 0">${tile}<div style="flex:1;min-width:0">${lista}</div></div>`;
     }).join('');
   }
   function cuandoFam(f, l){ try { return f.toLocaleDateString(LOC[l]||'es-ES', {weekday:'long', day:'numeric', month:'long'}); } catch(e){ return iso(f); } }
   try { lang = localStorage.getItem('tablon-idioma') || ''; } catch(e) {}
   if (!LANGS.some(l=>l.id===lang)) { const n=(navigator.language||'es').slice(0,2); lang = LANGS.some(l=>l.id===n) ? n : 'es'; }
 
-  const card = (borde, fondo, html) => `<div class="fam-card" style="background:${fondo};border:1.5px solid ${borde};border-inline-start:6px solid ${borde};border-radius:14px;padding:10px 14px;margin:8px 0;color:#1f2a37;font-size:.95rem;line-height:1.5">${html}</div>`;
+  // Nota del tablón: punto de color (rojo importante, azul aviso, verde información) y texto
+  const card = (borde, fondo, html) => `<div class="fam-card fam-aviso" style="--c:${borde}">${html}</div>`;
   const COL = {importante:['#dc2626','#fef2f2'], aviso:['#0284c7','#f0f9ff'], info:['#16a34a','#f0fdf4']};
-  const titulo = t => `<div style="font-size:.8rem;font-weight:800;letter-spacing:.03em;color:#334155;margin:14px 0 2px">${t}</div>`;
+  const titulo = t => `<div class="fam-tit">${t}</div>`;
 
   function contenido(){
     const L = LANGS.find(l=>l.id===lang), u = UI[lang];
@@ -101,7 +102,7 @@
       if ((d.tramites||[]).length){
         h += titulo(u.tram);
         d.tramites.forEach(t=> h += card(t.abierto?'#d97706':'#94a3b8', t.abierto?'#fffbeb':'#f8fafc',
-          `<b>${esc(t.emoji)} ${esc(t.nombre)}</b> <span style="display:inline-block;background:${t.abierto?'#d97706':'#64748b'};color:#fff;border-radius:999px;padding:1px 9px;font-size:.8rem;font-weight:800">${esc(t.estado)}</span>${t.detalle?`<div style="margin-top:3px;color:#475569">${esc(t.detalle)}</div>`:''}`));
+          `<b>${esc(t.emoji)} ${esc(t.nombre)}</b> <span class="fam-estado" style="--c:${t.abierto?'#b45309':'#64748b'}">${esc(t.estado)}</span>${t.detalle?`<div style="margin-top:3px;color:#475569">${esc(t.detalle)}</div>`:''}`));
       }
     }
     // Agenda: lo automático (familias.json) + lo que el Equipo Directivo marca «también para familias», agrupado por día
@@ -114,7 +115,7 @@
     if (d){
       if ((datos.boja||[]).length){
         h += titulo(u.boja + (u.bojaNota ? ' ' + u.bojaNota : ''));
-        h += card('#283593', '#eef2ff', datos.boja.map(b=>`<div dir="ltr" style="margin:2px 0;text-align:left"><a href="${esc(b.url)}" target="_blank" rel="noopener" style="color:#283593;font-weight:700">${esc(b.t)}</a></div>`).join(''));
+        h += `<ul class="fam-boja" dir="ltr">` + datos.boja.map(b=>`<li><a href="${esc(b.url)}" target="_blank" rel="noopener" title="${esc(b.t)}"><span class="txt">${esc(b.t)}</span><span class="ir">Leer en el BOJA ↗</span></a></li>`).join('') + `</ul>`;
       }
     }
     h += `<details id="famInfo" style="background:rgba(255,255,255,.95);border:1.5px solid #e2e8f0;border-radius:14px;padding:10px 14px;margin:14px 0 4px;color:#1f2a37;font-size:.95rem;line-height:1.55">
