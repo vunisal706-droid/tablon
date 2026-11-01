@@ -28,7 +28,10 @@
   function cargarAgenda(){
     if (agendaEv) return;
     agendaEv = [];
-    fetch('/agenda/eventos.json', {cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{ agendaEv = (j && j.eventos) || []; pintar(); }).catch(()=>{});
+    fetch('/agenda/eventos.json', {cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{ agendaEv = agendaEv.concat((j && j.eventos) || []); pintar(); }).catch(()=>{});
+    // Reuniones registradas en Programas del cole (quincenales PROA, comisiones PROA+, coordinación ZTS)
+    fetch('https://gestorpt-7946b-default-rtdb.europe-west1.firebasedatabase.app/programas_publico/citas.json', {cache:'no-cache'}).then(r=>r.ok?r.json():null)
+      .then(j=>{ if (j) { agendaEv = agendaEv.concat(Object.values(j).filter(c=>c && c.fecha && c.titulo)); pintar(); } }).catch(()=>{});
   }
   const agSemana = S => (agendaEv||[]).filter(e=>e.fecha>=S.desde && e.fecha<=S.hasta).sort((a,b)=>(a.fecha+(a.hora||'')).localeCompare(b.fecha+(b.hora||'')));
   const agComoAct = e => ({fecha:e.fecha, hora:e.hora||'', texto:e.titulo + (e.enlace ? ` · Enlace: ${e.enlace}` : ''), agenda:true});   // editando = clave de la actividad que se está modificando
@@ -235,7 +238,7 @@
 
 // ===== Novedades (salen una sola vez en cada dispositivo) =====
 window._novTablonDir = function(){
-  var ID='2026-11-01a', K='novedades-tablon-directivo', ITEMS=["📅 En el <b>correo semanal</b> aparecen las citas de la <b>Agenda</b> de esa semana (formaciones del personal, salidas, excursiones…). <b>Marca</b> las que quieras y saldrán en el correo y en el PDF; si no las marcas, no salen.", "✏️ Las <b>otras actividades</b> ya se pueden <b>modificar</b> (botón ✏️: cambia fecha, hora, texto o si sale en Familias) y <b>borrar</b> (✕).", "📋 En el <b>orden del día</b> de cada equipo ahora puedes <b>modificar</b> (✏️) o <b>borrar</b> (✕) cada punto y <b>añadir</b> puntos nuevos. Los cambios los ve todo el profesorado y salen en el correo y el PDF. Con «↺ Original» vuelves a los puntos de Teletrabajo.", ];
+  var ID='2026-11-01b', K='novedades-tablon-directivo', ITEMS=["📅 En el <b>correo semanal</b> aparecen las citas de la <b>Agenda</b> de esa semana (formaciones del personal, salidas, excursiones…) y las reuniones de <b>Programas del cole</b> (quincenales del PROA, comisiones del PROA+, coordinación ZTS). <b>Marca</b> las que quieras y saldrán en el correo y en el PDF; si no las marcas, no salen.", "✏️ Las <b>otras actividades</b> ya se pueden <b>modificar</b> (botón ✏️: cambia fecha, hora, texto o si sale en Familias) y <b>borrar</b> (✕).", "📋 En el <b>orden del día</b> de cada equipo ahora puedes <b>modificar</b> (✏️) o <b>borrar</b> (✕) cada punto y <b>añadir</b> puntos nuevos. Los cambios los ve todo el profesorado y salen en el correo y el PDF. Con «↺ Original» vuelves a los puntos de Teletrabajo.", ];
   function ver(){ try{ if(localStorage.getItem(K)===ID) return; }catch(e){ return; }
     var d=document.createElement('div');
     d.style.cssText='position:fixed;inset:0;background:rgba(15,23,42,.55);display:flex;align-items:center;justify-content:center;z-index:99999;padding:18px;font-family:inherit';
