@@ -20,7 +20,18 @@
     for (const e of (window.ENLACES_ORDEN||[])){ if (new RegExp(e.patron,'i').test(p) && !out.some(x=>x.url===e.url)) out.push(e); if (out.length>=3) break; }
     return out;
   };
-  let actividades = {}, escucha = null, seccion = null, lunesSel = null, editando = null;   // editando = clave de la actividad que se está modificando
+  let actividades = {}, escucha = null, seccion = null, lunesSel = null, editando = null;
+  // Citas de la Agenda (formaciones del personal, salidas, excursiones, actividades…): se ofrecen para marcarlas
+  let agendaEv = null, agSel = {};
+  try { agSel = JSON.parse(localStorage.getItem('tablon-agenda-sel') || '{}') || {}; } catch(e){}
+  const agId = e => e.fecha + '|' + e.titulo;
+  function cargarAgenda(){
+    if (agendaEv) return;
+    agendaEv = [];
+    fetch('/agenda/eventos.json', {cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{ agendaEv = (j && j.eventos) || []; pintar(); }).catch(()=>{});
+  }
+  const agSemana = S => (agendaEv||[]).filter(e=>e.fecha>=S.desde && e.fecha<=S.hasta).sort((a,b)=>(a.fecha+(a.hora||'')).localeCompare(b.fecha+(b.hora||'')));
+  const agComoAct = e => ({fecha:e.fecha, hora:e.hora||'', texto:e.titulo + (e.enlace ? ` · Enlace: ${e.enlace}` : ''), agenda:true});   // editando = clave de la actividad que se está modificando
   const ref = () => firebase.database().ref('actividades_profesorado');
   const usuario = () => { const u = firebase.auth().currentUser; return u && u.email ? u.email.split('@')[0].toLowerCase() : ''; };
 
@@ -39,7 +50,9 @@
 
   function correo(){
     const S = semana(), R = window.reunionesDeLunes ? window.reunionesDeLunes(S.lunes) : null, yo = FIRMAS[document.getElementById('dirFirma').value] || {};
-    const acts = Object.values(actividades).filter(a=>a.fecha>=S.desde && a.fecha<=S.hasta).sort((a,b)=>(a.fecha+(a.hora||'')).localeCompare(b.fecha+(b.hora||'')));
+    const acts = Object.values(actividades).filter(a=>a.fecha>=S.desde && a.fecha<=S.hasta)
+      .concat(agSemana(S).filter(e=>agSel[agId(e)]).map(agComoAct))
+      .sort((a,b)=>(a.fecha+(a.hora||'')).localeCompare(b.fecha+(b.hora||'')));
     const asunto = `Reuniones y actividades de la semana del ${S.lunes.getDate()}${S.lunes.getMonth()!==S.viernes.getMonth()?' de '+MES[S.lunes.getMonth()]:''} al ${S.viernes.getDate()} de ${MES[S.viernes.getMonth()]}`;
     let t = `Buenos días, compañeros y compañeras:\n\n`;
     const sc = window.CalendarioCole ? CalendarioCole.sinCole(S.desde) : null;
@@ -99,6 +112,10 @@
         <button type="button" data-fam="${esc(k)}" title="${a.familias?'Se ve también en Familias (pulsa para quitar)':'Solo profesorado (pulsa para mostrar también a las familias)'}" style="${btn};height:28px;padding:0 8px;white-space:nowrap;${a.familias?'background:#dcfce7;color:#166534':'background:#f1f5f9;color:#94a3b8'}">👨‍👩‍👧 ${a.familias?'Sí':'No'}</button>
         <button type="button" data-editar="${esc(k)}" title="Modificar" style="${btn};height:28px;padding:0 8px;${k===editando?'background:#d97706;color:#fff':'background:#e0e7ff;color:#283593'}">✏️</button>
         <button type="button" data-borrar="${esc(k)}" title="Borrar" style="${btn};height:28px;padding:0 8px;background:#fee2e2;color:#b91c1c">✕</button></div>`).join('') : '<div style="color:#92400e">Todavía no hay actividades añadidas para esta semana.</div>'}</div>
+      ${(()=>{ const ag = agSemana(S); return ag.length ? `<div style="margin-top:10px;font-weight:700">📅 De la Agenda <span style="font-weight:400;color:#92400e;font-size:.85rem">(formaciones, salidas, excursiones… marca las que quieras que salgan en el correo y el PDF)</span></div>
+        <div style="display:grid;gap:4px;margin-top:4px">${ag.map(e=>{ const on = !!agSel[agId(e)]; return `<label style="background:${on?'#ecfdf5':'#fff'};border:1px solid ${on?'#86efac':'#e2e8f0'};border-radius:8px;padding:6px 10px;display:flex;gap:8px;align-items:center;cursor:pointer">
+          <input type="checkbox" data-ag="${esc(agId(e))}" ${on?'checked':''} style="width:18px;height:18px;flex:0 0 auto">
+          <span style="flex:1"><b>${esc(fechaLarga(e.fecha))}${e.hora?`, ${esc(e.hora)}`:''}</b> · ${esc(e.titulo)}${e.detalle?` <span style="color:#64748b;font-size:.82rem">— ${esc(e.detalle.split('\n')[0])}</span>`:''}</span></label>`; }).join('')}</div>` : ''; })()}
       <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px">
         ${E?`<div style="width:100%;font-weight:700;color:#b45309">✏️ Modificando la actividad:</div>`:''}
         <input type="date" id="dirFecha" value="${E?esc(E.fecha):S.desde}" ${E?'':`min="${S.desde}" max="${S.hasta}"`} style="${inp}">
@@ -147,6 +164,7 @@
       if (!k) lunesSel = null; else { const d = new Date(semana().lunes); d.setDate(d.getDate()+7*k); lunesSel = d; }
       pintar();
     });
+    box.querySelectorAll('[data-ag]').forEach(c=>c.onchange=()=>{ if (c.checked) agSel[c.dataset.ag] = 1; else delete agSel[c.dataset.ag]; try{ localStorage.setItem('tablon-agenda-sel', JSON.stringify(agSel)); }catch(e){} pintar(); });
     box.querySelectorAll('[data-fam]').forEach(b=>b.onclick=()=>{ const a = actividades[b.dataset.fam]; if (a) ref().child(b.dataset.fam).update({familias:!a.familias}).catch(fallo); });
     box.querySelectorAll('[data-borrar]').forEach(b=>b.onclick=()=>{ if (confirm('¿Borrar esta actividad?')){ if (editando===b.dataset.borrar) editando = null; ref().child(b.dataset.borrar).remove().catch(fallo); } });
     document.getElementById('dirGen').onclick = ()=>{
@@ -199,6 +217,7 @@
 
   window.pintarCorreo = function(sec){
     seccion = sec;
+    if (sec === 'directivo') cargarAgenda();
     if (window.pintarReuniones) window.pintarReuniones(sec);
     if (sec === 'directivo' && window.adminActivo && !escucha){
       escucha = ref().on('value', s=>{ actividades = s.val() || {}; delete actividades._ordenes;   // _ordenes = órdenes del día editados (no son actividades)
@@ -216,7 +235,7 @@
 
 // ===== Novedades (salen una sola vez en cada dispositivo) =====
 window._novTablonDir = function(){
-  var ID='2026-10-23a', K='novedades-tablon-directivo', ITEMS=["✏️ Las <b>otras actividades</b> ya se pueden <b>modificar</b> (botón ✏️: cambia fecha, hora, texto o si sale en Familias) y <b>borrar</b> (✕).", "📋 En el <b>orden del día</b> de cada equipo ahora puedes <b>modificar</b> (✏️) o <b>borrar</b> (✕) cada punto y <b>añadir</b> puntos nuevos. Los cambios los ve todo el profesorado y salen en el correo y el PDF. Con «↺ Original» vuelves a los puntos de Teletrabajo.", ];
+  var ID='2026-11-01a', K='novedades-tablon-directivo', ITEMS=["📅 En el <b>correo semanal</b> aparecen las citas de la <b>Agenda</b> de esa semana (formaciones del personal, salidas, excursiones…). <b>Marca</b> las que quieras y saldrán en el correo y en el PDF; si no las marcas, no salen.", "✏️ Las <b>otras actividades</b> ya se pueden <b>modificar</b> (botón ✏️: cambia fecha, hora, texto o si sale en Familias) y <b>borrar</b> (✕).", "📋 En el <b>orden del día</b> de cada equipo ahora puedes <b>modificar</b> (✏️) o <b>borrar</b> (✕) cada punto y <b>añadir</b> puntos nuevos. Los cambios los ve todo el profesorado y salen en el correo y el PDF. Con «↺ Original» vuelves a los puntos de Teletrabajo.", ];
   function ver(){ try{ if(localStorage.getItem(K)===ID) return; }catch(e){ return; }
     var d=document.createElement('div');
     d.style.cssText='position:fixed;inset:0;background:rgba(15,23,42,.55);display:flex;align-items:center;justify-content:center;z-index:99999;padding:18px;font-family:inherit';

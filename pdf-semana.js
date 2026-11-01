@@ -102,7 +102,7 @@
     if (d.acts.length){
       content.push({table:{widths:[110,'*'], body:d.acts.map(a=>[
         {text:[{text:may(fechaLarga(a.fecha)), bold:true}, a.hora?{text:`\n${a.hora}`, color:C.oro, bold:true}:''], fontSize:10},
-        {text:a.texto + (a.familias?'':''), fontSize:10, color:C.texto}])},
+        (()=>{ const m = String(a.texto).split(' · Enlace: '); return m[1] ? {text:[m[0]+'  ', {text:'Enlace', link:m[1], color:'#1557b0', decoration:'underline', bold:true}], fontSize:10, color:C.texto} : {text:a.texto, fontSize:10, color:C.texto}; })()])},
         layout:{fillColor:i=>i%2?C.oroClaro:'#fffdf8', hLineWidth:()=>0, vLineWidth:i=>i===0?3:0, vLineColor:()=>C.oro, paddingTop:()=>6, paddingBottom:()=>6, paddingLeft:()=>9, paddingRight:()=>9}});
     } else content.push({text:'No hay otras actividades previstas.', italics:true, color:C.gris, fontSize:10});
 
