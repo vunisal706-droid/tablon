@@ -1,10 +1,10 @@
 {
- "actualizado": "2026-11-07T12:36+01:00",
+ "actualizado": "2026-11-07T21:04+01:00",
  "avisos": [
   {
    "emoji": "🌧️",
    "titulo": "Previsión de lluvia el lunes 9 de noviembre a la entrada (9:00)",
-   "texto": "Probabilidad de lluvia: 77 %. Si llueve a la entrada, el alumnado de Infantil y del aula TEA entra por el patio de Infantil directamente a sus clases, y el alumnado de Primaria sube directamente a clase sin hacer la fila.",
+   "texto": "Probabilidad de lluvia: 60 %. Si llueve a la entrada, el alumnado de Infantil y del aula TEA entra por el patio de Infantil directamente a sus clases, y el alumnado de Primaria sube directamente a clase sin hacer la fila.",
    "nivel": "aviso"
   }
  ],
@@ -26,7 +26,7 @@
     {
      "emoji": "🌧️",
      "titulo": "توقّع هطول أمطار يوم الاثنين 9 نوفمبر عند الدخول (9:00)",
-     "texto": "احتمال المطر: 77٪. إذا كانت تمطر عند الدخول، يدخل تلاميذ مرحلة الروضة (Infantil) وقسم التوحد (TEA) من ساحة الروضة مباشرة إلى أقسامهم، ويصعد تلاميذ الابتدائي مباشرة إلى القسم دون الوقوف في الصف.",
+     "texto": "احتمال المطر: 60٪. إذا كانت تمطر عند الدخول، يدخل تلاميذ مرحلة الروضة (Infantil) وقسم التوحد (TEA) من ساحة الروضة مباشرة إلى أقسامهم، ويصعد تلاميذ الابتدائي مباشرة إلى القسم دون الوقوف في الصف.",
      "nivel": "aviso"
     }
    ],
@@ -47,7 +47,7 @@
     {
      "emoji": "🌧️",
      "titulo": "Se prognozează ploaie luni, 9 noiembrie la intrare (9:00)",
-     "texto": "Probabilitate de ploaie: 77 %. Dacă plouă la intrare, elevii de la Infantil și din clasa TEA intră prin curtea de la Infantil direct în clasele lor, iar elevii de la Primaria urcă direct în clasă, fără să se mai așeze la rând.",
+     "texto": "Probabilitate de ploaie: 60 %. Dacă plouă la intrare, elevii de la Infantil și din clasa TEA intră prin curtea de la Infantil direct în clasele lor, iar elevii de la Primaria urcă direct în clasă, fără să se mai așeze la rând.",
      "nivel": "aviso"
     }
    ],
@@ -68,7 +68,7 @@
     {
      "emoji": "🌧️",
      "titulo": "Rain forecast on Monday 9 November at drop-off (9:00)",
-     "texto": "Chance of rain: 77%. If it rains at drop-off, Infant (Infantil) and TEA classroom pupils go in through the Infantil playground straight to their classrooms, and Primary pupils go straight up to class without lining up.",
+     "texto": "Chance of rain: 60%. If it rains at drop-off, Infant (Infantil) and TEA classroom pupils go in through the Infantil playground straight to their classrooms, and Primary pupils go straight up to class without lining up.",
      "nivel": "aviso"
     }
    ],
@@ -89,7 +89,7 @@
     {
      "emoji": "🌧️",
      "titulo": "Pluie prévue le lundi 9 novembre à l'entrée (9h00)",
-     "texto": "Probabilité de pluie : 77 %. S'il pleut à l'entrée, les élèves d'Infantil et de la classe TEA entrent par la cour d'Infantil directement dans leurs classes, et les élèves de Primaire montent directement en classe sans faire la file.",
+     "texto": "Probabilité de pluie : 60 %. S'il pleut à l'entrée, les élèves d'Infantil et de la classe TEA entrent par la cour d'Infantil directement dans leurs classes, et les élèves de Primaire montent directement en classe sans faire la file.",
      "nivel": "aviso"
     }
    ],
