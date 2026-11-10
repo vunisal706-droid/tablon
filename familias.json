@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-11-10T14:21+01:00",
+ "actualizado": "2026-11-10T22:43+01:00",
  "avisos": [
   {
    "emoji": "⚠️",
@@ -10,7 +10,7 @@
   {
    "emoji": "🌧️",
    "titulo": "Previsión de lluvia mañana a la salida (13:50)",
-   "texto": "Probabilidad de lluvia: 88 %. Si llueve a la salida, la recogida del alumnado de Infantil y del aula TEA se hace también por el patio de Infantil.",
+   "texto": "Probabilidad de lluvia: 85 %. Si llueve a la salida, la recogida del alumnado de Infantil y del aula TEA se hace también por el patio de Infantil.",
    "nivel": "aviso"
   }
  ],
@@ -38,7 +38,7 @@
     {
      "emoji": "🌧️",
      "titulo": "توقّع هطول أمطار غداً عند الخروج (13:50)",
-     "texto": "احتمال المطر: 88٪. إذا كانت تمطر عند الخروج، يتمّ استلام تلاميذ الروضة وقسم التوحد (TEA) أيضاً من ساحة الروضة.",
+     "texto": "احتمال المطر: 85٪. إذا كانت تمطر عند الخروج، يتمّ استلام تلاميذ الروضة وقسم التوحد (TEA) أيضاً من ساحة الروضة.",
      "nivel": "aviso"
     }
    ],
@@ -65,7 +65,7 @@
     {
      "emoji": "🌧️",
      "titulo": "Se prognozează ploaie mâine la ieșire (13:50)",
-     "texto": "Probabilitate de ploaie: 88 %. Dacă plouă la ieșire, copiii de la Infantil și din clasa TEA se ridică tot prin curtea de la Infantil.",
+     "texto": "Probabilitate de ploaie: 85 %. Dacă plouă la ieșire, copiii de la Infantil și din clasa TEA se ridică tot prin curtea de la Infantil.",
      "nivel": "aviso"
     }
    ],
@@ -92,7 +92,7 @@
     {
      "emoji": "🌧️",
      "titulo": "Rain forecast tomorrow at pick-up (13:50)",
-     "texto": "Chance of rain: 88%. If it rains at pick-up, Infantil and TEA classroom pupils are also collected through the Infantil playground.",
+     "texto": "Chance of rain: 85%. If it rains at pick-up, Infantil and TEA classroom pupils are also collected through the Infantil playground.",
      "nivel": "aviso"
     }
    ],
@@ -119,7 +119,7 @@
     {
      "emoji": "🌧️",
      "titulo": "Pluie prévue demain à la sortie (13h50)",
-     "texto": "Probabilité de pluie : 88 %. S'il pleut à la sortie, les élèves d'Infantil et de la classe TEA se récupèrent aussi par la cour d'Infantil.",
+     "texto": "Probabilité de pluie : 85 %. S'il pleut à la sortie, les élèves d'Infantil et de la classe TEA se récupèrent aussi par la cour d'Infantil.",
      "nivel": "aviso"
     }
    ],
