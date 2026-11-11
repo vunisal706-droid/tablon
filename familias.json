@@ -1,17 +1,11 @@
 {
- "actualizado": "2026-11-10T22:43+01:00",
+ "actualizado": "2026-11-11T13:33+01:00",
  "avisos": [
   {
    "emoji": "⚠️",
    "titulo": "Aviso naranja de AEMET por aviso de vientos de nivel naranja",
    "texto": "Sigue las indicaciones de Protección Civil y del centro.",
    "nivel": "importante"
-  },
-  {
-   "emoji": "🌧️",
-   "titulo": "Previsión de lluvia mañana a la salida (13:50)",
-   "texto": "Probabilidad de lluvia: 85 %. Si llueve a la salida, la recogida del alumnado de Infantil y del aula TEA se hace también por el patio de Infantil.",
-   "nivel": "aviso"
   }
  ],
  "tramites": [
@@ -34,12 +28,6 @@
      "titulo": "تحذير برتقالي من وكالة الأرصاد (AEMET): الرياح",
      "texto": "اتّبعوا تعليمات الحماية المدنية والمدرسة.",
      "nivel": "importante"
-    },
-    {
-     "emoji": "🌧️",
-     "titulo": "توقّع هطول أمطار غداً عند الخروج (13:50)",
-     "texto": "احتمال المطر: 85٪. إذا كانت تمطر عند الخروج، يتمّ استلام تلاميذ الروضة وقسم التوحد (TEA) أيضاً من ساحة الروضة.",
-     "nivel": "aviso"
     }
    ],
    "tramites": [
@@ -61,12 +49,6 @@
      "titulo": "Avertizare portocalie AEMET: vânt",
      "texto": "Urmați indicațiile Protecției Civile și ale școlii.",
      "nivel": "importante"
-    },
-    {
-     "emoji": "🌧️",
-     "titulo": "Se prognozează ploaie mâine la ieșire (13:50)",
-     "texto": "Probabilitate de ploaie: 85 %. Dacă plouă la ieșire, copiii de la Infantil și din clasa TEA se ridică tot prin curtea de la Infantil.",
-     "nivel": "aviso"
     }
    ],
    "tramites": [
@@ -88,12 +70,6 @@
      "titulo": "AEMET orange weather warning: wind",
      "texto": "Follow the instructions of Civil Protection and the school.",
      "nivel": "importante"
-    },
-    {
-     "emoji": "🌧️",
-     "titulo": "Rain forecast tomorrow at pick-up (13:50)",
-     "texto": "Chance of rain: 85%. If it rains at pick-up, Infantil and TEA classroom pupils are also collected through the Infantil playground.",
-     "nivel": "aviso"
     }
    ],
    "tramites": [
@@ -115,12 +91,6 @@
      "titulo": "Alerte orange AEMET : vent",
      "texto": "Suivez les consignes de la Protection civile et de l’école.",
      "nivel": "importante"
-    },
-    {
-     "emoji": "🌧️",
-     "titulo": "Pluie prévue demain à la sortie (13h50)",
-     "texto": "Probabilité de pluie : 85 %. S'il pleut à la sortie, les élèves d'Infantil et de la classe TEA se récupèrent aussi par la cour d'Infantil.",
-     "nivel": "aviso"
     }
    ],
    "tramites": [
