@@ -1,13 +1,6 @@
 {
- "actualizado": "2026-11-11T23:34+01:00",
- "avisos": [
-  {
-   "emoji": "⚠️",
-   "titulo": "Aviso naranja de AEMET por aviso de vientos de nivel naranja",
-   "texto": "Sigue las indicaciones de Protección Civil y del centro.",
-   "nivel": "importante"
-  }
- ],
+ "actualizado": "2026-11-12T14:38+01:00",
+ "avisos": [],
  "tramites": [
   {
    "emoji": "🗳️",
@@ -22,14 +15,7 @@
  "boja": [],
  "idiomas": {
   "ar": {
-   "avisos": [
-    {
-     "emoji": "⚠️",
-     "titulo": "تحذير برتقالي من وكالة الأرصاد (AEMET): الرياح",
-     "texto": "اتّبعوا تعليمات الحماية المدنية والمدرسة.",
-     "nivel": "importante"
-    }
-   ],
+   "avisos": [],
    "tramites": [
     {
      "emoji": "🗳️",
@@ -43,14 +29,7 @@
    "semana": []
   },
   "ro": {
-   "avisos": [
-    {
-     "emoji": "⚠️",
-     "titulo": "Avertizare portocalie AEMET: vânt",
-     "texto": "Urmați indicațiile Protecției Civile și ale școlii.",
-     "nivel": "importante"
-    }
-   ],
+   "avisos": [],
    "tramites": [
     {
      "emoji": "🗳️",
@@ -64,14 +43,7 @@
    "semana": []
   },
   "en": {
-   "avisos": [
-    {
-     "emoji": "⚠️",
-     "titulo": "AEMET orange weather warning: wind",
-     "texto": "Follow the instructions of Civil Protection and the school.",
-     "nivel": "importante"
-    }
-   ],
+   "avisos": [],
    "tramites": [
     {
      "emoji": "🗳️",
@@ -85,14 +57,7 @@
    "semana": []
   },
   "fr": {
-   "avisos": [
-    {
-     "emoji": "⚠️",
-     "titulo": "Alerte orange AEMET : vent",
-     "texto": "Suivez les consignes de la Protection civile et de l’école.",
-     "nivel": "importante"
-    }
-   ],
+   "avisos": [],
    "tramites": [
     {
      "emoji": "🗳️",
