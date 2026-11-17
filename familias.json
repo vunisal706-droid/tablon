@@ -1,14 +1,14 @@
 {
- "actualizado": "2026-11-16T14:27+01:00",
+ "actualizado": "2026-11-17T01:06+01:00",
  "avisos": [],
  "tramites": [
   {
    "emoji": "🗳️",
    "nombre": "Elecciones al Consejo Escolar: votan las familias",
    "detalle": "Votación presencial en el colegio (también hay voto electrónico). Consulta los horarios en el tablón.",
-   "estado": "Empieza el martes 17 de noviembre",
+   "estado": "Hoy",
    "hasta": "2026-11-17",
-   "abierto": false
+   "abierto": true
   }
  ],
  "semana": [
@@ -37,9 +37,9 @@
      "emoji": "🗳️",
      "nombre": "انتخابات المجلس المدرسي: تصويت الأسر",
      "detalle": "التصويت حضورياً في المدرسة (يوجد أيضاً تصويت إلكتروني). راجعوا المواعيد في لوحة الإعلانات.",
-     "estado": "يبدأ يوم الثلاثاء 17 نوفمبر",
+     "estado": "اليوم",
      "hasta": "2026-11-17",
-     "abierto": false
+     "abierto": true
     }
    ],
    "semana": [
@@ -67,9 +67,9 @@
      "emoji": "🗳️",
      "nombre": "Alegeri pentru Consiliul Școlar: votează familiile",
      "detalle": "Vot cu prezență la școală (există și vot electronic). Vedeți orarul la avizier.",
-     "estado": "Începe marți, 17 noiembrie",
+     "estado": "Azi",
      "hasta": "2026-11-17",
-     "abierto": false
+     "abierto": true
     }
    ],
    "semana": [
@@ -97,9 +97,9 @@
      "emoji": "🗳️",
      "nombre": "School Council elections: families vote",
      "detalle": "In-person voting at the school (online voting is also available). See the times on the notice board.",
-     "estado": "Starts on Tuesday 17 November",
+     "estado": "Today",
      "hasta": "2026-11-17",
-     "abierto": false
+     "abierto": true
     }
    ],
    "semana": [
@@ -127,9 +127,9 @@
      "emoji": "🗳️",
      "nombre": "Élections au Conseil d'école : les familles votent",
      "detalle": "Vote sur place à l'école (vote électronique aussi possible). Consultez les horaires au tableau d'affichage.",
-     "estado": "Commence le mardi 17 novembre",
+     "estado": "Aujourd'hui",
      "hasta": "2026-11-17",
-     "abierto": false
+     "abierto": true
     }
    ],
    "semana": [
