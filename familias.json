@@ -1,16 +1,14 @@
 {
- "actualizado": "2026-11-17T15:13+01:00",
- "avisos": [],
- "tramites": [
+ "actualizado": "2026-11-18T00:25+01:00",
+ "avisos": [
   {
-   "emoji": "🗳️",
-   "nombre": "Elecciones al Consejo Escolar: votan las familias",
-   "detalle": "Votación presencial en el colegio (también hay voto electrónico). Consulta los horarios en el tablón.",
-   "estado": "Hoy",
-   "hasta": "2026-11-17",
-   "abierto": true
+   "emoji": "🌧️",
+   "titulo": "Previsión de lluvia hoy a la salida (13:50)",
+   "texto": "Probabilidad de lluvia: 53 %. Si llueve a la salida, la recogida del alumnado de Infantil y del aula TEA se hace también por el patio de Infantil.",
+   "nivel": "aviso"
   }
  ],
+ "tramites": [],
  "semana": [
   {
    "fecha": "2026-11-16",
@@ -31,17 +29,15 @@
  "boja": [],
  "idiomas": {
   "ar": {
-   "avisos": [],
-   "tramites": [
+   "avisos": [
     {
-     "emoji": "🗳️",
-     "nombre": "انتخابات المجلس المدرسي: تصويت الأسر",
-     "detalle": "التصويت حضورياً في المدرسة (يوجد أيضاً تصويت إلكتروني). راجعوا المواعيد في لوحة الإعلانات.",
-     "estado": "اليوم",
-     "hasta": "2026-11-17",
-     "abierto": true
+     "emoji": "🌧️",
+     "titulo": "توقّع هطول أمطار اليوم عند الخروج (13:50)",
+     "texto": "احتمال المطر: 53٪. إذا كانت تمطر عند الخروج، يتمّ استلام تلاميذ الروضة وقسم التوحد (TEA) أيضاً من ساحة الروضة.",
+     "nivel": "aviso"
     }
    ],
+   "tramites": [],
    "semana": [
     {
      "fecha": "2026-11-16",
@@ -61,17 +57,15 @@
    ]
   },
   "ro": {
-   "avisos": [],
-   "tramites": [
+   "avisos": [
     {
-     "emoji": "🗳️",
-     "nombre": "Alegeri pentru Consiliul Școlar: votează familiile",
-     "detalle": "Vot cu prezență la școală (există și vot electronic). Vedeți orarul la avizier.",
-     "estado": "Azi",
-     "hasta": "2026-11-17",
-     "abierto": true
+     "emoji": "🌧️",
+     "titulo": "Se prognozează ploaie azi la ieșire (13:50)",
+     "texto": "Probabilitate de ploaie: 53 %. Dacă plouă la ieșire, copiii de la Infantil și din clasa TEA se ridică tot prin curtea de la Infantil.",
+     "nivel": "aviso"
     }
    ],
+   "tramites": [],
    "semana": [
     {
      "fecha": "2026-11-16",
@@ -91,17 +85,15 @@
    ]
   },
   "en": {
-   "avisos": [],
-   "tramites": [
+   "avisos": [
     {
-     "emoji": "🗳️",
-     "nombre": "School Council elections: families vote",
-     "detalle": "In-person voting at the school (online voting is also available). See the times on the notice board.",
-     "estado": "Today",
-     "hasta": "2026-11-17",
-     "abierto": true
+     "emoji": "🌧️",
+     "titulo": "Rain forecast today at pick-up (13:50)",
+     "texto": "Chance of rain: 53%. If it rains at pick-up, Infantil and TEA classroom pupils are also collected through the Infantil playground.",
+     "nivel": "aviso"
     }
    ],
+   "tramites": [],
    "semana": [
     {
      "fecha": "2026-11-16",
@@ -121,17 +113,15 @@
    ]
   },
   "fr": {
-   "avisos": [],
-   "tramites": [
+   "avisos": [
     {
-     "emoji": "🗳️",
-     "nombre": "Élections au Conseil d'école : les familles votent",
-     "detalle": "Vote sur place à l'école (vote électronique aussi possible). Consultez les horaires au tableau d'affichage.",
-     "estado": "Aujourd'hui",
-     "hasta": "2026-11-17",
-     "abierto": true
+     "emoji": "🌧️",
+     "titulo": "Pluie prévue aujourd'hui à la sortie (13h50)",
+     "texto": "Probabilité de pluie : 53 %. S'il pleut à la sortie, les élèves d'Infantil et de la classe TEA se récupèrent aussi par la cour d'Infantil.",
+     "nivel": "aviso"
     }
    ],
+   "tramites": [],
    "semana": [
     {
      "fecha": "2026-11-16",
