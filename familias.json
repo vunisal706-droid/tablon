@@ -1,13 +1,6 @@
 {
- "actualizado": "2026-11-18T00:25+01:00",
- "avisos": [
-  {
-   "emoji": "🌧️",
-   "titulo": "Previsión de lluvia hoy a la salida (13:50)",
-   "texto": "Probabilidad de lluvia: 53 %. Si llueve a la salida, la recogida del alumnado de Infantil y del aula TEA se hace también por el patio de Infantil.",
-   "nivel": "aviso"
-  }
- ],
+ "actualizado": "2026-11-18T14:44+01:00",
+ "avisos": [],
  "tramites": [],
  "semana": [
   {
@@ -29,14 +22,7 @@
  "boja": [],
  "idiomas": {
   "ar": {
-   "avisos": [
-    {
-     "emoji": "🌧️",
-     "titulo": "توقّع هطول أمطار اليوم عند الخروج (13:50)",
-     "texto": "احتمال المطر: 53٪. إذا كانت تمطر عند الخروج، يتمّ استلام تلاميذ الروضة وقسم التوحد (TEA) أيضاً من ساحة الروضة.",
-     "nivel": "aviso"
-    }
-   ],
+   "avisos": [],
    "tramites": [],
    "semana": [
     {
@@ -57,14 +43,7 @@
    ]
   },
   "ro": {
-   "avisos": [
-    {
-     "emoji": "🌧️",
-     "titulo": "Se prognozează ploaie azi la ieșire (13:50)",
-     "texto": "Probabilitate de ploaie: 53 %. Dacă plouă la ieșire, copiii de la Infantil și din clasa TEA se ridică tot prin curtea de la Infantil.",
-     "nivel": "aviso"
-    }
-   ],
+   "avisos": [],
    "tramites": [],
    "semana": [
     {
@@ -85,14 +64,7 @@
    ]
   },
   "en": {
-   "avisos": [
-    {
-     "emoji": "🌧️",
-     "titulo": "Rain forecast today at pick-up (13:50)",
-     "texto": "Chance of rain: 53%. If it rains at pick-up, Infantil and TEA classroom pupils are also collected through the Infantil playground.",
-     "nivel": "aviso"
-    }
-   ],
+   "avisos": [],
    "tramites": [],
    "semana": [
     {
@@ -113,14 +85,7 @@
    ]
   },
   "fr": {
-   "avisos": [
-    {
-     "emoji": "🌧️",
-     "titulo": "Pluie prévue aujourd'hui à la sortie (13h50)",
-     "texto": "Probabilité de pluie : 53 %. S'il pleut à la sortie, les élèves d'Infantil et de la classe TEA se récupèrent aussi par la cour d'Infantil.",
-     "nivel": "aviso"
-    }
-   ],
+   "avisos": [],
    "tramites": [],
    "semana": [
     {
