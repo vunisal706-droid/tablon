@@ -15,12 +15,26 @@
   let acts = {}, escuchaActs = false;   // actividades de la semana que añade el Equipo Directivo (Firebase)
   // Órdenes del día editados por el Equipo Directivo (se guardan en actividades_profesorado/_ordenes/ÓRGANO/MES y mandan sobre los de Teletrabajo)
   let ovr = {};
-  const puntosDe = (O, o, mes) => { const x = (ovr[o]||{})[mes]; return x ? (x.puntos||[]) : ((O[o]||{})[mes]||[]); };
+  // Si Teletrabajo cambia sus puntos después de una edición en el Tablón, se mezclan: entran los puntos nuevos
+  // de Teletrabajo (antes de «Ruegos y preguntas») y salen los que Teletrabajo ha quitado; lo editado aquí se respeta.
+  const puntosTT = (O, o, mes) => ((O[o]||{})[mes]||[]);
+  const puntosDe = (O, o, mes) => {
+    const x = (ovr[o]||{})[mes], tt = puntosTT(O, o, mes);
+    if (!x) return tt;
+    let res = (x.puntos||[]).slice();
+    const base = Array.isArray(x.base) ? x.base : null;
+    if (!base || base.join('\n') === tt.join('\n')) return res;   // ediciones antiguas (sin base): se respetan tal cual
+    if (base) res = res.filter(p => !(base.includes(p) && !tt.includes(p)));
+    const nuevos = tt.filter(p => !(base || []).includes(p) && !res.includes(p));
+    nuevos.forEach(p => { const k = res.findIndex(q => /^ruegos y preguntas/i.test(q)); if (k < 0) res.push(p); else res.splice(k, 0, p); });
+    return res;
+  };
   const edita = () => secActual === 'directivo' && window.adminActivo;
   const refOrden = (o, mes) => firebase.database().ref('actividades_profesorado/_ordenes/'+o+'/'+mes);
   function guardarOrden(o, mes, puntos){
     const u = firebase.auth().currentUser;
-    return refOrden(o, mes).set({puntos, autor: u && u.email ? u.email.split('@')[0] : '', editado: Date.now()})
+    const base = puntosTT((datos && datos.ordenes || {}).organos || {}, o, mes);
+    return refOrden(o, mes).set({puntos, base, autor: u && u.email ? u.email.split('@')[0] : '', editado: Date.now()})
       .catch(()=>alert('⚠️ No se ha podido guardar el orden del día. Revisa la conexión.'));
   }
   function escucharActs(){
