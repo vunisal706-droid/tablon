@@ -1,22 +1,12 @@
 {
- "actualizado": "2026-11-20T23:34+01:00",
+ "actualizado": "2026-11-21T14:18+01:00",
  "avisos": [],
  "tramites": [],
  "semana": [
   {
-   "fecha": "2026-11-16",
-   "texto": "💃 Día del Flamenco",
-   "cuando": "lunes 16 de noviembre"
-  },
-  {
-   "fecha": "2026-11-20",
-   "texto": "🧒 Día de los Derechos de la Infancia",
-   "cuando": "viernes 20 de noviembre"
-  },
-  {
-   "fecha": "2026-11-22",
-   "texto": "🎶 Día de los Gitanos Andaluces",
-   "cuando": "este fin de semana (se trabaja en clase durante la semana)"
+   "fecha": "2026-11-25",
+   "texto": "💜 Día contra la Violencia hacia las Mujeres",
+   "cuando": "miércoles 25 de noviembre"
   }
  ],
  "boja": [],
@@ -26,19 +16,9 @@
    "tramites": [],
    "semana": [
     {
-     "fecha": "2026-11-16",
-     "texto": "💃 يوم الفلامنكو",
-     "cuando": "الاثنين 16 نوفمبر"
-    },
-    {
-     "fecha": "2026-11-20",
-     "texto": "🧒 يوم حقوق الطفل",
-     "cuando": "الجمعة 20 نوفمبر"
-    },
-    {
-     "fecha": "2026-11-22",
-     "texto": "🎶 يوم الغجر الأندلسيين",
-     "cuando": "نهاية هذا الأسبوع (يُحتفل به في القسم خلال الأسبوع)"
+     "fecha": "2026-11-25",
+     "texto": "💜 اليوم الدولي للقضاء على العنف ضد المرأة",
+     "cuando": "الأربعاء 25 نوفمبر"
     }
    ]
   },
@@ -47,19 +27,9 @@
    "tramites": [],
    "semana": [
     {
-     "fecha": "2026-11-16",
-     "texto": "💃 Ziua Flamenco",
-     "cuando": "luni, 16 noiembrie"
-    },
-    {
-     "fecha": "2026-11-20",
-     "texto": "🧒 Ziua Drepturilor Copilului",
-     "cuando": "vineri, 20 noiembrie"
-    },
-    {
-     "fecha": "2026-11-22",
-     "texto": "🎶 Ziua Romilor Andaluzi",
-     "cuando": "în acest weekend (se lucrează în clasă în timpul săptămânii)"
+     "fecha": "2026-11-25",
+     "texto": "💜 Ziua împotriva violenței asupra femeilor",
+     "cuando": "miercuri, 25 noiembrie"
     }
    ]
   },
@@ -68,19 +38,9 @@
    "tramites": [],
    "semana": [
     {
-     "fecha": "2026-11-16",
-     "texto": "💃 Flamenco Day",
-     "cuando": "Monday 16 November"
-    },
-    {
-     "fecha": "2026-11-20",
-     "texto": "🧒 Children's Rights Day",
-     "cuando": "Friday 20 November"
-    },
-    {
-     "fecha": "2026-11-22",
-     "texto": "🎶 Andalusian Roma Day",
-     "cuando": "this weekend (worked on in class during the week)"
+     "fecha": "2026-11-25",
+     "texto": "💜 Day against Violence towards Women",
+     "cuando": "Wednesday 25 November"
     }
    ]
   },
@@ -89,19 +49,9 @@
    "tramites": [],
    "semana": [
     {
-     "fecha": "2026-11-16",
-     "texto": "💃 Journée du flamenco",
-     "cuando": "lundi 16 novembre"
-    },
-    {
-     "fecha": "2026-11-20",
-     "texto": "🧒 Journée des droits de l'enfant",
-     "cuando": "vendredi 20 novembre"
-    },
-    {
-     "fecha": "2026-11-22",
-     "texto": "🎶 Journée des Gitans andalous",
-     "cuando": "ce week-end (on le travaille en classe pendant la semaine)"
+     "fecha": "2026-11-25",
+     "texto": "💜 Journée contre les violences faites aux femmes",
+     "cuando": "mercredi 25 novembre"
     }
    ]
   }
