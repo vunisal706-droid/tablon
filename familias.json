@@ -1,12 +1,12 @@
 {
- "actualizado": "2026-11-27T15:50+01:00",
+ "actualizado": "2026-11-28T00:58+01:00",
  "avisos": [],
  "tramites": [],
  "semana": [
   {
-   "fecha": "2026-11-25",
-   "texto": "💜 Día contra la Violencia hacia las Mujeres",
-   "cuando": "miércoles 25 de noviembre"
+   "fecha": "2026-12-03",
+   "texto": "♿ Día de las Personas con Discapacidad",
+   "cuando": "jueves 3 de diciembre"
   }
  ],
  "boja": [],
@@ -16,9 +16,9 @@
    "tramites": [],
    "semana": [
     {
-     "fecha": "2026-11-25",
-     "texto": "💜 اليوم الدولي للقضاء على العنف ضد المرأة",
-     "cuando": "الأربعاء 25 نوفمبر"
+     "fecha": "2026-12-03",
+     "texto": "♿ اليوم الدولي للأشخاص ذوي الإعاقة",
+     "cuando": "الخميس 3 ديسمبر"
     }
    ]
   },
@@ -27,9 +27,9 @@
    "tramites": [],
    "semana": [
     {
-     "fecha": "2026-11-25",
-     "texto": "💜 Ziua împotriva violenței asupra femeilor",
-     "cuando": "miercuri, 25 noiembrie"
+     "fecha": "2026-12-03",
+     "texto": "♿ Ziua Persoanelor cu Dizabilități",
+     "cuando": "joi, 3 decembrie"
     }
    ]
   },
@@ -38,9 +38,9 @@
    "tramites": [],
    "semana": [
     {
-     "fecha": "2026-11-25",
-     "texto": "💜 Day against Violence towards Women",
-     "cuando": "Wednesday 25 November"
+     "fecha": "2026-12-03",
+     "texto": "♿ Day of Persons with Disabilities",
+     "cuando": "Thursday 3 December"
     }
    ]
   },
@@ -49,9 +49,9 @@
    "tramites": [],
    "semana": [
     {
-     "fecha": "2026-11-25",
-     "texto": "💜 Journée contre les violences faites aux femmes",
-     "cuando": "mercredi 25 novembre"
+     "fecha": "2026-12-03",
+     "texto": "♿ Journée des personnes handicapées",
+     "cuando": "jeudi 3 décembre"
     }
    ]
   }
